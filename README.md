@@ -6,3 +6,5 @@
 
 - [@adriloma21](https://github.com/adriloma21)
 - [@JonGaray](https://github.com/JonGaray)
+- [@JordiFernandezUralde](https://github.com/JordiFernandezUralde)
+- [@DariaKuznetsova](https://github.com/DariaKuznetsovaS)
