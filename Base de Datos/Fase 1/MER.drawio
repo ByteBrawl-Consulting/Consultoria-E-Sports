@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-23T09:37:40.589Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="27yUv-6KeN4GNn6Me0lx" version="24.2.8" type="device">
+<mxfile host="app.diagrams.net" modified="2024-04-23T10:49:04.470Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="UXIuOaQTt8f-Q1g-reUL" version="24.2.8" type="device">
   <diagram name="Página-1" id="LZ0vMD4xFcR4I24kFpnV">
     <mxGraphModel dx="1434" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -14,22 +14,10 @@
             <mxPoint x="480" y="250" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=ERmany;startFill=0;endArrow=none;endFill=0;" edge="1" parent="1" source="KZacTmdIzoN7Ga8BMroP-1">
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;startArrow=none;startFill=0;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="450" y="120" as="sourcePoint" />
-            <mxPoint x="830" y="404" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="470" y="150" />
-              <mxPoint x="530" y="150" />
-              <mxPoint x="530" y="230" />
-              <mxPoint x="800" y="230" />
-              <mxPoint x="800" y="404" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;startArrow=none;startFill=0;" edge="1" parent="1" source="KZacTmdIzoN7Ga8BMroP-1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="80" y="390" as="targetPoint" />
+            <mxPoint x="380" y="100" as="sourcePoint" />
+            <mxPoint x="80" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="KZacTmdIzoN7Ga8BMroP-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="KZacTmdIzoN7Ga8BMroP-1">
@@ -132,9 +120,6 @@
         <mxCell id="KZacTmdIzoN7Ga8BMroP-51" value="1 equipo disputa 1 enfrentamiento por jornada" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="100" y="290" width="90" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-53" value="1 equipo puede participar en varios juegos" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="810" y="270" width="90" height="70" as="geometry" />
-        </mxCell>
         <mxCell id="KZacTmdIzoN7Ga8BMroP-54" value="1 competicion tiene muchos equipos" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="390" y="270" width="80" height="70" as="geometry" />
         </mxCell>
@@ -152,6 +137,27 @@
         </mxCell>
         <mxCell id="KZacTmdIzoN7Ga8BMroP-60" value="Comprobaremos que el numero de equipos en una competicion es par" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="340" y="190" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-62" value="# cod&lt;div&gt;num_jornada&lt;div&gt;dia&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="600" width="115" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-63" value="&lt;div&gt;# cod&lt;/div&gt;nombre&lt;div&gt;desarrolladora&lt;/div&gt;&lt;div&gt;fecha_lanzamiento&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="920" y="403" width="110" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-64" value="# cod&lt;div&gt;fecha&lt;/div&gt;&lt;div&gt;num_jornada&lt;/div&gt;&lt;div&gt;hora&lt;/div&gt;&lt;div&gt;resultado&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="680" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-65" value="# cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha_fundacion&lt;/div&gt;&lt;div&gt;patrocinador(es)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="10" width="100" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-66" value="# cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;nacionalidad&lt;/div&gt;&lt;div&gt;fecha_nac&lt;/div&gt;&lt;div&gt;nickname&lt;/div&gt;&lt;div&gt;rol&lt;/div&gt;&lt;div&gt;sueldo&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="45" width="90" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-67" value="# cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;nacionalidad&lt;/div&gt;&lt;div&gt;fecha_nac&lt;/div&gt;&lt;div&gt;puesto&lt;/div&gt;&lt;div&gt;sueldo&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1065" y="210" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-68" value="#cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha_inicio&lt;/div&gt;&lt;div&gt;fecha_fin&lt;/div&gt;&lt;div&gt;estado&lt;/div&gt;&lt;div&gt;equipo_ganador&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="374" width="80" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
