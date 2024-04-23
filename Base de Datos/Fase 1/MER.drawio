@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-23T10:49:04.470Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="UXIuOaQTt8f-Q1g-reUL" version="24.2.8" type="device">
+<mxfile host="app.diagrams.net" modified="2024-04-23T11:30:09.754Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="m734xEAgp4F9YgFubzzW" version="24.2.8" type="device">
   <diagram name="Página-1" id="LZ0vMD4xFcR4I24kFpnV">
     <mxGraphModel dx="1434" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -158,6 +158,30 @@
         </mxCell>
         <mxCell id="KZacTmdIzoN7Ga8BMroP-68" value="#cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha_inicio&lt;/div&gt;&lt;div&gt;fecha_fin&lt;/div&gt;&lt;div&gt;estado&lt;/div&gt;&lt;div&gt;equipo_ganador&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="330" y="374" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-69" value="Usuarios" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="935" y="529.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-72" value="# identificador&lt;div&gt;contraseña&lt;br&gt;&lt;div&gt;tipo&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="519.5" width="110" height="80.5" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-73" value="Resultados_Ultima" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="650.25" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-74" value="Resultados" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="915" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-76" value="xml" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="830" y="665.25" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-77" value="xml" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="665" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-78" value="Clasificacion" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="529.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-79" value="xml" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="830" y="541" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
