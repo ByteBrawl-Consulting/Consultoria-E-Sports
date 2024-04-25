@@ -193,3 +193,57 @@ BEGIN
 END;
 
 
+/*ENFRENTAMIENTOS EN EL MISMO DIA*/
+CREATE OR REPLACE TRIGGER dia_enfrentamientos
+BEFORE INSERT OR UPDATE
+ON enfrentamientos
+FOR EACH ROW
+DECLARE
+  v_dia DATE;
+BEGIN
+  -- Saber el dia del enfrentamiento
+  SELECT dia INTO v_dia
+  FROM jornadas
+  WHERE cod_jornadas = :new.cod_jornada;
+  -- Verifica que la fecha del enfrentamiento sea la misma que el día de la jornada
+  IF :new.fecha != v_dia THEN
+	RAISE_APPLICATION_ERROR(-20011, 'Fechas diferentes.');
+  END IF;
+END;
+
+
+/*EQUIPOS SIN REPETIR EN ENFRENTAMIENTOS*/
+CREATE OR REPLACE TRIGGER enfrentamiento_unico
+BEFORE INSERT OR UPDATE
+ON enfrentamientos
+FOR EACH ROW
+DECLARE
+  v_count_local NUMBER;
+  v_count_visitante NUMBER;
+BEGIN
+  -- Verifica cuántos enfrentamientos tienen el mismo equipo local en la misma jornada
+  SELECT COUNT(*)
+  INTO v_count_local
+  FROM enfrentamientos
+  WHERE cod_jornada = :new.cod_jornada
+	AND cod_equipo_local = :new.cod_equipo_local
+	AND cod_enfrentamiento != :new.cod_enfrentamiento;
+  -- Verifica cuántos enfrentamientos tienen el mismo equipo visitante en la misma jornada
+  SELECT COUNT(*)
+  INTO v_count_visitante
+  FROM enfrentamientos
+  WHERE con_jornada = :new.cod_jornada
+	AND cod_equipo_visitante = :new.cod_equipo_visitante
+	AND cod_enfrentamiento != :new.cod_enfrentamiento;
+  -- Si ya hay un enfrentamiento con el mismo equipo local en la misma jornada, lanzar error
+  IF v_count_local > 0 THEN
+	RAISE_APPLICATION_ERROR(-20012, 'Equipo 2 veces local');
+  END IF;
+  -- Si ya hay un enfrentamiento con el mismo equipo visitante en la misma jornada, lanzar error
+  IF v_count_visitante > 0 THEN
+	RAISE_APPLICATION_ERROR(-20013,’Equipo 2 veces visitante’);
+  END IF;
+END;
+
+
+
