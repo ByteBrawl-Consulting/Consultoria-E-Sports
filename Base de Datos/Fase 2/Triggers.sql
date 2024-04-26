@@ -38,23 +38,25 @@ END;
 
 
 /*NUMERO DE EQUIPOS PAR*/
-CREATE OR REPLACE TRIGGER equipos_par
-BEFORE INSERT OR UPDATE ON competiciones
+CREATE OR REPLACE TRIGGER equipos_pares
+BEFORE UPDATE OF curso ON competiciones
 FOR EACH ROW
 DECLARE
-    num_equipos NUMBER;
+  equipos INTEGER;
 BEGIN
-    --Comprobar que la competicion este en curso
-    IF INSERTING OR (UPDATING AND :new.curso = 1) THEN
-        --Contar equipos
-        SELECT COUNT (*) INTO num_equipos
-        FROM equipos;
-        --Comprobar que los equipos sean pares
-        IF MOD (num_equipos,2) != 0 THEN
-            --Numero impar --> Error
-            RAISE_APPLICATION_ERROR (-20003, 'Equipos impares');
-        END IF;
+  -- Comprueba si el cambio es de 0 a 1
+  IF :OLD.curso = 0 AND :NEW.curso = 1 THEN
+    -- Cuenta el número de equipos asociados a la competición
+    SELECT COUNT(*)
+    INTO equipos
+    FROM equipo_competicion
+    WHERE cod_competicion = :NEW.cod_compe;
+
+    -- Si el número de equipos es impar, lanza un error
+    IF MOD(equipos, 2) != 0 THEN
+      RAISE_APPLICATION_ERROR(-20002, 'El número de equipos debe ser par para iniciar el curso');
     END IF;
+  END IF;
 END;    
 
 
