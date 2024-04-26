@@ -210,3 +210,8 @@ insert into equipo_competicion (cod_equipo,cod_competicion)values(3,1);
 insert into equipo_competicion (cod_equipo,cod_competicion)values(4,1);
 insert into equipo_competicion (cod_equipo,cod_competicion)values(2,2);
 insert into equipo_competicion (cod_equipo,cod_competicion)values(3,2);
+
+
+/*Usuarios*/
+insert into usuarios (tipo,contraseña)values('Usuario','12345');
+insert into usuarios (tipo,contraseña)values('Administrador','54321');
