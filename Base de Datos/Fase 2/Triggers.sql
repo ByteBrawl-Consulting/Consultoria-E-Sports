@@ -31,7 +31,7 @@ BEGIN
   WHERE cod_equipo = :NEW.cod_equipo;
   -- Si el número de jugadores es menor que dos --> Error
   IF jugadores < 2 THEN
-    RAISE_APPLICATION_ERROR(-20001, 'Equipo con menos de 2 jugadores');
+    RAISE_APPLICATION_ERROR(-20002, 'Equipo con menos de 2 jugadores');
   END IF;
 END;
 
