@@ -1,3 +1,6 @@
+/* ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired.
+alter session set ddl_lock_timeout = 1000; */
+
 /*MAXIMO 6 JUGADORES EN EL EQUIPO*/
 CREATE OR REPLACE TRIGGER max_jugadores
 BEFORE INSERT ON jugadores
@@ -5,77 +8,81 @@ FOR EACH ROW
 DECLARE
     num_jugadores NUMBER;
 BEGIN
-    -- Contar el número de jugadores en el equipo actual
+    -- Contar el nï¿½mero de jugadores en el equipo actual
     SELECT COUNT(*) INTO num_jugadores 
-    FROM jugadores WHERE id_equipo = :new.id_equipo;
-    -- Si el número de jugadores es 6 o más --> Error
+    FROM jugadores WHERE cod_equipo = :new.cod_equipo;
+    -- Si el nï¿½mero de jugadores es 6 o mï¿½s --> Error
     IF num_jugadores >= 6 THEN
-        RAISE_APPLICATION_ERROR(-20001, 'El equipo ya está completo');
+        RAISE_APPLICATION_ERROR(-20001, 'El equipo ya estï¿½ completo');
     END IF;
 END;
 
 
 /*MINIMO 2 JUGADORES EN EL EQUIPO*/
 CREATE OR REPLACE TRIGGER min_jugadores
-BEFORE DELETE ON jugadores
+BEFORE INSERT ON equipo_competicion
 FOR EACH ROW
 DECLARE
-    num_jugadores NUMBER;
+  jugadores INTEGER;
 BEGIN
-    -- Contar el numero de jugadores del equipo
-    SELECT COUNT (*) INTO num_jugaores
-    FROM jugadores WHERE id_equipo = :new.id_equipo;
-    -- Si el numero de jugadores es 2 o menos --> Error
-    IF num_jugadores <= 2 THEN
-        RAISE_APPLICATION_ERROR (-20002, 'Equipo con los minimos jugadores');
-    END IF;
+  -- Contar el nï¿½mero de jugadores en el equipo que se intenta aï¿½adir
+  SELECT COUNT(*) INTO jugadores
+  FROM jugadores
+  WHERE cod_equipo = :NEW.cod_equipo;
+  -- Si el nï¿½mero de jugadores es menor que dos --> Error
+  IF jugadores < 2 THEN
+    RAISE_APPLICATION_ERROR(-20002, 'Equipo con menos de 2 jugadores');
+  END IF;
 END;
 
 
+
 /*NUMERO DE EQUIPOS PAR*/
-CREATE OR REPLACE TRIGGER equipos_par
-BEFORE INSERT OR UPDATE ON competicion
+CREATE OR REPLACE TRIGGER equipos_pares
+BEFORE UPDATE OF curso ON competiciones
 FOR EACH ROW
 DECLARE
-    num_equipos NUMBER;
+  equipos INTEGER;
 BEGIN
-    --Comprobar que la competicion este en curso
-    IF INSERTING OR (UPDATING AND :new.en_curso = 1) THEN
-        --Contar equipos
-        SELECT COUNT (*) INTO num_equipos
-        FROM equipos;
-        --Comprobar que lso equipos sean pares
-        IF MOD (num_equipos,2) != 0 THEN
-            --Numero impar --> Error
-            RAISE_APPLICATION_ERROR (-20003, 'Equipos impares');
-        END IF;
+  -- Comprueba si el cambio es de 0 a 1
+  IF :OLD.curso = 0 AND :NEW.curso = 1 THEN
+    -- Cuenta el número de equipos asociados a la competición
+    SELECT COUNT(*)
+    INTO equipos
+    FROM equipo_competicion
+    WHERE cod_competicion = :NEW.cod_compe;
+
+    -- Si el número de equipos es impar, lanza un error
+    IF MOD(equipos, 2) != 0 THEN
+      RAISE_APPLICATION_ERROR(-20002, 'El número de equipos debe ser par para iniciar el curso');
     END IF;
+  END IF;
 END;    
 
 
-/*SALARIO TOPE DE 200.00€*/
+/*SALARIO TOPE DE 200.00ï¿½*/
 CREATE OR REPLACE TRIGGER salario_maximo_jugadores
 BEFORE INSERT OR UPDATE ON jugadores
 FOR EACH ROW
 DECLARE
     sueldo_total NUMBER;
 BEGIN
-    --Calcular el sueldo actual del equipo
-    SELECT NVL(SUM(sueldo),0) INTO sueldo_total
+    -- Calcular el sueldo total del equipo antes de la inserciï¿½n o actualizaciï¿½n
+    SELECT NVL(SUM(sueldo), 0) INTO sueldo_total
     FROM jugadores
     WHERE cod_equipo = :new.cod_equipo;
-    SELECT NVL(SUM(sueldo),0) + sueldo_total INTO sueldo_total
-    FROM staff
-    WHERE cod_staff = :new.cod_staff;
-    --Verificar el sueldo despues de la insert o update
+
+    -- Si estamos insertando, sumar el nuevo sueldo
     IF INSERTING THEN
         sueldo_total := sueldo_total + :new.sueldo;
     ELSIF UPDATING THEN
+        -- Si estamos actualizando, ajustar con el sueldo anterior y el nuevo
         sueldo_total := sueldo_total - :old.sueldo + :new.sueldo;
     END IF;
-    --Si la suma es mayor de 200.00€ --> Error
+
+    -- Verificar si el sueldo total supera el lï¿½mite de 200,000 euros
     IF sueldo_total > 200000 THEN
-        RAISE_APPLICATION_ERROR (-20004, 'Sobrepasa de limite salarial');
+        RAISE_APPLICATION_ERROR(-20004, 'Sobrepasa el lï¿½mite salarial para jugadores');
     END IF;
 END;
 
@@ -88,17 +95,17 @@ BEGIN
   -- Calcular el sueldo actual del equipo
   SELECT NVL(SUM(sueldo), 0) INTO sueldo_total 
   FROM jugadores 
-  WHERE id_equipo = :NEW.id_equipo;
+  WHERE cod_equipo = :NEW.cod_equipo;
   SELECT NVL(SUM(sueldo), 0) + sueldo_total INTO sueldo_total 
   FROM staff 
-  WHERE id_equipo = :NEW.id_equipo;
+  WHERE cod_equipo = :NEW.cod_equipo;
   -- Verificar el sueldo despues de la insert o update
   IF INSERTING THEN
     sueldo_total := sueldo_total + :new.sueldo;
   ELSIF UPDATING THEN
     sueldo_total := sueldo_total - :old.sueldo + :new.sueldo;
   END IF;
-  -- Si la suma es mayor de 200.000€ --> Error
+  -- Si la suma es mayor de 200.000ï¿½ --> Error
   IF sueldo_total > 200000 THEN
     RAISE_APPLICATION_ERROR(-20005, 'Sobrepasa de limite salarial');
   END IF;
@@ -115,9 +122,9 @@ BEGIN
     -- Comprueba si el equipo del staff tiene al menos un entrenador
     SELECT COUNT(*) INTO suma
     FROM staff
-    WHERE equipo_id = :new.equipo_id
-    AND UPPER(puesto) = 'ENTRENADOR';
-    -- Si no hay ningún entrenador --> Error
+    WHERE cod_equipo = :new.cod_equipo
+    AND UPPER(cargo) = 'ENTRENADOR';
+    -- Si no hay ningï¿½n entrenador --> Error
     IF suma = 0 THEN
         RAISE_APPLICATION_ERROR(-20006, 'Equipo sin entrenador');
     END IF;
@@ -131,12 +138,12 @@ FOR EACH ROW
 DECLARE
     suma NUMBER;
 BEGIN
-    -- Contar el número de asistentes en el equipo
+    -- Contar el nï¿½mero de asistentes en el equipo
     SELECT COUNT(*) INTO suma
     FROM staff
     WHERE cod_equipo = :new.cod_equipo 
-    AND UPPER(puesto) = 'ASISTENTE';
-    -- Si hay más de un asistente --> Error
+    AND UPPER(cargo) = 'ASISTENTE';
+    -- Si hay mï¿½s de un asistente --> Error
     IF suma > 1 THEN
         RAISE_APPLICATION_ERROR(-20007, 'Equipo con asistente');
     END IF;
@@ -150,11 +157,11 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;
 BEGIN
-    -- Verificar si la competición está en curso
+    -- Verificar si la competiciï¿½n estï¿½ en curso
     SELECT curso INTO en_curso
     FROM competiciones
-    WHERE cod_competicion = :new.cod_equipo;
-    -- Si está en curso, impedir el insert
+    WHERE cod_compe = :new.cod_equipo;
+    -- Si estï¿½ en curso, impedir el insert
     IF en_curso = 1 THEN
         RAISE_APPLICATION_ERROR(-20008, 'Competicion en curso');
     END IF;
@@ -166,11 +173,11 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;
 BEGIN
-    -- Verificar si la competición está en curso
+    -- Verificar si la competiciï¿½n estï¿½ en curso
     SELECT curso INTO en_curso
     FROM competiciones
-    WHERE cod_competicion = :old.cod_equipo;
-    -- Si está en curso, impedir el update
+    WHERE cod_compe = :old.cod_equipo;
+    -- Si estï¿½ en curso, impedir el update
     IF en_curso = 1 THEN
         RAISE_APPLICATION_ERROR(-20009, 'Competicion en curso');
     END IF;
@@ -182,11 +189,11 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;
 BEGIN
-    -- Verificar si la competición está en curso
+    -- Verificar si la competiciï¿½n estï¿½ en curso
     SELECT curso INTO en_curso
     FROM competiciones
-    WHERE cod_competicion = :old.cod_equipo;
-    -- Si está en curso, impedir el delete
+    WHERE cod_compe = :old.cod_equipo;
+    -- Si estï¿½ en curso, impedir el delete
     IF en_curso = 1 THEN
         RAISE_APPLICATION_ERROR(-20010, 'Competicion en curso');
     END IF;
@@ -205,7 +212,7 @@ BEGIN
   SELECT dia INTO v_dia
   FROM jornadas
   WHERE cod_jornadas = :new.cod_jornada;
-  -- Verifica que la fecha del enfrentamiento sea la misma que el día de la jornada
+  -- Verifica que la fecha del enfrentamiento sea la misma que el dï¿½a de la jornada
   IF :new.fecha != v_dia THEN
 	RAISE_APPLICATION_ERROR(-20011, 'Fechas diferentes.');
   END IF;
@@ -221,18 +228,18 @@ DECLARE
   v_count_local NUMBER;
   v_count_visitante NUMBER;
 BEGIN
-  -- Verifica cuántos enfrentamientos tienen el mismo equipo local en la misma jornada
+  -- Verifica cuï¿½ntos enfrentamientos tienen el mismo equipo local en la misma jornada
   SELECT COUNT(*)
   INTO v_count_local
   FROM enfrentamientos
   WHERE cod_jornada = :new.cod_jornada
 	AND cod_equipo_local = :new.cod_equipo_local
 	AND cod_enfrentamiento != :new.cod_enfrentamiento;
-  -- Verifica cuántos enfrentamientos tienen el mismo equipo visitante en la misma jornada
+  -- Verifica cuï¿½ntos enfrentamientos tienen el mismo equipo visitante en la misma jornada
   SELECT COUNT(*)
   INTO v_count_visitante
   FROM enfrentamientos
-  WHERE con_jornada = :new.cod_jornada
+  WHERE cod_jornada = :new.cod_jornada
 	AND cod_equipo_visitante = :new.cod_equipo_visitante
 	AND cod_enfrentamiento != :new.cod_enfrentamiento;
   -- Si ya hay un enfrentamiento con el mismo equipo local en la misma jornada, lanzar error
@@ -241,7 +248,7 @@ BEGIN
   END IF;
   -- Si ya hay un enfrentamiento con el mismo equipo visitante en la misma jornada, lanzar error
   IF v_count_visitante > 0 THEN
-	RAISE_APPLICATION_ERROR(-20013,’Equipo 2 veces visitante’);
+	RAISE_APPLICATION_ERROR(-20013,'Equipo 2 veces visitante');
   END IF;
 END;
 
