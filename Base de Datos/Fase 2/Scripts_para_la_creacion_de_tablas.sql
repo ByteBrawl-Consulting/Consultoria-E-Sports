@@ -116,12 +116,7 @@ references juegos(cod_juego);
 alter table jornadas
 add constraint fk_competicion_en_jornada
 foreign key (cod_compe)
-references competiciones(cod_compe); 
-
-alter table jornadas
-add constraint fk_enfrentamiento_en_jornadas
-foreign key (cod_enfrentamiento)
-references enfrentamientos(cod_enfrentamiento); 
+references competiciones(cod_compe);  
 
 alter table enfrentamientos
 add constraint fk_equipo_local
