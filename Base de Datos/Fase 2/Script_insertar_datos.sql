@@ -215,3 +215,23 @@ insert into equipo_competicion (cod_equipo,cod_competicion)values(3,2);
 /*Usuarios*/
 insert into usuarios (tipo,contraseña)values('Usuario','12345');
 insert into usuarios (tipo,contraseña)values('Administrador','54321');
+
+/*Jornadas*/
+insert into jornadas (num_jornada, dia, cod_compe)
+values (1, TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1);
+insert into jornadas (num_jornada, dia, cod_compe)
+values (2, TO_DATE('08/03/2024', 'dd/MM/yyyy'), 1);
+
+/*Enfrentamientos*/
+insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
+                            cod_equipo_local, cod_equipo_visitante)
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '16:00', null, 1, 2);
+insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
+                            cod_equipo_local, cod_equipo_visitante)
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '18:00', null, 3, 4);
+insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
+                            cod_equipo_local, cod_equipo_visitante)
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '10:00', null, 1, 2);
+insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
+                            cod_equipo_local, cod_equipo_visitante)
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '12:00', null, 3, 4);
