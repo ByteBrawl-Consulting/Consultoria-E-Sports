@@ -10,105 +10,103 @@ INSERT INTO equipos (nombre, fecha_fundacion) VALUES
 
 
 /*Jugadores*/
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('John Smith', 'Estados Unidos', '10/06/1995', 'xXxGamerxXx', 'ADC', 1500,2);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Maria Garcia', 'España', '10/03/1999', 'KillerQueen', 'Support', 1400,2); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Jung Min-woo', 'Corea del Sur', '19/02/1985', 'SniperKing', 'Jungler', 1600,2); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Luis Hernandez', 'México', '20/09/2000', 'AztecWarrior', 'Top', 1350,3); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Anna Schmidt', 'Alemania', '10/08/1955', 'Blitzkrieg', 'Mid', 1450,1); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Chen Wei', 'China', '10/11/1989', 'DragonMaster', 'ADC', 1550,2); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Ryuji Tanaka', 'Japón', '10/01/1975', 'SamuraiSlicer', 'Top', 1400,4); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Sofia Petrova', 'Rusia', '10/06/1995', 'IceQueen', 'Support', 1380,4); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Ricardo Silva', 'Brasil', '10/06/1995', 'SambaGod', 'Mid', 1420,1); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 VALUES
 ('Elias Nielsen', 'Dinamarca', '10/06/1995', 'VikingWarrior', 'Jungler', 1450,4); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Ahmed Hassan', 'Egipto', '10/06/1995', 'Pharaoh', 'ADC', 1600,1); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Lee Sung-hoon', 'Corea del Sur', '10/06/1995', 'NinjaAssassin', 'Mid', 1480,1);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Mateo Fernandez', 'Argentina', '10/06/1995', 'TangoMaster', 'Support', 1375,4);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Katarina Ivanova', 'Bulgaria', '10/06/1995', 'DarkKnightess', 'Mid', 1360,3);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Luca Rossi', 'Italia', '10/06/1995', 'Gladiator', 'Top', 1500,3); 
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Haruto Yamamoto', 'Japón', '10/06/1995', 'Ronin', 'Jungler', 1450,3);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Miguel Rodriguez', 'España', '10/06/1995', 'Matador', 'ADC', 1550,1);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 VALUES
 ('Nadia Kovalenko', 'Ucrania', '10/06/1995', 'Blizzard', 'Support', 1400,2);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Andrei Popescu', 'Rumania', '10/06/1995', 'CountDracula', 'Mid', 1450,4);
-
-INSERT INTO jugadores (nombre_jugador,nacionalidad,
+insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
-VALUES
+values
 ('Tobias Jensen', 'Dinamarca', '10/06/1995', 'Thundergod', 'Top', 1400,3);
+insert into jugadores (nombre_jugador,nacionalidad,
+fecha_nac,nickname,rol,sueldo,cod_equipo)
+values 
+('Maria Lujan', 'España', '25/05/2000', 'YHLQMDLG', 'Jungler', 1500, 1);
+insert into jugadores (nombre_jugador,nacionalidad,
+fecha_nac,nickname,rol,sueldo,cod_equipo)
+values 
+('Jorge McPen', 'Rusia', '15/07/1995', 'Pepelu', 'ADC', 1500, 2);
+insert into jugadores (nombre_jugador,nacionalidad,
+fecha_nac,nickname,rol,sueldo,cod_equipo)
+values 
+('Ghuan Yu Zou', 'Japón', '10/12/1998', 'TKLI', 'Support', 1500, 3);
+insert into jugadores (nombre_jugador,nacionalidad,
+fecha_nac,nickname,rol,sueldo,cod_equipo)
+values 
+('Jose Luis', 'España', '30/01/2001', 'JL', 'Mid', 1500, 4);
+
 
 /*Staff*/
 insert into staff (nombre,cargo,sueldo,cod_equipo) 
