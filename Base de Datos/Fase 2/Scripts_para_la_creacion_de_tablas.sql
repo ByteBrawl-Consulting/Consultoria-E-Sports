@@ -55,8 +55,7 @@ create table jornadas (
     cod_jornadas number(5)generated always as identity (start with 1) primary key,
     num_jornada number(3) not null,
     dia date not null,
-    cod_compe number(5) not null,
-    cod_enfrentamiento number(5) not null
+    cod_compe number(5) not null
 );
 create table enfrentamientos(
     cod_enfrentamiento number(5) generated always as identity (start with 1) primary key,
