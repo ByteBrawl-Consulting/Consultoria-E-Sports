@@ -1,4 +1,5 @@
-alter session set ddl_lock_timeout = 1000;
+/* ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired.
+alter session set ddl_lock_timeout = 1000; */
 
 /*MAXIMO 6 JUGADORES EN EL EQUIPO*/
 CREATE OR REPLACE TRIGGER max_jugadores
