@@ -20,19 +20,21 @@ END;
 
 /*MINIMO 2 JUGADORES EN EL EQUIPO*/
 CREATE OR REPLACE TRIGGER min_jugadores
-BEFORE DELETE ON jugadores
+BEFORE INSERT ON equipo_competicion
 FOR EACH ROW
 DECLARE
-    num_jugadores NUMBER;
+  jugadores INTEGER;
 BEGIN
-    -- Contar el numero de jugadores del equipo
-    SELECT COUNT (*) INTO num_jugadores
-    FROM jugadores WHERE cod_equipo = :new.cod_equipo;
-    -- Si el numero de jugadores es 2 o menos --> Error
-    IF num_jugadores <= 2 THEN
-        RAISE_APPLICATION_ERROR (-20002, 'Equipo con los minimos jugadores');
-    END IF;
+  -- Contar el número de jugadores en el equipo que se intenta añadir
+  SELECT COUNT(*) INTO jugadores
+  FROM jugadores
+  WHERE cod_equipo = :NEW.cod_equipo;
+  -- Si el número de jugadores es menor que dos --> Error
+  IF jugadores < 2 THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Equipo con menos de 2 jugadores');
+  END IF;
 END;
+
 
 
 /*NUMERO DE EQUIPOS PAR*/
