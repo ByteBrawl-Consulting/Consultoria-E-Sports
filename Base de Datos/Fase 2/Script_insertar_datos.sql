@@ -1,11 +1,11 @@
 /*Equipos*/
-INSERT INTO equipos (nombre, fecha_fundacion) VALUES
+insert into equipos (nombre, fecha_fundacion) values
 ('Team Alpha', TO_DATE('01/01/2015', 'DD/MM/YYYY'));
-INSERT INTO equipos (nombre, fecha_fundacion) VALUES
+insert into equipos (nombre, fecha_fundacion) values
 ('Team Bravo', TO_DATE('15/07/2016', 'DD/MM/YYYY'));
-INSERT INTO equipos (nombre, fecha_fundacion) VALUES
+insert into equipos (nombre, fecha_fundacion) values
 ('Team Charlie', TO_DATE('10/03/2017', 'DD/MM/YYYY'));
-INSERT INTO equipos (nombre, fecha_fundacion) VALUES
+insert into equipos (nombre, fecha_fundacion) values
 ('Team Delta', TO_DATE('20/11/2018', 'DD/MM/YYYY'));
 
 
@@ -120,45 +120,45 @@ values ('Lucia','Entrenador',1500,4);
 
 
 /*Patrocinadores*/
-INSERT INTO patrocinadores (nombre) VALUES
+insert into patrocinadores (nombre) values
 ('CyberTech Solutions');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('EliteGaming Gear');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('HyperXperience');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('NovaForce Gaming');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('Quantum eSports');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('Vortex Ventures');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('ThunderByte Technologies');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('PhoenixRise Corporation');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('TitanTech Innovations');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('Apex Alliance');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('SpectraSphere Gaming');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('Ignite Impact');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('VelocityVision');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('Zenith eSports');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('FusionForce Enterprises');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('AlphaStrike Solutions');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('Nexus Nexus Corporation');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('OmegaGaming Group');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('BlazeByte Brands');
-INSERT INTO patrocinadores (nombre) VALUES 
+insert into patrocinadores (nombre) values 
 ('CrystalClear Sponsorship');
 
 
