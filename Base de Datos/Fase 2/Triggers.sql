@@ -8,12 +8,12 @@ FOR EACH ROW
 DECLARE
     num_jugadores NUMBER;
 BEGIN
-    -- Contar el número de jugadores en el equipo actual
+    -- Contar el nï¿½mero de jugadores en el equipo actual
     SELECT COUNT(*) INTO num_jugadores 
     FROM jugadores WHERE cod_equipo = :new.cod_equipo;
-    -- Si el número de jugadores es 6 o más --> Error
+    -- Si el nï¿½mero de jugadores es 6 o mï¿½s --> Error
     IF num_jugadores >= 6 THEN
-        RAISE_APPLICATION_ERROR(-20001, 'El equipo ya está completo');
+        RAISE_APPLICATION_ERROR(-20001, 'El equipo ya estï¿½ completo');
     END IF;
 END;
 
@@ -25,11 +25,11 @@ FOR EACH ROW
 DECLARE
   jugadores INTEGER;
 BEGIN
-  -- Contar el número de jugadores en el equipo que se intenta añadir
+  -- Contar el nï¿½mero de jugadores en el equipo que se intenta aï¿½adir
   SELECT COUNT(*) INTO jugadores
   FROM jugadores
   WHERE cod_equipo = :NEW.cod_equipo;
-  -- Si el número de jugadores es menor que dos --> Error
+  -- Si el nï¿½mero de jugadores es menor que dos --> Error
   IF jugadores < 2 THEN
     RAISE_APPLICATION_ERROR(-20001, 'Equipo con menos de 2 jugadores');
   END IF;
@@ -49,7 +49,7 @@ BEGIN
         --Contar equipos
         SELECT COUNT (*) INTO num_equipos
         FROM equipos;
-        --Comprobar que lso equipos sean pares
+        --Comprobar que los equipos sean pares
         IF MOD (num_equipos,2) != 0 THEN
             --Numero impar --> Error
             RAISE_APPLICATION_ERROR (-20003, 'Equipos impares');
@@ -58,14 +58,14 @@ BEGIN
 END;    
 
 
-/*SALARIO TOPE DE 200.00€*/
+/*SALARIO TOPE DE 200.00ï¿½*/
 CREATE OR REPLACE TRIGGER salario_maximo_jugadores
 BEFORE INSERT OR UPDATE ON jugadores
 FOR EACH ROW
 DECLARE
     sueldo_total NUMBER;
 BEGIN
-    -- Calcular el sueldo total del equipo antes de la inserción o actualización
+    -- Calcular el sueldo total del equipo antes de la inserciï¿½n o actualizaciï¿½n
     SELECT NVL(SUM(sueldo), 0) INTO sueldo_total
     FROM jugadores
     WHERE cod_equipo = :new.cod_equipo;
@@ -78,9 +78,9 @@ BEGIN
         sueldo_total := sueldo_total - :old.sueldo + :new.sueldo;
     END IF;
 
-    -- Verificar si el sueldo total supera el límite de 200,000 euros
+    -- Verificar si el sueldo total supera el lï¿½mite de 200,000 euros
     IF sueldo_total > 200000 THEN
-        RAISE_APPLICATION_ERROR(-20004, 'Sobrepasa el límite salarial para jugadores');
+        RAISE_APPLICATION_ERROR(-20004, 'Sobrepasa el lï¿½mite salarial para jugadores');
     END IF;
 END;
 
@@ -103,7 +103,7 @@ BEGIN
   ELSIF UPDATING THEN
     sueldo_total := sueldo_total - :old.sueldo + :new.sueldo;
   END IF;
-  -- Si la suma es mayor de 200.000€ --> Error
+  -- Si la suma es mayor de 200.000ï¿½ --> Error
   IF sueldo_total > 200000 THEN
     RAISE_APPLICATION_ERROR(-20005, 'Sobrepasa de limite salarial');
   END IF;
@@ -122,7 +122,7 @@ BEGIN
     FROM staff
     WHERE cod_equipo = :new.cod_equipo
     AND UPPER(cargo) = 'ENTRENADOR';
-    -- Si no hay ningún entrenador --> Error
+    -- Si no hay ningï¿½n entrenador --> Error
     IF suma = 0 THEN
         RAISE_APPLICATION_ERROR(-20006, 'Equipo sin entrenador');
     END IF;
@@ -136,12 +136,12 @@ FOR EACH ROW
 DECLARE
     suma NUMBER;
 BEGIN
-    -- Contar el número de asistentes en el equipo
+    -- Contar el nï¿½mero de asistentes en el equipo
     SELECT COUNT(*) INTO suma
     FROM staff
     WHERE cod_equipo = :new.cod_equipo 
     AND UPPER(cargo) = 'ASISTENTE';
-    -- Si hay más de un asistente --> Error
+    -- Si hay mï¿½s de un asistente --> Error
     IF suma > 1 THEN
         RAISE_APPLICATION_ERROR(-20007, 'Equipo con asistente');
     END IF;
@@ -155,11 +155,11 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;
 BEGIN
-    -- Verificar si la competición está en curso
+    -- Verificar si la competiciï¿½n estï¿½ en curso
     SELECT curso INTO en_curso
     FROM competiciones
     WHERE cod_compe = :new.cod_equipo;
-    -- Si está en curso, impedir el insert
+    -- Si estï¿½ en curso, impedir el insert
     IF en_curso = 1 THEN
         RAISE_APPLICATION_ERROR(-20008, 'Competicion en curso');
     END IF;
@@ -171,11 +171,11 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;
 BEGIN
-    -- Verificar si la competición está en curso
+    -- Verificar si la competiciï¿½n estï¿½ en curso
     SELECT curso INTO en_curso
     FROM competiciones
     WHERE cod_compe = :old.cod_equipo;
-    -- Si está en curso, impedir el update
+    -- Si estï¿½ en curso, impedir el update
     IF en_curso = 1 THEN
         RAISE_APPLICATION_ERROR(-20009, 'Competicion en curso');
     END IF;
@@ -187,11 +187,11 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;
 BEGIN
-    -- Verificar si la competición está en curso
+    -- Verificar si la competiciï¿½n estï¿½ en curso
     SELECT curso INTO en_curso
     FROM competiciones
     WHERE cod_compe = :old.cod_equipo;
-    -- Si está en curso, impedir el delete
+    -- Si estï¿½ en curso, impedir el delete
     IF en_curso = 1 THEN
         RAISE_APPLICATION_ERROR(-20010, 'Competicion en curso');
     END IF;
@@ -210,7 +210,7 @@ BEGIN
   SELECT dia INTO v_dia
   FROM jornadas
   WHERE cod_jornadas = :new.cod_jornada;
-  -- Verifica que la fecha del enfrentamiento sea la misma que el día de la jornada
+  -- Verifica que la fecha del enfrentamiento sea la misma que el dï¿½a de la jornada
   IF :new.fecha != v_dia THEN
 	RAISE_APPLICATION_ERROR(-20011, 'Fechas diferentes.');
   END IF;
@@ -226,14 +226,14 @@ DECLARE
   v_count_local NUMBER;
   v_count_visitante NUMBER;
 BEGIN
-  -- Verifica cuántos enfrentamientos tienen el mismo equipo local en la misma jornada
+  -- Verifica cuï¿½ntos enfrentamientos tienen el mismo equipo local en la misma jornada
   SELECT COUNT(*)
   INTO v_count_local
   FROM enfrentamientos
   WHERE cod_jornada = :new.cod_jornada
 	AND cod_equipo_local = :new.cod_equipo_local
 	AND cod_enfrentamiento != :new.cod_enfrentamiento;
-  -- Verifica cuántos enfrentamientos tienen el mismo equipo visitante en la misma jornada
+  -- Verifica cuï¿½ntos enfrentamientos tienen el mismo equipo visitante en la misma jornada
   SELECT COUNT(*)
   INTO v_count_visitante
   FROM enfrentamientos
