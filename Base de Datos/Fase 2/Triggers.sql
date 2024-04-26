@@ -1,3 +1,5 @@
+alter session set ddl_lock_timeout = 1000;
+
 /*MAXIMO 6 JUGADORES EN EL EQUIPO*/
 CREATE OR REPLACE TRIGGER max_jugadores
 BEFORE INSERT ON jugadores
