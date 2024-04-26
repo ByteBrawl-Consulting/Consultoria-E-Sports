@@ -61,7 +61,7 @@ create table jornadas (
 create table enfrentamientos(
     cod_enfrentamiento number(5) generated always as identity (start with 1) primary key,
     fecha date not null,
-    con_jornada number(5) not null,
+    cod_jornada number(5) not null,
     hora varchar2(5) not null,
     resultado varchar2(4),
     cod_equipo_local number(5) not null,
@@ -97,6 +97,11 @@ alter table jugadores
 add constraint fk_equipo_en_jugador 
 foreign key (cod_equipo) 
 references equipos (cod_equipo);
+
+alter table enfrentamientos
+add constraint fk_jornada
+foreign key (cod_jornada)
+references jornadas(cod_jornadas);
 
 alter table staff 
 add constraint fk_equipo_en_staff
