@@ -174,3 +174,28 @@ add constraint chck_tipo_usu
 check (tipo in('Administrador','Usuario'))
 ;
 /*Fin de los check*/
+
+
+/*Creacion de las vistas*/
+/*Para hacer la consulta de quienes son los juegadores de cada equipo equipo*/
+create or replace view jugadores_equipo as
+select j.nombre_jugador, j.nacionalidad, j.rol, j.sueldo, e.nombre "Equipo" 
+from jugadores j
+join equipos e
+on e.cod_equipo=j.cod_equipo order by e.cod_equipo;
+/*Consulta para saber que tipos de torneos pueden existir y sus fechas de 
+inicio y fin*/
+create or replace view juegos_compe as
+select j.cod_juego, j.nombre"juego", c.nombre, c.fecha_inicio, c.fecha_fin 
+from juegos j 
+join competiciones c 
+on j.cod_juego = c.cod_juego;
+/*Los equipos y que competiciones juegan*/
+create or replace view equipos_compe as
+SELECT e.cod_equipo, e.nombre AS nombre_equipo, c.cod_compe, 
+c.nombre AS nombre_competicion, c.cod_juego, j.nombre AS nombre_juego
+FROM equipos e
+JOIN equipo_competicion ec ON e.cod_equipo = ec.cod_equipo
+JOIN competiciones c ON c.cod_compe = ec.cod_competicion
+JOIN juegos j ON j.cod_juego = c.cod_juego
+order by e.nombre;
