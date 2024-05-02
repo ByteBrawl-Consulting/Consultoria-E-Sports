@@ -8,10 +8,10 @@ FOR EACH ROW
 DECLARE
     num_jugadores NUMBER;
 BEGIN
-    -- Contar el numero de jugadores en el equipo actual
+    -- Contar el nï¿½mero de jugadores en el equipo actual
     SELECT COUNT(*) INTO num_jugadores 
     FROM jugadores WHERE cod_equipo = :new.cod_equipo;
-    -- Si el nï¿½mero de jugadores es 6 o mas --> Error
+    -- Si el nï¿½mero de jugadores es 6 o mï¿½s --> Error
     IF num_jugadores >= 6 THEN
         RAISE_APPLICATION_ERROR(-20001, 'El equipo ya estï¿½ completo');
     END IF;
@@ -25,11 +25,11 @@ FOR EACH ROW
 DECLARE
   jugadores INTEGER;
 BEGIN
-  -- Contar el numero de jugadores en el equipo que se intenta anadir
+  -- Contar el nï¿½mero de jugadores en el equipo que se intenta aï¿½adir
   SELECT COUNT(*) INTO jugadores
   FROM jugadores
   WHERE cod_equipo = :NEW.cod_equipo;
-  -- Si el numero de jugadores es menor que dos --> Error
+  -- Si el nï¿½mero de jugadores es menor que dos --> Error
   IF jugadores < 2 THEN
     RAISE_APPLICATION_ERROR(-20002, 'Equipo con menos de 2 jugadores');
   END IF;
@@ -51,73 +51,64 @@ BEGIN
     INTO equipos
     FROM equipo_competicion
     WHERE cod_competicion = :NEW.cod_compe;
-<<<<<<< HEAD
 
     -- Si el nï¿½mero de equipos es impar, lanza un error
     IF MOD(equipos, 2) != 0 THEN
       RAISE_APPLICATION_ERROR(-20002, 'El nï¿½mero de equipos debe ser par para iniciar el curso');
-=======
-    -- Si el número de equipos es impar, lanza un error
-    IF MOD(equipos, 2) != 0 THEN
-      RAISE_APPLICATION_ERROR(-20002, 'El número de equipos debe ser par');
->>>>>>> 62ff29e9054f8eb9ee3cbe7a5a89034099cc3ea9
     END IF;
   END IF;
 END;    
 
 
-/*SALARIO TOPE DE 200.000*/
+/*SALARIO TOPE DE 200.00ï¿½*/
 CREATE OR REPLACE TRIGGER salario_maximo_jugadores
 BEFORE INSERT OR UPDATE ON jugadores
 FOR EACH ROW
 DECLARE
     sueldo_total NUMBER;
 BEGIN
-    -- Calcular el sueldo total anual
-    SELECT NVL(SUM(sueldo * 12), 0) INTO sueldo_total 
-    FROM jugadores 
-    WHERE cod_equipo = :NEW.cod_equipo;
-    -- Agregar el sueldo del staff al cálculo del sueldo total anual
-    SELECT NVL(SUM(sueldo * 12), 0) + sueldo_total INTO sueldo_total 
-    FROM staff 
-    WHERE cod_equipo = :NEW.cod_equipo;
-    -- Ajustar el sueldo total anual según la operación
+    -- Calcular el sueldo total del equipo antes de la inserciï¿½n o actualizaciï¿½n
+    SELECT NVL(SUM(sueldo), 0) INTO sueldo_total
+    FROM jugadores
+    WHERE cod_equipo = :new.cod_equipo;
+
+    -- Si estamos insertando, sumar el nuevo sueldo
     IF INSERTING THEN
-        sueldo_total := sueldo_total + (:NEW.sueldo * 12);
+        sueldo_total := sueldo_total + :new.sueldo;
     ELSIF UPDATING THEN
-        sueldo_total := sueldo_total - (:OLD.sueldo * 12) + (:NEW.sueldo * 12);
+        -- Si estamos actualizando, ajustar con el sueldo anterior y el nuevo
+        sueldo_total := sueldo_total - :old.sueldo + :new.sueldo;
     END IF;
-    -- Verificar si el sueldo total anual supera el límite de 200,000 euros
+
+    -- Verificar si el sueldo total supera el lï¿½mite de 200,000 euros
     IF sueldo_total > 200000 THEN
-        RAISE_APPLICATION_ERROR(-20004, 'El sueldo supera 200,000 euros');
+        RAISE_APPLICATION_ERROR(-20004, 'Sobrepasa el lï¿½mite salarial para jugadores');
     END IF;
 END;
-
 
 CREATE OR REPLACE TRIGGER salario_maximo_staff
 BEFORE INSERT OR UPDATE ON staff
 FOR EACH ROW
 DECLARE
-    sueldo_total NUMBER;
+  sueldo_total NUMBER;
 BEGIN
-    -- Calcular el sueldo total anual
-    SELECT NVL(SUM(sueldo * 12), 0) INTO sueldo_total 
-    FROM jugadores 
-    WHERE cod_equipo = :NEW.cod_equipo;
-    -- Agregar el sueldo del staff al cálculo del sueldo total anual
-    SELECT NVL(SUM(sueldo * 12), 0) + sueldo_total INTO sueldo_total 
-    FROM staff 
-    WHERE cod_equipo = :NEW.cod_equipo;
-    -- Ajustar el sueldo total anual según la operación
-    IF INSERTING THEN
-        sueldo_total := sueldo_total + (:NEW.sueldo * 12);
-    ELSIF UPDATING THEN
-        sueldo_total := sueldo_total - (:OLD.sueldo * 12) + (:NEW.sueldo * 12);
-    END IF;
-    -- Verificar si el sueldo total anual supera el límite de 200,000 euros
-    IF sueldo_total > 200000 THEN
-        RAISE_APPLICATION_ERROR(-20005, 'El sueldo supera 200,000 euros');
-    END IF;
+  -- Calcular el sueldo actual del equipo
+  SELECT NVL(SUM(sueldo), 0) INTO sueldo_total 
+  FROM jugadores 
+  WHERE cod_equipo = :NEW.cod_equipo;
+  SELECT NVL(SUM(sueldo), 0) + sueldo_total INTO sueldo_total 
+  FROM staff 
+  WHERE cod_equipo = :NEW.cod_equipo;
+  -- Verificar el sueldo despues de la insert o update
+  IF INSERTING THEN
+    sueldo_total := sueldo_total + :new.sueldo;
+  ELSIF UPDATING THEN
+    sueldo_total := sueldo_total - :old.sueldo + :new.sueldo;
+  END IF;
+  -- Si la suma es mayor de 200.000ï¿½ --> Error
+  IF sueldo_total > 200000 THEN
+    RAISE_APPLICATION_ERROR(-20005, 'Sobrepasa de limite salarial');
+  END IF;
 END;
 
 
@@ -213,7 +204,6 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;  -- Para verificar si la competición está en curso
 BEGIN
-<<<<<<< HEAD
     -- Verificar si el equipo está en una competición en curso
     SELECT COUNT(*) INTO en_curso
     FROM competiciones c
@@ -223,14 +213,6 @@ BEGIN
     AND c.curso = 1;
     -- Si la competición está en curso, bloquear la operación
     IF en_curso > 0 THEN
-=======
-    -- Verificar si la competicion esta en curso
-    SELECT curso INTO en_curso
-    FROM competiciones
-    WHERE cod_compe = :old.cod_equipo;
-    -- Si esta en curso, impedir el update
-    IF en_curso = 1 THEN
->>>>>>> 62ff29e9054f8eb9ee3cbe7a5a89034099cc3ea9
         RAISE_APPLICATION_ERROR(-20009, 'Competicion en curso');
     END IF;
 END;
@@ -242,7 +224,6 @@ FOR EACH ROW
 DECLARE
     en_curso NUMBER;  -- Para verificar si la competición está en curso
 BEGIN
-<<<<<<< HEAD
     -- Verificar si el equipo está en una competición en curso
     SELECT COUNT(*) INTO en_curso
     FROM competiciones c
@@ -252,14 +233,6 @@ BEGIN
     AND c.curso = 1;
     -- Si la competición está en curso, bloquear la operación
     IF en_curso > 0 THEN
-=======
-    -- Verificar si la competicion esta en curso
-    SELECT curso INTO en_curso
-    FROM competiciones
-    WHERE cod_compe = :old.cod_equipo;
-    -- Si esta en curso, impedir el delete
-    IF en_curso = 1 THEN
->>>>>>> 62ff29e9054f8eb9ee3cbe7a5a89034099cc3ea9
         RAISE_APPLICATION_ERROR(-20010, 'Competicion en curso');
     END IF;
 END;
@@ -278,7 +251,7 @@ BEGIN
   SELECT dia INTO v_dia
   FROM jornadas
   WHERE cod_jornadas = :new.cod_jornada;
-  -- Verifica que la fecha del enfrentamiento = el dia de la jornada
+  -- Verifica que la fecha del enfrentamiento sea la misma que el dï¿½a de la jornada
   IF :new.fecha != v_dia THEN
 	RAISE_APPLICATION_ERROR(-20011, 'Fechas diferentes.');
   END IF;
@@ -294,14 +267,14 @@ DECLARE
   v_count_local NUMBER;
   v_count_visitante NUMBER;
 BEGIN
-  -- Verifica cuantos enfrentamientos tienen un equipo local en la misma jornada
+  -- Verifica cuï¿½ntos enfrentamientos tienen el mismo equipo local en la misma jornada
   SELECT COUNT(*)
   INTO v_count_local
   FROM enfrentamientos
   WHERE cod_jornada = :new.cod_jornada
 	AND cod_equipo_local = :new.cod_equipo_local
 	AND cod_enfrentamiento != :new.cod_enfrentamiento;
-  -- Verifica cuantos enfrentamientos tienen un equipo visitante en la misma jornada
+  -- Verifica cuï¿½ntos enfrentamientos tienen el mismo equipo visitante en la misma jornada
   SELECT COUNT(*)
   INTO v_count_visitante
   FROM enfrentamientos
