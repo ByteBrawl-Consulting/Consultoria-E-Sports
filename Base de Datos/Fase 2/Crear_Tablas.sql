@@ -26,14 +26,14 @@ create table jugadores(
     nickname varchar2(20) not null,
     rol varchar2(10) not null,
     sueldo number(7) not null,
-    cod_equipo number(5) not null
+    cod_equipo number(5)
 );
 create table staff(
     cod_staff number(5) generated always as identity(start with 1)primary key,
     nombre varchar2 (50) not null,
     cargo varchar2(50) not null,
     sueldo float(7)not null,
-    cod_equipo number(5) not null
+    cod_equipo number(5)
 
 );
 create table competiciones (
