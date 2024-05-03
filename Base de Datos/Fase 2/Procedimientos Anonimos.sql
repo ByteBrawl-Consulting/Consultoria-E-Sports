@@ -3,7 +3,10 @@
 SET SERVEROUTPUT ON;
 
 /* Funcion: Verificar si la etapa de inscripcion de una competicion se encuentra
-            abierta o cerrada */
+            abierta o cerrada 
+            
+            Se usara en Java en la consulta de etapa de inscripcion.
+            */
 
 DECLARE
     V_COD_COMPE INT;       -- COD COMPETICION
@@ -25,13 +28,22 @@ BEGIN
     END IF;
 END;
 
+/* Resultados Obtenidos Ejemplo
+LA ETAPA DE INSCRIPCIÓN PARA LA COMPETICIÓN ESTÁ CERRADA.
+
+Procedimiento PL/SQL terminado correctamente.
+*/
+
 
 
 /* Funcion: Este procedimiento cierra la etapa de inscripcion de la competicion
         que elijas (mediante codigo competicion [cod_compe]), si esta abierta y 
         se cierra mediante este procedimiento habra una salida que indique que
         se ha cerrado la competicion correctamente, si ya estaba cerrada 
-        anteriormente la salida dira que ya estaba cerrada. */
+        anteriormente la salida dira que ya estaba cerrada. 
+        
+         Se usara en Java en la modificacion de etapa de inscripcion
+        */
 
 DECLARE
     V_COD_COMPE INT;       -- COD COMPETICION
@@ -58,9 +70,18 @@ BEGIN
     END IF;
 END;
 
+/* Resultados Obtenidos Ejmplo
+LA ETAPA DE INSCRIPCIÓN PARA LA COMPETICIÓN YA ESTÁ CERRADA.
+
+Procedimiento PL/SQL terminado correctamente.
+*/
 
 
-/* Funcion: Este procedimiento calcula la duracion de una competicion*/
+    
+/* Funcion: Este procedimiento calcula la duracion de una competicion
+            
+            Se usara en Java en la consulta de competicion.
+*/
 
 DECLARE
     V_COD_COMPE INT;       -- COD COMPE
@@ -83,3 +104,9 @@ BEGIN
     -- MOSTRAR DURACION
     DBMS_OUTPUT.PUT_LINE('LA DURACIÓN DE LA COMPETICIÓN ES DE ' || V_DURACION || ' DÍAS.');
 END;
+
+/* Resultados Obtenidos Ejemplo
+LA DURACIÓN DE LA COMPETICIÓN ES DE 1 DÍAS.
+
+Procedimiento PL/SQL terminado correctamente.
+*/
