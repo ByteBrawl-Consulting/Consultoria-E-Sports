@@ -1,9 +1,9 @@
 /* Procedimientos Anonimos */
 
+SET SERVEROUTPUT ON;
 
 /* Funcion: Verificar si la etapa de inscripcion de una competicion se encuentra
             abierta o cerrada */
-SET SERVEROUTPUT ON;
 
 DECLARE
     V_COD_COMPE INT;       -- COD COMPETICION
@@ -27,13 +27,11 @@ END;
 
 
 
-/*Funcion: Este procedimiento cierra la etapa de inscripcion de la competicion
+/* Funcion: Este procedimiento cierra la etapa de inscripcion de la competicion
         que elijas (mediante codigo competicion [cod_compe]), si esta abierta y 
         se cierra mediante este procedimiento habra una salida que indique que
         se ha cerrado la competicion correctamente, si ya estaba cerrada 
         anteriormente la salida dira que ya estaba cerrada. */
-        
-SET SERVEROUTPUT ON;
 
 DECLARE
     V_COD_COMPE INT;       -- COD COMPETICION
@@ -58,4 +56,30 @@ BEGIN
 
         DBMS_OUTPUT.PUT_LINE('SE HA CERRADO LA ETAPA DE INSCRIPCIÓN PARA LA COMPETICIÓN CORRECTAMENTE.');
     END IF;
+END;
+
+
+
+/* Funcion: Este procedimiento calcula la duracion de una competicion*/
+
+DECLARE
+    V_COD_COMPE INT;       -- COD COMPE
+    V_FECHA_INICIO DATE;   -- FECHA INICIO COMPE
+    V_FECHA_FIN DATE;      -- FECHA FIN COMPE
+    V_DURACION NUMBER;     -- DURACION COMPE
+
+BEGIN
+    V_COD_COMPE := 1; -- COD COMPE A CALCULAR
+
+    -- OBTENER FECHA INICIO Y FIN COMPE A VERIFICAR
+    SELECT FECHA_INICIO, FECHA_FIN
+    INTO V_FECHA_INICIO, V_FECHA_FIN
+    FROM COMPETICIONES
+    WHERE COD_COMPE = V_COD_COMPE;
+
+    -- CALCULAR EN DIAS
+    V_DURACION := V_FECHA_FIN - V_FECHA_INICIO;
+
+    -- MOSTRAR DURACION
+    DBMS_OUTPUT.PUT_LINE('LA DURACIÓN DE LA COMPETICIÓN ES DE ' || V_DURACION || ' DÍAS.');
 END;
