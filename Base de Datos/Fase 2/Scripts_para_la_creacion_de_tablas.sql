@@ -10,6 +10,7 @@ drop table usuarios cascade constraints;
 drop table patrocinadores cascade constraints;
 drop table patrocinadores_equipos cascade constraints;
 drop table equipo_competicion cascade constraints;
+drop table clasificaciones cascade constraints;
 /*Fin de los drop de las tablas*/
 
 /*Creacion de las tablas*/
@@ -88,10 +89,16 @@ create table equipo_competicion(
     cod_equipo number(5) not null,
     cod_competicion number(5) not null
 );
+create table clasificaciones (
+    cod_equipo number(5) primary key,
+    puntos number(5) not null,
+    cod_compe number(5) not null
+ );
  /*Fin de creacion de tablas*/
 
 
 /*Comenzamos con las claves foraneas*/
+
 alter table jugadores 
 add constraint fk_equipo_en_jugador 
 foreign key (cod_equipo) 
@@ -146,6 +153,16 @@ alter table equipo_competicion
 add constraint fk_compe_equipo_compe
 foreign key (cod_competicion)
 references competiciones(cod_compe);
+
+alter table competiciones
+add constraint fk_compe_en_clasi
+foreign key (EQUIPO_GANADOR)
+references clasificaciones (cod_equipo);
+
+alter table clasificaciones
+add constraint fk_clasi_en_compe
+foreign key (cod_compe)
+references competiciones (cod_compe);
 /*Fin de las claves foraneas*/
 
 /*Comenzamos con los check*/
@@ -199,3 +216,42 @@ JOIN equipo_competicion ec ON e.cod_equipo = ec.cod_equipo
 JOIN competiciones c ON c.cod_compe = ec.cod_competicion
 JOIN juegos j ON j.cod_juego = c.cod_juego
 order by e.nombre;
+/*Fin de las vistas*/
+
+/*Creacion de sinonimos*/
+create synonym clasi 
+for clasificaciones;
+
+create synonym compe 
+for competiciones;
+
+create synonym enfren 
+for enfrentamientos;
+
+create synonym equi_compe 
+for equipo_competicion;
+
+create synonym equi 
+for equipos;
+
+create synonym jorn 
+for jornadas;
+
+create synonym jue 
+for juegos;
+
+create synonym juga 
+for jugadores;
+
+create synonym patro 
+for patrocinadores;
+
+create synonym patro_equi 
+for patrocinadores_equipos;
+
+create synonym st 
+for staff;
+
+create synonym usu 
+for usuarios;
+/*Fin de creacion de sinonimos*/
