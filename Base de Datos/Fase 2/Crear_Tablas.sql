@@ -86,8 +86,10 @@ create table equipo_competicion(
     cod_equipo_compe number(5) generated always as identity (start with 1) 
                                                             primary key,
     cod_equipo number(5) not null,
-    cod_competicion number(5) not null
+    cod_competicion number(5) not null,
+    puntos number(3) not null
 );
+
  /*Fin de creacion de tablas*/
 
 
