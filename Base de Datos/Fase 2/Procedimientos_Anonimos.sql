@@ -2,22 +2,6 @@
 
 SET SERVEROUTPUT ON;
 
-/* Procedimiento destinado a probar el procedimiento almacenado */
-DECLARE
-    FECHA_CONSULTA DATE := TO_DATE('25/04/2020', 'DD/MM/YYYY'); 
-BEGIN
-    DBMS_OUTPUT.PUT_LINE('EJECUTANDO PROCEDIMIENTO OBTENER_INFO_COMPETICION...');
-    OBTENER_INFO_COMPETICION(FECHA_CONSULTA);
-    DBMS_OUTPUT.PUT_LINE('PROCEDIMIENTO EJECUTADO CON ÉXITO.');
-EXCEPTION
-    WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('ERROR AL EJECUTAR EL PROCEDIMIENTO: ' || SQLERRM);
-END;
-
-
-
-/* Procedimientos añadidos */
-
 /* Funcion: Verificar si la etapa de inscripcion de una competicion se encuentra
             abierta o cerrada 
             
