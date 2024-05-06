@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<RESULTS>
+    <ROW>
+        <COLUMN NAME="XML_DATA">
+            <![CDATA[
+                <Clasificacion>
+                    <Equipo>
+                        <Nombre>Team Alpha</Nombre>
+                        <Puntos>0</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Bravo</Nombre>
+                        <Puntos>1</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Charlie</Nombre>
+                        <Puntos>2</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Delta</Nombre>
+                        <Puntos>3</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Echo</Nombre>
+                        <Puntos>4</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Foxtrot</Nombre>
+                        <Puntos>5</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Golf</Nombre>
+                        <Puntos>6</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Hotel</Nombre>
+                        <Puntos>7</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team India</Nombre>
+                        <Puntos>8</Puntos>
+                    </Equipo>
+                    <Equipo>
+                        <Nombre>Team Juliet</Nombre>
+                        <Puntos>9</Puntos>
+                    </Equipo>
+                </Clasificacion>
+            ]]>
+        </COLUMN>
+    </ROW>
+</RESULTS>

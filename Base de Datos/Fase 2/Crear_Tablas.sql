@@ -10,7 +10,6 @@ drop table usuarios cascade constraints;
 drop table patrocinadores cascade constraints;
 drop table patrocinadores_equipos cascade constraints;
 drop table equipo_competicion cascade constraints;
-drop table clasificaciones cascade constraints;
 /*Fin de los drop de las tablas*/
 
 /*Creacion de las tablas*/
@@ -27,14 +26,14 @@ create table jugadores(
     nickname varchar2(20) not null,
     rol varchar2(10) not null,
     sueldo number(7) not null,
-    cod_equipo number(5) not null
+    cod_equipo number(5)
 );
 create table staff(
     cod_staff number(5) generated always as identity(start with 1)primary key,
     nombre varchar2 (50) not null,
     cargo varchar2(50) not null,
     sueldo float(7)not null,
-    cod_equipo number(5) not null
+    cod_equipo number(5)
 
 );
 create table competiciones (
@@ -87,18 +86,14 @@ create table equipo_competicion(
     cod_equipo_compe number(5) generated always as identity (start with 1) 
                                                             primary key,
     cod_equipo number(5) not null,
-    cod_competicion number(5) not null
+    cod_competicion number(5) not null,
+    puntos number(3) not null
 );
-create table clasificaciones (
-    cod_equipo number(5) primary key,
-    puntos number(5) not null,
-    cod_compe number(5) not null
- );
+
  /*Fin de creacion de tablas*/
 
 
 /*Comenzamos con las claves foraneas*/
-
 alter table jugadores 
 add constraint fk_equipo_en_jugador 
 foreign key (cod_equipo) 
@@ -153,16 +148,6 @@ alter table equipo_competicion
 add constraint fk_compe_equipo_compe
 foreign key (cod_competicion)
 references competiciones(cod_compe);
-
-alter table competiciones
-add constraint fk_compe_en_clasi
-foreign key (EQUIPO_GANADOR)
-references clasificaciones (cod_equipo);
-
-alter table clasificaciones
-add constraint fk_clasi_en_compe
-foreign key (cod_compe)
-references competiciones (cod_compe);
 /*Fin de las claves foraneas*/
 
 /*Comenzamos con los check*/
@@ -216,42 +201,3 @@ JOIN equipo_competicion ec ON e.cod_equipo = ec.cod_equipo
 JOIN competiciones c ON c.cod_compe = ec.cod_competicion
 JOIN juegos j ON j.cod_juego = c.cod_juego
 order by e.nombre;
-/*Fin de las vistas*/
-
-/*Creacion de sinonimos*/
-create synonym clasi 
-for clasificaciones;
-
-create synonym compe 
-for competiciones;
-
-create synonym enfren 
-for enfrentamientos;
-
-create synonym equi_compe 
-for equipo_competicion;
-
-create synonym equi 
-for equipos;
-
-create synonym jorn 
-for jornadas;
-
-create synonym jue 
-for juegos;
-
-create synonym juga 
-for jugadores;
-
-create synonym patro 
-for patrocinadores;
-
-create synonym patro_equi 
-for patrocinadores_equipos;
-
-create synonym st 
-for staff;
-
-create synonym usu 
-for usuarios;
-/*Fin de creacion de sinonimos*/

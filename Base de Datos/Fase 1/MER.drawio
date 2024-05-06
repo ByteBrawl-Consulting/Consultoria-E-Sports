@@ -1,10 +1,10 @@
-<mxfile host="Electron" modified="2024-04-25T09:45:54.909Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="-hyvQDwlc0Kgu678jXNn" version="24.2.5" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-03T11:21:40.891Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="ClxlSlFX-1mvugxAw4Cv" version="24.3.1" type="device">
   <diagram name="Página-1" id="LZ0vMD4xFcR4I24kFpnV">
-    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;startArrow=ERmany;startFill=0;" parent="1" source="KZacTmdIzoN7Ga8BMroP-1" edge="1">
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;startArrow=ERmany;startFill=0;" parent="1" source="KZacTmdIzoN7Ga8BMroP-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="670" y="80" as="targetPoint" />
           </mxGeometry>
@@ -35,30 +35,21 @@
         <mxCell id="KZacTmdIzoN7Ga8BMroP-1" value="Equipo" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="380" y="50" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-4" value="Jugador" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="950" y="70" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;dashed=1;dashPattern=12 12;" parent="1" target="KZacTmdIzoN7Ga8BMroP-8" edge="1">
+        <mxCell id="B9ZKAfvu-iQfuXPmCk-O-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;startArrow=ERmany;startFill=0;strokeColor=default;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="KZacTmdIzoN7Ga8BMroP-4">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="670" y="95" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="670" y="250" />
-            </Array>
+            <mxPoint x="670" y="80" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;dashed=1;dashPattern=12 12;startArrow=none;startFill=0;" parent="1" edge="1">
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-4" value="Jugador" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="915" y="70" width="120" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="B9ZKAfvu-iQfuXPmCk-O-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=ERmany;startFill=0;endArrow=none;endFill=0;dashed=1;dashPattern=12 12;" edge="1" parent="1" source="KZacTmdIzoN7Ga8BMroP-8">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="670" y="80" as="sourcePoint" />
-            <mxPoint x="948" y="100" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="809" y="80" />
-              <mxPoint x="809" y="100" />
-              <mxPoint x="948" y="100" />
-            </Array>
+            <mxPoint x="670" y="90" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="KZacTmdIzoN7Ga8BMroP-8" value="Staff" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="950" y="220" width="120" height="60" as="geometry" />
+          <mxGeometry x="915" y="220" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="KZacTmdIzoN7Ga8BMroP-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=ERmany;startFill=0;endArrow=none;endFill=0;strokeWidth=1;targetPerimeterSpacing=0;" parent="1" source="KZacTmdIzoN7Ga8BMroP-15" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -132,25 +123,25 @@
         <mxCell id="KZacTmdIzoN7Ga8BMroP-60" value="t3: Comprobaremos que el numero de equipos en una competicion es par" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="120" y="379" width="120" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-62" value="# cod&lt;div&gt;num_jornada&lt;div&gt;dia&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-62" value="# cod_jornadas&lt;div&gt;num_jornada&lt;div&gt;dia&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="540" y="600" width="115" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-63" value="&lt;div&gt;# cod&lt;/div&gt;nombre&lt;div&gt;desarrolladora&lt;/div&gt;&lt;div&gt;fecha_lanzamiento&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-63" value="&lt;div&gt;# cod_juego&lt;/div&gt;nombre&lt;div&gt;desarrolladora&lt;/div&gt;&lt;div&gt;fecha_lanzamiento&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="920" y="403" width="110" height="51" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-64" value="# cod&lt;div&gt;fecha&lt;/div&gt;&lt;div&gt;num_jornada&lt;/div&gt;&lt;div&gt;hora&lt;/div&gt;&lt;div&gt;resultado&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="30" y="680" width="100" height="70" as="geometry" />
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-64" value="# cod_efrentamiento&lt;div&gt;fecha&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;hora&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;resultado&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="30" y="680" width="150" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-65" value="# cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha_fundacion&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="280" width="100" height="90" as="geometry" />
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-65" value="# cod_equipo&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha_fundacion&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="440" y="90" width="100" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-66" value="# cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;nacionalidad&lt;/div&gt;&lt;div&gt;fecha_nac&lt;/div&gt;&lt;div&gt;nickname&lt;/div&gt;&lt;div&gt;rol&lt;/div&gt;&lt;div&gt;sueldo&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="1070" y="45" width="90" height="110" as="geometry" />
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-66" value="# cod_jugador&lt;div&gt;nombre_jugador&lt;/div&gt;&lt;div&gt;nacionalidad&lt;/div&gt;&lt;div&gt;fecha_nac&lt;/div&gt;&lt;div&gt;nickname&lt;/div&gt;&lt;div&gt;rol&lt;/div&gt;&lt;div&gt;sueldo&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1040" y="50" width="120" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-67" value="# cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;nacionalidad&lt;/div&gt;&lt;div&gt;fecha_nac&lt;/div&gt;&lt;div&gt;puesto ck&lt;/div&gt;&lt;div&gt;sueldo&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="1065" y="210" width="100" height="80" as="geometry" />
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-67" value="# cod_staff&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;cargo&lt;/div&gt;&lt;div&gt;sueldo&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="1030" y="210" width="135" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="KZacTmdIzoN7Ga8BMroP-68" value="#cod&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha_inicio&lt;/div&gt;&lt;div&gt;fecha_fin&lt;/div&gt;&lt;div&gt;estado&lt;/div&gt;&lt;div&gt;· equipo_ganador&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="KZacTmdIzoN7Ga8BMroP-68" value="#cod_compe&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha_inicio&lt;/div&gt;&lt;div&gt;fecha_fin&lt;/div&gt;&lt;div&gt;curso&lt;/div&gt;&lt;div&gt;· equipo_ganador&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="300" y="374" width="110" height="100" as="geometry" />
         </mxCell>
         <mxCell id="KZacTmdIzoN7Ga8BMroP-69" value="Usuarios" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -183,14 +174,17 @@
         <mxCell id="wJ4mM77uryMSbkc_zP6m-2" value="Patrocinador" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="100" y="50" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="wJ4mM77uryMSbkc_zP6m-4" value="# cod&amp;nbsp;&lt;div&gt;nombre&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="30" y="65" width="60" height="30" as="geometry" />
+        <mxCell id="wJ4mM77uryMSbkc_zP6m-4" value="# cod_patrocinadores&amp;nbsp;&lt;div&gt;nombre&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="80" y="120" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="wJ4mM77uryMSbkc_zP6m-5" value="t4: Maximo 1 asistente&lt;div&gt;(trigger)&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
           <mxGeometry x="760" y="260" width="90" height="50" as="geometry" />
         </mxCell>
         <mxCell id="wJ4mM77uryMSbkc_zP6m-9" value="puntos" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="440" y="220" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="B9ZKAfvu-iQfuXPmCk-O-1" value="#cod_patr_equi&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="50" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

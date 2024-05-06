@@ -1,0 +1,40 @@
+/*PRUEBAS PAQUETE GESTION_JUGADORES*/
+-- AGREGAR JUGADOR
+BEGIN
+    GESTION_JUGADORES.AGREGAR_JUGADOR(
+    'Carlos Sanchez','España', TO_DATE('15/04/1994', 'dd/MM/yyyy'),
+    'Carlinhos','TOP',5000,NULL);
+END;
+
+-- ACTUALIZAR JUGADOR
+BEGIN
+    -- Codigo aleatorio
+    GESTION_JUGADORES.ACTUALIZAR_JUGADOR(
+        1,'Carlos García','España',TO_DATE('15/04/1995', 'dd/MM/yyyy'),
+        'Carlitos','Delantero',6000);
+END;
+
+-- BORRAR JUGADOR
+BEGIN
+    GESTION_JUGADORES.ELIMINAR_JUGADOR(1);
+END;
+
+
+/*PRUEBA PAQUETE GESTION_STAFF*/
+-- AGREGAR STAFF
+BEGIN
+    GESTION_STAFF.AGREGAR_STAFF(
+    'Alfredo','Entrenador',1200,NULL);
+END;
+
+-- ACTUALIZAR STAFF
+BEGIN
+    -- Codigo aleatorio
+    GESTION_STAFF.ACTUALIZAR_STAFF(
+    1, 'Nerea', 'Entrenador', 1300);
+END;
+
+-- BORRAR STAFF
+BEGIN
+    GESTION_STAFF.ELIMINAR_STAFF(1);
+END;

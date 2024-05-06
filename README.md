@@ -7,4 +7,4 @@
 - [@adriloma21](https://github.com/adriloma21)
 - [@JonGaray](https://github.com/JonGaray)
 - [@JordiFernandez](https://github.com/JordiFernandezUralde)
-- [@DashaKuznetsova](https://github.com/DashaKuznetsovaS)
+- [@DashaKuznetsova](https://github.com/DariaKuznetsovaS)
