@@ -8,18 +8,19 @@ import java.awt.event.MouseListener;
 public class VentanaLogin extends JFrame {
     private JPanel pPrincipal;
     private JTextField tfUsu;
-
     private JTextField tfPassword;
     private JButton bSalir;
     private JButton bEntrar;
     private JButton bAyuda;
+    private JLabel titulo;
 
     public VentanaLogin() throws HeadlessException {
         setContentPane(pPrincipal);
-        setSize(700, 500);
+        setSize(500, 300);
         setLocationRelativeTo(null);
-        tfUsu.setForeground(Color.white);
-        tfPassword.setForeground(Color.white);
+        tfUsu.setForeground(Color.BLACK);
+        tfPassword.setForeground(Color.BLACK);
+        titulo.setForeground(Color.BLACK);
     }
     // Funciones de los TF y de los botones
     public void clickRatonUsuAL (MouseListener al){

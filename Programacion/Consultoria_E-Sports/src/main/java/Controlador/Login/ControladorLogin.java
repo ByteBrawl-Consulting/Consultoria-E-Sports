@@ -1,5 +1,7 @@
 package Controlador.Login;
 
+import Controlador.ControladorVista;
+import Modelo.Usuarios;
 import View.VentanaLogin;
 
 import javax.swing.*;
@@ -10,8 +12,10 @@ import java.awt.event.MouseListener;
 
 public class ControladorLogin {
     private VentanaLogin vl;
+    private ControladorVista cv;
 
-    public ControladorLogin() {
+    public ControladorLogin(ControladorVista cv) {
+        this.cv = cv;
         mostrar();
         vl.clickRatonUsuAL(new clickRatonUsu());
         vl.clickRatonPassAL(new clickRatonPass());
@@ -27,8 +31,8 @@ public class ControladorLogin {
     //Clases creadas para los tf y los botones
     public class bAyuda implements ActionListener {
         public void actionPerformed (ActionEvent e){
-            JOptionPane.showMessageDialog(null,"Si necesitas ayuda contacte con nuestros administradores \n " +
-                    " Jordi.fernandez@ikasle.egibide.org \n Adrian.lopez@ikasle.egibide.org \n Jon.garay@ikasle.egibide.org");
+            JOptionPane.showMessageDialog(null,"Si necesitas ayuda contacte con nuestros administradores. \n " +
+                    "Jordi.fernandez@ikasle.egibide.org \n Adrian.lopez@ikasle.egibide.org \n Jon.garay@ikasle.egibide.org","Ayuda",JOptionPane.INFORMATION_MESSAGE);
         }
     }
     public class bSalir implements ActionListener {
@@ -38,7 +42,10 @@ public class ControladorLogin {
     }
     public class bEntrar implements ActionListener {
         public void actionPerformed (ActionEvent e){
-
+            Usuarios usu = new Usuarios();
+            usu.setTipo(vl.getTfUsu().getText());
+            usu.setContraseña(vl.getTfPassword().getText());
+           //cv.login(usu);
         }
     }
     public class clickRatonUsu implements MouseListener {
