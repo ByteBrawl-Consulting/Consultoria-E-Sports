@@ -65,7 +65,7 @@ create table enfrentamientos(
     fecha date not null,
     cod_jornada number(5) not null,
     hora varchar2(5) not null,
-    resultado varchar2(4),
+    resultado varchar2(30),
     cod_equipo_local number(5) not null,
     cod_equipo_visitante number(5) not null
 );
