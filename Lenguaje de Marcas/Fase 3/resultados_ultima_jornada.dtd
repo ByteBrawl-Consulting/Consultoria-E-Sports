@@ -1,15 +1,15 @@
 <!ELEMENT RESULTS (ROW)>
 <!ELEMENT ROW (COLUMN)>
-<!ATTLIST ROW>
 <!ELEMENT COLUMN (#PCDATA)>
 <!ATTLIST COLUMN
     NAME CDATA #REQUIRED
 >
 <!ELEMENT Jornadas (Jornada)>
-<!ELEMENT Jornada (Codigo_Jornada, Numero_Jornada, Enfrentamientos)>
-<!ELEMENT Codigo_Jornada (#PCDATA)>
-<!ELEMENT Numero_Jornada (#PCDATA)>
-<!ELEMENT Enfrentamientos (Enfrentamiento+)>
+<!ELEMENT Jornada (Enfrentamiento+)>
+<!ATTLIST Jornada
+    Codigo_Jornada CDATA #REQUIRED
+    Numero_Jornada CDATA #REQUIRED
+>
 <!ELEMENT Enfrentamiento (Codigo_Enfrentamiento, Equipo_Local, Equipo_Visitante, Ganador)>
 <!ELEMENT Codigo_Enfrentamiento (#PCDATA)>
 <!ELEMENT Equipo_Local (#PCDATA)>
