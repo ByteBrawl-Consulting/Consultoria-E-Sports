@@ -175,16 +175,16 @@ VALUES ('Paco','Entrenador',8330,(SELECT COD_EQUIPO
                             FROM EQUIPOS 
                             WHERE UPPER(NOMBRE) = 'TEAM TEST 40 TRIG'));
 
-SELECT 'Jugador' AS tipo,
-       J.NOMBRE_JUGADOR AS nombre,
-       J.SUELDO AS sueldo
+SELECT 'Jugador' AS TIPO,
+       J.NOMBRE_JUGADOR AS NOMBRE,
+       J.SUELDO AS SUELDO
 FROM JUGADORES J
 WHERE J.COD_EQUIPO = (SELECT COD_EQUIPO FROM EQUIPOS 
                       WHERE UPPER(NOMBRE) = 'TEAM TEST 40 TRIG')
 UNION ALL
-SELECT 'Staff' AS tipo,
-       S.NOMBRE AS nombre,
-       S.SUELDO AS sueldo
+SELECT 'Staff' AS TIPO,
+       S.NOMBRE AS NOMBRE,
+       S.SUELDO AS SUELDO
 FROM STAFF S
 WHERE S.COD_EQUIPO = (SELECT COD_EQUIPO FROM EQUIPOS 
                       WHERE UPPER(NOMBRE) = 'TEAM TEST 40 TRIG');

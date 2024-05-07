@@ -2,97 +2,97 @@ SET SERVEROUTPUT ON;
 /*Procedimientos*/
 /*Sacamos por pantalla el nombre del juego, cuando empieza y acaba, 
 nombre de equipo, nombre del staff y cantidad de jugadores */
-CREATE OR REPLACE PROCEDURE obtener_info_competicion(
-    fecha_consulta IN DATE
+CREATE OR REPLACE PROCEDURE OBTENER_INFO_COMPETICION(
+    FECHA_CONSULTA IN DATE
 ) 
 AS
-    cursor_info_competicion SYS_REFCURSOR;
-    nombre_juego juegos.nombre%TYPE;
-    fecha_inicio competiciones.fecha_inicio%TYPE;
-    fecha_fin competiciones.fecha_fin%TYPE;
-    nombre_equipo equipos.nombre%TYPE;
-    nombre_staff staff.nombre%TYPE;
-    cantidad_jugadores NUMBER;
+    CURSOR_INFO_COMPETICION SYS_REFCURSOR;
+    NOMBRE_JUEGO JUEGOS.NOMBRE%TYPE;
+    FECHA_INICIO COMPETICIONES.FECHA_INICIO%TYPE;
+    FECHA_FIN COMPETICIONES.FECHA_FIN%TYPE;
+    NOMBRE_EQUIPO EQUIPOS.NOMBRE%TYPE;
+    NOMBRE_STAFF STAFF.NOMBRE%TYPE;
+    CANTIDAD_JUGADORES NUMBER;
 BEGIN
-    OPEN cursor_info_competicion FOR
-    SELECT j.nombre AS nombre_juego,
-           c.fecha_inicio,
-           c.fecha_fin,
-           e.nombre AS nombre_equipo,
-           s.nombre AS nombre_staff,
-           COUNT(DISTINCT jug.cod_jugador) AS cantidad_jugadores
-    FROM competiciones c
-    JOIN juegos j ON c.cod_juego = j.cod_juego
-    JOIN equipo_competicion ec ON c.cod_compe = ec.cod_competicion
-    JOIN equipos e ON ec.cod_equipo = e.cod_equipo
-    LEFT JOIN jugadores jug ON e.cod_equipo = jug.cod_equipo
-    LEFT JOIN staff s ON e.cod_equipo = s.cod_equipo
-    WHERE fecha_consulta BETWEEN c.fecha_inicio AND c.fecha_fin
-    GROUP BY j.nombre, c.fecha_inicio, c.fecha_fin, e.nombre, s.nombre;
+    OPEN CURSOR_INFO_COMPETICION FOR
+    SELECT J.NOMBRE AS NOMBRE_JUEGO,
+           C.FECHA_INICIO,
+           C.FECHA_FIN,
+           E.NOMBRE AS NOMBRE_EQUIPO,
+           S.NOMBRE AS NOMBRE_STAFF,
+           COUNT(DISTINCT JUG.COD_JUGADOR) AS CANTIDAD_JUGADORES
+    FROM COMPETICIONES C
+    JOIN JUEGOS J ON C.COD_JUEGO = J.COD_JUEGO
+    JOIN EQUIPO_COMPETICION EC ON C.COD_COMPE = EC.COD_COMPETICION
+    JOIN EQUIPOS E ON EC.COD_EQUIPO = E.COD_EQUIPO
+    LEFT JOIN JUGADORES JUG ON E.COD_EQUIPO = JUG.COD_EQUIPO
+    LEFT JOIN STAFF S ON E.COD_EQUIPO = S.COD_EQUIPO
+    WHERE FECHA_CONSULTA BETWEEN C.FECHA_INICIO AND C.FECHA_FIN
+    GROUP BY J.NOMBRE, C.FECHA_INICIO, C.FECHA_FIN, E.NOMBRE, S.NOMBRE;
 
     DBMS_OUTPUT.PUT_LINE('Información de la competición:');
     LOOP
-        FETCH cursor_info_competicion INTO nombre_juego, fecha_inicio,
-        fecha_fin, nombre_equipo, nombre_staff, cantidad_jugadores;
-        EXIT WHEN cursor_info_competicion%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('Juego: ' || nombre_juego);
+        FETCH CURSOR_INFO_COMPETICION INTO NOMBRE_JUEGO, FECHA_INICIO,
+        FECHA_FIN, NOMBRE_EQUIPO, NOMBRE_STAFF, CANTIDAD_JUGADORES;
+        EXIT WHEN CURSOR_INFO_COMPETICION%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('Juego: ' || NOMBRE_JUEGO);
         DBMS_OUTPUT.PUT_LINE('Fecha de inicio: ' || 
-        TO_CHAR(fecha_inicio, 'dd/MM/yyyy'));
+        TO_CHAR(FECHA_INICIO, 'dd/MM/yyyy'));
         DBMS_OUTPUT.PUT_LINE('Fecha de fin: ' || 
-        TO_CHAR(fecha_fin, 'dd/MM/yyyy'));
-        DBMS_OUTPUT.PUT_LINE('Equipo: ' || nombre_equipo);
-        DBMS_OUTPUT.PUT_LINE('Miembro del staff: ' || nombre_staff);
-        DBMS_OUTPUT.PUT_LINE('Cantidad de jugadores: ' || cantidad_jugadores);
+        TO_CHAR(FECHA_FIN, 'dd/MM/yyyy'));
+        DBMS_OUTPUT.PUT_LINE('Equipo: ' || NOMBRE_EQUIPO);
+        DBMS_OUTPUT.PUT_LINE('Miembro del staff: ' || NOMBRE_STAFF);
+        DBMS_OUTPUT.PUT_LINE('Cantidad de jugadores: ' || CANTIDAD_JUGADORES);
         DBMS_OUTPUT.PUT_LINE('-----------------------');
     END LOOP;
 
-    CLOSE cursor_info_competicion;
+    CLOSE CURSOR_INFO_COMPETICION;
 END;
 
 BEGIN
-    obtener_info_competicion (to_date('25/04/2020','dd/MM/yyyy'));
+    OBTENER_INFO_COMPETICION (TO_DATE('25/04/2020','dd/MM/yyyy'));
 END;
 
 /*Sacamos por pantalla informacion sobre los juegadores, lo usaremos
 en el crud de jugadores*/
-create or replace procedure info_general (
-    equipo equipos.nombre%type
+CREATE OR REPLACE PROCEDURE INFO_GENERAL (
+    EQUIPO EQUIPOS.NOMBRE%TYPE
 )
-as
-    cursor_equipo SYS_REFCURSOR;
-    enombre equipos.nombre%type;
-    jnombre jugadores.nombre_jugador%type;
-    jnacionalidad jugadores.nacionalidad%type;
-    jnickname jugadores.nickname%type;
-    jrol jugadores.rol%type;
-    cnombre competiciones.nombre%type;
-begin
-    open cursor_equipo for
-select e.nombre, j.nombre_jugador, j.nacionalidad, j.nickname, j.rol, 
-       c.nombre
-from jugadores j
-join equipos e ON j.cod_equipo = e.cod_equipo
-join staff s ON j.cod_equipo = s.cod_equipo
-join equipo_competicion ec ON e.cod_equipo = ec.cod_equipo
-join competiciones c ON ec.cod_competicion = c.cod_compe
-where e.nombre = equipo
-order by e.nombre;
+AS
+    CURSOR_EQUIPO SYS_REFCURSOR;
+    ENOMBRE EQUIPOS.NOMBRE%TYPE;
+    JNOMBRE JUGADORES.NOMBRE_JUGADOR%TYPE;
+    JNACIONALIDAD JUGADORES.NACIONALIDAD%TYPE;
+    JNICKNAME JUGADORES.NICKNAME%TYPE;
+    JROL JUGADORES.ROL%TYPE;
+    CNOMBRE COMPETICIONES.NOMBRE%TYPE;
+BEGIN
+    OPEN CURSOR_EQUIPO FOR
+SELECT E.NOMBRE, J.NOMBRE_JUGADOR, J.NACIONALIDAD, J.NICKNAME, J.ROL, 
+       C.NOMBRE
+FROM JUGADORES J
+JOIN EQUIPOS E ON J.COD_EQUIPO = E.COD_EQUIPO
+JOIN STAFF S ON J.COD_EQUIPO = S.COD_EQUIPO
+JOIN EQUIPO_COMPETICION EC ON E.COD_EQUIPO = EC.COD_EQUIPO
+JOIN COMPETICIONES C ON EC.COD_COMPETICION = C.COD_COMPE
+WHERE E.NOMBRE = EQUIPO
+ORDER BY E.NOMBRE;
 
-dbms_output.put_line('Esta es la informacion');
-dbms_output.put_line('-----------------------');
+DBMS_OUTPUT.PUT_LINE('Esta es la informacion');
+DBMS_OUTPUT.PUT_LINE('-----------------------');
 
 
-loop 
-fetch cursor_equipo into enombre,jnombre,jnacionalidad,jnickname,jrol,cnombre;
-        EXIT WHEN cursor_equipo%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('Nombre del equipo: ' || enombre);
-        DBMS_OUTPUT.PUT_LINE('Nombre del jugador: ' || jnombre);
-        DBMS_OUTPUT.PUT_LINE('Nacionalidad: ' || jnacionalidad);
-        DBMS_OUTPUT.PUT_LINE('Nickname: ' || jnickname);
-        DBMS_OUTPUT.PUT_LINE('Rol: ' || jrol);
-        DBMS_OUTPUT.PUT_LINE('Nombre de la competicion: ' || cnombre);
+LOOP 
+FETCH CURSOR_EQUIPO INTO ENOMBRE,JNOMBRE,JNACIONALIDAD,JNICKNAME,JROL,CNOMBRE;
+        EXIT WHEN CURSOR_EQUIPO%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('Nombre del equipo: ' || ENOMBRE);
+        DBMS_OUTPUT.PUT_LINE('Nombre del jugador: ' || JNOMBRE);
+        DBMS_OUTPUT.PUT_LINE('Nacionalidad: ' || JNACIONALIDAD);
+        DBMS_OUTPUT.PUT_LINE('Nickname: ' || JNICKNAME);
+        DBMS_OUTPUT.PUT_LINE('Rol: ' || JROL);
+        DBMS_OUTPUT.PUT_LINE('Nombre de la competicion: ' || CNOMBRE);
         DBMS_OUTPUT.PUT_LINE('-----------------------');
-end loop;
-end;
+END LOOP;
+END;
 /*Para poder probarlo*/
-execute info_general('Team Delta')
+EXECUTE INFO_GENERAL('Team Delta')

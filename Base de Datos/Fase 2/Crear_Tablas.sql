@@ -1,207 +1,207 @@
 /*Esto son los drops de las tablas*/
-drop table equipos cascade constraints;
-drop table jugadores cascade constraints;
-drop table staff cascade constraints;
-drop table juegos cascade constraints;
-drop table competiciones cascade constraints;
-drop table jornadas cascade constraints;
-drop table enfrentamientos cascade constraints;
-drop table usuarios cascade constraints;
-drop table patrocinadores cascade constraints;
-drop table patrocinadores_equipos cascade constraints;
-drop table equipo_competicion cascade constraints;
+DROP TABLE EQUIPOS CASCADE CONSTRAINTS;
+DROP TABLE JUGADORES CASCADE CONSTRAINTS;
+DROP TABLE STAFF CASCADE CONSTRAINTS;
+DROP TABLE JUEGOS CASCADE CONSTRAINTS;
+DROP TABLE COMPETICIONES CASCADE CONSTRAINTS;
+DROP TABLE JORNADAS CASCADE CONSTRAINTS;
+DROP TABLE ENFRENTAMIENTOS CASCADE CONSTRAINTS;
+DROP TABLE USUARIOS CASCADE CONSTRAINTS;
+DROP TABLE PATROCINADORES CASCADE CONSTRAINTS;
+DROP TABLE PATROCINADORES_EQUIPOS CASCADE CONSTRAINTS;
+DROP TABLE EQUIPO_COMPETICION CASCADE CONSTRAINTS;
 /*Fin de los drop de las tablas*/
 
 /*Creacion de las tablas*/
-create table equipos (
-    cod_equipo number(5) 
-        generated always as identity (start with 1) primary key,
-    nombre varchar2 (50) not null,
-    fecha_fundacion date not null
+CREATE TABLE EQUIPOS (
+    COD_EQUIPO NUMBER(5) 
+        GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY,
+    NOMBRE VARCHAR2 (50) NOT NULL,
+    FECHA_FUNDACION DATE NOT NULL
 );
-create table jugadores(
-    cod_jugador number(5)generated always as identity(start with 1)primary key,
-    nombre_jugador varchar2 (50) not null,
-    nacionalidad varchar2(50) not null,
-    fecha_nac date not null,
-    nickname varchar2(20) not null,
-    rol varchar2(10) not null,
-    sueldo number(7) not null,
-    cod_equipo number(5)
+CREATE TABLE JUGADORES(
+    COD_JUGADOR NUMBER(5)GENERATED ALWAYS AS IDENTITY(START WITH 1)PRIMARY KEY,
+    NOMBRE_JUGADOR VARCHAR2 (50) NOT NULL,
+    NACIONALIDAD VARCHAR2(50) NOT NULL,
+    FECHA_NAC DATE NOT NULL,
+    NICKNAME VARCHAR2(20) NOT NULL,
+    ROL VARCHAR2(10) NOT NULL,
+    SUELDO NUMBER(7) NOT NULL,
+    COD_EQUIPO NUMBER(5)
 );
-create table staff(
-    cod_staff number(5) generated always as identity(start with 1)primary key,
-    nombre varchar2 (50) not null,
-    cargo varchar2(50) not null,
-    sueldo float(7)not null,
-    cod_equipo number(5)
+CREATE TABLE STAFF(
+    COD_STAFF NUMBER(5) GENERATED ALWAYS AS IDENTITY(START WITH 1)PRIMARY KEY,
+    NOMBRE VARCHAR2 (50) NOT NULL,
+    CARGO VARCHAR2(50) NOT NULL,
+    SUELDO FLOAT(7)NOT NULL,
+    COD_EQUIPO NUMBER(5)
 
 );
-create table competiciones (
-    cod_compe number(5) generated always as identity (start with 1) primary key,
-    nombre varchar2 (50) not null,
-    fecha_inicio date not null,
-    fecha_fin date not null,
-    curso number(1) not null,
-    equipo_ganador number(5),
-    cod_juego number(5) not null
+CREATE TABLE COMPETICIONES (
+    COD_COMPE NUMBER(5) GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY,
+    NOMBRE VARCHAR2 (50) NOT NULL,
+    FECHA_INICIO DATE NOT NULL,
+    FECHA_FIN DATE NOT NULL,
+    CURSO NUMBER(1) NOT NULL,
+    EQUIPO_GANADOR NUMBER(5),
+    COD_JUEGO NUMBER(5) NOT NULL
 );
-create table juegos(
-    cod_juego number(5) generated always as identity (start with 1) primary key,
-    nombre varchar2 (50) not null,
-    desarrolladora varchar2 (50) not null,
-    fecha_lanzamiento date not null
+CREATE TABLE JUEGOS(
+    COD_JUEGO NUMBER(5) GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY,
+    NOMBRE VARCHAR2 (50) NOT NULL,
+    DESARROLLADORA VARCHAR2 (50) NOT NULL,
+    FECHA_LANZAMIENTO DATE NOT NULL
 );
-create table jornadas (
-    cod_jornadas number(5)
-        generated always as identity (start with 1) primary key,
-    num_jornada number(3) not null,
-    dia date not null,
-    cod_compe number(5) not null
+CREATE TABLE JORNADAS (
+    COD_JORNADAS NUMBER(5)
+        GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY,
+    NUM_JORNADA NUMBER(3) NOT NULL,
+    DIA DATE NOT NULL,
+    COD_COMPE NUMBER(5) NOT NULL
 );
-create table enfrentamientos(
-    cod_enfrentamiento number(5) 
-        generated always as identity (start with 1) primary key,
-    fecha date not null,
-    cod_jornada number(5) not null,
-    hora varchar2(5) not null,
-    resultado varchar2(30),
-    cod_equipo_local number(5) not null,
-    cod_equipo_visitante number(5) not null
+CREATE TABLE ENFRENTAMIENTOS(
+    COD_ENFRENTAMIENTO NUMBER(5) 
+        GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY,
+    FECHA DATE NOT NULL,
+    COD_JORNADA NUMBER(5) NOT NULL,
+    HORA VARCHAR2(5) NOT NULL,
+    RESULTADO VARCHAR2(30),
+    COD_EQUIPO_LOCAL NUMBER(5) NOT NULL,
+    COD_EQUIPO_VISITANTE NUMBER(5) NOT NULL
 );
-create table usuarios (
-    cod_usuario number(3)
-        generated always as identity (start with 1) primary key,
-    tipo varchar2(20) not null,
-    contraseña varchar2(50) not null
+CREATE TABLE USUARIOS (
+    COD_USUARIO NUMBER(3)
+        GENERATED ALWAYS AS IDENTITY (START WITH 1) PRIMARY KEY,
+    TIPO VARCHAR2(20) NOT NULL,
+    CONTRASEÑA VARCHAR2(50) NOT NULL
 );
-create table patrocinadores(
-    cod_patrocinadores number(5)generated always as identity (start with 1)
-                                                              primary key,
-    nombre varchar2(100) not null
+CREATE TABLE PATROCINADORES(
+    COD_PATROCINADORES NUMBER(5)GENERATED ALWAYS AS IDENTITY (START WITH 1)
+                                                              PRIMARY KEY,
+    NOMBRE VARCHAR2(100) NOT NULL
 );
-create table patrocinadores_equipos(
-    cod_patr_equi number(5)generated always as identity(start with 1)
-                                                        primary key,
-    cod_patrocinadores number(5) not null,
-    cod_equipo number(5) not null
+CREATE TABLE PATROCINADORES_EQUIPOS(
+    COD_PATR_EQUI NUMBER(5)GENERATED ALWAYS AS IDENTITY(START WITH 1)
+                                                        PRIMARY KEY,
+    COD_PATROCINADORES NUMBER(5) NOT NULL,
+    COD_EQUIPO NUMBER(5) NOT NULL
 );
-create table equipo_competicion(
-    cod_equipo_compe number(5) generated always as identity (start with 1) 
-                                                            primary key,
-    cod_equipo number(5) not null,
-    cod_competicion number(5) not null,
-    puntos number(3) not null
+CREATE TABLE EQUIPO_COMPETICION(
+    COD_EQUIPO_COMPE NUMBER(5) GENERATED ALWAYS AS IDENTITY (START WITH 1) 
+                                                            PRIMARY KEY,
+    COD_EQUIPO NUMBER(5) NOT NULL,
+    COD_COMPETICION NUMBER(5) NOT NULL,
+    PUNTOS NUMBER(3) NOT NULL
 );
 
  /*Fin de creacion de tablas*/
 
 
 /*Comenzamos con las claves foraneas*/
-alter table jugadores 
-add constraint fk_equipo_en_jugador 
-foreign key (cod_equipo) 
-references equipos (cod_equipo);
+ALTER TABLE JUGADORES 
+ADD CONSTRAINT FK_EQUIPO_EN_JUGADOR 
+FOREIGN KEY (COD_EQUIPO) 
+REFERENCES EQUIPOS (COD_EQUIPO);
 
-alter table enfrentamientos
-add constraint fk_jornada
-foreign key (cod_jornada)
-references jornadas(cod_jornadas);
+ALTER TABLE ENFRENTAMIENTOS
+ADD CONSTRAINT FK_JORNADA
+FOREIGN KEY (COD_JORNADA)
+REFERENCES JORNADAS(COD_JORNADAS);
 
-alter table staff 
-add constraint fk_equipo_en_staff
-foreign key (cod_equipo)
-references equipos (cod_equipo);
+ALTER TABLE STAFF 
+ADD CONSTRAINT FK_EQUIPO_EN_STAFF
+FOREIGN KEY (COD_EQUIPO)
+REFERENCES EQUIPOS (COD_EQUIPO);
 
-alter table competiciones 
-add constraint fk_juego_en_compe
-foreign key (cod_juego)
-references juegos(cod_juego); 
+ALTER TABLE COMPETICIONES 
+ADD CONSTRAINT FK_JUEGO_EN_COMPE
+FOREIGN KEY (COD_JUEGO)
+REFERENCES JUEGOS(COD_JUEGO); 
 
-alter table jornadas
-add constraint fk_competicion_en_jornada
-foreign key (cod_compe)
-references competiciones(cod_compe);  
+ALTER TABLE JORNADAS
+ADD CONSTRAINT FK_COMPETICION_EN_JORNADA
+FOREIGN KEY (COD_COMPE)
+REFERENCES COMPETICIONES(COD_COMPE);  
 
-alter table enfrentamientos
-add constraint fk_equipo_local
-foreign key (cod_equipo_local)
-references equipos(cod_equipo); 
+ALTER TABLE ENFRENTAMIENTOS
+ADD CONSTRAINT FK_EQUIPO_LOCAL
+FOREIGN KEY (COD_EQUIPO_LOCAL)
+REFERENCES EQUIPOS(COD_EQUIPO); 
 
-alter table enfrentamientos
-add constraint fk_equipo_visitante
-foreign key (cod_equipo_visitante)
-references equipos(cod_equipo); 
+ALTER TABLE ENFRENTAMIENTOS
+ADD CONSTRAINT FK_EQUIPO_VISITANTE
+FOREIGN KEY (COD_EQUIPO_VISITANTE)
+REFERENCES EQUIPOS(COD_EQUIPO); 
 
-alter table patrocinadores_equipos
-add constraint fk_patro_en_patro_equipos
-foreign key (cod_patrocinadores) 
-references patrocinadores(cod_patrocinadores);
+ALTER TABLE PATROCINADORES_EQUIPOS
+ADD CONSTRAINT FK_PATRO_EN_PATRO_EQUIPOS
+FOREIGN KEY (COD_PATROCINADORES) 
+REFERENCES PATROCINADORES(COD_PATROCINADORES);
 
-alter table patrocinadores_equipos
-add constraint fk_equipos_en_patro_equipos
-foreign key (cod_equipo) 
-references equipos(cod_equipo);
+ALTER TABLE PATROCINADORES_EQUIPOS
+ADD CONSTRAINT FK_EQUIPOS_EN_PATRO_EQUIPOS
+FOREIGN KEY (COD_EQUIPO) 
+REFERENCES EQUIPOS(COD_EQUIPO);
 
-alter table equipo_competicion
-add constraint fk_equipo_equipo_compe
-foreign key (cod_equipo)
-references equipos(cod_equipo);
+ALTER TABLE EQUIPO_COMPETICION
+ADD CONSTRAINT FK_EQUIPO_EQUIPO_COMPE
+FOREIGN KEY (COD_EQUIPO)
+REFERENCES EQUIPOS(COD_EQUIPO);
 
-alter table equipo_competicion
-add constraint fk_compe_equipo_compe
-foreign key (cod_competicion)
-references competiciones(cod_compe);
+ALTER TABLE EQUIPO_COMPETICION
+ADD CONSTRAINT FK_COMPE_EQUIPO_COMPE
+FOREIGN KEY (COD_COMPETICION)
+REFERENCES COMPETICIONES(COD_COMPE);
 /*Fin de las claves foraneas*/
 
 /*Comenzamos con los check*/
-alter table jugadores
-add constraint chck_sueldo_jugadores
-check (sueldo>1323)
+ALTER TABLE JUGADORES
+ADD CONSTRAINT CHCK_SUELDO_JUGADORES
+CHECK (SUELDO>1323)
 ;
 
-alter table staff
-add constraint chck_cargo_staff
-check (cargo in('Asistente','Entrenador'))
+ALTER TABLE STAFF
+ADD CONSTRAINT CHCK_CARGO_STAFF
+CHECK (CARGO IN('Asistente','Entrenador'))
 ;
 
-alter table staff
-add constraint chck_sueldo_staff
-check (sueldo>1323)
+ALTER TABLE STAFF
+ADD CONSTRAINT CHCK_SUELDO_STAFF
+CHECK (SUELDO>1323)
 ;
 
-alter table competiciones
-add constraint chck_curso_compe
-check (curso in(0,1))
+ALTER TABLE COMPETICIONES
+ADD CONSTRAINT CHCK_CURSO_COMPE
+CHECK (CURSO IN(0,1))
 ;
 
-alter table usuarios
-add constraint chck_tipo_usu
-check (tipo in('Administrador','Usuario'))
+ALTER TABLE USUARIOS
+ADD CONSTRAINT CHCK_TIPO_USU
+CHECK (TIPO IN('Administrador','Usuario'))
 ;
 /*Fin de los check*/
 
 
 /*Creacion de las vistas*/
 /*Para hacer la consulta de quienes son los juegadores de cada equipo equipo*/
-create or replace view jugadores_equipo as
-select j.nombre_jugador, j.nacionalidad, j.rol, j.sueldo, e.nombre "Equipo" 
-from jugadores j
-join equipos e
-on e.cod_equipo=j.cod_equipo order by e.cod_equipo;
+CREATE OR REPLACE VIEW JUGADORES_EQUIPO AS
+SELECT J.NOMBRE_JUGADOR, J.NACIONALIDAD, J.ROL, J.SUELDO, E.NOMBRE "EQUIPO" 
+FROM JUGADORES J
+JOIN EQUIPOS E
+ON E.COD_EQUIPO=J.COD_EQUIPO ORDER BY E.COD_EQUIPO;
 /*Consulta para saber que tipos de torneos pueden existir y sus fechas de 
 inicio y fin*/
-create or replace view juegos_compe as
-select j.cod_juego, j.nombre"juego", c.nombre, c.fecha_inicio, c.fecha_fin 
-from juegos j 
-join competiciones c 
-on j.cod_juego = c.cod_juego;
+CREATE OR REPLACE VIEW JUEGOS_COMPE AS
+SELECT J.COD_JUEGO, J.NOMBRE"JUEGO", C.NOMBRE, C.FECHA_INICIO, C.FECHA_FIN 
+FROM JUEGOS J 
+JOIN COMPETICIONES C 
+ON J.COD_JUEGO = C.COD_JUEGO;
 /*Los equipos y que competiciones juegan*/
-create or replace view equipos_compe as
-SELECT e.cod_equipo, e.nombre AS nombre_equipo, c.cod_compe, 
-c.nombre AS nombre_competicion, c.cod_juego, j.nombre AS nombre_juego
-FROM equipos e
-JOIN equipo_competicion ec ON e.cod_equipo = ec.cod_equipo
-JOIN competiciones c ON c.cod_compe = ec.cod_competicion
-JOIN juegos j ON j.cod_juego = c.cod_juego
-order by e.nombre;
+CREATE OR REPLACE VIEW EQUIPOS_COMPE AS
+SELECT E.COD_EQUIPO, E.NOMBRE AS NOMBRE_EQUIPO, C.COD_COMPE, 
+C.NOMBRE AS NOMBRE_COMPETICION, C.COD_JUEGO, J.NOMBRE AS NOMBRE_JUEGO
+FROM EQUIPOS E
+JOIN EQUIPO_COMPETICION EC ON E.COD_EQUIPO = EC.COD_EQUIPO
+JOIN COMPETICIONES C ON C.COD_COMPE = EC.COD_COMPETICION
+JOIN JUEGOS J ON J.COD_JUEGO = C.COD_JUEGO
+ORDER BY E.NOMBRE;
