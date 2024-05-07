@@ -6,7 +6,7 @@ import java.sql.Date;
 
 @Entity
 public class Enfrentamientos {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_ENFRENTAMIENTO")
     private short codEnfrentamiento;
@@ -31,12 +31,6 @@ public class Enfrentamientos {
     @ManyToOne
     @JoinColumn(name = "COD_JORNADA", referencedColumnName = "COD_JORNADAS", nullable = false)
     private Jornadas jornadasByCodJornada;
-    @ManyToOne
-    @JoinColumn(name = "COD_EQUIPO_LOCAL", referencedColumnName = "COD_EQUIPO", nullable = false)
-    private Equipos equiposByCodEquipoLocal;
-    @ManyToOne
-    @JoinColumn(name = "COD_EQUIPO_VISITANTE", referencedColumnName = "COD_EQUIPO", nullable = false)
-    private Equipos equiposByCodEquipoVisitante;
 
     public short getCodEnfrentamiento() {
         return codEnfrentamiento;
@@ -130,21 +124,5 @@ public class Enfrentamientos {
 
     public void setJornadasByCodJornada(Jornadas jornadasByCodJornada) {
         this.jornadasByCodJornada = jornadasByCodJornada;
-    }
-
-    public Equipos getEquiposByCodEquipoLocal() {
-        return equiposByCodEquipoLocal;
-    }
-
-    public void setEquiposByCodEquipoLocal(Equipos equiposByCodEquipoLocal) {
-        this.equiposByCodEquipoLocal = equiposByCodEquipoLocal;
-    }
-
-    public Equipos getEquiposByCodEquipoVisitante() {
-        return equiposByCodEquipoVisitante;
-    }
-
-    public void setEquiposByCodEquipoVisitante(Equipos equiposByCodEquipoVisitante) {
-        this.equiposByCodEquipoVisitante = equiposByCodEquipoVisitante;
     }
 }

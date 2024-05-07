@@ -3,11 +3,10 @@ package Modelo;
 import jakarta.persistence.*;
 
 import java.sql.Date;
-import java.util.Collection;
 
 @Entity
 public class Competiciones {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_COMPE")
     private short codCompe;
@@ -29,13 +28,6 @@ public class Competiciones {
     @Basic
     @Column(name = "COD_JUEGO")
     private short codJuego;
-    @ManyToOne
-    @JoinColumn(name = "COD_JUEGO", referencedColumnName = "COD_JUEGO", nullable = false)
-    private Juegos juegosByCodJuego;
-    @OneToMany(mappedBy = "competicionesByCodCompeticion")
-    private Collection<EquipoCompeticion> equipoCompeticionsByCodCompe;
-    @OneToMany(mappedBy = "competicionesByCodCompe")
-    private Collection<Jornadas> jornadasByCodCompe;
 
     public short getCodCompe() {
         return codCompe;
@@ -122,29 +114,5 @@ public class Competiciones {
         result = 31 * result + (equipoGanador != null ? equipoGanador.hashCode() : 0);
         result = 31 * result + (int) codJuego;
         return result;
-    }
-
-    public Juegos getJuegosByCodJuego() {
-        return juegosByCodJuego;
-    }
-
-    public void setJuegosByCodJuego(Juegos juegosByCodJuego) {
-        this.juegosByCodJuego = juegosByCodJuego;
-    }
-
-    public Collection<EquipoCompeticion> getEquipoCompeticionsByCodCompe() {
-        return equipoCompeticionsByCodCompe;
-    }
-
-    public void setEquipoCompeticionsByCodCompe(Collection<EquipoCompeticion> equipoCompeticionsByCodCompe) {
-        this.equipoCompeticionsByCodCompe = equipoCompeticionsByCodCompe;
-    }
-
-    public Collection<Jornadas> getJornadasByCodCompe() {
-        return jornadasByCodCompe;
-    }
-
-    public void setJornadasByCodCompe(Collection<Jornadas> jornadasByCodCompe) {
-        this.jornadasByCodCompe = jornadasByCodCompe;
     }
 }
