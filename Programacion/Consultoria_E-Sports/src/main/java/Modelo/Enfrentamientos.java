@@ -6,7 +6,7 @@ import java.sql.Date;
 
 @Entity
 public class Enfrentamientos {
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_ENFRENTAMIENTO")
     private short codEnfrentamiento;

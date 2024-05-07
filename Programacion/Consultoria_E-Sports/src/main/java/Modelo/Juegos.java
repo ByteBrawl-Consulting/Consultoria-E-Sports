@@ -4,12 +4,10 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Juegos {
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_JUEGO")
     private short codJuego;
