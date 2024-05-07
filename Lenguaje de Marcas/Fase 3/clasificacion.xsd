@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="RESULTS">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="ROW" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="ROW">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="COLUMN">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="NAME" type="xs:string" use="required" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="Clasificacion">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="Equipo" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="Equipo">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="Nombre" type="NombreType" />
+            <xs:element name="Puntos" type="PuntosType" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+    <xs:simpleType name="PuntosType">
+        <xs:restriction base="xs:integer" />
+    </xs:simpleType>
+
+        <xs:simpleType name="NombreType">
+            <xs:restriction base="xs:string" />
+        </xs:simpleType>
+</xs:schema>
