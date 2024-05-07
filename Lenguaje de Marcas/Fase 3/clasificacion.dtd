@@ -3,7 +3,6 @@
 <!ELEMENT COLUMN (#PCDATA)>
 <!ATTLIST COLUMN
     NAME CDATA #REQUIRED>
-
 <!ELEMENT Clasificacion (Equipo+)>
 <!ELEMENT Equipo (Nombre, Puntos)>
 <!ELEMENT Nombre (#PCDATA)>
