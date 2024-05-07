@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="RESULTS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ROW" type="trow" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="trow">
+        <xs:sequence>
+            <xs:element name="COLUMN" type="tcolumn" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tcolumn">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="NAME" type="xs:string" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:element name="Jornadas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Jornada" type="tjornada" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="tjornada">
+        <xs:sequence>
+            <xs:element name="Codigo_Jornada" type="xs:integer" />
+            <xs:element name="Numero_Jornada" type="xs:integer" />
+            <xs:element name="Enfrentamientos" type="tenfrentamientos" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tenfrentamientos">
+        <xs:sequence>
+            <xs:element name="Enfrentamiento" type="tenfrentamiento" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tenfrentamiento">
+        <xs:sequence>
+            <xs:element name="Codigo_Enfrentamiento" type="xs:integer" />
+            <xs:element name="Equipo_Local" type="xs:string" />
+            <xs:element name="Equipo_Visitante" type="xs:string" />
+            <xs:element name="Ganador" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
