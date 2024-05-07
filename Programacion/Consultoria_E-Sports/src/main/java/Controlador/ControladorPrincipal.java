@@ -1,7 +1,6 @@
 package Controlador;
 
 import Controlador.BaseDeDatos.ControladorBaseDeDatos;
-import Controlador.Login.ControladorLogin;
 import Modelo.Usuarios;
 
 public class ControladorPrincipal {

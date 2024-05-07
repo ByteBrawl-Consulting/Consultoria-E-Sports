@@ -3,11 +3,10 @@ package Modelo;
 import jakarta.persistence.*;
 
 import java.sql.Date;
-import java.util.Collection;
 
 @Entity
 public class Jornadas {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_JORNADAS")
     private short codJornadas;
@@ -20,11 +19,6 @@ public class Jornadas {
     @Basic
     @Column(name = "COD_COMPE")
     private short codCompe;
-    @OneToMany(mappedBy = "jornadasByCodJornada")
-    private Collection<Enfrentamientos> enfrentamientosByCodJornadas;
-    @ManyToOne
-    @JoinColumn(name = "COD_COMPE", referencedColumnName = "COD_COMPE", nullable = false)
-    private Competiciones competicionesByCodCompe;
 
     public short getCodJornadas() {
         return codJornadas;
@@ -80,21 +74,5 @@ public class Jornadas {
         result = 31 * result + (dia != null ? dia.hashCode() : 0);
         result = 31 * result + (int) codCompe;
         return result;
-    }
-
-    public Collection<Enfrentamientos> getEnfrentamientosByCodJornadas() {
-        return enfrentamientosByCodJornadas;
-    }
-
-    public void setEnfrentamientosByCodJornadas(Collection<Enfrentamientos> enfrentamientosByCodJornadas) {
-        this.enfrentamientosByCodJornadas = enfrentamientosByCodJornadas;
-    }
-
-    public Competiciones getCompeticionesByCodCompe() {
-        return competicionesByCodCompe;
-    }
-
-    public void setCompeticionesByCodCompe(Competiciones competicionesByCodCompe) {
-        this.competicionesByCodCompe = competicionesByCodCompe;
     }
 }

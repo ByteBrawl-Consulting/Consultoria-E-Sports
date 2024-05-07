@@ -3,9 +3,9 @@ package Modelo;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "PATROCINADORES_EQUIPOS", schema = "EQDAW04", catalog = "")
+@Table(name = "PATROCINADORES_EQUIPOS", schema = "EQDAW04")
 public class PatrocinadoresEquipos {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_PATR_EQUI")
     private short codPatrEqui;
@@ -16,10 +16,6 @@ public class PatrocinadoresEquipos {
     @Column(name = "COD_EQUIPO")
     private short codEquipo;
     @ManyToOne
-    @JoinColumn(name = "COD_PATROCINADORES", referencedColumnName = "COD_PATROCINADORES", nullable = false)
-    private Patrocinadores patrocinadoresByCodPatrocinadores;
-    @ManyToOne
-    @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO", nullable = false)
     private Equipos equiposByCodEquipo;
 
     public short getCodPatrEqui() {
@@ -66,21 +62,5 @@ public class PatrocinadoresEquipos {
         result = 31 * result + (int) codPatrocinadores;
         result = 31 * result + (int) codEquipo;
         return result;
-    }
-
-    public Patrocinadores getPatrocinadoresByCodPatrocinadores() {
-        return patrocinadoresByCodPatrocinadores;
-    }
-
-    public void setPatrocinadoresByCodPatrocinadores(Patrocinadores patrocinadoresByCodPatrocinadores) {
-        this.patrocinadoresByCodPatrocinadores = patrocinadoresByCodPatrocinadores;
-    }
-
-    public Equipos getEquiposByCodEquipo() {
-        return equiposByCodEquipo;
-    }
-
-    public void setEquiposByCodEquipo(Equipos equiposByCodEquipo) {
-        this.equiposByCodEquipo = equiposByCodEquipo;
     }
 }

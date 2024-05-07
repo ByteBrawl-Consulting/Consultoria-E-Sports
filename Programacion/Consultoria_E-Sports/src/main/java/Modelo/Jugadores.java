@@ -6,7 +6,7 @@ import java.sql.Date;
 
 @Entity
 public class Jugadores {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_JUGADOR")
     private short codJugador;
@@ -30,9 +30,9 @@ public class Jugadores {
     private int sueldo;
     @Basic
     @Column(name = "COD_EQUIPO")
-    private short codEquipo;
+    private Short codEquipo;
     @ManyToOne
-    @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO", nullable = false)
+    @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO")
     private Equipos equiposByCodEquipo;
 
     public short getCodJugador() {
@@ -91,11 +91,11 @@ public class Jugadores {
         this.sueldo = sueldo;
     }
 
-    public short getCodEquipo() {
+    public Short getCodEquipo() {
         return codEquipo;
     }
 
-    public void setCodEquipo(short codEquipo) {
+    public void setCodEquipo(Short codEquipo) {
         this.codEquipo = codEquipo;
     }
 
@@ -108,7 +108,6 @@ public class Jugadores {
 
         if (codJugador != jugadores.codJugador) return false;
         if (sueldo != jugadores.sueldo) return false;
-        if (codEquipo != jugadores.codEquipo) return false;
         if (nombreJugador != null ? !nombreJugador.equals(jugadores.nombreJugador) : jugadores.nombreJugador != null)
             return false;
         if (nacionalidad != null ? !nacionalidad.equals(jugadores.nacionalidad) : jugadores.nacionalidad != null)
@@ -116,6 +115,7 @@ public class Jugadores {
         if (fechaNac != null ? !fechaNac.equals(jugadores.fechaNac) : jugadores.fechaNac != null) return false;
         if (nickname != null ? !nickname.equals(jugadores.nickname) : jugadores.nickname != null) return false;
         if (rol != null ? !rol.equals(jugadores.rol) : jugadores.rol != null) return false;
+        if (codEquipo != null ? !codEquipo.equals(jugadores.codEquipo) : jugadores.codEquipo != null) return false;
 
         return true;
     }
@@ -129,7 +129,7 @@ public class Jugadores {
         result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
         result = 31 * result + (rol != null ? rol.hashCode() : 0);
         result = 31 * result + sueldo;
-        result = 31 * result + (int) codEquipo;
+        result = 31 * result + (codEquipo != null ? codEquipo.hashCode() : 0);
         return result;
     }
 

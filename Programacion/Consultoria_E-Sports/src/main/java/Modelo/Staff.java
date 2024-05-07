@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Staff {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_STAFF")
     private short codStaff;
@@ -19,9 +19,9 @@ public class Staff {
     private double sueldo;
     @Basic
     @Column(name = "COD_EQUIPO")
-    private short codEquipo;
+    private Short codEquipo;
     @ManyToOne
-    @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO", nullable = false)
+    @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO")
     private Equipos equiposByCodEquipo;
 
     public short getCodStaff() {
@@ -56,11 +56,11 @@ public class Staff {
         this.sueldo = sueldo;
     }
 
-    public short getCodEquipo() {
+    public Short getCodEquipo() {
         return codEquipo;
     }
 
-    public void setCodEquipo(short codEquipo) {
+    public void setCodEquipo(Short codEquipo) {
         this.codEquipo = codEquipo;
     }
 
@@ -72,10 +72,10 @@ public class Staff {
         Staff staff = (Staff) o;
 
         if (codStaff != staff.codStaff) return false;
-        if (Double.compare(sueldo, staff.sueldo) != 0) return false;
-        if (codEquipo != staff.codEquipo) return false;
+        if (Double.compare(staff.sueldo, sueldo) != 0) return false;
         if (nombre != null ? !nombre.equals(staff.nombre) : staff.nombre != null) return false;
         if (cargo != null ? !cargo.equals(staff.cargo) : staff.cargo != null) return false;
+        if (codEquipo != null ? !codEquipo.equals(staff.codEquipo) : staff.codEquipo != null) return false;
 
         return true;
     }
@@ -89,7 +89,7 @@ public class Staff {
         result = 31 * result + (cargo != null ? cargo.hashCode() : 0);
         temp = Double.doubleToLongBits(sueldo);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) codEquipo;
+        result = 31 * result + (codEquipo != null ? codEquipo.hashCode() : 0);
         return result;
     }
 
