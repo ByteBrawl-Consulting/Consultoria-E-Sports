@@ -1,235 +1,507 @@
 /*Equipos*/
-insert into equipos (nombre, fecha_fundacion) values
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
 ('Team Alpha', TO_DATE('01/01/2015', 'DD/MM/YYYY'));
-insert into equipos (nombre, fecha_fundacion) values
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
 ('Team Bravo', TO_DATE('15/07/2016', 'DD/MM/YYYY'));
-insert into equipos (nombre, fecha_fundacion) values
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
 ('Team Charlie', TO_DATE('10/03/2017', 'DD/MM/YYYY'));
-insert into equipos (nombre, fecha_fundacion) values
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
 ('Team Delta', TO_DATE('20/11/2018', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Echo', TO_DATE('12/10/2019', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Foxtrot', TO_DATE('10/08/2019', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Gamma', TO_DATE('01/01/2020', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Hippie', TO_DATE('25/07/2021', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Indy', TO_DATE('16/01/2022', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Jack', TO_DATE('14/10/2023', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Krack', TO_DATE('05/05/2024', 'DD/MM/YYYY'));
+INSERT INTO EQUIPOS (NOMBRE, FECHA_FUNDACION) VALUES
+('Team Lego', TO_DATE('30/09/2023', 'DD/MM/YYYY'));
 
 
 /*Jugadores*/
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('John Smith', 'Estados Unidos', '10/06/1995', 'xXxGamerxXx', 'ADC', 1500,2);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Maria Garcia', 'España', '10/03/1999', 'KillerQueen', 'Support', 1400,2); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Jung Min-woo', 'Corea del Sur', '19/02/1985', 'SniperKing', 'Jungler', 1600,2); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Luis Hernandez', 'México', '20/09/2000', 'AztecWarrior', 'Top', 1350,3); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Anna Schmidt', 'Alemania', '10/08/1955', 'Blitzkrieg', 'Mid', 1450,1); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Chen Wei', 'China', '10/11/1989', 'DragonMaster', 'ADC', 1550,2); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Ryuji Tanaka', 'Japón', '10/01/1975', 'SamuraiSlicer', 'Top', 1400,4); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Sofia Petrova', 'Rusia', '10/06/1995', 'IceQueen', 'Support', 1380,4); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Ricardo Silva', 'Brasil', '10/06/1995', 'SambaGod', 'Mid', 1420,1); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
 VALUES
-('Elias Nielsen', 'Dinamarca', '10/06/1995', 'VikingWarrior', 'Jungler', 1450,4); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
+('John Smith', 'Estados Unidos', '10/06/1995', 'xXxGamerxXx', 'ADC', 1500,2);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Maria Garcia', 'España', '10/03/1999', 'KillerQueen', 'Support', 1400,2); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Jung Min-woo', 'Corea del Sur', '19/02/1985','SniperKing', 'Jungler', 1600,2); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Luis Hernandez', 'México', '20/09/2000', 'AztecWarrior', 'Top', 1350,3); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Anna Schmidt', 'Alemania', '10/08/1955', 'Blitzkrieg', 'Mid', 1450,1); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Chen Wei', 'China', '10/11/1989', 'DragonMaster', 'ADC', 1550,2); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Ryuji Tanaka', 'Japón', '10/01/1975', 'SamuraiSlicer', 'Top', 1400,4); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Sofia Petrova', 'Rusia', '10/06/1995', 'IceQueen', 'Support', 1380,4); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Ricardo Silva', 'Brasil', '10/06/1995', 'SambaGod', 'Mid', 1420,1); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Elias Nielsen', 'Dinamarca', '10/06/1995', 'VikingWarrior','Jungler', 1450,4); 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
 ('Ahmed Hassan', 'Egipto', '10/06/1995', 'Pharaoh', 'ADC', 1600,1); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Lee Sung-hoon', 'Corea del Sur', '10/06/1995', 'NinjaAssassin', 'Mid', 1480,1);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
-('Mateo Fernandez', 'Argentina', '10/06/1995', 'TangoMaster', 'Support', 1375,4);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Lee Sung-hoon', 'Corea del Sur', '10/06/1995', 'NinjaAssassin','Mid', 1480,1);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
+('Mateo Fernandez', 'Argentina', '10/06/1995', 'TangoMaster','Support', 1375,4);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
 ('Katarina Ivanova', 'Bulgaria', '10/06/1995', 'DarkKnightess', 'Mid', 1360,3);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
 ('Luca Rossi', 'Italia', '10/06/1995', 'Gladiator', 'Top', 1500,3); 
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
 ('Haruto Yamamoto', 'Japón', '10/06/1995', 'Ronin', 'Jungler', 1450,3);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
 ('Miguel Rodriguez', 'España', '10/06/1995', 'Matador', 'ADC', 1550,1);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
 VALUES
 ('Nadia Kovalenko', 'Ucrania', '10/06/1995', 'Blizzard', 'Support', 1400,2);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
 ('Andrei Popescu', 'Rumania', '10/06/1995', 'CountDracula', 'Mid', 1450,4);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES
 ('Tobias Jensen', 'Dinamarca', '10/06/1995', 'Thundergod', 'Top', 1400,3);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES 
 ('Maria Lujan', 'España', '25/05/2000', 'YHLQMDLG', 'Jungler', 1500, 1);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES 
 ('Jorge McPen', 'Rusia', '15/07/1995', 'Pepelu', 'ADC', 1500, 2);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES 
 ('Ghuan Yu Zou', 'Japón', '10/12/1998', 'TKLI', 'Support', 1500, 3);
-insert into jugadores (nombre_jugador,nacionalidad,
-fecha_nac,nickname,rol,sueldo,cod_equipo)
-values 
+INSERT INTO JUGADORES (NOMBRE_JUGADOR,NACIONALIDAD,
+FECHA_NAC,NICKNAME,ROL,SUELDO,COD_EQUIPO)
+VALUES 
 ('Jose Luis', 'España', '30/01/2001', 'JL', 'Mid', 1500, 4);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC,
+NICKNAME, ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Juan Perez', 'España', TO_DATE('15/01/1995', 'DD/MM/YYYY')
+, 'JPerez', 'Mid', 1350, 5);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Carlos Gomez', 'Argentina', TO_DATE('20/02/1996', 'DD/MM/YYYY'),
+'CGomez', 'Top', 1350, 5);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Lucia Santos', 'Chile', TO_DATE('10/03/1997', 'DD/MM/YYYY'),
+'LSantos', 'ADC', 1400, 5);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Pedro López', 'Uruguay', TO_DATE('05/04/1998', 'DD/MM/YYYY'),
+'PLopez', 'Jungle', 1500, 5);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME, ROL,
+SUELDO, COD_EQUIPO) 
+VALUES ('Marta Ruiz', 'Brasil', TO_DATE('18/05/1994', 'DD/MM/YYYY'), 'MRuiz',
+'Support', 1350, 6);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME, ROL,
+SUELDO, COD_EQUIPO) 
+VALUES ('Fernando Suarez', 'México', TO_DATE('22/06/1995', 'DD/MM/YYYY'),
+'FSuarez', 'Mid', 1350, 6);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME, ROL,
+SUELDO, COD_EQUIPO) 
+VALUES ('Ana Garcia', 'Colombia', TO_DATE('30/07/1996', 'DD/MM/YYYY'),
+'AGarcia', 'ADC', 1350, 6);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Sergio Diaz', 'España', TO_DATE('12/08/1997', 'DD/MM/YYYY'),
+'SDiaz', 'Jungle', 1450, 6);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME, ROL,
+SUELDO, COD_EQUIPO) 
+VALUES ('Lorena Torres', 'Perú', TO_DATE('15/09/1993', 'DD/MM/YYYY'),
+'LTorres', 'ADC', 1350, 7);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME, ROL,
+SUELDO, COD_EQUIPO) 
+VALUES ('Diego Moreno', 'Venezuela', TO_DATE('10/10/1994', 'DD/MM/YYYY'),
+'DMoreno', 'Top', 1350, 7);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME, ROL,
+SUELDO, COD_EQUIPO) 
+VALUES ('Gabriela Flores', 'Paraguay', TO_DATE('05/11/1995', 'DD/MM/YYYY'),
+'GFlores', 'Mid', 1400, 7);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Victor Ramos', 'España', TO_DATE('25/12/1996', 'DD/MM/YYYY'),
+'VRamos', 'Support', 1450, 7);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Emilio Cruz', 'Chile', TO_DATE('01/01/1995', 'DD/MM/YYYY'),
+'ECruz', 'Top', 1500, 8);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Silvia Vega', 'Brasil', TO_DATE('12/02/1996', 'DD/MM/YYYY'),
+'SVega', 'Mid', 1550, 8);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('José Martin', 'México', TO_DATE('15/03/1997', 'DD/MM/YYYY'),
+'JMartin', 'Jungle', 1600, 8);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Patricia Soto', 'Argentina', TO_DATE('20/04/1998', 'DD/MM/YYYY'),
+'PSoto', 'Support', 1650, 8);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Carlos Silva', 'Uruguay', TO_DATE('05/05/1994', 'DD/MM/YYYY'),
+'CSilva', 'Mid', 1350, 9);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Laura González', 'España', TO_DATE('10/06/1995', 'DD/MM/YYYY'),
+'LGonzalez', 'ADC', 1400, 9);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('María Diaz', 'Colombia', TO_DATE('15/07/1996', 'DD/MM/YYYY'),
+'MDiaz', 'Jungle', 1350, 9);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Rafael Torres', 'México', TO_DATE('22/08/1997', 'DD/MM/YYYY'),
+'RTorres', 'Support', 1350, 9);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME, ROL,
+SUELDO, COD_EQUIPO) 
+VALUES ('Daniel Perez', 'España', TO_DATE('01/01/1994', 'DD/MM/YYYY'),
+'DPerez', 'ADC', 1400, 10);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Nuria Castro', 'Argentina', TO_DATE('02/02/1995', 'DD/MM/YYYY'),
+'NCastro', 'Support', 1350, 10);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Francisco Romero', 'Chile', TO_DATE('15/03/1996', 'DD/MM/YYYY'),
+'FRomero', 'Top', 1350, 10);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Raquel González', 'México', TO_DATE('30/04/1997', 'DD/MM/YYYY'),
+'RGonzalez', 'Mid', 1350, 10);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Miguel Hernandez', 'España', TO_DATE('01/09/1995', 'DD/MM/YYYY'),
+'MHernandez', 'Mid', 1350, 11);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Carla Jimenez', 'Argentina', TO_DATE('10/10/1996', 'DD/MM/YYYY'),
+'CJimenez', 'Top', 1350, 11);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Juan Castillo', 'Chile', TO_DATE('15/11/1997', 'DD/MM/YYYY'),
+'JCastillo', 'ADC', 1350, 11);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Natalia Fernandez', 'Uruguay', TO_DATE('20/12/1998', 'DD/MM/YYYY'),
+'NFernandez', 'Jungle', 1400, 11);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Esteban Garcia', 'España', TO_DATE('01/01/1994', 'DD/MM/YYYY'),
+'EGarcia', 'Support', 1450, 12);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Clara Diaz', 'México', TO_DATE('05/02/1995', 'DD/MM/YYYY'),
+'CDiaz', 'Mid', 1350, 12);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Luis Perez', 'Brasil', TO_DATE('10/03/1996', 'DD/MM/YYYY'),
+'LPerez', 'Top', 1350, 12);
+INSERT INTO JUGADORES (NOMBRE_JUGADOR, NACIONALIDAD, FECHA_NAC, NICKNAME,
+ROL, SUELDO, COD_EQUIPO) 
+VALUES ('Ana Martinez', 'Colombia', TO_DATE('20/04/1997', 'DD/MM/YYYY'),
+'AMartinez', 'ADC', 1400, 12);
+
+
+
 
 
 /*Staff*/
-insert into staff (nombre,cargo,sueldo,cod_equipo) 
-values ('Alvaro','Entrenador',1400,1);
-insert into staff (nombre,cargo,sueldo,cod_equipo) 
-values ('Adrian','Entrenador',1325,2);
-insert into staff (nombre,cargo,sueldo,cod_equipo) 
-values ('Alberto','Entrenador',1600,3);
-insert into staff (nombre,cargo,sueldo,cod_equipo) 
-values ('Lucia','Entrenador',1500,4);
+INSERT INTO STAFF (NOMBRE,CARGO,SUELDO,COD_EQUIPO) 
+VALUES ('Alvaro','Entrenador',1400,1);
+INSERT INTO STAFF (NOMBRE,CARGO,SUELDO,COD_EQUIPO) 
+VALUES ('Adrian','Entrenador',1325,2);
+INSERT INTO STAFF (NOMBRE,CARGO,SUELDO,COD_EQUIPO) 
+VALUES ('Alberto','Entrenador',1600,3);
+INSERT INTO STAFF (NOMBRE,CARGO,SUELDO,COD_EQUIPO) 
+VALUES ('Lucia','Entrenador',1500,4);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Juan Carlos', 'Entrenador', 1500, 5);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Marta González', 'Entrenador', 1600, 6);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Pedro Martinez', 'Entrenador', 1700, 7);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Laura Ruiz', 'Entrenador', 1550, 8);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Carlos Fernandez', 'Entrenador', 1650, 9);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Ana Sánchez', 'Entrenador', 1750, 10);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Luis Gomez', 'Entrenador', 1800, 11);
+INSERT INTO STAFF (NOMBRE, CARGO, SUELDO, COD_EQUIPO)
+VALUES ('Sofía Romero', 'Entrenador', 1850, 12);
+
 
 
 /*Patrocinadores*/
-insert into patrocinadores (nombre) values
+INSERT INTO PATROCINADORES (NOMBRE) VALUES
 ('CyberTech Solutions');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('EliteGaming Gear');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('HyperXperience');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('NovaForce Gaming');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('Quantum eSports');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('Vortex Ventures');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('ThunderByte Technologies');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('PhoenixRise Corporation');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('TitanTech Innovations');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('Apex Alliance');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('SpectraSphere Gaming');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('Ignite Impact');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('VelocityVision');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('Zenith eSports');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('FusionForce Enterprises');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('AlphaStrike Solutions');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('Nexus Nexus Corporation');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('OmegaGaming Group');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('BlazeByte Brands');
-insert into patrocinadores (nombre) values 
+INSERT INTO PATROCINADORES (NOMBRE) VALUES 
 ('CrystalClear Sponsorship');
 
 
 /*Patrocinadores_equipo*/
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(1,2);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(1,15);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(1,5);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(2,1);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(2,11);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(2,4);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(3,12);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(3,10);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(4,20);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(4,12);
-insert into patrocinadores_equipos (cod_equipo, cod_patrocinadores)values(4,14);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(1,2);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(1,15);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(1,5);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(2,1);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(2,11);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(2,4);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(3,12);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(3,10);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(4,20);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(4,12);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(4,14);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(5,1);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(5,2);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(6,3);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(6,4);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(7,5);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(7,6);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(8,7);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(8,8);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(9,9);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(9,10);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(10,1);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(10,2);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(11,3);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(11,4);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(12,5);
+INSERT INTO PATROCINADORES_EQUIPOS (COD_EQUIPO, COD_PATROCINADORES)VALUES(12,6);
+
+
 
 /*Juegos*/
-insert into juegos (nombre,desarrolladora,fecha_lanzamiento) 
-values ('lol','Riot','10/10/2010');
-insert into juegos (nombre,desarrolladora,fecha_lanzamiento) 
-values ('Minecraft','Mojang','18/07/2012');
-insert into juegos (nombre,desarrolladora,fecha_lanzamiento) 
-values ('CSGO','Valve','11/12/2005');
-insert into juegos (nombre,desarrolladora,fecha_lanzamiento) 
-values ('Valorant','Riot','14/04/2020');
+INSERT INTO JUEGOS (NOMBRE,DESARROLLADORA,FECHA_LANZAMIENTO) 
+VALUES ('lol','Riot','10/10/2010');
+INSERT INTO JUEGOS (NOMBRE,DESARROLLADORA,FECHA_LANZAMIENTO) 
+VALUES ('Minecraft','Mojang','18/07/2012');
+INSERT INTO JUEGOS (NOMBRE,DESARROLLADORA,FECHA_LANZAMIENTO) 
+VALUES ('CSGO','Valve','11/12/2005');
+INSERT INTO JUEGOS (NOMBRE,DESARROLLADORA,FECHA_LANZAMIENTO) 
+VALUES ('Valorant','Riot','14/04/2020');
 
 
 /*Competicion*/
-insert into competiciones 
-(nombre,fecha_inicio,fecha_fin,curso,equipo_ganador,cod_juego)
-values('torneo 1','25/04/2020','25/05/2020',0,null,1);
-insert into competiciones 
-(nombre,fecha_inicio,fecha_fin,curso,equipo_ganador,cod_juego)
-values('torneo 2','20/10/2017','20/11/2017',0,null,2);
-insert into competiciones 
-(nombre,fecha_inicio,fecha_fin,curso,equipo_ganador,cod_juego)
-values('torneo 3','20/10/2019','20/10/2019',0,null,3);
-insert into competiciones 
-(nombre,fecha_inicio,fecha_fin,curso,equipo_ganador,cod_juego)
-values('torneo 4','15/08/2015','10/09/2015',0,null,4);
+INSERT INTO COMPETICIONES 
+(NOMBRE,FECHA_INICIO,FECHA_FIN,CURSO,EQUIPO_GANADOR,COD_JUEGO)
+VALUES('torneo 1','25/04/2020','25/05/2020',0,NULL,1);
+INSERT INTO COMPETICIONES 
+(NOMBRE,FECHA_INICIO,FECHA_FIN,CURSO,EQUIPO_GANADOR,COD_JUEGO)
+VALUES('torneo 2','20/10/2017','20/11/2017',0,NULL,2);
+INSERT INTO COMPETICIONES 
+(NOMBRE,FECHA_INICIO,FECHA_FIN,CURSO,EQUIPO_GANADOR,COD_JUEGO)
+VALUES('torneo 3','20/10/2019','20/10/2019',0,NULL,3);
+INSERT INTO COMPETICIONES 
+(NOMBRE,FECHA_INICIO,FECHA_FIN,CURSO,EQUIPO_GANADOR,COD_JUEGO)
+VALUES('torneo 4','15/08/2015','10/09/2015',0,NULL,4);
 
 
 /*Equipo_competicion*/
-insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(1,1,0);
-insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(2,1,0);
-insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(3,1,0);
-insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(4,1,0);
-insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(2,2,0);
-insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(3,2,0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (1, 1, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (2, 1, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (3, 1, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (4, 1, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (5, 2, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (6, 2, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (7, 2, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (8, 2, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (9, 3, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (10, 3, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (11, 4, 0);
+INSERT INTO EQUIPO_COMPETICION (COD_EQUIPO, COD_COMPETICION, PUNTOS) 
+VALUES (12, 4, 0);
 
 
 /*Usuarios*/
-insert into usuarios (tipo,contraseña)values('Usuario','12345');
-insert into usuarios (tipo,contraseña)values('Administrador','54321');
+INSERT INTO USUARIOS (TIPO,CONTRASEÑA)VALUES('Usuario','12345');
+INSERT INTO USUARIOS (TIPO,CONTRASEÑA)VALUES('Administrador','54321');
 
 /*Jornadas*/
-insert into jornadas (num_jornada, dia, cod_compe)
-values (1, TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1);
-insert into jornadas (num_jornada, dia, cod_compe)
-values (2, TO_DATE('08/03/2024', 'dd/MM/yyyy'), 1);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (1, TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (2, TO_DATE('08/03/2024', 'dd/MM/yyyy'), 1);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (3, TO_DATE('15/03/2024', 'dd/MM/yyyy'), 1);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (1, TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (2, TO_DATE('08/03/2024', 'dd/MM/yyyy'), 2);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (3, TO_DATE('15/03/2024', 'dd/MM/yyyy'), 2);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (1, TO_DATE('01/03/2024', 'dd/MM/yyyy'), 3);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (2, TO_DATE('08/03/2024', 'dd/MM/yyyy'), 3);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (3, TO_DATE('15/03/2024', 'dd/MM/yyyy'), 3);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (1, TO_DATE('01/03/2024', 'dd/MM/yyyy'), 4);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (2, TO_DATE('08/03/2024', 'dd/MM/yyyy'), 4);
+INSERT INTO JORNADAS (NUM_JORNADA, DIA, COD_COMPE)
+VALUES (3, TO_DATE('15/03/2024', 'dd/MM/yyyy'), 4);
 
 /*Enfrentamientos*/
-insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
-                            cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '16:00', null, 1, 2);
-insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
-                            cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '18:00', null, 3, 4);
-insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
-                            cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '10:00', null, 1, 2);
-insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
-                            cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '12:00', null, 3, 4);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '16:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 1), 1, 2);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 3), 3, 4);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('08/03/2024', 'dd/MM/yyyy'), 2, '16:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 3), 1, 3);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 4), 2, 4);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 3, '16:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 1), 1, 4);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 3, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 2), 2, 3);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 4, '16:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 5), 5, 6);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 4, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 7), 7, 8);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('08/03/2024', 'dd/MM/yyyy'), 5, '16:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 7), 5, 7);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 5, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 8), 6, 8);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 6, '16:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 5), 5, 8);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 6, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 6), 6, 7);   
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 7, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 9), 9, 10);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 8, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 9), 10, 9);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 9, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 11), 11, 12);
+INSERT INTO ENFRENTAMIENTOS (FECHA, COD_JORNADA, HORA, RESULTADO, 
+                            COD_EQUIPO_LOCAL, COD_EQUIPO_VISITANTE)
+VALUES (TO_DATE('15/03/2024', 'dd/MM/yyyy'), 10, '18:00', (
+    SELECT NOMBRE FROM EQUIPOS WHERE COD_EQUIPO = 11), 12, 11);

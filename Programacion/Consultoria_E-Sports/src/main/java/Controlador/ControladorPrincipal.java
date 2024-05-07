@@ -1,13 +1,18 @@
 package Controlador;
 
-import Controlador.Login.ControladorLogin;
+import Controlador.BaseDeDatos.ControladorBaseDeDatos;
+import Modelo.Usuarios;
 
 public class ControladorPrincipal {
-    private ControladorLogin cl;
+    private ControladorVista cv;
+    private ControladorBaseDeDatos cbd;
 
     public ControladorPrincipal() {
-        cl = new ControladorLogin();
+        cv=new ControladorVista(this);
+        cbd=new ControladorBaseDeDatos();
     }
-
+    public void login (Usuarios usu){
+    cbd.login(usu);
+    }
 
 }

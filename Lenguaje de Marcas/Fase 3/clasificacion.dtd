@@ -1,0 +1,8 @@
+<!ELEMENT RESULTS (ROW+)>
+<!ELEMENT ROW (COLUMN)>
+<!ELEMENT COLUMN (#PCDATA)>
+<!ATTLIST COLUMN NAME CDATA #REQUIRED>
+<!ELEMENT Clasificacion (Equipo+)>
+<!ELEMENT Equipo (Nombre, Puntos)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Puntos (#PCDATA)>

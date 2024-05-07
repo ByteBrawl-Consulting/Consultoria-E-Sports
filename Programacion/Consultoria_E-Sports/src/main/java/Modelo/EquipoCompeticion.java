@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "EQUIPO_COMPETICION", schema = "EQDAW04", catalog = "")
 public class EquipoCompeticion {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_EQUIPO_COMPE")
     private short codEquipoCompe;
@@ -15,12 +15,9 @@ public class EquipoCompeticion {
     @Basic
     @Column(name = "COD_COMPETICION")
     private short codCompeticion;
-    @ManyToOne
-    @JoinColumn(name = "COD_EQUIPO", referencedColumnName = "COD_EQUIPO", nullable = false)
-    private Equipos equiposByCodEquipo;
-    @ManyToOne
-    @JoinColumn(name = "COD_COMPETICION", referencedColumnName = "COD_COMPE", nullable = false)
-    private Competiciones competicionesByCodCompeticion;
+    @Basic
+    @Column(name = "PUNTOS")
+    private byte puntos;
 
     public short getCodEquipoCompe() {
         return codEquipoCompe;
@@ -46,6 +43,14 @@ public class EquipoCompeticion {
         this.codCompeticion = codCompeticion;
     }
 
+    public byte getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(byte puntos) {
+        this.puntos = puntos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,6 +61,7 @@ public class EquipoCompeticion {
         if (codEquipoCompe != that.codEquipoCompe) return false;
         if (codEquipo != that.codEquipo) return false;
         if (codCompeticion != that.codCompeticion) return false;
+        if (puntos != that.puntos) return false;
 
         return true;
     }
@@ -65,22 +71,7 @@ public class EquipoCompeticion {
         int result = (int) codEquipoCompe;
         result = 31 * result + (int) codEquipo;
         result = 31 * result + (int) codCompeticion;
+        result = 31 * result + (int) puntos;
         return result;
-    }
-
-    public Equipos getEquiposByCodEquipo() {
-        return equiposByCodEquipo;
-    }
-
-    public void setEquiposByCodEquipo(Equipos equiposByCodEquipo) {
-        this.equiposByCodEquipo = equiposByCodEquipo;
-    }
-
-    public Competiciones getCompeticionesByCodCompeticion() {
-        return competicionesByCodCompeticion;
-    }
-
-    public void setCompeticionesByCodCompeticion(Competiciones competicionesByCodCompeticion) {
-        this.competicionesByCodCompeticion = competicionesByCodCompeticion;
     }
 }

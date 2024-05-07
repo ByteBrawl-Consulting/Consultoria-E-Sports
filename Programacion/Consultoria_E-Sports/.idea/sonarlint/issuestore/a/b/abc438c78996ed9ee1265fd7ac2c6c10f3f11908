@@ -1,0 +1,26 @@
+
+a	java:S101 "MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¼¼)
+a	java:S101&"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(„ıL
+b	java:S101+"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ê«š›
+g	java:S1013"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ï¹²ıÿÿÿÿ
+g	java:S101O"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ê¥°úÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(İô¦à
+V	java:S1250"<This block of commented-out lines of code should be removed.(ş¨µçşÿÿÿÿ
+œ
+java:S1186<"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ
+—
+java:S1186A"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ
+œ
+java:S1186F"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ
+œ
+java:S1186K"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ
+œ
+java:S1186X"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®î’×üÿÿÿÿ
+—
+java:S1186]"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÆĞÂ
+œ
+java:S1186b"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö„˜şúÿÿÿÿ
+œ
+java:S1186g"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•ßçùÿÿÿÿ
+A
+java:S1068"&Remove this unused "cv" private field.(¡ÎÊİøÿÿÿÿ
