@@ -30,7 +30,7 @@ BEGIN
     WHERE fecha_consulta BETWEEN c.fecha_inicio AND c.fecha_fin
     GROUP BY j.nombre, c.fecha_inicio, c.fecha_fin, e.nombre, s.nombre;
 
-    DBMS_OUTPUT.PUT_LINE('Información de la competición:');
+    DBMS_OUTPUT.PUT_LINE('InformaciÃ³n de la competiciÃ³n:');
     LOOP
         FETCH cursor_info_competicion INTO nombre_juego, fecha_inicio, fecha_fin, nombre_equipo, nombre_staff, cantidad_jugadores;
         EXIT WHEN cursor_info_competicion%NOTFOUND;
@@ -50,3 +50,46 @@ BEGIN
     obtener_info_competicion (to_date('25/04/2020','dd/MM/yyyy'));
 END;
 
+/*Sacamos por pantalla informacion sobre los juegadores, lo usaremos
+en el crud de jugadores*/
+create or replace procedure info_general (
+    equipo equipos.nombre%type
+)
+as
+    cursor_equipo SYS_REFCURSOR;
+    enombre equipos.nombre%type;
+    jnombre jugadores.nombre_jugador%type;
+    jnacionalidad jugadores.nacionalidad%type;
+    jnickname jugadores.nickname%type;
+    jrol jugadores.rol%type;
+    cnombre competiciones.nombre%type;
+begin
+    open cursor_equipo for
+select e.nombre, j.nombre_jugador, j.nacionalidad, j.nickname, j.rol, 
+       c.nombre
+from jugadores j
+join equipos e ON j.cod_equipo = e.cod_equipo
+join staff s ON j.cod_equipo = s.cod_equipo
+join equipo_competicion ec ON e.cod_equipo = ec.cod_equipo
+join competiciones c ON ec.cod_competicion = c.cod_compe
+where e.nombre = equipo
+order by e.nombre;
+
+dbms_output.put_line('Esta es la informacion');
+dbms_output.put_line('-----------------------');
+
+
+loop 
+fetch cursor_equipo into enombre,jnombre,jnacionalidad,jnickname,jrol,cnombre;
+        EXIT WHEN cursor_equipo%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('Nombre del equipo: ' || enombre);
+        DBMS_OUTPUT.PUT_LINE('Nombre del jugador: ' || jnombre);
+        DBMS_OUTPUT.PUT_LINE('Nacionalidad: ' || jnacionalidad);
+        DBMS_OUTPUT.PUT_LINE('Nickname: ' || jnickname);
+        DBMS_OUTPUT.PUT_LINE('Rol: ' || jrol);
+        DBMS_OUTPUT.PUT_LINE('Nombre de la competicion: ' || cnombre);
+        DBMS_OUTPUT.PUT_LINE('-----------------------');
+end loop;
+end;
+/*Para poder probarlo*/
+execute info_general('Team Delta')
