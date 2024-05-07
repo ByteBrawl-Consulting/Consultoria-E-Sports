@@ -32,11 +32,14 @@ BEGIN
 
     DBMS_OUTPUT.PUT_LINE('Información de la competición:');
     LOOP
-        FETCH cursor_info_competicion INTO nombre_juego, fecha_inicio, fecha_fin, nombre_equipo, nombre_staff, cantidad_jugadores;
+        FETCH cursor_info_competicion INTO nombre_juego, fecha_inicio,
+        fecha_fin, nombre_equipo, nombre_staff, cantidad_jugadores;
         EXIT WHEN cursor_info_competicion%NOTFOUND;
         DBMS_OUTPUT.PUT_LINE('Juego: ' || nombre_juego);
-        DBMS_OUTPUT.PUT_LINE('Fecha de inicio: ' || TO_CHAR(fecha_inicio, 'dd/MM/yyyy'));
-        DBMS_OUTPUT.PUT_LINE('Fecha de fin: ' || TO_CHAR(fecha_fin, 'dd/MM/yyyy'));
+        DBMS_OUTPUT.PUT_LINE('Fecha de inicio: ' || 
+        TO_CHAR(fecha_inicio, 'dd/MM/yyyy'));
+        DBMS_OUTPUT.PUT_LINE('Fecha de fin: ' || 
+        TO_CHAR(fecha_fin, 'dd/MM/yyyy'));
         DBMS_OUTPUT.PUT_LINE('Equipo: ' || nombre_equipo);
         DBMS_OUTPUT.PUT_LINE('Miembro del staff: ' || nombre_staff);
         DBMS_OUTPUT.PUT_LINE('Cantidad de jugadores: ' || cantidad_jugadores);
