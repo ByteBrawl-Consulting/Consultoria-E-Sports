@@ -26,31 +26,32 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <!-- Elemento Clasificacion -->
-    <xs:element name="Clasificacion">
+    <!-- Elemento Jornadas -->
+    <xs:element name="Jornadas">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Equipo" type="tequipo" maxOccurs="unbounded" />
+                <xs:element name="Jornada" type="tjornada" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <!-- Tipo complejo para Equipo -->
-    <xs:complexType name="tequipo">
+    <!-- Tipo complejo para Jornada -->
+    <xs:complexType name="tjornada">
         <xs:sequence>
-            <xs:element name="Nombre" type="tnombre" />
-            <xs:element name="Puntos" type="tpuntos" />
+            <xs:element name="Enfrentamiento" type="tenfrentamiento" maxOccurs="unbounded" />
         </xs:sequence>
+        <xs:attribute name="Codigo_Jornada" type="xs:integer" use="required" />
+        <xs:attribute name="Numero_Jornada" type="xs:integer" use="required" />
     </xs:complexType>
 
-    <!-- Tipo simple para Puntos -->
-    <xs:simpleType name="tpuntos">
-        <xs:restriction base="xs:integer" />
-    </xs:simpleType>
-
-    <!-- Tipo simple para Nombre -->
-    <xs:simpleType name="tnombre">
-        <xs:restriction base="xs:string" />
-    </xs:simpleType>
+    <!-- Tipo complejo para Enfrentamiento -->
+    <xs:complexType name="tenfrentamiento">
+        <xs:sequence>
+            <xs:element name="Codigo_Enfrentamiento" type="xs:integer" />
+            <xs:element name="Equipo_Local" type="xs:string" />
+            <xs:element name="Equipo_Visitante" type="xs:string" />
+            <xs:element name="Ganador" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
 
 </xs:schema>
