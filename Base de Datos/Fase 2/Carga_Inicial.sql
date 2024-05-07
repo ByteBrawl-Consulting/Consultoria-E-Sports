@@ -21,7 +21,7 @@ values
 insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 values
-('Jung Min-woo', 'Corea del Sur', '19/02/1985', 'SniperKing', 'Jungler', 1600,2); 
+('Jung Min-woo', 'Corea del Sur', '19/02/1985','SniperKing', 'Jungler', 1600,2); 
 insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 values
@@ -49,7 +49,7 @@ values
 insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 VALUES
-('Elias Nielsen', 'Dinamarca', '10/06/1995', 'VikingWarrior', 'Jungler', 1450,4); 
+('Elias Nielsen', 'Dinamarca', '10/06/1995', 'VikingWarrior','Jungler', 1450,4); 
 insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 values
@@ -57,11 +57,11 @@ values
 insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 values
-('Lee Sung-hoon', 'Corea del Sur', '10/06/1995', 'NinjaAssassin', 'Mid', 1480,1);
+('Lee Sung-hoon', 'Corea del Sur', '10/06/1995', 'NinjaAssassin','Mid', 1480,1);
 insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 values
-('Mateo Fernandez', 'Argentina', '10/06/1995', 'TangoMaster', 'Support', 1375,4);
+('Mateo Fernandez', 'Argentina', '10/06/1995', 'TangoMaster','Support', 1375,4);
 insert into jugadores (nombre_jugador,nacionalidad,
 fecha_nac,nickname,rol,sueldo,cod_equipo)
 values

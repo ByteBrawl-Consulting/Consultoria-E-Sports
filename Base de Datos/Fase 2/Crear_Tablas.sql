@@ -14,7 +14,8 @@ drop table equipo_competicion cascade constraints;
 
 /*Creacion de las tablas*/
 create table equipos (
-    cod_equipo number(5) generated always as identity (start with 1) primary key,
+    cod_equipo number(5) 
+        generated always as identity (start with 1) primary key,
     nombre varchar2 (50) not null,
     fecha_fundacion date not null
 );
@@ -52,13 +53,15 @@ create table juegos(
     fecha_lanzamiento date not null
 );
 create table jornadas (
-    cod_jornadas number(5)generated always as identity (start with 1) primary key,
+    cod_jornadas number(5)
+        generated always as identity (start with 1) primary key,
     num_jornada number(3) not null,
     dia date not null,
     cod_compe number(5) not null
 );
 create table enfrentamientos(
-    cod_enfrentamiento number(5) generated always as identity (start with 1) primary key,
+    cod_enfrentamiento number(5) 
+        generated always as identity (start with 1) primary key,
     fecha date not null,
     cod_jornada number(5) not null,
     hora varchar2(5) not null,
@@ -67,7 +70,8 @@ create table enfrentamientos(
     cod_equipo_visitante number(5) not null
 );
 create table usuarios (
-    cod_usuario number(3)generated always as identity (start with 1) primary key,
+    cod_usuario number(3)
+        generated always as identity (start with 1) primary key,
     tipo varchar2(20) not null,
     contraseña varchar2(50) not null
 );
