@@ -202,12 +202,12 @@ values('torneo 4','15/08/2015','10/09/2015',0,null,4);
 
 
 /*Equipo_competicion*/
-insert into equipo_competicion (cod_equipo,cod_competicion)values(1,1);
-insert into equipo_competicion (cod_equipo,cod_competicion)values(2,1);
-insert into equipo_competicion (cod_equipo,cod_competicion)values(3,1);
-insert into equipo_competicion (cod_equipo,cod_competicion)values(4,1);
-insert into equipo_competicion (cod_equipo,cod_competicion)values(2,2);
-insert into equipo_competicion (cod_equipo,cod_competicion)values(3,2);
+insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(1,1,0);
+insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(2,1,0);
+insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(3,1,0);
+insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(4,1,0);
+insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(2,2,0);
+insert into equipo_competicion (cod_equipo,cod_competicion,puntos)values(3,2,0);
 
 
 /*Usuarios*/
