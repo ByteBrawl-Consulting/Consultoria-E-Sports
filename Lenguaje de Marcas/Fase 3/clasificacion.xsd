@@ -1,52 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-<xs:element name="RESULTS">
-    <xs:complexType>
+    <xs:element name="RESULTS" type="tresults" />
+    
+    <xs:complexType name="tresults">
         <xs:sequence>
-            <xs:element ref="ROW" />
+            <xs:element name="ROW" type="trow" />
         </xs:sequence>
     </xs:complexType>
-</xs:element>
-
-<xs:element name="ROW">
-    <xs:complexType>
+    
+    <xs:complexType name="trow">
         <xs:sequence>
-            <xs:element name="COLUMN">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:string">
-                            <xs:attribute name="NAME" type="xs:string" use="required" />
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="COLUMN" type="tcolumn" />
         </xs:sequence>
     </xs:complexType>
-</xs:element>
+    
+    <xs:complexType name="tcolumn">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="NAME" type="xs:string" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
 
-<xs:element name="Clasificacion">
-    <xs:complexType>
+    <xs:element name="Clasificacion" type="tclasificacion" />
+    
+    <xs:complexType name="tclasificacion">
         <xs:sequence>
-            <xs:element ref="Equipo" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Equipo" type="tequipo" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
-</xs:element>
-
-<xs:element name="Equipo">
-    <xs:complexType>
+    
+    <xs:complexType name="tequipo">
         <xs:sequence>
-            <xs:element name="Nombre" type="NombreType" />
-            <xs:element name="Puntos" type="PuntosType" />
+            <xs:element name="Nombre" type="tnombre" />
+            <xs:element name="Puntos" type="tpuntos" />
         </xs:sequence>
     </xs:complexType>
-</xs:element>
-
-    <xs:simpleType name="PuntosType">
+    
+    <xs:simpleType name="tpuntos">
         <xs:restriction base="xs:integer" />
     </xs:simpleType>
 
-        <xs:simpleType name="NombreType">
-            <xs:restriction base="xs:string" />
-        </xs:simpleType>
+    <xs:simpleType name="tnombre">
+        <xs:restriction base="xs:string" />
+    </xs:simpleType>
+
 </xs:schema>
