@@ -4,7 +4,7 @@ SET SERVEROUTPUT ON;
 nombre de equipo, nombre del staff y cantidad de jugadores */
 CREATE OR REPLACE PROCEDURE obtener_info_competicion(
     fecha_consulta IN DATE
-)
+) 
 AS
     cursor_info_competicion SYS_REFCURSOR;
     nombre_juego juegos.nombre%TYPE;
