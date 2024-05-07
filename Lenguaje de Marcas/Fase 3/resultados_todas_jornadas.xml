@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE RESULTS SYSTEM "resultados_todas_jornadas.dtd">
+<RESULTS>
+    <ROW>
+        <COLUMN NAME="XML_DATA">
+            <![CDATA[
+<Jornadas>
+    <Jornada>
+        <Codigo_Jornada>1</Codigo_Jornada>
+        <Numero_Jornada>1</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>1</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Alpha</Equipo_Local>
+                <Equipo_Visitante>Team Bravo</Equipo_Visitante>
+                <Ganador>Team Alpha</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>2</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Charlie</Equipo_Local>
+                <Equipo_Visitante>Team Delta</Equipo_Visitante>
+                <Ganador>Team Delta</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>2</Codigo_Jornada>
+        <Numero_Jornada>2</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>3</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Alpha</Equipo_Local>
+                <Equipo_Visitante>Team Bravo</Equipo_Visitante>
+                <Ganador>Team Bravo</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>4</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Charlie</Equipo_Local>
+                <Equipo_Visitante>Team Delta</Equipo_Visitante>
+                <Ganador>Team Charlie</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>s
+    <Jornada>
+        <Codigo_Jornada>3</Codigo_Jornada>
+        <Numero_Jornada>3</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>5</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Echo</Equipo_Local>
+                <Equipo_Visitante>Team Foxtrot</Equipo_Visitante>
+                <Ganador>Team Echo</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>6</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Golf</Equipo_Local>
+                <Equipo_Visitante>Team Hotel</Equipo_Visitante>
+                <Ganador>Team Hotel</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>4</Codigo_Jornada>
+        <Numero_Jornada>4</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>7</Codigo_Enfrentamiento>
+                <Equipo_Local>Team India</Equipo_Local>
+                <Equipo_Visitante>Team Juliet</Equipo_Visitante>
+                <Ganador>Team Juliet</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>8</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Kilo</Equipo_Local>
+                <Equipo_Visitante>Team Lima</Equipo_Visitante>
+                <Ganador>Team Kilo</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>5</Codigo_Jornada>
+        <Numero_Jornada>5</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>9</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Mike</Equipo_Local>
+                <Equipo_Visitante>Team November</Equipo_Visitante>
+                <Ganador>Team November</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>10</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Oscar</Equipo_Local>
+                <Equipo_Visitante>Team Papa</Equipo_Visitante>
+                <Ganador>Team Oscar</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>6</Codigo_Jornada>
+        <Numero_Jornada>6</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>11</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Quebec</Equipo_Local>
+                <Equipo_Visitante>Team Romeo</Equipo_Visitante>
+                <Ganador>Team Quebec</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>12</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Sierra</Equipo_Local>
+                <Equipo_Visitante>Team Tango</Equipo_Visitante>
+                <Ganador>Team Tango</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>7</Codigo_Jornada>
+        <Numero_Jornada>7</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>13</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Uniform</Equipo_Local>
+                <Equipo_Visitante>Team Victor</Equipo_Visitante>
+                <Ganador>Team Uniform</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>14</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Whiskey</Equipo_Local>
+                <Equipo_Visitante>Team X-ray</Equipo_Visitante>
+                <Ganador>Team X-ray</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>8</Codigo_Jornada>
+        <Numero_Jornada>8</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>15</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Yankee</Equipo_Local>
+                <Equipo_Visitante>Team Zulu</Equipo_Visitante>
+                <Ganador>Team Yankee</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>16</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Alpha</Equipo_Local>
+                <Equipo_Visitante>Team Bravo</Equipo_Visitante>
+                <Ganador>Team Bravo</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>9</Codigo_Jornada>
+        <Numero_Jornada>9</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>17</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Charlie</Equipo_Local>
+                <Equipo_Visitante>Team Delta</Equipo_Visitante>
+                <Ganador>Team Delta</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>18</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Echo</Equipo_Local>
+                <Equipo_Visitante>Team Foxtrot</Equipo_Visitante>
+                <Ganador>Team Echo</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+    <Jornada>
+        <Codigo_Jornada>10</Codigo_Jornada>
+        <Numero_Jornada>10</Numero_Jornada>
+        <Enfrentamientos>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>19</Codigo_Enfrentamiento>
+                <Equipo_Local>Team Golf</Equipo_Local>
+                <Equipo_Visitante>Team Hotel</Equipo_Visitante>
+                <Ganador>Team Golf</Ganador>
+            </Enfrentamiento>
+            <Enfrentamiento>
+                <Codigo_Enfrentamiento>20</Codigo_Enfrentamiento>
+                <Equipo_Local>Team India</Equipo_Local>
+                <Equipo_Visitante>Team Juliet</Equipo_Visitante>
+                <Ganador>Team Juliet</Ganador>
+            </Enfrentamiento>
+        </Enfrentamientos>
+    </Jornada>
+</Jornadas>
+]]>
+        </COLUMN>
+    </ROW>
+</RESULTS>
