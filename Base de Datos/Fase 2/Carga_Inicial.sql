@@ -223,13 +223,17 @@ values (2, TO_DATE('08/03/2024', 'dd/MM/yyyy'), 1);
 /*Enfrentamientos*/
 insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
                             cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '16:00', null, 1, 2);
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '16:00', (
+    SELECT nombre FROM equipos WHERE cod_equipo = 1), 1, 2);
 insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
                             cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '18:00', null, 3, 4);
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 1, '18:00', (
+    SELECT nombre FROM equipos WHERE cod_equipo = 4), 3, 4);
 insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
                             cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '10:00', null, 1, 2);
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '10:00', (
+SELECT nombre FROM equipos WHERE cod_equipo = 2), 1, 2);
 insert into enfrentamientos (fecha, cod_jornada, hora, resultado, 
                             cod_equipo_local, cod_equipo_visitante)
-values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '12:00', null, 3, 4);
+values (TO_DATE('01/03/2024', 'dd/MM/yyyy'), 2, '12:00', (
+SELECT nombre FROM equipos WHERE cod_equipo = 3), 3, 4);
