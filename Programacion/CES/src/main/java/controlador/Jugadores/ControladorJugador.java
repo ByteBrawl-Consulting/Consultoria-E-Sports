@@ -1,4 +1,4 @@
-package controlador.Jugadores;
+package controlador.jugadores;
 
 import controlador.ControladorVista;
 

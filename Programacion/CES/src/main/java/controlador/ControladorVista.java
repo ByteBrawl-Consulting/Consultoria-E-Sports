@@ -1,7 +1,8 @@
 package controlador;
 
-import controlador.Jugadores.ControladorJugador;
-import controlador.Login.ControladorUsuario;
+import controlador.jugadores.ControladorJugador;
+import controlador.login.ControladorUsuario;
+import modelo.Equipos;
 import modelo.Usuarios;
 
 public class ControladorVista {

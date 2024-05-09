@@ -1,4 +1,4 @@
-package controlador.Equipos;
+package controlador.equipos;
 
 import controlador.ControladorVista;
 import modelo.Equipos;

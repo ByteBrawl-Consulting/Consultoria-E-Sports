@@ -10,7 +10,7 @@ import jakarta.persistence.Persistence;
 
 public class ControladorBaseDeDatos {
     private ControladorPrincipal cp;
-    private TablaEquipos te;
+    private controlador.baseDeDatos.TablaEquipos te;
     private TablaUsuarios tu;
     private EntityManager em;
     private EntityManagerFactory emf;
@@ -20,7 +20,7 @@ public class ControladorBaseDeDatos {
         emf=Persistence.createEntityManagerFactory("default");
         em=emf.createEntityManager();
         transaction=em.getTransaction();
-        tu=new controlador.BaseDeDatos.TablaUsuarios(em,emf,transaction);
+        tu=new controlador.baseDeDatos.TablaUsuarios(em,emf,transaction);
     }
     public String login (Usuarios usu){
         System.out.println("bd");
