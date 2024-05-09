@@ -1,8 +1,14 @@
 package controlador.baseDeDatos;
 
+import controlador.ControladorPrincipal;
+
 import java.sql.*;
 
 public class ControladorBaseDeDatos {
+
+    public ControladorBaseDeDatos(ControladorPrincipal cp) {
+        conexionBD();
+    }
 
     public void conexionBD(){
         //Cargar el controlador de la BD
