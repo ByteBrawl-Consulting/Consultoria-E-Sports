@@ -1,7 +1,7 @@
-import vista.VentanaPrincipal;
+import controlador.ControladorPrincipal;
 
 public class Main {
     public static void main(String[] args) {
-VentanaPrincipal vp = new VentanaPrincipal();
+        ControladorPrincipal cp=new ControladorPrincipal();
     }
 }
