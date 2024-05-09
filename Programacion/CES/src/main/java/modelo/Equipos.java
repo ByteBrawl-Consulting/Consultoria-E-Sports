@@ -7,7 +7,7 @@ import java.util.Collection;
 
 @Entity
 public class Equipos {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_EQUIPO")
     private short codEquipo;
@@ -18,9 +18,9 @@ public class Equipos {
     @Column(name = "FECHA_FUNDACION")
     private Date fechaFundacion;
     @OneToMany(mappedBy = "equiposByCodEquipo")
-    private Collection<Jugadores> jugadoresByCodEquipo;
+    private Collection<modelo.Jugadores> jugadoresByCodEquipo;
     @OneToMany(mappedBy = "equiposByCodEquipo")
-    private Collection<Staff> staffByCodEquipo;
+    private Collection<modelo.Staff> staffByCodEquipo;
 
     public short getCodEquipo() {
         return codEquipo;
@@ -69,19 +69,19 @@ public class Equipos {
         return result;
     }
 
-    public Collection<Jugadores> getJugadoresByCodEquipo() {
+    public Collection<modelo.Jugadores> getJugadoresByCodEquipo() {
         return jugadoresByCodEquipo;
     }
 
-    public void setJugadoresByCodEquipo(Collection<Jugadores> jugadoresByCodEquipo) {
+    public void setJugadoresByCodEquipo(Collection<modelo.Jugadores> jugadoresByCodEquipo) {
         this.jugadoresByCodEquipo = jugadoresByCodEquipo;
     }
 
-    public Collection<Staff> getStaffByCodEquipo() {
+    public Collection<modelo.Staff> getStaffByCodEquipo() {
         return staffByCodEquipo;
     }
 
-    public void setStaffByCodEquipo(Collection<Staff> staffByCodEquipo) {
+    public void setStaffByCodEquipo(Collection<modelo.Staff> staffByCodEquipo) {
         this.staffByCodEquipo = staffByCodEquipo;
     }
 }

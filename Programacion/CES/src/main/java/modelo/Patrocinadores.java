@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Patrocinadores {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_PATROCINADORES")
     private short codPatrocinadores;

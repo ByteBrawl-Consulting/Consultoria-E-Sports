@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "EQUIPO_COMPETICION", schema = "EQDAW04", catalog = "")
 public class EquipoCompeticion {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_EQUIPO_COMPE")
     private short codEquipoCompe;
@@ -20,7 +20,7 @@ public class EquipoCompeticion {
     private byte puntos;
     @ManyToOne
     @JoinColumn(name = "COD_COMPETICION", referencedColumnName = "COD_COMPE", nullable = false)
-    private Competiciones competicionesByCodCompeticion;
+    private modelo.Competiciones competicionesByCodCompeticion;
 
     public short getCodEquipoCompe() {
         return codEquipoCompe;
