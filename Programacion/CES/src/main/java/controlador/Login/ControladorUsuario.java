@@ -7,10 +7,7 @@ import view.VentanaPrincipalAdmin;
 import view.VentanaPrincipalUsuario;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class ControladorUsuario {
     private VentanaPrincipalUsuario vpu;
@@ -19,16 +16,17 @@ public class ControladorUsuario {
     private ControladorVista cv;
 
     public ControladorUsuario(ControladorVista cv) {
-        this.cv = cv;
-        mostrar();
+        this.cv=cv;
+
+
+    }
+    public void mostrar(){
+        vl=new VentanaLogin();
         vl.clickRatonUsuAL(new clickRatonUsu());
         vl.clickRatonPassAL(new clickRatonPass());
         vl.bAyudaAL(new bAyuda());
         vl.bEntrarAL(new bEntrar());
         vl.bSalirAL(new bSalir());
-    }
-    public void mostrar(){
-        vl=new VentanaLogin();
         vl.setVisible(true);
     }
 
@@ -123,6 +121,9 @@ public class ControladorUsuario {
 
         }
     }
+
     }
+
+
 
 

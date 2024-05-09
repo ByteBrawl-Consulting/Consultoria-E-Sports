@@ -8,9 +8,11 @@ public class ControladorVista {
     private ControladorUsuario cl;
 
     public ControladorVista(ControladorPrincipal cp) {
-        this.cp=cp;
         cl = new ControladorUsuario(this);
 
+
+        this.cp=cp;
+        cl.mostrar();
     }
     public String login (Usuarios usu){
         System.out.println("cv");

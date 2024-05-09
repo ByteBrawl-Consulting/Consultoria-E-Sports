@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 
 public class ControladorBaseDeDatos {
     private ControladorPrincipal cp;
-    private controlador.BaseDeDatos.TablaUsuarios tu;
+    private TablaUsuarios tu;
     private EntityManager em;
     private EntityManagerFactory emf;
     private EntityTransaction transaction;

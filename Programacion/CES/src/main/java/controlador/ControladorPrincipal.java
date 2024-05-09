@@ -2,14 +2,17 @@ package controlador;
 
 import controlador.BaseDeDatos.ControladorBaseDeDatos;
 import modelo.Usuarios;
+import view.VentanaLogin;
 
 public class ControladorPrincipal {
     private ControladorVista cv;
     private ControladorBaseDeDatos cbd;
+    private VentanaLogin vl;
 
     public ControladorPrincipal() {
-        cv=new ControladorVista(this);
+        cv = new ControladorVista(this);
         cbd=new ControladorBaseDeDatos(this);
+
     }
     public String login (Usuarios usu){
         System.out.println("cp");
