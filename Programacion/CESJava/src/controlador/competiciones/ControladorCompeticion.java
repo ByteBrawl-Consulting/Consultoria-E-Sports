@@ -1,4 +1,4 @@
-package controlador.Competiciones;
+package controlador.competiciones;
 
 public class ControladorCompeticion {
 }

@@ -1,7 +1,5 @@
-package controlador.BaseDeDatos;
+package controlador.baseDeDatos;
 
-import controlador.ControladorPrincipal;
-import modelo.Usuarios;
 import java.sql.*;
 
 public class ControladorBaseDeDatos {

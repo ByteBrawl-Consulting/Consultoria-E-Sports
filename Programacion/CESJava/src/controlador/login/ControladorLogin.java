@@ -1,4 +1,4 @@
-package controlador.Login;
+package controlador.login;
 
 public class ControladorLogin {
 }
