@@ -1,7 +1,6 @@
 package controlador.login;
 
 import controlador.ControladorVista;
-import modelo.Usuarios;
 import view.VentanaLogin;
 import view.VentanaPrincipalAdmin;
 import view.VentanaPrincipalUsuario;

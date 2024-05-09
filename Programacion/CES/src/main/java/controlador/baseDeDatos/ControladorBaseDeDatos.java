@@ -1,8 +1,6 @@
 package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
-import modelo.Equipos;
-import modelo.Usuarios;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
