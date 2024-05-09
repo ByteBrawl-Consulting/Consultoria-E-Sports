@@ -1,6 +1,7 @@
 package controlador.BaseDeDatos;
 
 import controlador.ControladorPrincipal;
+import modelo.Equipos;
 import modelo.Usuarios;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -9,6 +10,7 @@ import jakarta.persistence.Persistence;
 
 public class ControladorBaseDeDatos {
     private ControladorPrincipal cp;
+    private TablaEquipos te;
     private TablaUsuarios tu;
     private EntityManager em;
     private EntityManagerFactory emf;
@@ -19,9 +21,15 @@ public class ControladorBaseDeDatos {
         em=emf.createEntityManager();
         transaction=em.getTransaction();
         tu=new controlador.BaseDeDatos.TablaUsuarios(em,emf,transaction);
+        te=new controlador.BaseDeDatos.TablaEquipos(em,emf,transaction);
+
     }
     public String login (Usuarios usu){
         System.out.println("bd");
        return tu.login(usu);
+    }
+
+    public void altaEquipo(Equipos eq) {
+        te.altaEquipo(eq);
     }
 }
