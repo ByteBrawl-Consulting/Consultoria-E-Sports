@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Staff {
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_STAFF")
     private short codStaff;
@@ -16,7 +16,7 @@ public class Staff {
     private String cargo;
     @Basic
     @Column(name = "SUELDO")
-    private double sueldo;
+    private int sueldo;
     @Basic
     @Column(name = "COD_EQUIPO")
     private Short codEquipo;
@@ -45,11 +45,11 @@ public class Staff {
         this.cargo = cargo;
     }
 
-    public double getSueldo() {
+    public int getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(double sueldo) {
+    public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
 
@@ -69,7 +69,7 @@ public class Staff {
         Staff staff = (Staff) o;
 
         if (codStaff != staff.codStaff) return false;
-        if (Double.compare(staff.sueldo, sueldo) != 0) return false;
+        if (sueldo != staff.sueldo) return false;
         if (nombre != null ? !nombre.equals(staff.nombre) : staff.nombre != null) return false;
         if (cargo != null ? !cargo.equals(staff.cargo) : staff.cargo != null) return false;
         if (codEquipo != null ? !codEquipo.equals(staff.codEquipo) : staff.codEquipo != null) return false;
@@ -79,13 +79,10 @@ public class Staff {
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = (int) codStaff;
+        int result = (int) codStaff;
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (cargo != null ? cargo.hashCode() : 0);
-        temp = Double.doubleToLongBits(sueldo);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + sueldo;
         result = 31 * result + (codEquipo != null ? codEquipo.hashCode() : 0);
         return result;
     }
