@@ -3,7 +3,6 @@ package controlador.baseDeDatos;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
-import modelo.Equipos;
 
 public class TablaEquipos {
     private EntityManager em;

@@ -1,8 +1,6 @@
 package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
-import modelo.Equipos;
-import modelo.Usuarios;
 import view.VentanaLogin;
 
 public class ControladorPrincipal {
