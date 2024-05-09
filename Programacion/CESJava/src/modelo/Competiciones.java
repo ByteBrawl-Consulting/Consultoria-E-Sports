@@ -8,10 +8,10 @@ public class Competiciones {
     private java.sql.Date fechaInicio;
     private java.sql.Date fechaFin;
     private int curso;
-    private int equipoGanador;
-    private int codJuego;
+    private Equipos equipoGanador;
+    private Juegos codJuego;
 
-    public Competiciones(int codCompe, String nombre, Date fechaInicio, Date fechaFin, int curso, int equipoGanador, int codJuego) {
+    public Competiciones(int codCompe, String nombre, Date fechaInicio, Date fechaFin, int curso, Equipos equipoGanador, Juegos codJuego) {
         this.codCompe = codCompe;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
@@ -19,9 +19,6 @@ public class Competiciones {
         this.curso = curso;
         this.equipoGanador = equipoGanador;
         this.codJuego = codJuego;
-    }
-
-    public Competiciones() {
     }
 
     public int getCodCompe() {
@@ -64,19 +61,19 @@ public class Competiciones {
         this.curso = curso;
     }
 
-    public int getEquipoGanador() {
+    public Equipos getEquipoGanador() {
         return equipoGanador;
     }
 
-    public void setEquipoGanador(int equipoGanador) {
+    public void setEquipoGanador(Equipos equipoGanador) {
         this.equipoGanador = equipoGanador;
     }
 
-    public int getCodJuego() {
+    public Juegos getCodJuego() {
         return codJuego;
     }
 
-    public void setCodJuego(int codJuego) {
+    public void setCodJuego(Juegos codJuego) {
         this.codJuego = codJuego;
     }
 }
