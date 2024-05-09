@@ -1,6 +1,7 @@
 package controlador;
 
 import controlador.BaseDeDatos.ControladorBaseDeDatos;
+import modelo.Equipos;
 import modelo.Usuarios;
 import view.VentanaLogin;
 
@@ -16,7 +17,10 @@ public class ControladorPrincipal {
     }
     public String login (Usuarios usu){
         System.out.println("cp");
-     return cbd.login(usu);
+        return cbd.login(usu);
     }
 
+    public void altaEquipo(Equipos eq) {
+        cbd.altaEquipo(eq);
+    }
 }
