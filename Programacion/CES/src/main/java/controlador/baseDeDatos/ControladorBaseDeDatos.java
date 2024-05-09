@@ -1,4 +1,4 @@
-package controlador.BaseDeDatos;
+package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
 import modelo.Usuarios;
@@ -18,7 +18,7 @@ public class ControladorBaseDeDatos {
         emf=Persistence.createEntityManagerFactory("default");
         em=emf.createEntityManager();
         transaction=em.getTransaction();
-        tu=new controlador.BaseDeDatos.TablaUsuarios(em,emf,transaction);
+        tu=new controlador.baseDeDatos.TablaUsuarios(em,emf,transaction);
     }
     public String login (Usuarios usu){
         System.out.println("bd");

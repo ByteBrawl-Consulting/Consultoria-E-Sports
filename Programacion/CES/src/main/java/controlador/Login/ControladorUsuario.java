@@ -1,4 +1,4 @@
-package controlador.Login;
+package controlador.login;
 
 import controlador.ControladorVista;
 import modelo.Usuarios;
@@ -17,8 +17,6 @@ public class ControladorUsuario {
 
     public ControladorUsuario(ControladorVista cv) {
         this.cv=cv;
-
-
     }
     public void mostrar(){
         vl=new VentanaLogin();
