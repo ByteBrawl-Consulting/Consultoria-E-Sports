@@ -18,18 +18,7 @@ public class ControladorBaseDeDatos {
     public void conexionBD(ControladorPrincipal cp) {
 
         /* ----------------- Conexion con la BD Clase ----------------- */
-
-//        try {
-//            String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
-//            String user = "eqdaw04";
-//            String passwd = "eqdaw04";
-//            Connection con = DriverManager.getConnection (url,user,passwd);
-//            System.out.println("Conexion exitosa");
-//                tu = new TablaUsuarios(con);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-
+        
 //        String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
 //        String user = "eqdaw04";
 //        String passwd = "eqdaw04";
