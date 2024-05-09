@@ -1,6 +1,7 @@
 package controlador.login;
 
 import controlador.ControladorVista;
+import modelo.Usuarios;
 import view.VentanaLogin;
 import view.VentanaPrincipalAdmin;
 import view.VentanaPrincipalUsuario;
@@ -44,7 +45,7 @@ public class ControladorUsuario {
             try {
             Usuarios usu = new Usuarios();
             usu.setTipo(vl.getTfUsu().getText());
-            usu.setContraseña(vl.getTfPassword().getText());
+            usu.setContrasena(vl.getTfPassword().getText());
             String nombreAU= cv.login(usu);
             if (nombreAU.equals("Administrador"))
             {
