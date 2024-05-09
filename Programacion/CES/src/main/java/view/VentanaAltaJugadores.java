@@ -30,6 +30,9 @@ public class VentanaAltaJugadores extends JFrame{
     public void bSalirAL (ActionListener listener){
         bSalir.addActionListener(listener);
     }
+    public void muestra (String message){
+        JOptionPane.showMessageDialog(null, message);
+    }
 
     public JTextField getTfSueldo() {
         return tfSueldo;

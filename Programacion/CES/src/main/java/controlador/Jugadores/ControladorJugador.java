@@ -5,14 +5,21 @@ import controlador.ControladorVista;
 import modelo.Jugadores;
 import view.VentanaAltaJugadores;
 
+import javax.management.StringValueExp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ControladorJugador {
     private ControladorVista cv;
+    private Connection con;
     private VentanaAltaJugadores vaj;
     public ControladorJugador(ControladorVista cv) {
         this.cv = cv;
@@ -35,28 +42,22 @@ public class ControladorJugador {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //Pasar los TF a variables
-            String nombre = vaj.getTfNombre().getText();
-            String nacionalidad = vaj.getTfNacionalidad().getText();
-            //Formateo de fecha
-            try {
-                String fecha = vaj.getTfFecha().getText();
+            //Comprobar que los TF esten llenos
+            try{
+                String nombre = vaj.getTfNombre().getText();
+                String nacimiento = vaj.getTfNacionalidad().getText();
+                //Formateo fecha
+                String fechaVentana = vaj.getTfFecha().getText();
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                java.util.Date fechaJava = null;
-                fechaJava = formato.parse(fecha);
+                java.util.Date fechaJava = formato.parse(fechaVentana);
                 java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-            } catch (ParseException ex) {
-                throw new RuntimeException(ex);
+                //
+                String nick = vaj.getTfNick().getText();
+                String rol = vaj.getTfRol().getText();
+                Integer sueldo = Integer.parseInt(vaj.getTfSueldo().getText());
+            }catch (Exception ex){
+                vaj.muestra("Alguno de los atributos esta vacío");
             }
-            String nickname = vaj.getTfNick().getText();
-            String rol = vaj.getTfRol().getText();
-            Integer sueldo = Integer.parseInt(vaj.getTfSueldo().getText());
-            String equipo = vaj.getTfEquipo().getText();
-            if (equipo.equals("")){
-                //No tiene equipo
-                equipo = null;
-            }
-            //Comprobamos que todos los campos esten llenos
         }
     }
 }
