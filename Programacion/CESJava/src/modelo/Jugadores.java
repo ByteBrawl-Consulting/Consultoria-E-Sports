@@ -10,9 +10,9 @@ public class Jugadores {
     private String nickname;
     private String rol;
     private double sueldo;
-    private int codEquipo;
+    private Equipos codEquipo;
 
-    public Jugadores(int codJugador, String nombreJugador, String nacionalidad, Date fechaNacimiento, String nickname, String rol, double sueldo, int codEquipo) {
+    public Jugadores(int codJugador, String nombreJugador, String nacionalidad, Date fechaNacimiento, String nickname, String rol, double sueldo, Equipos codEquipo) {
         this.codJugador = codJugador;
         this.nombreJugador = nombreJugador;
         this.nacionalidad = nacionalidad;
@@ -21,9 +21,6 @@ public class Jugadores {
         this.rol = rol;
         this.sueldo = sueldo;
         this.codEquipo = codEquipo;
-    }
-
-    public Jugadores() {
     }
 
     public int getCodJugador() {
@@ -82,11 +79,11 @@ public class Jugadores {
         this.sueldo = sueldo;
     }
 
-    public int getCodEquipo() {
+    public Equipos getCodEquipo() {
         return codEquipo;
     }
 
-    public void setCodEquipo(int codEquipo) {
+    public void setCodEquipo(Equipos codEquipo) {
         this.codEquipo = codEquipo;
     }
 }
