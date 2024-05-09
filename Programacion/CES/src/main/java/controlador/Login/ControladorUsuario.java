@@ -3,6 +3,8 @@ package controlador.Login;
 import controlador.ControladorVista;
 import modelo.Usuarios;
 import view.VentanaLogin;
+import view.VentanaPrincipalAdmin;
+import view.VentanaPrincipalUsuario;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +13,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class ControladorUsuario {
+    private VentanaPrincipalUsuario vpu;
+    private VentanaPrincipalAdmin vpa;
     private VentanaLogin vl;
     private ControladorVista cv;
 
@@ -42,12 +46,27 @@ public class ControladorUsuario {
     }
     public class bEntrar implements ActionListener {
         public void actionPerformed (ActionEvent e){
+            try {
             Usuarios usu = new Usuarios();
             usu.setTipo(vl.getTfUsu().getText());
             usu.setContraseña(vl.getTfPassword().getText());
-            cv.login(usu);
+            String nombreAU= cv.login(usu);
+            if (nombreAU.equals("Administrador"))
+            {
+                vpa = new VentanaPrincipalAdmin();
+            } else if (nombreAU.equals("Usuario")) {
+                vpu = new VentanaPrincipalUsuario();
+            } else{
+                throw new Exception("Usuario o contraseña incorrecto");
+            }
+            }
+            catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+
+
         }
-    }
+        }
     public class clickRatonUsu implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             vl.getTfUsu().setText("");
@@ -104,4 +123,6 @@ public class ControladorUsuario {
 
         }
     }
-}
+    }
+
+
