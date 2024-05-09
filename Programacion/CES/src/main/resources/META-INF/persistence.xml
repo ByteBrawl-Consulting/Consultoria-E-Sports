@@ -16,6 +16,7 @@
         <class>modelo.Patrocinadores</class>
         <class>modelo.PatrocinadoresEquipos</class>
         <class>modelo.Usuarios</class>
+        <class>modelo.StaffEntity</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:oracle:thin:@172.20.225.114:1521:orcl"/>
             <property name="toplink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
