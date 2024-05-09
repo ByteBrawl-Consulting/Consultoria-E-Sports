@@ -10,10 +10,12 @@ public class ControladorVista {
     private ControladorJugador cj;
 
     public ControladorVista(ControladorPrincipal cp) {
-        this.cp=cp;
         cl = new ControladorUsuario(this);
         cj = new ControladorJugador(this);
 
+
+        this.cp=cp;
+        cl.mostrar();
     }
     public String login (Usuarios usu){
         System.out.println("cv");
