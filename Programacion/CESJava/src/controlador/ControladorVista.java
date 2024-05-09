@@ -1,25 +1,28 @@
 package controlador;
 
 import controlador.jugadores.ControladorJugador;
-import controlador.login.ControladorUsuario;
+import controlador.login.ControladorLogin;
 import modelo.Equipos;
 import modelo.Usuarios;
 
+import java.sql.SQLException;
+
 public class ControladorVista {
     private ControladorPrincipal cp;
-    private ControladorUsuario cl;
+    private ControladorLogin cl;
     private ControladorJugador cj;
 
     public ControladorVista(ControladorPrincipal cp) {
-        cl = new ControladorUsuario(this);
+        cl = new ControladorLogin(this);
         //cj = new ControladorJugador(this);
 
 
 
         this.cp=cp;
-        cl.mostrar();
+//        cl.mostrar();
     }
-    public String login (Usuarios usu){
+
+    public String login (Usuarios usu) throws SQLException {
         System.out.println("cv");
         return cp.login(usu);
     }
