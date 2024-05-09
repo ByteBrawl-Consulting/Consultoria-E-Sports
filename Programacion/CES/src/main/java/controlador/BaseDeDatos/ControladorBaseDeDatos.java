@@ -1,4 +1,4 @@
-package controlador.baseDeDatos;
+package controlador.BaseDeDatos;
 
 import controlador.ControladorPrincipal;
 import modelo.Usuarios;
