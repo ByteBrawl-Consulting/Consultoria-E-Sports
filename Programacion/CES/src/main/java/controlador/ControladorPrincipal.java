@@ -1,6 +1,6 @@
 package controlador;
 
-import controlador.BaseDeDatos.ControladorBaseDeDatos;
+import controlador.baseDeDatos.ControladorBaseDeDatos;
 import modelo.Equipos;
 import modelo.Usuarios;
 import view.VentanaLogin;

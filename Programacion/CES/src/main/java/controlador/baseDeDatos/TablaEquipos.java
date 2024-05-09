@@ -1,4 +1,4 @@
-package controlador.BaseDeDatos;
+package controlador.baseDeDatos;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

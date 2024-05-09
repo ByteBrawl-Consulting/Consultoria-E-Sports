@@ -1,4 +1,4 @@
-package controlador.BaseDeDatos;
+package controlador.baseDeDatos;
 
 import modelo.Usuarios;
 import jakarta.persistence.EntityManager;
