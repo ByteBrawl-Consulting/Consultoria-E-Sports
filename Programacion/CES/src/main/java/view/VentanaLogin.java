@@ -15,12 +15,11 @@ public class VentanaLogin extends JFrame {
     private JLabel titulo;
 
     public VentanaLogin() throws HeadlessException {
+        super("Login");
         setContentPane(pPrincipal);
         setSize(500, 300);
         setLocationRelativeTo(null);
-        tfUsu.setForeground(Color.BLACK);
-        tfPassword.setForeground(Color.BLACK);
-        titulo.setForeground(Color.BLACK);
+
     }
     // Funciones de los TF y de los botones
     public void clickRatonUsuAL (MouseListener al){

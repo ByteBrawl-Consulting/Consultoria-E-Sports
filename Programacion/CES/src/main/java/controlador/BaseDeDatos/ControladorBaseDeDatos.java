@@ -13,13 +13,15 @@ public class ControladorBaseDeDatos {
     private EntityManager em;
     private EntityManagerFactory emf;
     private EntityTransaction transaction;
-    public ControladorBaseDeDatos() {
+    public ControladorBaseDeDatos(ControladorPrincipal cp) {
+        this.cp=cp;
         emf=Persistence.createEntityManagerFactory("default");
         em=emf.createEntityManager();
         transaction=em.getTransaction();
         tu=new controlador.BaseDeDatos.TablaUsuarios(em,emf,transaction);
     }
-    public void login (Usuarios usu){
-        tu.login(usu);
+    public String login (Usuarios usu){
+        System.out.println("bd");
+       return tu.login(usu);
     }
 }

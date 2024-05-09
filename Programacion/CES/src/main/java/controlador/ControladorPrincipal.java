@@ -9,10 +9,11 @@ public class ControladorPrincipal {
 
     public ControladorPrincipal() {
         cv=new ControladorVista(this);
-        cbd=new ControladorBaseDeDatos();
+        cbd=new ControladorBaseDeDatos(this);
     }
-    public void login (Usuarios usu){
-    cbd.login(usu);
+    public String login (Usuarios usu){
+        System.out.println("cp");
+     return cbd.login(usu);
     }
 
 }

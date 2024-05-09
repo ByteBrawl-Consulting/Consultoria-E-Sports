@@ -12,7 +12,8 @@ public class ControladorVista {
         cl = new ControladorUsuario(this);
 
     }
-    public void login (Usuarios usu){
-        cp.login(usu);
+    public String login (Usuarios usu){
+        System.out.println("cv");
+       return cp.login(usu);
     }
 }

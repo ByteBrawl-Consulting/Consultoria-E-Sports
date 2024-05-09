@@ -16,12 +16,14 @@ public class TablaUsuarios {
         this.transaction = transaction;
     }
 
-    public void login (Usuarios usu){
+    public String login (Usuarios usu){
+        System.out.println("tbd");
         String usuario=usu.getTipo();
         String pass = usu.getContraseña();
         transaction.begin();
         String usuariobd = em.createQuery("select tipo from Usuarios usu ", Usuarios.class).getSingleResult().getTipo();
         transaction.commit();
         System.out.println("ok");
+        return null;
     }
 }
