@@ -1,4 +1,4 @@
-package controlador.Juegos;
+package controlador.juegos;
 
 public class ControladorJuego {
 }
