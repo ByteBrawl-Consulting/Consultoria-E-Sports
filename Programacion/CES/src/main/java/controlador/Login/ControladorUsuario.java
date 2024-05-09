@@ -45,7 +45,7 @@ public class ControladorUsuario {
             Usuarios usu = new Usuarios();
             usu.setTipo(vl.getTfUsu().getText());
             usu.setContraseña(vl.getTfPassword().getText());
-           //cv.login(usu);
+            cv.login(usu);
         }
     }
     public class clickRatonUsu implements MouseListener {

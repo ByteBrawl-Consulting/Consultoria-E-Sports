@@ -1,4 +1,7 @@
 package view;
 
-public class VentanaPrincipalUsuario {
+import javax.swing.*;
+
+public class VentanaPrincipalUsuario extends JFrame {
+    private JPanel panel1;
 }
