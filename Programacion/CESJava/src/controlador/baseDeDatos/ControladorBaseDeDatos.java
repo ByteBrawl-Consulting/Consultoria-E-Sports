@@ -18,7 +18,7 @@ public class ControladorBaseDeDatos {
     public void conexionBD(ControladorPrincipal cp) {
 
         /* ----------------- Conexion con la BD Clase ----------------- */
-        
+
 //        String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
 //        String user = "eqdaw04";
 //        String passwd = "eqdaw04";
@@ -45,8 +45,7 @@ public class ControladorBaseDeDatos {
                 Class.forName("oracle.jdbc.OracleDriver");
                 con = DriverManager.getConnection(url, user, passwd);
                 System.out.println("Conexión exitosa a la base de datos");
-
-//                tu = new TablaUsuarios(con);
+                
             } catch (SQLException e) {
                 System.out.println("Error al conectar a la base de datos: " + e.getMessage());
             } catch (ClassNotFoundException e) {
