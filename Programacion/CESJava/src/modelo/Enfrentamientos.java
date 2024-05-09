@@ -5,13 +5,13 @@ import java.sql.Date;
 public class Enfrentamientos {
     private int codEnfrentamiento;
     private java.sql.Date fecha;
-    private int codJornada;
+    private Jornadas codJornada;
     private String hora;
     private String resultado;
     private Equipos codEquipoLocal;
     private Equipos codEquipoVisitante;
 
-    public Enfrentamientos(int codEnfrentamiento, Date fecha, int codJornada, String hora, String resultado, Equipos codEquipoLocal, Equipos codEquipoVisitante) {
+    public Enfrentamientos(int codEnfrentamiento, Date fecha, Jornadas codJornada, String hora, String resultado, Equipos codEquipoLocal, Equipos codEquipoVisitante) {
         this.codEnfrentamiento = codEnfrentamiento;
         this.fecha = fecha;
         this.codJornada = codJornada;
@@ -37,11 +37,11 @@ public class Enfrentamientos {
         this.fecha = fecha;
     }
 
-    public int getCodJornada() {
+    public Jornadas getCodJornada() {
         return codJornada;
     }
 
-    public void setCodJornada(int codJornada) {
+    public void setCodJornada(Jornadas codJornada) {
         this.codJornada = codJornada;
     }
 
