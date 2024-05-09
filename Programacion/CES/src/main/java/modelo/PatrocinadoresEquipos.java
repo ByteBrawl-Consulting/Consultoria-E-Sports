@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "PATROCINADORES_EQUIPOS", schema = "EQDAW04", catalog = "")
 public class PatrocinadoresEquipos {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_PATR_EQUI")
     private short codPatrEqui;
@@ -17,7 +17,7 @@ public class PatrocinadoresEquipos {
     private short codEquipo;
     @ManyToOne
     @JoinColumn(name = "COD_PATROCINADORES", referencedColumnName = "COD_PATROCINADORES", nullable = false)
-    private Patrocinadores patrocinadoresByCodPatrocinadores;
+    private modelo.Patrocinadores patrocinadoresByCodPatrocinadores;
 
     public short getCodPatrEqui() {
         return codPatrEqui;

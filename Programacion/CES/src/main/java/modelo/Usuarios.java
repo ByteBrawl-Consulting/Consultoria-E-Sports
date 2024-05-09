@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Usuarios {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "COD_USUARIO")
     private byte codUsuario;
