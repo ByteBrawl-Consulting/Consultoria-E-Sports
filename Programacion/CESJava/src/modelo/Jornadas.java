@@ -6,16 +6,13 @@ public class Jornadas {
     private int codJornada;
     private int numJornada;
     private java.sql.Date dia;
-    private int codCompe;
+    private Competiciones codCompe;
 
-    public Jornadas(int codJornada, int numJornada, Date dia, int codCompe) {
+    public Jornadas(int codJornada, int numJornada, Date dia, Competiciones codCompe) {
         this.codJornada = codJornada;
         this.numJornada = numJornada;
         this.dia = dia;
         this.codCompe = codCompe;
-    }
-
-    public Jornadas() {
     }
 
     public int getCodJornada() {
@@ -42,11 +39,11 @@ public class Jornadas {
         this.dia = dia;
     }
 
-    public int getCodCompe() {
+    public Competiciones getCodCompe() {
         return codCompe;
     }
 
-    public void setCodCompe(int codCompe) {
+    public void setCodCompe(Competiciones codCompe) {
         this.codCompe = codCompe;
     }
 }

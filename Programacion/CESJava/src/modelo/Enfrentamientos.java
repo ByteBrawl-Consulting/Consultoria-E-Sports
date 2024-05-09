@@ -8,10 +8,10 @@ public class Enfrentamientos {
     private int codJornada;
     private String hora;
     private String resultado;
-    private int codEquipoLocal;
-    private int codEquipoVisitante;
+    private Equipos codEquipoLocal;
+    private Equipos codEquipoVisitante;
 
-    public Enfrentamientos(int codEnfrentamiento, Date fecha, int codJornada, String hora, String resultado, int codEquipoLocal, int codEquipoVisitante) {
+    public Enfrentamientos(int codEnfrentamiento, Date fecha, int codJornada, String hora, String resultado, Equipos codEquipoLocal, Equipos codEquipoVisitante) {
         this.codEnfrentamiento = codEnfrentamiento;
         this.fecha = fecha;
         this.codJornada = codJornada;
@@ -19,9 +19,6 @@ public class Enfrentamientos {
         this.resultado = resultado;
         this.codEquipoLocal = codEquipoLocal;
         this.codEquipoVisitante = codEquipoVisitante;
-    }
-
-    public Enfrentamientos() {
     }
 
     public int getCodEnfrentamiento() {
@@ -64,19 +61,19 @@ public class Enfrentamientos {
         this.resultado = resultado;
     }
 
-    public int getCodEquipoLocal() {
+    public Equipos getCodEquipoLocal() {
         return codEquipoLocal;
     }
 
-    public void setCodEquipoLocal(int codEquipoLocal) {
+    public void setCodEquipoLocal(Equipos codEquipoLocal) {
         this.codEquipoLocal = codEquipoLocal;
     }
 
-    public int getCodEquipoVisitante() {
+    public Equipos getCodEquipoVisitante() {
         return codEquipoVisitante;
     }
 
-    public void setCodEquipoVisitante(int codEquipoVisitante) {
+    public void setCodEquipoVisitante(Equipos codEquipoVisitante) {
         this.codEquipoVisitante = codEquipoVisitante;
     }
 }
