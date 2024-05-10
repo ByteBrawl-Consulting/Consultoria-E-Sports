@@ -6,6 +6,7 @@ import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
 import controlador.patrocinadores.ControladorPatrocinador;
+import modelo.Competiciones;
 import modelo.Equipos;
 import modelo.Staff;
 import modelo.Usuarios;
@@ -81,6 +82,9 @@ public class ControladorVista {
     }
     public Equipos buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
+    }
+    public void ultimaJornada(Competiciones com) {
+        cp.ultimaJornada(com);
     }
 
 }
