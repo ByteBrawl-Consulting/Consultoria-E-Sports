@@ -18,7 +18,7 @@ public class VentanaEquipos extends JFrame{
     private JTextField tfNombreModi;
     private JTextField tfFechaModi;
     private JTextField tfNombreCons;
-    private String taConsulta;
+    private JTextArea taConsulta;
     private JButton bAceptar;
     private JButton bSalir;
     private JPanel pConsulta;
@@ -140,11 +140,11 @@ public class VentanaEquipos extends JFrame{
         this.tfNombreCons = tfNombreCons;
     }
 
-    public String getTaConsulta() {
+    public JTextArea getTaConsulta() {
         return taConsulta;
     }
 
-    public void setTaConsulta(String taConsulta) {
+    public void setTaConsulta(JTextArea taConsulta) {
         this.taConsulta = taConsulta;
     }
 }

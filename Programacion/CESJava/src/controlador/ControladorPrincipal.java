@@ -34,7 +34,7 @@ public class ControladorPrincipal {
         cbd.modiEquipo(eq);
     }
 
-    public String consultaEquipo(Equipos eq) {
-        return cbd.consultaEquipo(eq).toString();
+    public String consultaEquipo(String nombreEq) {
+        return cbd.consultaEquipo(nombreEq).toString();
     }
 }
