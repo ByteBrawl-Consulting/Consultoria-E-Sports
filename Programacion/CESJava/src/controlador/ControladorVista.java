@@ -24,7 +24,6 @@ public class ControladorVista {
     }
 
     public String login (Usuarios usu) throws SQLException {
-        System.out.println("cv");
         return cp.login(usu);
     }
     public void iniciarBotones(){
