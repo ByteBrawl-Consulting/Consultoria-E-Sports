@@ -18,7 +18,6 @@ public class ControladorPrincipal {
     }
 
     public String login (Usuarios usu) throws SQLException {
-        System.out.println("cp");
         return cbd.login(usu);
     }
 
