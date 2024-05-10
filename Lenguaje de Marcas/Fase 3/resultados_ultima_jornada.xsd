@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <!-- Elemento principal RESULTS -->
     <xs:element name="RESULTS">
         <xs:complexType>
             <xs:sequence>
@@ -10,14 +9,12 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Tipo complejo para ROW -->
     <xs:complexType name="trow">
         <xs:sequence>
             <xs:element name="COLUMN" type="tcolumn" />
         </xs:sequence>
     </xs:complexType>
 
-    <!-- Tipo complejo para COLUMN -->
     <xs:complexType name="tcolumn">
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -26,7 +23,6 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <!-- Elemento Jornadas -->
     <xs:element name="Jornadas">
         <xs:complexType>
             <xs:sequence>
@@ -35,7 +31,6 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Tipo complejo para Jornada -->
     <xs:complexType name="tjornada">
         <xs:sequence>
             <xs:element name="Enfrentamiento" type="tenfrentamiento" maxOccurs="unbounded" />
@@ -44,7 +39,6 @@
         <xs:attribute name="Numero_Jornada" type="xs:integer" use="required" />
     </xs:complexType>
 
-    <!-- Tipo complejo para Enfrentamiento -->
     <xs:complexType name="tenfrentamiento">
         <xs:sequence>
             <xs:element name="Codigo_Enfrentamiento" type="xs:integer" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.VentanaPrincipalUsuario">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="5" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="837" height="615"/>
@@ -12,7 +12,7 @@
     <children>
       <component id="70deb" class="javax.swing.JLabel" binding="tituloLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="20" style="3"/>
@@ -23,9 +23,12 @@
       <grid id="d6a07" binding="pJornada" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-9125172"/>
+          <visible value="true"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="e816e" class="javax.swing.JTextField" binding="tfJornada">
@@ -46,7 +49,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="5a492" class="javax.swing.JLabel">
+          <component id="5a492" class="javax.swing.JLabel" binding="jornadalb">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -59,9 +62,11 @@
       <grid id="9f127" binding="pClasificacion" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-9125172"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="d9a83" class="javax.swing.JTextArea" binding="taClasi">
@@ -82,32 +87,66 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="2ec09" class="javax.swing.JLabel">
+          <component id="2ec09" class="javax.swing.JLabel" binding="claselb">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="De que competicion deseas ver la clasificacion?"/>
+              <text value="De que competicion deseas ver la clasificacion?   "/>
             </properties>
           </component>
         </children>
       </grid>
-      <component id="c8e5c" class="javax.swing.JButton" binding="clasificacionButton" default-binding="true">
+      <component id="cd4c1" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Clasificacion"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="2d491" class="javax.swing.JButton" binding="ultimaJornadaButton" default-binding="true">
+      <component id="cf335" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="ae" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="8f24f" class="javax.swing.JRadioButton" binding="rbJornada">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-9125172"/>
+          <borderPainted value="false"/>
+          <selected value="false"/>
           <text value="Ultima Jornada"/>
+        </properties>
+      </component>
+      <component id="ec579" class="javax.swing.JRadioButton" binding="rbClasi">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-9125172"/>
+          <text value="Clasificacion"/>
         </properties>
       </component>
     </children>
   </grid>
+  <buttonGroups>
+    <group name="ventanaUsu">
+      <member id="8f24f"/>
+      <member id="ec579"/>
+    </group>
+  </buttonGroups>
 </form>

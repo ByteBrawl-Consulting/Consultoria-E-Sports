@@ -3,27 +3,31 @@ package view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class VentanaEquipos extends JFrame{
+public class VentanaStaff extends JFrame{
     private JRadioButton rbAlta;
     private JRadioButton rbBaja;
-    private JRadioButton rbModificacion;
-    private JPanel pAlta;
-    private JPanel pPrincipal;
-    private JPanel pBaja;
-    private JPanel pModificacion;
+    private JRadioButton rbModi;
     private JRadioButton rbConsulta;
-    private JTextField tfNombreAlta;
-    private JTextField tfFechaAlta;
-    private JTextField tfNombreBaja;
-    private JTextField tfNombreModi;
-    private JTextField tfFechaModi;
-    private JTextField tfNombreCons;
-    private JTextArea taConsulta;
+    private JPanel pAlta;
+    private JPanel pBaja;
+    private JPanel pModi;
+    private JPanel pConsulta;
     private JButton bAceptar;
     private JButton bSalir;
-    private JPanel pConsulta;
+    private JTextField tfNombreAlta;
+    private JTextField tfCargoAlta;
+    private JTextField tfSueldoAlta;
+    private JTextField tfNombreBaja;
+    private JTextField tfNombreModi;
+    private JTextField tfCargoModi;
+    private JTextField tfSueldoModi;
+    private JTextField tfNombreCons;
+    private JTextArea taConsulta;
+    private JPanel pPrincipal;
+    private JTextField tfEquipoAlta;
+    private JTextField tfEquipoModi;
 
-    public VentanaEquipos(){
+    public VentanaStaff(){
         super("Ventana Equipos");
         setContentPane(pPrincipal);
         setLocationRelativeTo(null);
@@ -32,28 +36,28 @@ public class VentanaEquipos extends JFrame{
     public void eleccionAlta(){
         pAlta.setVisible(true);
         pBaja.setVisible(false);
-        pModificacion.setVisible(false);
+        pModi.setVisible(false);
         pConsulta.setVisible(false);
     }
     public void eleccionBaja(){
         pAlta.setVisible(false);
         pBaja.setVisible(true);
-        pModificacion.setVisible(false);
+        pModi.setVisible(false);
         pConsulta.setVisible(false);
     }
     public void eleccionModi(){
         pAlta.setVisible(false);
         pBaja.setVisible(false);
-        pModificacion.setVisible(true);
+        pModi.setVisible(true);
         pConsulta.setVisible(false);
     }
     public void eleccionConsulta(){
         pAlta.setVisible(false);
         pBaja.setVisible(false);
-        pModificacion.setVisible(false);
+        pModi.setVisible(false);
         pConsulta.setVisible(true);
     }
-    public void bAceptarAl(ActionListener listener){
+    public void bAceptarAL(ActionListener listener){
         bAceptar.addActionListener(listener);
     }
     public void bSalirAL(ActionListener listener){
@@ -66,42 +70,10 @@ public class VentanaEquipos extends JFrame{
         rbBaja.addActionListener(listener);
     }
     public void bRbModiAl(ActionListener listener){
-        rbModificacion.addActionListener(listener);
+        rbModi.addActionListener(listener);
     }
     public void bRbConsultaAL(ActionListener listener){
         rbConsulta.addActionListener(listener);
-    }
-
-    public JRadioButton getRbAlta() {
-        return rbAlta;
-    }
-
-    public void setRbAlta(JRadioButton rbAlta) {
-        this.rbAlta = rbAlta;
-    }
-
-    public JRadioButton getRbBaja() {
-        return rbBaja;
-    }
-
-    public void setRbBaja(JRadioButton rbBaja) {
-        this.rbBaja = rbBaja;
-    }
-
-    public JRadioButton getRbModificacion() {
-        return rbModificacion;
-    }
-
-    public void setRbModificacion(JRadioButton rbModificacion) {
-        this.rbModificacion = rbModificacion;
-    }
-
-    public JRadioButton getRbConsulta() {
-        return rbConsulta;
-    }
-
-    public void setRbConsulta(JRadioButton rbConsulta) {
-        this.rbConsulta = rbConsulta;
     }
 
     public JTextField getTfNombreAlta() {
@@ -112,12 +84,20 @@ public class VentanaEquipos extends JFrame{
         this.tfNombreAlta = tfNombreAlta;
     }
 
-    public JTextField getTfFechaAlta() {
-        return tfFechaAlta;
+    public JTextField getTfCargoAlta() {
+        return tfCargoAlta;
     }
 
-    public void setTfFechaAlta(JTextField tfFechaAlta) {
-        this.tfFechaAlta = tfFechaAlta;
+    public void setTfCargoAlta(JTextField tfCargoAlta) {
+        this.tfCargoAlta = tfCargoAlta;
+    }
+
+    public JTextField getTfSueldoAlta() {
+        return tfSueldoAlta;
+    }
+
+    public void setTfSueldoAlta(JTextField tfSueldoAlta) {
+        this.tfSueldoAlta = tfSueldoAlta;
     }
 
     public JTextField getTfNombreBaja() {
@@ -136,12 +116,20 @@ public class VentanaEquipos extends JFrame{
         this.tfNombreModi = tfNombreModi;
     }
 
-    public JTextField getTfFechaModi() {
-        return tfFechaModi;
+    public JTextField getTfCargoModi() {
+        return tfCargoModi;
     }
 
-    public void setTfFechaModi(JTextField tfFechaModi) {
-        this.tfFechaModi = tfFechaModi;
+    public void setTfCargoModi(JTextField tfCargoModi) {
+        this.tfCargoModi = tfCargoModi;
+    }
+
+    public JTextField getTfSueldoModi() {
+        return tfSueldoModi;
+    }
+
+    public void setTfSueldoModi(JTextField tfSueldoModi) {
+        this.tfSueldoModi = tfSueldoModi;
     }
 
     public JTextField getTfNombreCons() {
@@ -158,5 +146,53 @@ public class VentanaEquipos extends JFrame{
 
     public void setTaConsulta(JTextArea taConsulta) {
         this.taConsulta = taConsulta;
+    }
+
+    public JRadioButton getRbAlta() {
+        return rbAlta;
+    }
+
+    public void setRbAlta(JRadioButton rbAlta) {
+        this.rbAlta = rbAlta;
+    }
+
+    public JRadioButton getRbBaja() {
+        return rbBaja;
+    }
+
+    public void setRbBaja(JRadioButton rbBaja) {
+        this.rbBaja = rbBaja;
+    }
+
+    public JRadioButton getRbModi() {
+        return rbModi;
+    }
+
+    public void setRbModi(JRadioButton rbModi) {
+        this.rbModi = rbModi;
+    }
+
+    public JRadioButton getRbConsulta() {
+        return rbConsulta;
+    }
+
+    public void setRbConsulta(JRadioButton rbConsulta) {
+        this.rbConsulta = rbConsulta;
+    }
+
+    public JTextField getTfEquipoAlta() {
+        return tfEquipoAlta;
+    }
+
+    public void setTfEquipoAlta(JTextField tfEquipoAlta) {
+        this.tfEquipoAlta = tfEquipoAlta;
+    }
+
+    public JTextField getTfEquipoModi() {
+        return tfEquipoModi;
+    }
+
+    public void setTfEquipoModi(JTextField tfEquipoModi) {
+        this.tfEquipoModi = tfEquipoModi;
     }
 }

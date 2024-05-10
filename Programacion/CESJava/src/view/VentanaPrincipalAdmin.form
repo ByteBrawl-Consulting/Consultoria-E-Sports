@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="pPrincipal" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="563" height="400"/>
+      <xy x="20" y="20" width="887" height="517"/>
     </constraints>
     <properties>
       <background color="-16777216"/>
@@ -36,32 +36,7 @@
                   <text value="Equipos"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="8e787" class="javax.swing.JMenuItem" binding="altaEquiposMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Alta"/>
-                    </properties>
-                  </component>
-                  <component id="a8935" class="javax.swing.JMenuItem" binding="bajaEquiposMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Baja"/>
-                    </properties>
-                  </component>
-                  <component id="7d225" class="javax.swing.JMenuItem" binding="consultaEquiposMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Consulta"/>
-                    </properties>
-                  </component>
-                  <component id="ce29a" class="javax.swing.JMenuItem" binding="modificacionEquiposMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Modificacion"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
               <grid id="9075d" class="javax.swing.JMenu" binding="menuJugadores" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints/>
@@ -69,32 +44,7 @@
                   <text value="Jugadores"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="5049e" class="javax.swing.JMenuItem" binding="altaJugadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Alta"/>
-                    </properties>
-                  </component>
-                  <component id="c802b" class="javax.swing.JMenuItem" binding="bajaJugadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Baja"/>
-                    </properties>
-                  </component>
-                  <component id="7e9df" class="javax.swing.JMenuItem" binding="consultaJugadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Consulta"/>
-                    </properties>
-                  </component>
-                  <component id="cbe46" class="javax.swing.JMenuItem" binding="modificacionJugadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Modificacion"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
               <grid id="e39e9" class="javax.swing.JMenu" binding="staffMenu" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints/>
@@ -102,32 +52,7 @@
                   <text value="Staff"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="88699" class="javax.swing.JMenuItem" binding="altaStaffMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Alta"/>
-                    </properties>
-                  </component>
-                  <component id="c0a52" class="javax.swing.JMenuItem" binding="bajaStaffMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Baja"/>
-                    </properties>
-                  </component>
-                  <component id="266c1" class="javax.swing.JMenuItem" binding="consultaStaffMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Consulta"/>
-                    </properties>
-                  </component>
-                  <component id="9520b" class="javax.swing.JMenuItem" binding="modificacionStaffMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Modificacion"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
               <grid id="e8e36" class="javax.swing.JMenu" binding="patrocinadoresMenu" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints/>
@@ -135,32 +60,7 @@
                   <text value="Patrocinadores"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="38401" class="javax.swing.JMenuItem" binding="altaPatrocinadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Alta"/>
-                    </properties>
-                  </component>
-                  <component id="453d" class="javax.swing.JMenuItem" binding="bajaPatrocinadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Baja"/>
-                    </properties>
-                  </component>
-                  <component id="e75d7" class="javax.swing.JMenuItem" binding="consultaPatrocinadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Consulta"/>
-                    </properties>
-                  </component>
-                  <component id="4dafd" class="javax.swing.JMenuItem" binding="modificacionPatrocinadoresMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Modificacion"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
               <grid id="6b7ea" class="javax.swing.JMenu" binding="Juegos" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints/>
@@ -168,32 +68,7 @@
                   <text value="Juegos"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="512dc" class="javax.swing.JMenuItem" binding="altaJuegosMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Alta"/>
-                    </properties>
-                  </component>
-                  <component id="abdad" class="javax.swing.JMenuItem" binding="bajaJuegosMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Baja"/>
-                    </properties>
-                  </component>
-                  <component id="a6e1e" class="javax.swing.JMenuItem" binding="consultaJuegosMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Consulta"/>
-                    </properties>
-                  </component>
-                  <component id="e269d" class="javax.swing.JMenuItem" binding="modificacionJuegosMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Modificacion"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
               <grid id="b802a" class="javax.swing.JMenu" binding="Competiciones" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints/>
@@ -201,32 +76,7 @@
                   <text value="Competiciones"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="d582e" class="javax.swing.JMenuItem" binding="altaCompeticionesMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Alta"/>
-                    </properties>
-                  </component>
-                  <component id="9f53b" class="javax.swing.JMenuItem" binding="bajaCompeticionesMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Baja"/>
-                    </properties>
-                  </component>
-                  <component id="7db6b" class="javax.swing.JMenuItem" binding="consultaCompeticionesMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Consulta"/>
-                    </properties>
-                  </component>
-                  <component id="45061" class="javax.swing.JMenuItem" binding="modificacionCompeticionesMenuItem">
-                    <constraints/>
-                    <properties>
-                      <text value="Modificacion"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
             </children>
           </grid>

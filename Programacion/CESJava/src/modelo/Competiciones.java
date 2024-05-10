@@ -11,6 +11,9 @@ public class Competiciones {
     private Equipos equipoGanador;
     private Juegos codJuego;
 
+    public Competiciones() {
+    }
+
     public Competiciones(int codCompe, String nombre, Date fechaInicio, Date fechaFin, int curso, Equipos equipoGanador, Juegos codJuego) {
         this.codCompe = codCompe;
         this.nombre = nombre;

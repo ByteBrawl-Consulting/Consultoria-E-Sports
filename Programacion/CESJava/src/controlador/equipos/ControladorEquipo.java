@@ -14,9 +14,12 @@ public class ControladorEquipo {
     private ControladorVista cv;
     public ControladorEquipo(ControladorVista cv) {
         ve = new VentanaEquipos();
-        ve.elegirCRUD();
         ve.bAceptarAl(new bAceptar());
         ve.bSalirAL(new bSalir());
+        ve.bRbAltaAL(new bAlta());
+        ve.bRbBajaAL(new bBaja());
+        ve.bRbModiAl(new bModi());
+        ve.bRbConsultaAL(new bConsulta());
         this.cv = cv;
     }
 
@@ -30,6 +33,7 @@ public class ControladorEquipo {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            Equipos eq = new Equipos();
             if(ve.getRbAlta().isSelected()){
                 try {
                     String nombre = ve.getTfNombreAlta().getText();
@@ -38,14 +42,68 @@ public class ControladorEquipo {
                     java.util.Date fechaJava = null;
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-                    Equipos eq = new Equipos();
                     eq.setNombre(nombre);
                     eq.setFechaFundacion(fechaSql);
                     cv.altaEquipo(eq);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
+            }else if (ve.getRbBaja().isSelected()){
+                try{
+                    String nombre = ve.getTfNombreBaja().getText();
+                    eq.setNombre(nombre);
+                    cv.bajaEquipo(eq);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
+            else if (ve.getRbModificacion().isSelected()){
+                try {
+                    String nombre = ve.getTfNombreModi().getText();
+                    String fecha = ve.getTfFechaModi().getText();
+                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    java.util.Date fechaJava = null;
+                    fechaJava = formato.parse(fecha);
+                    java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
+                    eq.setNombre(nombre);
+                    eq.setFechaFundacion(fechaSql);
+                    cv.modiEquipo(eq);
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }else if (ve.getRbConsulta().isSelected()){
+                String nombre = ve.getTfNombreCons().getText();
+                eq.setNombre(nombre);
+                ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
+            }
+        }
+    }
+
+    private class bAlta implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionAlta();
+        }
+    }
+
+    private class bBaja implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionBaja();
+        }
+    }
+
+    private class bModi implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionModi();
+        }
+    }
+
+    private class bConsulta implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionConsulta();
         }
     }
 }

@@ -1,6 +1,8 @@
 package controlador.login;
 
 import controlador.ControladorVista;
+import modelo.Competiciones;
+import modelo.Jornadas;
 import modelo.Usuarios;
 import view.VentanaLogin;
 import view.VentanaPrincipalAdmin;
@@ -26,6 +28,8 @@ public class ControladorLogin {
         vl.bEntrarAL(new bEntrar());
         vl.bSalirAL(new bSalir());
 
+
+
         vl.setVisible(true);
     }
 
@@ -46,13 +50,11 @@ public class ControladorLogin {
                     "Jordi.fernandez@ikasle.egibide.org \n Adrian.lopez@ikasle.egibide.org \n Jon.garay@ikasle.egibide.org","Ayuda",JOptionPane.INFORMATION_MESSAGE);
         }
     }
-
     public class bSalir implements ActionListener {
         public void actionPerformed (ActionEvent e){
             System.exit(0);
         }
     }
-
     public class bEntrar implements ActionListener {
         public void actionPerformed (ActionEvent e){
             try {
@@ -68,6 +70,8 @@ public class ControladorLogin {
                 } else if (nombreAU.equals("Usuario")) {
                     vpu = new VentanaPrincipalUsuario();
                     vpu.setVisible(true);
+                    vpu.rbClasiAL(new rbUsuClasi());
+                    vpu.rbJornadaAL(new rbUsuJornada());
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -76,8 +80,33 @@ public class ControladorLogin {
             }
         }
     }
+    public class rbUsuJornada implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            vpu.getpClasificacion().setVisible(false);
+            vpu.getpJornada().setVisible(false);
 
+            if (vpu.getpJornada().isEnabled()){
+                vpu.getpJornada().setVisible(true);
+                vpu.getpClasificacion().setVisible(false);
+            }
+            Competiciones com=new Competiciones();
+            com.setNombre(vpu.getTfJornada().getText());
+            Jornadas jor = new Jornadas();
+            jor.setCodCompe(com);
+            cv.ultimaJornada(com);
+        }
+    }
+    public class rbUsuClasi implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            vpu.getpClasificacion().setVisible(false);
+            vpu.getpJornada().setVisible(false);
 
+            if (vpu.getpClasificacion().isEnabled()) {
+                vpu.getpJornada().setVisible(false);
+                vpu.getpClasificacion().setVisible(true);
+            }
+        }
+    }
     public class clickRatonUsu implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             vl.getTfUsu().setText("");
@@ -106,7 +135,6 @@ public class ControladorLogin {
 
         }
     }
-
     public class clickRatonPass implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             vl.getTfPassword().setText("");
