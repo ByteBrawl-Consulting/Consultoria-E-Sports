@@ -7,6 +7,7 @@ import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
 import controlador.patrocinadores.ControladorPatrocinador;
 import modelo.Equipos;
+import modelo.Staff;
 import modelo.Usuarios;
 import view.VentanaEquipos;
 import view.VentanaPrincipalAdmin;
@@ -45,6 +46,9 @@ public class ControladorVista {
         vpa.addMEquipos(new controlEquipos());
     }
 
+
+
+
     /* ----------- Botones Menus ------------- */
     public class controlEquipos implements ActionListener {
         @Override
@@ -70,5 +74,14 @@ public class ControladorVista {
 
     public String consultaEquipo(String nombreEq) {
         return cp.consultaEquipo(nombreEq).toString();
+    }
+    public Equipos buscarEquipo(String nombreEq) {
+        return cp.buscarEquipo(nombreEq);
+    }
+    public void altaStaff(Staff staff) {
+        cp.altaStaff(staff);
+    }
+    public void bajaStaff(Staff staff) {
+        cp.bajaStaff(staff);
     }
 }

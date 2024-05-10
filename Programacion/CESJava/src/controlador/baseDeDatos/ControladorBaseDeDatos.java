@@ -2,6 +2,7 @@ package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
 import modelo.Equipos;
+import modelo.Staff;
 import modelo.Usuarios;
 
 import java.sql.*;
@@ -10,6 +11,7 @@ public class ControladorBaseDeDatos {
 
     private TablaUsuarios tu;
     private TablaEquipos te;
+    private TablaStaff ts;
     private Connection con;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
@@ -94,5 +96,17 @@ public class ControladorBaseDeDatos {
 
     public String consultaEquipo(String nombreEq) {
         return te.consultaEquipo(nombreEq).toString();
+    }
+
+    public Equipos buscarEquipo(String nombreEq) {
+        return te.buscarEquipo(nombreEq);
+    }
+
+    public void bajaStaff(Staff staff) {
+        ts.bajaStaff(staff);
+    }
+
+    public void altaStaff(Staff staff) {
+        ts.altaStaff(staff);
     }
 }

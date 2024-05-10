@@ -1,10 +1,13 @@
 package controlador.staff;
 
 import controlador.ControladorVista;
+import modelo.Equipos;
+import modelo.Staff;
 import view.VentanaStaff;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 public class ControladorStaff {
     VentanaStaff vs;
@@ -31,10 +34,22 @@ public class ControladorStaff {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            Staff staff = new Staff();
             if (vs.getRbAlta().isSelected()){
-
+                String nombre = vs.getTfNombreAlta().getText();
+                String cargo = vs.getTfCargoAlta().getText();
+                Integer sueldo = Integer.valueOf(vs.getTfSueldoAlta().getText());
+                //Buscar equipo
+                Equipos eq = cv.buscarEquipo(nombre);
+                staff.setNombre(nombre);
+                staff.setCargo(cargo);
+                staff.setSueldo(sueldo);
+                staff.setCodEquipo(eq);
+                cv.altaStaff(staff);
             }else if (vs.getRbBaja().isSelected()){
-
+                String nombre = vs.getTfNombreBaja().getText();
+                staff.setNombre(nombre);
+                cv.bajaStaff(staff);
             }else if (vs.getRbModi().isSelected()){
 
             }else if (vs.getRbConsulta().isSelected()){
