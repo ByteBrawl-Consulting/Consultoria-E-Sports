@@ -17,13 +17,13 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+          <library>
+            <CLASSES>
+              <root url="jar://C:/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar!/" />
+            </CLASSES>
+            <JAVADOC />
+            <SOURCES />
+          </library>
+        </orderEntry>
   </component>
 </module>
