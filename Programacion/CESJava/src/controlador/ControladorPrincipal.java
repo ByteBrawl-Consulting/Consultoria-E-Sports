@@ -2,6 +2,7 @@ package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
 import modelo.Equipos;
+import modelo.Staff;
 import modelo.Usuarios;
 import view.VentanaLogin;
 
@@ -35,5 +36,17 @@ public class ControladorPrincipal {
 
     public String consultaEquipo(String nombreEq) {
         return cbd.consultaEquipo(nombreEq).toString();
+    }
+
+    public Equipos buscarEquipo(String nombreEq) {
+        return cbd.buscarEquipo(nombreEq);
+    }
+
+    public void bajaStaff(Staff staff) {
+        cbd.bajaStaff(staff);
+    }
+
+    public void altaStaff(Staff staff) {
+        cbd.altaStaff(staff);
     }
 }

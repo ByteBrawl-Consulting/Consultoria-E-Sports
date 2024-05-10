@@ -35,8 +35,6 @@ public class ControladorEquipo {
         public void actionPerformed(ActionEvent e) {
             Equipos eq = new Equipos();
             if(ve.getRbAlta().isSelected()){
-                //Ocultar paneles
-                ve.eleccionAlta();
                 try {
                     String nombre = ve.getTfNombreAlta().getText();
                     String fecha = ve.getTfFechaAlta().getText();
@@ -51,8 +49,6 @@ public class ControladorEquipo {
                     throw new RuntimeException(ex);
                 }
             }else if (ve.getRbBaja().isSelected()){
-                //Ocultar paneles
-                ve.eleccionBaja();
                 try{
                     String nombre = ve.getTfNombreBaja().getText();
                     eq.setNombre(nombre);
@@ -62,8 +58,6 @@ public class ControladorEquipo {
                 }
             }
             else if (ve.getRbModificacion().isSelected()){
-                //Ocultar paneles
-                ve.eleccionModi();
                 try {
                     String nombre = ve.getTfNombreModi().getText();
                     String fecha = ve.getTfFechaModi().getText();
@@ -78,8 +72,6 @@ public class ControladorEquipo {
                     throw new RuntimeException(ex);
                 }
             }else if (ve.getRbConsulta().isSelected()){
-                //Ocultar paneles
-                ve.eleccionConsulta();
                 String nombre = ve.getTfNombreCons().getText();
                 eq.setNombre(nombre);
                 ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
