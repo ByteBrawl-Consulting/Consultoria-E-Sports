@@ -29,29 +29,29 @@ public class VentanaEquipos extends JFrame{
         setLocationRelativeTo(null);
         setSize(500,300);
     }
-    public void elegirCRUD(){
-        pPrincipal.setVisible(true);
-        if (rbAlta.isSelected()){
-            pAlta.setVisible(true);
-            pBaja.setVisible(false);
-            pModificacion.setVisible(false);
-            pConsulta.setVisible(false);
-        }else if (rbBaja.isSelected()){
-            pAlta.setVisible(false);
-            pBaja.setVisible(true);
-            pModificacion.setVisible(false);
-            pConsulta.setVisible(false);
-        }else if (rbModificacion.isSelected()){
-            pAlta.setVisible(false);
-            pBaja.setVisible(false);
-            pModificacion.setVisible(true);
-            pConsulta.setVisible(false);
-        }else if (rbConsulta.isSelected()){
-            pAlta.setVisible(false);
-            pBaja.setVisible(false);
-            pModificacion.setVisible(false);
-            pConsulta.setVisible(true);
-        }
+    public void eleccionAlta(){
+        pAlta.setVisible(true);
+        pBaja.setVisible(false);
+        pModificacion.setVisible(false);
+        pConsulta.setVisible(false);
+    }
+    public void eleccionBaja(){
+        pAlta.setVisible(false);
+        pBaja.setVisible(true);
+        pModificacion.setVisible(false);
+        pConsulta.setVisible(false);
+    }
+    public void eleccionModi(){
+        pAlta.setVisible(false);
+        pBaja.setVisible(false);
+        pModificacion.setVisible(true);
+        pConsulta.setVisible(false);
+    }
+    public void eleccionConsulta(){
+        pAlta.setVisible(false);
+        pBaja.setVisible(false);
+        pModificacion.setVisible(false);
+        pConsulta.setVisible(true);
     }
     public void bAceptarAl(ActionListener listener){
         bAceptar.addActionListener(listener);
