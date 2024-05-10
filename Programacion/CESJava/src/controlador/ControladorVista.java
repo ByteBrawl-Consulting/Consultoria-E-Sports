@@ -1,6 +1,5 @@
 package controlador;
 
-import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
 import modelo.Equipos;
 import modelo.Usuarios;
@@ -10,11 +9,9 @@ import java.sql.SQLException;
 public class ControladorVista {
     private ControladorPrincipal cp;
     private ControladorLogin cl;
-    private ControladorJugador cj;
 
     public ControladorVista(ControladorPrincipal cp) {
         cl = new ControladorLogin(this);
-        //cj = new ControladorJugador(this);
 
 
 
