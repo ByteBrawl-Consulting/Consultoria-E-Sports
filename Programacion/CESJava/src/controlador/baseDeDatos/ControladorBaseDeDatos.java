@@ -78,7 +78,7 @@ public class ControladorBaseDeDatos {
         te.modiEquipo(eq);
     }
 
-    public void consultaEquipo(Equipos eq) {
-        te.consultaEquipo(eq);
+    public String consultaEquipo(Equipos eq) {
+        return te.consultaEquipo(eq).toString();
     }
 }

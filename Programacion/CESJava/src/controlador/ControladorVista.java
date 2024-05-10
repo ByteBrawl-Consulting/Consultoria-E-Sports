@@ -39,7 +39,7 @@ public class ControladorVista {
         cp.modiEquipo(eq);
     }
 
-    public void consultaEquipo(Equipos eq) {
-        cp.consultaEquipo(eq);
+    public String consultaEquipo(Equipos eq) {
+        return cp.consultaEquipo(eq).toString();
     }
 }
