@@ -47,7 +47,6 @@ public class ControladorVista {
         vpa.addMEquipos(new controlEquipos());
     }
 
-
     /* ----------- Botones Menus ------------- */
     public class controlEquipos implements ActionListener {
         @Override
