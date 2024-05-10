@@ -23,6 +23,18 @@ public class ControladorPrincipal {
     }
 
     public void altaEquipo(Equipos eq) {
-        //cbd.altaEquipo(eq);
+        cbd.altaEquipo(eq);
+    }
+
+    public void bajaEquipo(Equipos eq) {
+        cbd.bajaEquipo(eq);
+    }
+
+    public void modiEquipo(Equipos eq) {
+        cbd.modiEquipo(eq);
+    }
+
+    public String consultaEquipo(String nombreEq) {
+        return cbd.consultaEquipo(nombreEq).toString();
     }
 }

@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin  extends JFrame {
     private JPanel pPrincipal;
@@ -54,5 +55,8 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setContentPane(pPrincipal);
         setSize(500, 300);
         setLocationRelativeTo(null);
+    }
+    public void addMEquipos(ActionListener listener){
+        menuEquipos.addActionListener(listener);
     }
 }
