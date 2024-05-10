@@ -1,6 +1,11 @@
 package controlador;
 
+import controlador.competiciones.ControladorCompeticion;
+import controlador.equipos.ControladorEquipo;
+import controlador.juegos.ControladorJuego;
+import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
+import controlador.patrocinadores.ControladorPatrocinador;
 import modelo.Equipos;
 import modelo.Usuarios;
 import view.VentanaEquipos;
@@ -12,9 +17,19 @@ import java.sql.SQLException;
 
 public class ControladorVista {
     private ControladorPrincipal cp;
-    private VentanaEquipos ve;
-    private VentanaPrincipalAdmin vpa;
     private ControladorLogin cl;
+    private VentanaPrincipalAdmin vpa;
+
+    /* ----------- Controladores ----------- */
+    private ControladorEquipo ce;
+    private ControladorCompeticion cc;
+    private ControladorJuego cjueg;
+    private ControladorJugador cjuga;
+    private ControladorPatrocinador cpat;
+
+//    private VentanaEquipos ve;
+
+
 
     public ControladorVista(ControladorPrincipal cp) {
         cl = new ControladorLogin(this);
@@ -29,12 +44,17 @@ public class ControladorVista {
         vpa = new VentanaPrincipalAdmin();
         vpa.addMEquipos(new controlEquipos());
     }
+
+    /* ----------- Botones Menus ------------- */
     public class controlEquipos implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ve = new VentanaEquipos();
+//            ve = new VentanaEquipos();
+            ce = new ControladorEquipo(ControladorVista.this);
         }
     }
+
+    /* ----------- Metodos  ----------- */
 
     public void altaEquipo(Equipos eq) {
         cp.altaEquipo(eq);

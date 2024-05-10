@@ -16,6 +16,10 @@ public class ControladorEquipo {
         ve = new VentanaEquipos();
         ve.bAceptarAl(new bAceptar());
         ve.bSalirAL(new bSalir());
+        ve.bRbAltaAL(new bAlta());
+        ve.bRbBajaAL(new bBaja());
+        ve.bRbModiAl(new bModi());
+        ve.bRbConsultaAL(new bConsulta());
         this.cv = cv;
     }
 
@@ -80,6 +84,34 @@ public class ControladorEquipo {
                 eq.setNombre(nombre);
                 ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
             }
+        }
+    }
+
+    private class bAlta implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionAlta();
+        }
+    }
+
+    private class bBaja implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionBaja();
+        }
+    }
+
+    private class bModi implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionModi();
+        }
+    }
+
+    private class bConsulta implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ve.eleccionConsulta();
         }
     }
 }
