@@ -1,6 +1,7 @@
 package controlador;
 
 import controlador.login.ControladorLogin;
+import modelo.Competiciones;
 import modelo.Equipos;
 import modelo.Usuarios;
 import view.VentanaEquipos;
@@ -29,6 +30,11 @@ public class ControladorVista {
         vpa = new VentanaPrincipalAdmin();
         vpa.addMEquipos(new controlEquipos());
     }
+
+    public void ultimaJornada(Competiciones com) {
+        cp.ultimaJornada(com);
+    }
+
     public class controlEquipos implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

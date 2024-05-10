@@ -93,6 +93,7 @@ public class ControladorLogin {
             com.setCodCompe(Integer.parseInt(vpu.getTfJornada().getText()));
             Jornadas jor = new Jornadas();
             jor.setCodCompe(com);
+            cv.ultimaJornada(com);
         }
     }
     public class rbUsuClasi implements ActionListener{
