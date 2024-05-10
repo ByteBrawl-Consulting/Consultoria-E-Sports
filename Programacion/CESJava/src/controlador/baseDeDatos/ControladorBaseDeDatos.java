@@ -103,16 +103,16 @@ public class ControladorBaseDeDatos {
 
     public void ultimaJornada(Competiciones com) {
         tj.ultimaJornada(com);
-  
+}
     public Equipos buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
 
-    public void bajaStaff(Staff staff) {
-        ts.bajaStaff(staff);
-    }
-
     public void altaStaff(Staff staff) {
         ts.altaStaff(staff);
+    }
+
+    public void bajaStaff(Staff staff) {
+        ts.bajaStaff(staff);
     }
 }

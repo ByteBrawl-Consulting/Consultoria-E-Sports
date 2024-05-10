@@ -47,11 +47,6 @@ public class ControladorVista {
         vpa.addMEquipos(new controlEquipos());
     }
 
-    public void ultimaJornada(Competiciones com) {
-        cp.ultimaJornada(com);
-    }
-
-
     /* ----------- Botones Menus ------------- */
     public class controlEquipos implements ActionListener {
         @Override
@@ -74,6 +69,12 @@ public class ControladorVista {
     public void modiEquipo(Equipos eq) {
         cp.modiEquipo(eq);
     }
+    public void altaStaff(Staff staff) {
+        cp.altaStaff(staff);
+    }
+    public void bajaStaff(Staff staff) {
+        cp.bajaStaff(staff);
+    }
 
     public String consultaEquipo(String nombreEq) {
         return cp.consultaEquipo(nombreEq).toString();
@@ -81,10 +82,8 @@ public class ControladorVista {
     public Equipos buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
     }
-    public void altaStaff(Staff staff) {
-        cp.altaStaff(staff);
+    public void ultimaJornada(Competiciones com) {
+        cp.ultimaJornada(com);
     }
-    public void bajaStaff(Staff staff) {
-        cp.bajaStaff(staff);
-    }
+
 }

@@ -47,12 +47,11 @@ public class ControladorPrincipal {
         return cbd.buscarEquipo(nombreEq);
     }
 
-    public void bajaStaff(Staff staff) {
-        cbd.bajaStaff(staff);
-    }
-
     public void altaStaff(Staff staff) {
         cbd.altaStaff(staff);
+    }
 
+    public void bajaStaff(Staff staff) {
+        cbd.bajaStaff(staff);
     }
 }
