@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <!-- Elemento principal RESULTS -->
     <xs:element name="RESULTS">
         <xs:complexType>
             <xs:sequence>
@@ -10,14 +9,12 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Tipo complejo para ROW -->
     <xs:complexType name="trow">
         <xs:sequence>
             <xs:element name="COLUMN" type="tcolumn" />
         </xs:sequence>
     </xs:complexType>
 
-    <!-- Tipo complejo para COLUMN -->
     <xs:complexType name="tcolumn">
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -26,7 +23,6 @@
         </xs:simpleContent>
     </xs:complexType>
 
-    <!-- Elemento Clasificacion -->
     <xs:element name="Clasificacion">
         <xs:complexType>
             <xs:sequence>
@@ -35,7 +31,6 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Tipo complejo para Equipo -->
     <xs:complexType name="tequipo">
         <xs:sequence>
             <xs:element name="Nombre" type="tnombre" />
@@ -43,12 +38,10 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- Tipo simple para Puntos -->
     <xs:simpleType name="tpuntos">
         <xs:restriction base="xs:integer" />
     </xs:simpleType>
 
-    <!-- Tipo simple para Nombre -->
     <xs:simpleType name="tnombre">
         <xs:restriction base="xs:string" />
     </xs:simpleType>
