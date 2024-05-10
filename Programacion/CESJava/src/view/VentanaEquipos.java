@@ -59,6 +59,18 @@ public class VentanaEquipos extends JFrame{
     public void bSalirAL(ActionListener listener){
         bSalir.addActionListener(listener);
     }
+    public void bRbAltaAL(ActionListener listener){
+        rbAlta.addActionListener(listener);
+    }
+    public void bRbBajaAL(ActionListener listener){
+        rbBaja.addActionListener(listener);
+    }
+    public void bRbModiAl(ActionListener listener){
+        rbModificacion.addActionListener(listener);
+    }
+    public void bRbConsultaAL(ActionListener listener){
+        rbConsulta.addActionListener(listener);
+    }
 
     public JRadioButton getRbAlta() {
         return rbAlta;
