@@ -76,11 +76,9 @@ public class ControladorEquipo {
             }else if (ve.getRbConsulta().isSelected()){
                 //Ocultar paneles
                 ve.eleccionConsulta();
-                try{
-                    String nombre = ve.getTfNombreCons().getText();
-                    eq.setNombre(nombre);
-                    ve.setTaConsulta(cv.consultaEquipo(eq));
-                }
+                String nombre = ve.getTfNombreCons().getText();
+                eq.setNombre(nombre);
+                ve.setTaConsulta(cv.consultaEquipo(eq));
             }
         }
     }

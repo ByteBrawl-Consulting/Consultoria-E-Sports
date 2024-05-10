@@ -93,10 +93,10 @@ public class TablaEquipos {
                 equipoEncontrado = true;
             }
             if (equipoEncontrado){
-                return equipos;
             }else{
                 throw new Exception("Equipo no encontrado");
             }
+            return equipos;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (Exception e) {
