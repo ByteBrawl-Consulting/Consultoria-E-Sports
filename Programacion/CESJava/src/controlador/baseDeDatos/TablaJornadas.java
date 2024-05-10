@@ -29,7 +29,7 @@ public class TablaJornadas {
                 "            JOIN competiciones c ON j.cod_compe = c.cod_compe \n" +
                 "        WHERE \n" +
                 "            c.nombre = ? \n" +
-                "    )\n" +
+                "    )\n" +    
                 "    AND c.nombre = ? ;" +
                 "";
         PreparedStatement pre = con.preparedStatement(plantilla);
