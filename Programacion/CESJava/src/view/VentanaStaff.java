@@ -24,6 +24,8 @@ public class VentanaStaff extends JFrame{
     private JTextField tfNombreCons;
     private JTextArea taConsulta;
     private JPanel pPrincipal;
+    private JTextField tfEquipoAlta;
+    private JTextField tfEquipoModi;
 
     public VentanaStaff(){
         super("Ventana Equipos");
@@ -176,5 +178,21 @@ public class VentanaStaff extends JFrame{
 
     public void setRbConsulta(JRadioButton rbConsulta) {
         this.rbConsulta = rbConsulta;
+    }
+
+    public JTextField getTfEquipoAlta() {
+        return tfEquipoAlta;
+    }
+
+    public void setTfEquipoAlta(JTextField tfEquipoAlta) {
+        this.tfEquipoAlta = tfEquipoAlta;
+    }
+
+    public JTextField getTfEquipoModi() {
+        return tfEquipoModi;
+    }
+
+    public void setTfEquipoModi(JTextField tfEquipoModi) {
+        this.tfEquipoModi = tfEquipoModi;
     }
 }

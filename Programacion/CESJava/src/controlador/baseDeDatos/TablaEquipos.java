@@ -107,4 +107,24 @@ public class TablaEquipos {
             throw new RuntimeException(e);
         }
     }
+    public Equipos buscarEquipo(String nombreEq){
+        Equipos eq = null;
+        try {
+            String plantilla = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setString(1, nombreEq);
+            ResultSet respuesta = sentenciaPre.executeQuery();
+            if (respuesta.next()){
+                Integer codEquipo = respuesta.getInt("cod_equipo");
+                eq = new Equipos();
+                eq.setNombre(nombreEq);
+                eq.setCodEquipo(codEquipo);
+            }
+            return eq;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

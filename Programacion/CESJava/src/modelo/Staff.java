@@ -4,15 +4,19 @@ public class Staff {
     private int codStaff;
     private String nombre;
     private String cargo;
-    private double sueldo;
+    private int sueldo;
     private  Equipos codEquipo;
 
-    public Staff(int codStaff, String nombre, String cargo, double sueldo, Equipos codEquipo) {
+    public Staff(int codStaff, String nombre, String cargo, int sueldo, Equipos codEquipo) {
         this.codStaff = codStaff;
         this.nombre = nombre;
         this.cargo = cargo;
         this.sueldo = sueldo;
         this.codEquipo = codEquipo;
+    }
+
+    public Staff() {
+
     }
 
     public int getCodStaff() {
@@ -39,11 +43,11 @@ public class Staff {
         this.cargo = cargo;
     }
 
-    public double getSueldo() {
+    public int getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(double sueldo) {
+    public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
 

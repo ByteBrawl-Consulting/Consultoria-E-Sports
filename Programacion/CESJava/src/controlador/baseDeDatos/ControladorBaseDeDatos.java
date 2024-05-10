@@ -3,6 +3,7 @@ package controlador.baseDeDatos;
 import controlador.ControladorPrincipal;
 import modelo.Competiciones;
 import modelo.Equipos;
+import modelo.Staff;
 import modelo.Usuarios;
 
 import java.sql.*;
@@ -11,6 +12,7 @@ public class ControladorBaseDeDatos {
     private TablaJornadas tj;
     private TablaUsuarios tu;
     private TablaEquipos te;
+    private TablaStaff ts;
     private Connection con;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
@@ -101,5 +103,16 @@ public class ControladorBaseDeDatos {
 
     public void ultimaJornada(Competiciones com) {
         tj.ultimaJornada(com);
+  
+    public Equipos buscarEquipo(String nombreEq) {
+        return te.buscarEquipo(nombreEq);
+    }
+
+    public void bajaStaff(Staff staff) {
+        ts.bajaStaff(staff);
+    }
+
+    public void altaStaff(Staff staff) {
+        ts.altaStaff(staff);
     }
 }
