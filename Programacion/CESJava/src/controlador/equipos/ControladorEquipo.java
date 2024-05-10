@@ -78,7 +78,7 @@ public class ControladorEquipo {
                 ve.eleccionConsulta();
                 String nombre = ve.getTfNombreCons().getText();
                 eq.setNombre(nombre);
-                ve.setTaConsulta(cv.consultaEquipo(eq));
+                //ve.setTaConsulta(cv.consultaEquipo(eq).toString());
             }
         }
     }

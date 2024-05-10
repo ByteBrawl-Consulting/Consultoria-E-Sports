@@ -144,7 +144,7 @@ public class VentanaEquipos extends JFrame{
         return taConsulta;
     }
 
-    public void setTaConsulta(String taConsulta) {
+    public void setTaConsulta(JTextArea taConsulta) {
         this.taConsulta = taConsulta;
     }
 }
