@@ -12,7 +12,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class TablaEquipos {
-    Connection con;
+   private Connection con;
+
+    public TablaEquipos(Connection con) {
+        this.con = con;
+    }
+
     public void altaEquipo (Equipos eq){
         try {
             String plantilla = "INSERT INTO equipos (nombre,fecha_fundacion) VALUES (?,?)";

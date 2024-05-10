@@ -15,6 +15,9 @@ public class Jornadas {
         this.codCompe = codCompe;
     }
 
+    public Jornadas() {
+    }
+
     public int getCodJornada() {
         return codJornada;
     }
@@ -46,4 +49,6 @@ public class Jornadas {
     public void setCodCompe(Competiciones codCompe) {
         this.codCompe = codCompe;
     }
+
+
 }

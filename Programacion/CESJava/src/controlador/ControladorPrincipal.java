@@ -1,6 +1,7 @@
 package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
+import modelo.Competiciones;
 import modelo.Equipos;
 import modelo.Staff;
 import modelo.Usuarios;
@@ -38,6 +39,9 @@ public class ControladorPrincipal {
         return cbd.consultaEquipo(nombreEq).toString();
     }
 
+    public void ultimaJornada(Competiciones com) {
+        cbd.ultimaJornada(com);
+
     public Equipos buscarEquipo(String nombreEq) {
         return cbd.buscarEquipo(nombreEq);
     }
@@ -48,5 +52,6 @@ public class ControladorPrincipal {
 
     public void altaStaff(Staff staff) {
         cbd.altaStaff(staff);
+
     }
 }

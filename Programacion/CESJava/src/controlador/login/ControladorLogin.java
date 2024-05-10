@@ -1,6 +1,8 @@
 package controlador.login;
 
 import controlador.ControladorVista;
+import modelo.Competiciones;
+import modelo.Jornadas;
 import modelo.Usuarios;
 import view.VentanaLogin;
 import view.VentanaPrincipalAdmin;
@@ -87,6 +89,11 @@ public class ControladorLogin {
                 vpu.getpJornada().setVisible(true);
                 vpu.getpClasificacion().setVisible(false);
             }
+            Competiciones com=new Competiciones();
+            com.setCodCompe(Integer.parseInt(vpu.getTfJornada().getText()));
+            Jornadas jor = new Jornadas();
+            jor.setCodCompe(com);
+            cv.ultimaJornada(com);
         }
     }
     public class rbUsuClasi implements ActionListener{

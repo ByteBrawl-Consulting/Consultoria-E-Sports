@@ -1,6 +1,7 @@
 package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
+import modelo.Competiciones;
 import modelo.Equipos;
 import modelo.Staff;
 import modelo.Usuarios;
@@ -8,7 +9,7 @@ import modelo.Usuarios;
 import java.sql.*;
 
 public class ControladorBaseDeDatos {
-
+    private TablaJornadas tj;
     private TablaUsuarios tu;
     private TablaEquipos te;
     private TablaStaff ts;
@@ -76,6 +77,8 @@ public class ControladorBaseDeDatos {
 
     public void inicializarTablas(ControladorPrincipal cp) {
         tu = new TablaUsuarios(con);
+        te = new TablaEquipos(con);
+        tj = new TablaJornadas(con);
     }
 
     public String login (Usuarios usu) throws SQLException {
@@ -98,6 +101,9 @@ public class ControladorBaseDeDatos {
         return te.consultaEquipo(nombreEq).toString();
     }
 
+    public void ultimaJornada(Competiciones com) {
+        tj.ultimaJornada(com);
+  
     public Equipos buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
