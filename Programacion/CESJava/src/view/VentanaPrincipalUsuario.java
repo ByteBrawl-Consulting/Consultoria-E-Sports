@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+import static java.awt.Color.white;
+
 public class VentanaPrincipalUsuario extends JFrame {
     private JPanel panel1;
     private JLabel tituloLabel;
@@ -15,12 +17,18 @@ public class VentanaPrincipalUsuario extends JFrame {
     private JPanel pClasificacion;
     private JTextField tfClasi;
     private JTextArea taClasi;
+    private JLabel jornadalb;
+    private JLabel claselb;
 
     public VentanaPrincipalUsuario() throws HeadlessException {
         super("Pagina Principal");
         setContentPane(panel1);
         setSize(500,300);
         setLocationRelativeTo(null);
+        tfClasi.setForeground(white);
+        tfJornada.setForeground(white);
+        jornadalb.setForeground(white);
+        claselb.setForeground(white);
     }
     public void jornadaAL (ActionListener al){
         tfJornada.addActionListener(al);

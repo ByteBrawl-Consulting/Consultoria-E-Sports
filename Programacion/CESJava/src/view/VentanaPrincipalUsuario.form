@@ -46,7 +46,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="5a492" class="javax.swing.JLabel">
+          <component id="5a492" class="javax.swing.JLabel" binding="jornadalb">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -82,7 +82,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="2ec09" class="javax.swing.JLabel">
+          <component id="2ec09" class="javax.swing.JLabel" binding="claselb">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
