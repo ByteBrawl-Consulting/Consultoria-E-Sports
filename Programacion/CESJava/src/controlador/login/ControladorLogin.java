@@ -90,7 +90,7 @@ public class ControladorLogin {
                 vpu.getpClasificacion().setVisible(false);
             }
             Competiciones com=new Competiciones();
-            com.setCodCompe(Integer.parseInt(vpu.getTfJornada().getText()));
+            com.setNombre(vpu.getTfJornada().getText());
             Jornadas jor = new Jornadas();
             jor.setCodCompe(com);
             cv.ultimaJornada(com);

@@ -6,6 +6,7 @@ import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
 import controlador.patrocinadores.ControladorPatrocinador;
+import modelo.Competiciones;
 import modelo.Equipos;
 import modelo.Staff;
 import modelo.Usuarios;
@@ -46,7 +47,9 @@ public class ControladorVista {
         vpa.addMEquipos(new controlEquipos());
     }
 
-
+    public void ultimaJornada(Competiciones com) {
+        cp.ultimaJornada(com);
+    }
 
 
     /* ----------- Botones Menus ------------- */
