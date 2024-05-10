@@ -80,23 +80,22 @@ public class TablaEquipos {
             throw new RuntimeException(e);
         }
     }
-    public StringBuilder consultaEquipo(Equipos eq){
+    public Equipos consultaEquipo(String nombreEq){
+        Equipos eq = null;
         try {
             String plantilla = "SELECT cod_equipo,fecha_fundacion FROM equipos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
-            sentenciaPre.setString(1, eq.getNombre());
+            sentenciaPre.setString(1, nombreEq);
             ResultSet respuesta = sentenciaPre.executeQuery();
-            StringBuilder equipos = new StringBuilder();
-            boolean equipoEncontrado = false;
-            while (respuesta.next()){
-                equipos.append(respuesta.getString("cod_equipo")).append(respuesta.getString("fecha_fundacion")).append("\n");
-                equipoEncontrado = true;
+            if (respuesta.next()){
+                Integer codEquipo = respuesta.getInt("cod_equipo");
+                java.sql.Date fecha = respuesta.getDate("fecha_fundacion");
+                eq = new Equipos();
+                eq.setNombre(nombreEq);
+                eq.setFechaFundacion(fecha);
+                eq.setCodEquipo(codEquipo);
             }
-            if (equipoEncontrado){
-            }else{
-                throw new Exception("Equipo no encontrado");
-            }
-            return equipos;
+            return eq;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (Exception e) {
