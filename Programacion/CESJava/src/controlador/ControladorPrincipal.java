@@ -5,6 +5,8 @@ import modelo.Equipos;
 import modelo.Usuarios;
 import view.VentanaLogin;
 
+import java.sql.SQLException;
+
 public class ControladorPrincipal {
     private ControladorVista cv;
     private ControladorBaseDeDatos cbd;
@@ -14,9 +16,10 @@ public class ControladorPrincipal {
         cbd=new ControladorBaseDeDatos(this);
 
     }
-    public String login (Usuarios usu){
+
+    public String login (Usuarios usu) throws SQLException {
         System.out.println("cp");
-        //return cbd.login(usu);
+        return cbd.login(usu);
     }
 
     public void altaEquipo(Equipos eq) {
