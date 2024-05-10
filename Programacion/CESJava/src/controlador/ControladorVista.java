@@ -30,4 +30,16 @@ public class ControladorVista {
     public void altaEquipo(Equipos eq) {
         cp.altaEquipo(eq);
     }
+
+    public void bajaEquipo(Equipos eq) {
+        cp.bajaEquipo(eq);
+    }
+
+    public void modiEquipo(Equipos eq) {
+        cp.modiEquipo(eq);
+    }
+
+    public void consultaEquipo(Equipos eq) {
+        cp.consultaEquipo(eq);
+    }
 }
