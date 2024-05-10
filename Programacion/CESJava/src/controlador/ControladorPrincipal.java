@@ -41,6 +41,7 @@ public class ControladorPrincipal {
 
     public void ultimaJornada(Competiciones com) {
         cbd.ultimaJornada(com);
+    }
 
     public Equipos buscarEquipo(String nombreEq) {
         return cbd.buscarEquipo(nombreEq);
