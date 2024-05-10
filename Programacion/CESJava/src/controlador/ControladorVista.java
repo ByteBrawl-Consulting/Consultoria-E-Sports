@@ -20,7 +20,6 @@ public class ControladorVista {
         cl = new ControladorLogin(this);
         this.cp=cp;
         iniciarBotones();
-//        cl.mostrar();
     }
 
     public String login (Usuarios usu) throws SQLException {
