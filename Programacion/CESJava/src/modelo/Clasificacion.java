@@ -1,17 +1,17 @@
 package modelo;
 
-public class Clasificaciones {
+public class Clasificacion {
     private int codequipo;
     private int puntos;
     private int codcompe;
 
-    public Clasificaciones(int codequipo, int puntos, int codcompe) {
+    public Clasificacion(int codequipo, int puntos, int codcompe) {
         this.codequipo = codequipo;
         this.puntos = puntos;
         this.codcompe = codcompe;
     }
 
-    public Clasificaciones() {
+    public Clasificacion() {
     }
 
     public int getCodequipo() {

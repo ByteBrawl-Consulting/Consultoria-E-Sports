@@ -1,15 +1,15 @@
 package modelo;
 
-public class Patrocinadores {
+public class Patrocinador {
     private int codPatrocinadores;
     private String nombre;
 
-    public Patrocinadores(int codPatrocinadores, String nombre) {
+    public Patrocinador(int codPatrocinadores, String nombre) {
         this.codPatrocinadores = codPatrocinadores;
         this.nombre = nombre;
     }
 
-    public Patrocinadores() {
+    public Patrocinador() {
     }
 
     public int getCodPatrocinadores() {

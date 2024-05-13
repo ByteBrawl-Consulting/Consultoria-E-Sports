@@ -1,6 +1,6 @@
 package controlador.baseDeDatos;
 
-import modelo.Equipos;
+import modelo.Equipo;
 import modelo.Staff;
 
 import java.sql.Connection;
@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class TablaStaff {
     Connection con;
@@ -84,7 +83,7 @@ public class TablaStaff {
             if (respuesta.next()){
                 Integer sueldo = respuesta.getInt("sueldo");
                 String cargo = respuesta.getString("cargo");
-                Equipos equipos = (Equipos)respuesta.getObject("cod_equipo");
+                Equipo equipos = (Equipo)respuesta.getObject("cod_equipo");
                 staff = new Staff();
                 staff.setNombre(nombreStaff);
                 staff.setCargo(cargo);

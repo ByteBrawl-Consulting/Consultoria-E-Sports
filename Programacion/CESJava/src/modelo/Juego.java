@@ -1,21 +1,22 @@
 package modelo;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
-public class Juegos {
+public class Juego {
     private int codJuego;
     private String nombre;
     private String desarrolladora;
-    private java.sql.Date fechaLanzamiento;
+    private LocalDate fechaLanzamiento;
 
-    public Juegos(int codJuego, String nombre, String desarrolladora, Date fechaLanzamiento) {
+    public Juego(int codJuego, String nombre, String desarrolladora, LocalDate fechaLanzamiento) {
         this.codJuego = codJuego;
         this.nombre = nombre;
         this.desarrolladora = desarrolladora;
         this.fechaLanzamiento = fechaLanzamiento;
     }
 
-    public Juegos() {
+    public Juego() {
     }
 
     public int getCodJuego() {
@@ -42,11 +43,11 @@ public class Juegos {
         this.desarrolladora = desarrolladora;
     }
 
-    public Date getFechaLanzamiento() {
+    public LocalDate getFechaLanzamiento() {
         return fechaLanzamiento;
     }
 
-    public void setFechaLanzamiento(Date fechaLanzamiento) {
+    public void setFechaLanzamiento(LocalDate fechaLanzamiento) {
         this.fechaLanzamiento = fechaLanzamiento;
     }
 }
