@@ -25,6 +25,12 @@ public class VentanaPrincipalAdmin  extends JFrame {
     private JMenuBar menuDosBar;
     private JButton cerrarSesionButton;
     private JButton salirButton;
+    private JButton equiposButton;
+    private JButton jugadoresButton;
+    private JButton staffButton;
+    private JButton patrocinadoresButton;
+    private JButton juegosButton;
+    private JButton competicionesButton;
 
     public VentanaPrincipalAdmin() throws HeadlessException {
         super("Login");
@@ -33,6 +39,6 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setLocationRelativeTo(null);
     }
     public void addMEquipos(ActionListener listener){
-        menuEquipos.addActionListener(listener);
+        equiposButton.addActionListener(listener);
     }
 }
