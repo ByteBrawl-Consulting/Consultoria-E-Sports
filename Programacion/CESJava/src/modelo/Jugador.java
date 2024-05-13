@@ -1,18 +1,19 @@
 package modelo;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
-public class Jugadores {
+public class Jugador {
     private int codJugador;
     private String nombreJugador;
     private String nacionalidad;
-    private java.sql.Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String nickname;
     private String rol;
     private double sueldo;
-    private Equipos codEquipo;
+    private Equipo codEquipo;
 
-    public Jugadores(int codJugador, String nombreJugador, String nacionalidad, Date fechaNacimiento, String nickname, String rol, double sueldo, Equipos codEquipo) {
+    public Jugador(int codJugador, String nombreJugador, String nacionalidad, LocalDate fechaNacimiento, String nickname, String rol, double sueldo, Equipo codEquipo) {
         this.codJugador = codJugador;
         this.nombreJugador = nombreJugador;
         this.nacionalidad = nacionalidad;
@@ -47,11 +48,11 @@ public class Jugadores {
         this.nacionalidad = nacionalidad;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -79,11 +80,11 @@ public class Jugadores {
         this.sueldo = sueldo;
     }
 
-    public Equipos getCodEquipo() {
+    public Equipo getCodEquipo() {
         return codEquipo;
     }
 
-    public void setCodEquipo(Equipos codEquipo) {
+    public void setCodEquipo(Equipo codEquipo) {
         this.codEquipo = codEquipo;
     }
 }

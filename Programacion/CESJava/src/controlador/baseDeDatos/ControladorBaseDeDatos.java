@@ -1,10 +1,10 @@
 package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
-import modelo.Competiciones;
-import modelo.Equipos;
+import modelo.Competicion;
+import modelo.Equipo;
 import modelo.Staff;
-import modelo.Usuarios;
+import modelo.Usuario;
 
 import java.sql.*;
 
@@ -81,19 +81,19 @@ public class ControladorBaseDeDatos {
         tj = new TablaJornadas(con);
     }
 
-    public String login (Usuarios usu) throws SQLException {
+    public String login (Usuario usu) throws SQLException {
         return tu.login(usu);
     }
 
-    public void altaEquipo(Equipos eq) {
+    public void altaEquipo(Equipo eq) {
         te.altaEquipo(eq);
     }
 
-    public void bajaEquipo(Equipos eq) {
+    public void bajaEquipo(Equipo eq) {
         te.bajaEquipo(eq);
     }
 
-    public void modiEquipo(Equipos eq) {
+    public void modiEquipo(Equipo eq) {
         te.modiEquipo(eq);
     }
 
@@ -101,10 +101,10 @@ public class ControladorBaseDeDatos {
         return te.consultaEquipo(nombreEq).toString();
     }
 
-    public void ultimaJornada(Competiciones com) {
+    public void ultimaJornada(Competicion com) {
         tj.ultimaJornada(com);
 }
-    public Equipos buscarEquipo(String nombreEq) {
+    public Equipo buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
 

@@ -5,9 +5,9 @@ public class Staff {
     private String nombre;
     private String cargo;
     private int sueldo;
-    private  Equipos codEquipo;
+    private Equipo codEquipo;
 
-    public Staff(int codStaff, String nombre, String cargo, int sueldo, Equipos codEquipo) {
+    public Staff(int codStaff, String nombre, String cargo, int sueldo, Equipo codEquipo) {
         this.codStaff = codStaff;
         this.nombre = nombre;
         this.cargo = cargo;
@@ -51,11 +51,11 @@ public class Staff {
         this.sueldo = sueldo;
     }
 
-    public Equipos getCodEquipo() {
+    public Equipo getCodEquipo() {
         return codEquipo;
     }
 
-    public void setCodEquipo(Equipos codEquipo) {
+    public void setCodEquipo(Equipo codEquipo) {
         this.codEquipo = codEquipo;
     }
 }

@@ -1,17 +1,17 @@
 package modelo;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
-public class Enfrentamientos {
+public class Enfrentamiento {
     private int codEnfrentamiento;
-    private java.sql.Date fecha;
-    private Jornadas codJornada;
+    private LocalDate fecha;
+    private Jornada codJornada;
     private String hora;
     private String resultado;
-    private Equipos codEquipoLocal;
-    private Equipos codEquipoVisitante;
+    private Equipo codEquipoLocal;
+    private Equipo codEquipoVisitante;
 
-    public Enfrentamientos(int codEnfrentamiento, Date fecha, Jornadas codJornada, String hora, String resultado, Equipos codEquipoLocal, Equipos codEquipoVisitante) {
+    public Enfrentamiento(int codEnfrentamiento, LocalDate fecha, Jornada codJornada, String hora, String resultado, Equipo codEquipoLocal, Equipo codEquipoVisitante) {
         this.codEnfrentamiento = codEnfrentamiento;
         this.fecha = fecha;
         this.codJornada = codJornada;
@@ -29,19 +29,19 @@ public class Enfrentamientos {
         this.codEnfrentamiento = codEnfrentamiento;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-    public Jornadas getCodJornada() {
+    public Jornada getCodJornada() {
         return codJornada;
     }
 
-    public void setCodJornada(Jornadas codJornada) {
+    public void setCodJornada(Jornada codJornada) {
         this.codJornada = codJornada;
     }
 
@@ -61,19 +61,19 @@ public class Enfrentamientos {
         this.resultado = resultado;
     }
 
-    public Equipos getCodEquipoLocal() {
+    public Equipo getCodEquipoLocal() {
         return codEquipoLocal;
     }
 
-    public void setCodEquipoLocal(Equipos codEquipoLocal) {
+    public void setCodEquipoLocal(Equipo codEquipoLocal) {
         this.codEquipoLocal = codEquipoLocal;
     }
 
-    public Equipos getCodEquipoVisitante() {
+    public Equipo getCodEquipoVisitante() {
         return codEquipoVisitante;
     }
 
-    public void setCodEquipoVisitante(Equipos codEquipoVisitante) {
+    public void setCodEquipoVisitante(Equipo codEquipoVisitante) {
         this.codEquipoVisitante = codEquipoVisitante;
     }
 }

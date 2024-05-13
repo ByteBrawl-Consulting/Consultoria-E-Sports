@@ -1,21 +1,21 @@
 package modelo;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
-public class Jornadas {
+public class Jornada {
     private int codJornada;
     private int numJornada;
-    private java.sql.Date dia;
-    private Competiciones codCompe;
+    private LocalDate dia;
+    private Competicion codCompe;
 
-    public Jornadas(int codJornada, int numJornada, Date dia, Competiciones codCompe) {
+    public Jornada(int codJornada, int numJornada, LocalDate dia, Competicion codCompe) {
         this.codJornada = codJornada;
         this.numJornada = numJornada;
         this.dia = dia;
         this.codCompe = codCompe;
     }
 
-    public Jornadas() {
+    public Jornada() {
     }
 
     public int getCodJornada() {
@@ -34,19 +34,19 @@ public class Jornadas {
         this.numJornada = numJornada;
     }
 
-    public Date getDia() {
+    public LocalDate getDia() {
         return dia;
     }
 
-    public void setDia(Date dia) {
+    public void setDia(LocalDate dia) {
         this.dia = dia;
     }
 
-    public Competiciones getCodCompe() {
+    public Competicion getCodCompe() {
         return codCompe;
     }
 
-    public void setCodCompe(Competiciones codCompe) {
+    public void setCodCompe(Competicion codCompe) {
         this.codCompe = codCompe;
     }
 

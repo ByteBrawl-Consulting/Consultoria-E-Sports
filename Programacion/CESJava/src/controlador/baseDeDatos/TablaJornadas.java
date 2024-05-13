@@ -1,6 +1,6 @@
 package controlador.baseDeDatos;
 
-import modelo.Competiciones;
+import modelo.Competicion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class TablaJornadas {
         this.con = con;
     }
 
-    public void ultimaJornada(Competiciones com) {
+    public void ultimaJornada(Competicion com) {
         try {
         String nomCompe = com.getNombre();
         String plantilla = "SELECT e.cod_jornada, e.hora, e.fecha, e.resultado, \n" +
