@@ -102,8 +102,6 @@ public class ControladorBaseDeDatos {
         return te.consultaEquipo(nombreEq).toString();
     }
 
-
-
     public void altaStaff(Staff staff) {
         ts.altaStaff(staff);
     }
