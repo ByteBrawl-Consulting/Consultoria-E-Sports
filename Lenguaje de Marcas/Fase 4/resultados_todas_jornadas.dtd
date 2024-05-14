@@ -1,0 +1,11 @@
+<!ELEMENT Jornadas (Jornada*)>
+<!ELEMENT Jornada (Enfrentamiento*)>
+<!ATTLIST Jornada
+        Numero_Jornada CDATA #REQUIRED
+        Codigo_Competencion CDATA #REQUIRED
+        Codigo_Jornada CDATA #REQUIRED>
+<!ELEMENT Enfrentamiento (Codigo_Enfrentamiento, Equipo_Local, Equipo_Visitante, Ganador)>
+<!ELEMENT Codigo_Enfrentamiento (#PCDATA)>
+<!ELEMENT Equipo_Local (#PCDATA)>
+<!ELEMENT Equipo_Visitante (#PCDATA)>
+<!ELEMENT Ganador (#PCDATA)>
