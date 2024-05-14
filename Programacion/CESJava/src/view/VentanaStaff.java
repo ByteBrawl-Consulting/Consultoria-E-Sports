@@ -31,7 +31,7 @@ public class VentanaStaff extends JFrame{
         super("Ventana Staff");
         setContentPane(pPrincipal);
         setLocationRelativeTo(null);
-        setSize(500,300);
+        setSize(500,600);
     }
     public void eleccionAlta(){
         pAlta.setVisible(true);

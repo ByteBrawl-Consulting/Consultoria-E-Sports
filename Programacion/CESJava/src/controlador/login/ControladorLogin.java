@@ -60,8 +60,6 @@ public class ControladorLogin {
 
                 if (nombreAU.equals("Administrador")) {
                     ca = new ControladorAdmin(cv);
-
-
                 } else if (nombreAU.equals("Usuario")) {
                     cu = new ControladorUsuario(cv);
 
