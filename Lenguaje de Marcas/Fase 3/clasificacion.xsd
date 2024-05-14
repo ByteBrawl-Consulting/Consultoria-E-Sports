@@ -1,49 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="RESULTS">
+    <xs:element name="Clasificaciones">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="ROW" type="trow" />
+                <xs:element name="Clasificacion" type="tclasificacion" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="trow">
+    <xs:complexType name="tclasificacion">
         <xs:sequence>
-            <xs:element name="COLUMN" type="tcolumn" />
+            <xs:element name="compId" type="xs:int"/>
+            <xs:element name="Equipos">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Equipo" type="tequipo" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
-
-    <xs:complexType name="tcolumn">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="NAME" type="xs:string" use="required" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-
-    <xs:element name="Clasificacion">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="Equipo" type="tequipo" maxOccurs="unbounded" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
 
     <xs:complexType name="tequipo">
         <xs:sequence>
-            <xs:element name="Nombre" type="tnombre" />
-            <xs:element name="Puntos" type="tpuntos" />
+            <xs:element name="Nombre" type="xs:string"/>
+            <xs:element name="Puntos" type="xs:int"/>
         </xs:sequence>
     </xs:complexType>
-
-    <xs:simpleType name="tpuntos">
-        <xs:restriction base="xs:integer" />
-    </xs:simpleType>
-
-    <xs:simpleType name="tnombre">
-        <xs:restriction base="xs:string" />
-    </xs:simpleType>
 
 </xs:schema>
