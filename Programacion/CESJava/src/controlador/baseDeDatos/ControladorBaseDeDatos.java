@@ -1,10 +1,7 @@
 package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
-import modelo.Competicion;
-import modelo.Equipo;
-import modelo.Staff;
-import modelo.Usuario;
+import modelo.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,6 +11,7 @@ public class ControladorBaseDeDatos {
     private TablaUsuarios tu;
     private TablaEquipos te;
     private TablaStaff ts;
+    private TablaJugadores tju;
     private Connection con;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
@@ -78,8 +76,10 @@ public class ControladorBaseDeDatos {
 
     public void inicializarTablas(ControladorPrincipal cp) {
         tu = new TablaUsuarios(con);
+        ts = new TablaStaff(con);
         te = new TablaEquipos(con);
         tj = new TablaJornadas(con);
+        tju = new TablaJugadores(con);
     }
 
     public String login (Usuario usu) throws SQLException {
@@ -125,4 +125,19 @@ public class ControladorBaseDeDatos {
         return tj.ultimaJornada(com);
     }
 
+    public void altaJugador(Jugador ju) {
+        tju.altaJugador(ju);
+    }
+
+    public void bajaJugador(Jugador ju) {
+        tju.bajaJugador(ju);
+    }
+
+    public void modiJugador(Jugador ju) {
+        tju.modiJugador(ju);
+    }
+
+    public String consultaJugador(String nombre) {
+        return tju.consultaJugador(nombre).toString();
+    }
 }

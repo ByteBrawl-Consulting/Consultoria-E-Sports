@@ -72,9 +72,13 @@ public class ControladorEquipo {
                     throw new RuntimeException(ex);
                 }
             }else if (ve.getRbConsulta().isSelected()){
-                String nombre = ve.getTfNombreCons().getText();
-                eq.setNombre(nombre);
-                ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
+                try {
+                    String nombre = ve.getTfNombreCons().getText();
+                    eq.setNombre(nombre);
+                    ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         }
     }
