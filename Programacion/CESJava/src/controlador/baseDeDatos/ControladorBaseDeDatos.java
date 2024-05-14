@@ -119,4 +119,8 @@ public class ControladorBaseDeDatos {
     public String consultaStaff(String nombreSt) {
         return ts.consultaStaff(nombreSt).toString();
     }
+
+    public ArrayList ultimaJornada(Competicion com) {
+        return tj.ultimaJornada(com);
+    }
 }

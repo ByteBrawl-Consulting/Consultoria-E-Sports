@@ -91,5 +91,7 @@ public class ControladorVista {
         return cp.buscarEquipo(nombreEq);
     }
 
-
+    public ArrayList ultimaJornada(Competicion com) {
+        return cp.ultimaJornada(com);
+    }
 }
