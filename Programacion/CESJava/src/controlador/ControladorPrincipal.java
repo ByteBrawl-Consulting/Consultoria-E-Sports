@@ -39,7 +39,9 @@ public class ControladorPrincipal {
         return cbd.consultaEquipo(nombreEq).toString();
     }
 
-
+    public ArrayList ultimaJornada(Competicion com) {
+        return cbd.ultimaJornada(com);
+    }
 
     public Equipo buscarEquipo(String nombreEq) {
         return cbd.buscarEquipo(nombreEq);
