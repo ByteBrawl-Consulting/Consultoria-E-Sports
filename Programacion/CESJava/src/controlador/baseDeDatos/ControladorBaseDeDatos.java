@@ -7,6 +7,7 @@ import modelo.Staff;
 import modelo.Usuario;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ControladorBaseDeDatos {
     private TablaJornadas tj;
@@ -101,12 +102,7 @@ public class ControladorBaseDeDatos {
         return te.consultaEquipo(nombreEq).toString();
     }
 
-    public void ultimaJornada(Competicion com) {
-        tj.ultimaJornada(com);
-}
-    public Equipo buscarEquipo(String nombreEq) {
-        return te.buscarEquipo(nombreEq);
-    }
+
 
     public void altaStaff(Staff staff) {
         ts.altaStaff(staff);
@@ -114,5 +110,13 @@ public class ControladorBaseDeDatos {
 
     public void bajaStaff(Staff staff) {
         ts.bajaStaff(staff);
+    }
+
+    public void modiStaff(Staff staff) {
+        ts.modiStaff(staff);
+    }
+
+    public String consultaStaff(String nombreSt) {
+        return ts.consultaStaff(nombreSt).toString();
     }
 }

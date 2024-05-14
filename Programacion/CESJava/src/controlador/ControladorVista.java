@@ -15,6 +15,7 @@ import view.VentanaPrincipalAdmin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ControladorVista {
     private ControladorPrincipal cp;
@@ -44,6 +45,14 @@ public class ControladorVista {
     public void iniciarBotones(){
         vpa = new VentanaPrincipalAdmin();
         vpa.addMEquipos(new controlEquipos());
+    }
+
+    public void modiStaff(Staff staff) {
+        cp.modiStaff(staff);
+    }
+
+    public String cosultaStaff(String nombreSt) {
+        return cp.consultaStaff(nombreSt).toString();
     }
 
     /* ----------- Botones Menus ------------- */
@@ -81,8 +90,6 @@ public class ControladorVista {
     public Equipo buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
     }
-    public void ultimaJornada(Competicion com) {
-        cp.ultimaJornada(com);
-    }
+
 
 }

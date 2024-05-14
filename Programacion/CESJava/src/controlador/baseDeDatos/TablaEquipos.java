@@ -10,7 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class TablaEquipos {
-   private Connection con;
+    private Connection con;
 
     public TablaEquipos(Connection con) {
         this.con = con;

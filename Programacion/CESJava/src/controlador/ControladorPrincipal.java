@@ -7,6 +7,7 @@ import modelo.Staff;
 import modelo.Usuario;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ControladorPrincipal {
     private ControladorVista cv;
@@ -38,9 +39,7 @@ public class ControladorPrincipal {
         return cbd.consultaEquipo(nombreEq).toString();
     }
 
-    public void ultimaJornada(Competicion com) {
-        cbd.ultimaJornada(com);
-    }
+
 
     public Equipo buscarEquipo(String nombreEq) {
         return cbd.buscarEquipo(nombreEq);
@@ -52,5 +51,13 @@ public class ControladorPrincipal {
 
     public void bajaStaff(Staff staff) {
         cbd.bajaStaff(staff);
+    }
+
+    public void modiStaff(Staff staff) {
+        cbd.modiStaff(staff);
+    }
+
+    public String consultaStaff(String nombreSt) {
+        return cbd.consultaStaff(nombreSt).toString();
     }
 }
