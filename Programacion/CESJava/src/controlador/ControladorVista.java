@@ -15,6 +15,7 @@ import view.VentanaPrincipalAdmin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ControladorVista {
     private ControladorPrincipal cp;
@@ -89,8 +90,6 @@ public class ControladorVista {
     public Equipo buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
     }
-    public void ultimaJornada(Competicion com) {
-        cp.ultimaJornada(com);
-    }
+
 
 }
