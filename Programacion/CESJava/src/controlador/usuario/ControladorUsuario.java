@@ -3,6 +3,7 @@ package controlador.usuario;
 import controlador.ControladorVista;
 import controlador.login.ControladorLogin;
 import modelo.Competicion;
+import modelo.Enfrentamiento;
 import modelo.Jornada;
 import view.VentanaPrincipalUsuario;
 
@@ -61,11 +62,11 @@ public class ControladorUsuario {
             Jornada jor = new Jornada();
             jor.setCodCompe(com);
             StringBuilder total = new StringBuilder();
-            ArrayList lista = cv.ultimaJornada(com);
+            ArrayList<Enfrentamiento> lista = cv.ultimaJornada(com);
             for(x=0; x<lista.size();x++){
-                total.append(lista.get(x));
-
+                total.append(lista.get(x).getCodJornada()).append("\n").append(lista.get(x).getHora()).append("\n").append(lista.get(x).getFecha()).append("\n").append(lista.get(x).getResultado()).append("\n").append(lista.get(x).getCodEquipoLocal()).append("\n").append(lista.get(x).getCodEquipoVisitante()).append("\n -------------------");
             }
+            vpu.getTaJornada().setText(String.valueOf(total));
         }
     }
     public class bAceptarClasi implements ActionListener{
