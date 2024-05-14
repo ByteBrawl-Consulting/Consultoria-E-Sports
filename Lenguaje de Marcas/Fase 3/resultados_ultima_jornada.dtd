@@ -1,9 +1,3 @@
-<!ELEMENT RESULTS (ROW)>
-<!ELEMENT ROW (COLUMN)>
-<!ELEMENT COLUMN (#PCDATA)>
-<!ATTLIST COLUMN
-    NAME CDATA #REQUIRED
->
 <!ELEMENT Jornadas (Jornada)>
 <!ELEMENT Jornada (Enfrentamiento+)>
 <!ATTLIST Jornada

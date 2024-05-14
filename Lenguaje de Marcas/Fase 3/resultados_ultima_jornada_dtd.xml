@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Jornadas SYSTEM "resultados_ultima_jornada.dtd">
+<Jornadas>
+    <Jornada Codigo_Jornada="12" Numero_Jornada="3">
+        <Enfrentamiento>
+            <Codigo_Enfrentamiento>17</Codigo_Enfrentamiento>
+            <Equipo_Local>Team Alpha</Equipo_Local>
+            <Equipo_Visitante>Team Bravo</Equipo_Visitante>
+            <Ganador>Team Alpha</Ganador>
+        </Enfrentamiento>
+        <Enfrentamiento>
+            <Codigo_Enfrentamiento>19</Codigo_Enfrentamiento>
+            <Equipo_Local>Team Echo</Equipo_Local>
+            <Equipo_Visitante>Team Foxtrot</Equipo_Visitante>
+            <Ganador>Team Echo</Ganador>
+        </Enfrentamiento>
+        <Enfrentamiento>
+            <Codigo_Enfrentamiento>18</Codigo_Enfrentamiento>
+            <Equipo_Local>Team Charlie</Equipo_Local>
+            <Equipo_Visitante>Team Delta</Equipo_Visitante>
+            <Ganador>Team Charlie</Ganador>
+        </Enfrentamiento>
+    </Jornada>
+</Jornadas>
