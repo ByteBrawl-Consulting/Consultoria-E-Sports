@@ -31,7 +31,8 @@ public class TablaJornadas {
                 enfre = new Enfrentamiento();
                     Jornada jor = new Jornada();
                     jor.setCodJornada(respuesta.getInt(1));
-                enfre.setCodJornada(jor.);
+//                enfre.setCodJornada(jor.);  He cambiado esto antes habia un error, ponia "enfre.setCodJornada(jor.);" no se si es porque alguno de vosotros iba a poner algo mas, por ahora lo dejo asi con esto comentado para revisar
+                enfre.setCodJornada(jor);  // Borrar esta linea si la de arriba esta bien
                 enfre.setHora(respuesta.getString(2));
                 enfre.setFecha(respuesta.getDate(3).toLocalDate());
                 enfre.setResultado(respuesta.getString(4));
