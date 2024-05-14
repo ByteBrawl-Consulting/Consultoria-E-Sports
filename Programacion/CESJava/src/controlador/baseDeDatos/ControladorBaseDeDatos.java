@@ -118,7 +118,7 @@ public class ControladorBaseDeDatos {
     public Equipo buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
-    public Enfrentamiento ultimaJornada(Competicion com) {
+    public ArrayList ultimaJornada(Competicion com) {
         return tj.ultimaJornada(com);
     }
 

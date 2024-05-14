@@ -88,7 +88,7 @@ public class ControladorVista {
         return cp.buscarEquipo(nombreEq);
     }
 
-    public Enfrentamiento ultimaJornada(Competicion com) {
+    public ArrayList ultimaJornada(Competicion com) {
         return cp.ultimaJornada(com);
     }
 }

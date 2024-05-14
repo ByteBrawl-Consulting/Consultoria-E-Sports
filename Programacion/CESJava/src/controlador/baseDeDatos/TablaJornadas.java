@@ -17,9 +17,9 @@ public class TablaJornadas {
     public TablaJornadas(Connection con) {
         this.con = con;
     }
-    public Enfrentamiento ultimaJornada(Competicion com) {
-        Enfrentamiento enfre = null;
-        ArrayList lista = new ArrayList();
+    public ArrayList ultimaJornada(Competicion com) {
+        Enfrentamiento enfre;
+        ArrayList lista = new ArrayList<>();
         try {
             String nomCompe = com.getNombre();
             String plantilla = "SELECT e.cod_jornada, e.hora, e.fecha, e.resultado, e.cod_equipo_local, e.cod_equipo_visitante FROM competiciones c JOIN jornadas j ON j.cod_compe = c.cod_compe JOIN enfrentamientos e ON e.cod_jornada = j.cod_jornadas WHERE j.num_jornada = (SELECT MAX(j.num_jornada) FROM jornadas j JOIN competiciones c ON j.cod_compe = c.cod_compe WHERE c.nombre = ?) AND c.nombre = ?";
@@ -30,20 +30,21 @@ public class TablaJornadas {
             if (respuesta.next()) {
                 enfre = new Enfrentamiento();
                     Jornada jor = new Jornada();
-                    jor.setCodJornada(respuesta.getInt("e.cod_jornada"));
+                    jor.setCodJornada(respuesta.getInt(1));
                 enfre.setCodJornada(jor);
-                enfre.setHora(respuesta.getString("e.hora"));
-                enfre.setFecha(respuesta.getDate("e.fecha").toLocalDate());
-                enfre.setResultado(respuesta.getString(" e.resultado"));
+                enfre.setHora(respuesta.getString(2));
+                enfre.setFecha(respuesta.getDate(3).toLocalDate());
+                enfre.setResultado(respuesta.getString(4));
                     Equipo eq = new Equipo();
-                    eq.setCodEquipo(respuesta.getInt("e.cod_equipo_local"));
+                    eq.setCodEquipo(respuesta.getInt(5));
                 enfre.setCodEquipoLocal(eq);
-                    eq.setCodEquipo(respuesta.getInt("e.cod_equipo_visitante"));
+                    eq.setCodEquipo(respuesta.getInt(6));
                 enfre.setCodEquipoVisitante(eq);
                 lista.add(enfre);
+
             }
 
-            return enfre;
+            return lista;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
