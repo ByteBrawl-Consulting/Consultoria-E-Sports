@@ -1,10 +1,13 @@
 package controlador.login;
 
 import controlador.ControladorVista;
+import controlador.admin.ControladorAdmin;
+import controlador.usuario.ControladorUsuario;
 import modelo.Competicion;
 import modelo.Enfrentamiento;
 import modelo.Jornada;
 import modelo.Usuario;
+import view.VentanaEquipos;
 import view.VentanaLogin;
 import view.VentanaPrincipalAdmin;
 import view.VentanaPrincipalUsuario;
@@ -14,15 +17,13 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class ControladorLogin {
-    private VentanaPrincipalUsuario vpu;
-    private VentanaPrincipalAdmin vpa;
     private VentanaLogin vl;
     private ControladorVista cv;
-
+    private ControladorUsuario cu;
+    private ControladorAdmin ca;
     public ControladorLogin(ControladorVista cv) {
-        this.cv=cv;
-
-        vl=new VentanaLogin();
+        this.cv = cv;
+        vl = new VentanaLogin();
 
         vl.clickRatonUsuAL(new clickRatonUsu());
         vl.clickRatonPassAL(new clickRatonPass());
@@ -30,36 +31,26 @@ public class ControladorLogin {
         vl.bEntrarAL(new bEntrar());
         vl.bSalirAL(new bSalir());
 
-
-
         vl.setVisible(true);
     }
 
-//    public void mostrar() {
-//        vl=new VentanaLogin();
-//        vl.clickRatonUsuAL(new clickRatonUsu());
-//        vl.clickRatonPassAL(new clickRatonPass());
-//        vl.bAyudaAL(new bAyuda());
-//        vl.bEntrarAL(new bEntrar());
-//        vl.bSalirAL(new bSalir());
-//        vl.setVisible(true);
-//    }
 
-    //Clases creadas para los tf y los botones
-    /*Estas clases son para el login*/
+
     public class bAyuda implements ActionListener {
-        public void actionPerformed (ActionEvent e){
-            JOptionPane.showMessageDialog(null,"Si necesitas ayuda contacte con nuestros administradores. \n " +
-                    "Jordi.fernandez@ikasle.egibide.org \n Adrian.lopez@ikasle.egibide.org \n Jon.garay@ikasle.egibide.org","Ayuda",JOptionPane.INFORMATION_MESSAGE);
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Si necesitas ayuda contacte con nuestros administradores. \n " +
+                    "Jordi.fernandez@ikasle.egibide.org \n Adrian.lopez@ikasle.egibide.org \n Jon.garay@ikasle.egibide.org", "Ayuda", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+
     public class bSalir implements ActionListener {
-        public void actionPerformed (ActionEvent e){
+        public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
     }
+
     public class bEntrar implements ActionListener {
-        public void actionPerformed (ActionEvent e){
+        public void actionPerformed(ActionEvent e) {
             try {
                 Usuario usu = new Usuario();
 
@@ -68,14 +59,12 @@ public class ControladorLogin {
                 String nombreAU = cv.login(usu);
 
                 if (nombreAU.equals("Administrador")) {
-                    vpa = new VentanaPrincipalAdmin();
-                    vpa.setVisible(true);
+                    ca = new ControladorAdmin(cv);
+
+
                 } else if (nombreAU.equals("Usuario")) {
-                    vpu = new VentanaPrincipalUsuario();
-                    vpu.setVisible(true);
-                    botones();
-                    vpu.getpClasificacion().setVisible(false);
-                    vpu.getpJornada().setVisible(false);
+                    cu = new ControladorUsuario(cv);
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -83,44 +72,12 @@ public class ControladorLogin {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        public void botones (){
-            vpu.rbClasiAL(new rbUsuClasi());
-            vpu.rbJornadaAL(new rbUsuJornada());
-            vpu.botonAceprtarJornadaAL(new bAceptarJornada());
-            vpu.botonAceptarClasiAL(new bAceptarClase());
-            vpu.bSalirAL(new bSalirUsu());
-            vpu.bSesion(new bSesionUsu());
-        }
-    }
-    /*Estas clases son para la ventana del usuario*/
-    public class rbUsuJornada implements ActionListener{
-        public void actionPerformed (ActionEvent e) {
-
-            if (vpu.getpJornada().isEnabled()) {
-                vpu.getpJornada().setVisible(true);
-                vpu.getpClasificacion().setVisible(false);
-
-                
-            }
-
-        }
     }
 
-    public class rbUsuClasi implements ActionListener{
-        public void actionPerformed (ActionEvent e){
-            vpu.getpClasificacion().setVisible(false);
-            vpu.getpJornada().setVisible(false);
-
-            if (vpu.getpClasificacion().isEnabled()) {
-                vpu.getpJornada().setVisible(false);
-                vpu.getpClasificacion().setVisible(true);
-            }
-        }
-    }
     public class clickRatonUsu implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             vl.getTfUsu().setText("");
-            if (vl.getTfPassword().getText().isEmpty()){
+            if (vl.getTfPassword().getText().isEmpty()) {
                 vl.getTfPassword().setText("Contraseña");
             }
         }
@@ -148,7 +105,7 @@ public class ControladorLogin {
     public class clickRatonPass implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             vl.getTfPassword().setText("");
-            if (vl.getTfUsu().getText().isEmpty()){
+            if (vl.getTfUsu().getText().isEmpty()) {
                 vl.getTfUsu().setText("Usuario");
             }
         }
@@ -173,37 +130,5 @@ public class ControladorLogin {
 
         }
     }
-    public class bAceptarJornada implements ActionListener{
-        boolean error=true;
-        public void actionPerformed(ActionEvent e){
-            int x=0;
-            Competicion com = new Competicion();
-            com.setNombre(vpu.getTfJornada().getText());
-            Jornada jor = new Jornada();
-            jor.setCodCompe(com);
-            StringBuilder total = new StringBuilder();
-            ArrayList lista = cv.ultimaJornada(com);
-            for(x=0; x<lista.size();x++){
-                total.append(lista.get(x));
-
-            }
-        }
-    }
-    public class bAceptarClase implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-
-        }
-    }
-    public class bSalirUsu implements ActionListener{
-        public void actionPerformed (ActionEvent e){
-            System.exit(0);
-        }
-    }
-    public class bSesionUsu implements ActionListener{
-        public void actionPerformed (ActionEvent e){
-            vpu.dispose();
-            vpu.getTfJornada().setText("");
-            vpu.getTfClasi().setText("");
-        }
-    }
 }
+
