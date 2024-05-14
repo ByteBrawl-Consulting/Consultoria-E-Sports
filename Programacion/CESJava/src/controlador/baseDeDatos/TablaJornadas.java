@@ -31,7 +31,7 @@ public class TablaJornadas {
                 enfre = new Enfrentamiento();
                     Jornada jor = new Jornada();
                     jor.setCodJornada(respuesta.getInt(1));
-                enfre.setCodJornada(jor);
+                enfre.setCodJornada(jor.);
                 enfre.setHora(respuesta.getString(2));
                 enfre.setFecha(respuesta.getDate(3).toLocalDate());
                 enfre.setResultado(respuesta.getString(4));
