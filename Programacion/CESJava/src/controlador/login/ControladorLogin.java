@@ -2,6 +2,7 @@ package controlador.login;
 
 import controlador.ControladorVista;
 import modelo.Competicion;
+import modelo.Enfrentamiento;
 import modelo.Jornada;
 import modelo.Usuario;
 import view.VentanaLogin;
@@ -173,14 +174,18 @@ public class ControladorLogin {
         }
     }
     public class bAceptarJornada implements ActionListener{
+        boolean error=true;
         public void actionPerformed(ActionEvent e){
+            int x=0;
             Competicion com = new Competicion();
             com.setNombre(vpu.getTfJornada().getText());
             Jornada jor = new Jornada();
             jor.setCodCompe(com);
-            ArrayList info = cv.ultimaJornada(com);
-            for (int x = 0; x < info.size(); x++) {
-                vpu.getTaJornada().setText(info.get(x).toString());
+            StringBuilder total = new StringBuilder();
+            ArrayList lista = cv.ultimaJornada(com);
+            for(x=0; x<lista.size();x++){
+                total.append(lista.get(x));
+
             }
         }
     }
