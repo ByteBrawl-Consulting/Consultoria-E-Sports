@@ -6,13 +6,7 @@ import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin  extends JFrame {
     private JPanel pPrincipal;
-    private JMenuBar menuBar;
     private JMenu menuEquipos;
-    private JMenu menuJugadores;
-    private JMenu staffMenu;
-    private JMenu patrocinadoresMenu;
-    private JMenu Juegos;
-    private JMenu Competiciones;
     private JPanel pSecundario;
     private JLabel tituloLabel;
     private JMenuItem cerrarEtapaInscripcionMenuItem;
@@ -33,9 +27,9 @@ public class VentanaPrincipalAdmin  extends JFrame {
     private JButton competicionesButton;
 
     public VentanaPrincipalAdmin() throws HeadlessException {
-        super("Login");
+        super("Panel de Administrador");
         setContentPane(pPrincipal);
-        setSize(500, 300);
+        setSize(750, 450);
         setLocationRelativeTo(null);
     }
     public void addMEquipos(ActionListener listener){
