@@ -10,13 +10,13 @@ END;
 BEGIN
     -- Codigo aleatorio
     GESTION_JUGADORES.ACTUALIZAR_JUGADOR(
-        1,'Carlos García','España',TO_DATE('15/04/1995', 'dd/MM/yyyy'),
+        1,'Carlos Garcia','España',TO_DATE('15/04/1995', 'dd/MM/yyyy'),
         'Carlitos','Delantero',6000);
 END;
 
 -- BORRAR JUGADOR
 BEGIN
-    GESTION_JUGADORES.ELIMINAR_JUGADOR(1);
+    GESTION_JUGADORES.ELIMINAR_JUGADOR('Carlos Garcia');
 END;
 
 
