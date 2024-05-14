@@ -50,7 +50,9 @@ public class ControladorStaff {
                 staff.setNombre(nombre);
                 cv.bajaStaff(staff);
             }else if (vs.getRbModi().isSelected()){
-
+                String nombre = vs.getTfNombreCons().getText();
+                String cargo = vs.getTfCargoModi().getText();
+                Integer sueldo = Integer.valueOf(vs.getTfSueldoModi().getText());
             }else if (vs.getRbConsulta().isSelected()){
 
             }

@@ -95,7 +95,7 @@ public class TablaEquipos {
                 java.sql.Date fecha = respuesta.getDate("fecha_fundacion");
                 eq = new Equipo();
                 eq.setNombre(nombreEq);
-                eq.setFechaFundacion(fecha);
+                eq.setFechaFundacion(fecha.toLocalDate());
                 eq.setCodEquipo(codEquipo);
             }
             return eq;

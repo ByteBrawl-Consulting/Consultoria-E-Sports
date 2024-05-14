@@ -43,7 +43,7 @@ public class ControladorEquipo {
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql);
+                    eq.setFechaFundacion(fechaSql.toLocalDate());
                     cv.altaEquipo(eq);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
@@ -66,7 +66,7 @@ public class ControladorEquipo {
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql);
+                    eq.setFechaFundacion(fechaSql.toLocalDate());
                     cv.modiEquipo(eq);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
