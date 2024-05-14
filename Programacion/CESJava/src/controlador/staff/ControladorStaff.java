@@ -53,8 +53,16 @@ public class ControladorStaff {
                 String nombre = vs.getTfNombreCons().getText();
                 String cargo = vs.getTfCargoModi().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoModi().getText());
+                Equipo eq = cv.buscarEquipo(nombre);
+                staff.setNombre(nombre);
+                staff.setCargo(cargo);
+                staff.setSueldo(sueldo);
+                staff.setCodEquipo(eq);
+                cv.modiStaff(staff);
             }else if (vs.getRbConsulta().isSelected()){
-
+                String nombre = vs.getTfNombreCons().getText();
+                staff.setNombre(nombre);
+                vs.getTaConsulta().setText(cv.cosultaStaff(nombre));
             }
         }
     }

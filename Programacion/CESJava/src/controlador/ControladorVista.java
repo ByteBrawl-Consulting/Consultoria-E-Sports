@@ -46,6 +46,14 @@ public class ControladorVista {
         vpa.addMEquipos(new controlEquipos());
     }
 
+    public void modiStaff(Staff staff) {
+        cp.modiStaff(staff);
+    }
+
+    public String cosultaStaff(String nombreSt) {
+        return cp.consultaStaff(nombreSt).toString();
+    }
+
     /* ----------- Botones Menus ------------- */
     public class controlEquipos implements ActionListener {
         @Override

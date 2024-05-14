@@ -115,4 +115,12 @@ public class ControladorBaseDeDatos {
     public void bajaStaff(Staff staff) {
         ts.bajaStaff(staff);
     }
+
+    public void modiStaff(Staff staff) {
+        ts.modiStaff(staff);
+    }
+
+    public String consultaStaff(String nombreSt) {
+        return ts.consultaStaff(nombreSt).toString();
+    }
 }

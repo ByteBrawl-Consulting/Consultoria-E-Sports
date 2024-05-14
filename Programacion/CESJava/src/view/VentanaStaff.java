@@ -28,7 +28,7 @@ public class VentanaStaff extends JFrame{
     private JTextField tfEquipoModi;
 
     public VentanaStaff(){
-        super("Ventana Equipos");
+        super("Ventana Staff");
         setContentPane(pPrincipal);
         setLocationRelativeTo(null);
         setSize(500,300);
