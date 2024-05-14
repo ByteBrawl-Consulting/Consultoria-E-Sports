@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="RESULTS">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="ROW" type="trow" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:complexType name="trow">
-        <xs:sequence>
-            <xs:element name="COLUMN" type="tcolumn" />
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="tcolumn">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="NAME" type="xs:string" use="required" />
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-
     <xs:element name="Jornadas">
         <xs:complexType>
             <xs:sequence>
