@@ -1,0 +1,7 @@
+<!ELEMENT Clasificaciones (Clasificacion+)>
+<!ELEMENT Clasificacion (compId, Equipos)>
+<!ELEMENT compId (#PCDATA)>
+<!ELEMENT Equipos (Equipo+)>
+<!ELEMENT Equipo (Nombre, Puntos)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Puntos (#PCDATA)>
