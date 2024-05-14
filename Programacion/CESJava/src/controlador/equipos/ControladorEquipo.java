@@ -1,6 +1,5 @@
 package controlador.equipos;
 
-import controlador.ControladorVentanaPrincipalAdmin;
 import controlador.ControladorVista;
 import modelo.Equipo;
 import view.VentanaEquipos;

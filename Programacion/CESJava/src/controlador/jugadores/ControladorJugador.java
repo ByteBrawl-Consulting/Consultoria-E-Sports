@@ -15,6 +15,7 @@ public class ControladorJugador {
 
     public ControladorJugador(ControladorVista cv) {
         vj = new VentanaJugadores();
+        mostrar();
         vj.bAceptarAL(new bAceptar());
         vj.bSalirAL(new bSalir());
         vj.bRbAltaAL(new bAlta());
@@ -122,5 +123,8 @@ public class ControladorJugador {
         public void actionPerformed(ActionEvent e) {
             vj.eleccionConsulta();
         }
+    }
+    public void mostrar(){
+        vj.setVisible(true);
     }
 }

@@ -14,6 +14,7 @@ public class ControladorStaff {
 
     public ControladorStaff(ControladorVista cv) {
         vs = new VentanaStaff();
+        mostrar();
         vs.bAceptarAL(new bAceptar());
         vs.bSalirAL(new bSalir());
         vs.bRbAltaAL(new bAlta());
@@ -93,5 +94,8 @@ public class ControladorStaff {
         public void actionPerformed(ActionEvent e) {
             vs.eleccionConsulta();
         }
+    }
+    public void mostrar(){
+        vs.setVisible(true);
     }
 }
