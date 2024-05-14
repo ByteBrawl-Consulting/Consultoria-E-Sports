@@ -58,6 +58,7 @@ public class TablaStaff {
             sentenciaPre.setString(1, staff.getCargo());
             sentenciaPre.setInt(2, staff.getSueldo());
             sentenciaPre.setObject(3, staff.getCodEquipo());
+            sentenciaPre.setString(4, staff.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
