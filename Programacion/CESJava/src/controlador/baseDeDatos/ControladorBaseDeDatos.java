@@ -1,10 +1,7 @@
 package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
-import modelo.Competicion;
-import modelo.Equipo;
-import modelo.Staff;
-import modelo.Usuario;
+import modelo.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -121,7 +118,7 @@ public class ControladorBaseDeDatos {
     public Equipo buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
-    public ArrayList ultimaJornada(Competicion com) {
+    public Enfrentamiento ultimaJornada(Competicion com) {
         return tj.ultimaJornada(com);
     }
 

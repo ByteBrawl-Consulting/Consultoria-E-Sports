@@ -1,10 +1,7 @@
 package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
-import modelo.Competicion;
-import modelo.Equipo;
-import modelo.Staff;
-import modelo.Usuario;
+import modelo.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -39,7 +36,7 @@ public class ControladorPrincipal {
         return cbd.consultaEquipo(nombreEq).toString();
     }
 
-    public ArrayList ultimaJornada(Competicion com) {
+    public Enfrentamiento ultimaJornada(Competicion com) {
         return cbd.ultimaJornada(com);
     }
 

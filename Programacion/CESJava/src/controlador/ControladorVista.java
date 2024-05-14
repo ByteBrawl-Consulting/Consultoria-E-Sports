@@ -6,10 +6,7 @@ import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
 import controlador.patrocinadores.ControladorPatrocinador;
-import modelo.Competicion;
-import modelo.Equipo;
-import modelo.Staff;
-import modelo.Usuario;
+import modelo.*;
 import view.VentanaPrincipalAdmin;
 
 import java.awt.event.ActionEvent;
@@ -91,7 +88,7 @@ public class ControladorVista {
         return cp.buscarEquipo(nombreEq);
     }
 
-    public ArrayList ultimaJornada(Competicion com) {
+    public Enfrentamiento ultimaJornada(Competicion com) {
         return cp.ultimaJornada(com);
     }
 }

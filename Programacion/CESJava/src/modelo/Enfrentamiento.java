@@ -11,6 +11,9 @@ public class Enfrentamiento {
     private Equipo codEquipoLocal;
     private Equipo codEquipoVisitante;
 
+    public Enfrentamiento() {
+    }
+
     public Enfrentamiento(int codEnfrentamiento, LocalDate fecha, Jornada codJornada, String hora, String resultado, Equipo codEquipoLocal, Equipo codEquipoVisitante) {
         this.codEnfrentamiento = codEnfrentamiento;
         this.fecha = fecha;

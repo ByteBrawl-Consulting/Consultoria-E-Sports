@@ -178,10 +178,8 @@ public class ControladorLogin {
             com.setNombre(vpu.getTfJornada().getText());
             Jornada jor = new Jornada();
             jor.setCodCompe(com);
-            ArrayList info = cv.ultimaJornada(com);
-            for (int x = 0; x < info.size(); x++) {
-                vpu.getTaJornada().setText(info.get(x).toString());
-            }
+            StringBuilder total = new StringBuilder();
+
         }
     }
     public class bAceptarClase implements ActionListener{
