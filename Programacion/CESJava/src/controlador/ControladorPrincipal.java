@@ -53,4 +53,12 @@ public class ControladorPrincipal {
     public void bajaStaff(Staff staff) {
         cbd.bajaStaff(staff);
     }
+
+    public void modiStaff(Staff staff) {
+        cbd.modiStaff(staff);
+    }
+
+    public String consultaStaff(String nombreSt) {
+        return cbd.consultaStaff(nombreSt).toString();
+    }
 }
