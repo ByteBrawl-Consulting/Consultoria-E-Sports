@@ -98,6 +98,8 @@ public class ControladorLogin {
             if (vpu.getpJornada().isEnabled()) {
                 vpu.getpJornada().setVisible(true);
                 vpu.getpClasificacion().setVisible(false);
+
+                
             }
         }
     }

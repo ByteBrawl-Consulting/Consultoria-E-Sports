@@ -83,8 +83,6 @@ public class ControladorVista {
     public Equipos buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
     }
-    public ArrayList ultimaJornada(Competiciones com) {
-       return cp.ultimaJornada(com);
-    }
+
 
 }
