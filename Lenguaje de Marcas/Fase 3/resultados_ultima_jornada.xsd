@@ -15,6 +15,7 @@
         </xs:sequence>
         <xs:attribute name="Codigo_Jornada" type="xs:integer" use="required" />
         <xs:attribute name="Numero_Jornada" type="xs:integer" use="required" />
+        <xs:attribute name="Codigo_Competencion" type="xs:integer" />
     </xs:complexType>
 
     <xs:complexType name="tenfrentamiento">
