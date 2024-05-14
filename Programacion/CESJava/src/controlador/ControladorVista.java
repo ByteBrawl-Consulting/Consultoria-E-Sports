@@ -79,6 +79,14 @@ public class ControladorVista {
         return cp.consultaJuego(nombreJu).toString();
     }
 
+    public void altaPatrocinador(Patrocinador patr) {
+        cp.altaPatrocinador(patr);
+    }
+
+    public void bajaPatrocinador(Patrocinador patr) {
+        cp.bajaPatrocinador(patr);
+    }
+
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override

@@ -13,6 +13,7 @@ public class ControladorBaseDeDatos {
     private TablaStaff ts;
     private TablaJugadores tju;
     private TablaJuegos tjue;
+    private TablaPatrocinadores tp;
     private Connection con;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
@@ -82,6 +83,7 @@ public class ControladorBaseDeDatos {
         tj = new TablaJornadas(con);
         tju = new TablaJugadores(con);
         tjue = new TablaJuegos(con);
+        tp = new TablaPatrocinadores(con);
     }
 
     public String login (Usuario usu) throws SQLException {
@@ -157,5 +159,13 @@ public class ControladorBaseDeDatos {
 
     public Object consultaJuego(String nombreJu) {
         return tjue.consultaJuego(nombreJu).toString();
+    }
+
+    public void altaPatrocinador(Patrocinador patr) {
+        tp.altaPatrocinador(patr);
+    }
+
+    public void bajaPatrocinador(Patrocinador patr) {
+        tp.bajaPatrocinador(patr);
     }
 }

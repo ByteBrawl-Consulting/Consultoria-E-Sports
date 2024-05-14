@@ -91,4 +91,12 @@ public class ControladorPrincipal {
     public Object consultaJuego(String nombreJu) {
         return cbd.consultaJuego(nombreJu).toString();
     }
+
+    public void altaPatrocinador(Patrocinador patr) {
+        cbd.altaPatrocinador(patr);
+    }
+
+    public void bajaPatrocinador(Patrocinador patr) {
+        cbd.bajaPatrocinador(patr);
+    }
 }
