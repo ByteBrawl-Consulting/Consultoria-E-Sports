@@ -119,4 +119,8 @@ public class ControladorBaseDeDatos {
     public String consultaStaff(String nombreSt) {
         return ts.consultaStaff(nombreSt).toString();
     }
+
+    public Equipo buscarEquipo(String nombreEq) {
+        return te.buscarEquipo(nombreEq);
+    }
 }
