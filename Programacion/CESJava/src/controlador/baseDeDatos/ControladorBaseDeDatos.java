@@ -120,7 +120,7 @@ public class ControladorBaseDeDatos {
         return ts.consultaStaff(nombreSt).toString();
     }
 
-    public ArrayList ultimaJornada(Competicion com) {
-        return tj.ultimaJornada(com);
+    public Equipo buscarEquipo(String nombreEq) {
+        return te.buscarEquipo(nombreEq);
     }
 }
