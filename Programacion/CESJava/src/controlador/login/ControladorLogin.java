@@ -1,5 +1,6 @@
 package controlador.login;
 
+import controlador.ControladorVentanaPrincipalAdmin;
 import controlador.ControladorVista;
 import controlador.admin.ControladorAdmin;
 import controlador.usuario.ControladorUsuario;
@@ -59,9 +60,8 @@ public class ControladorLogin {
                 String nombreAU = cv.login(usu);
 
                 if (nombreAU.equals("Administrador")) {
-                    ca = new ControladorAdmin(cv);
-
-
+                    vpa = new VentanaPrincipalAdmin();
+                    vpa.setVisible(true);
                 } else if (nombreAU.equals("Usuario")) {
                     cu = new ControladorUsuario(cv);
 

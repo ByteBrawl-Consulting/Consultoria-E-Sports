@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin  extends JFrame {
@@ -32,7 +33,16 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setSize(750, 450);
         setLocationRelativeTo(null);
     }
+    public void addBSalir(ActionListener listener){
+        salirButton.addActionListener(listener);
+    }
     public void addBEquipos(ActionListener listener){
         equiposButton.addActionListener(listener);
+    }
+    public void addBJugadores(ActionListener listener){
+        jugadoresButton.addActionListener(listener);
+    }
+    public void addBStaff(ActionListener listener){
+        staffButton.addActionListener(listener);
     }
 }
