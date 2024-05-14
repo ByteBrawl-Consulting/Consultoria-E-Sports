@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Clasificaciones">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Clasificacion" type="tclasificacion" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="tclasificacion">
+        <xs:sequence>
+            <xs:element name="compId" type="xs:int"/>
+            <xs:element name="Equipos">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Equipo" type="tequipo" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tequipo">
+        <xs:sequence>
+            <xs:element name="Nombre" type="xs:string"/>
+            <xs:element name="Puntos" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
