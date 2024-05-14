@@ -20,6 +20,7 @@ public class ControladorVista {
     private VentanaPrincipalAdmin vpa;
 
     /* ----------- Controladores ----------- */
+    private ControladorVentanaPrincipalAdmin cvpa;
     private ControladorEquipo ce;
     private ControladorCompeticion cc;
     private ControladorJuego cjueg;
@@ -32,16 +33,12 @@ public class ControladorVista {
 
     public ControladorVista(ControladorPrincipal cp) {
         cl = new ControladorLogin(this);
+        cvpa = new ControladorVentanaPrincipalAdmin();
         this.cp=cp;
-        iniciarBotones();
     }
 
     public String login (Usuario usu) throws SQLException {
         return cp.login(usu);
-    }
-    public void iniciarBotones(){
-        vpa = new VentanaPrincipalAdmin();
-        vpa.addBEquipos(new controlEquipos());
     }
 
     public void modiStaff(Staff staff) {
@@ -68,11 +65,10 @@ public class ControladorVista {
         return cp.consultaJugador(nombre).toString();
     }
 
-    /* ----------- Botones Menus ------------- */
+    /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-//            ve = new VentanaEquipos();
             ce = new ControladorEquipo(ControladorVista.this);
         }
     }
