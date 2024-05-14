@@ -121,4 +121,6 @@ public class ControladorBaseDeDatos {
     public Equipo buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
+
+
 }
