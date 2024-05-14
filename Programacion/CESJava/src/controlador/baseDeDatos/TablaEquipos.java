@@ -32,10 +32,6 @@ public class TablaEquipos {
             }else{
                 throw new Exception("Equipo insertado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -52,8 +48,6 @@ public class TablaEquipos {
             }else{
                 throw new Exception("Equipo no encontrado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -75,10 +69,6 @@ public class TablaEquipos {
             }else{
                 throw new Exception("Equipo no encontrado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -99,8 +89,6 @@ public class TablaEquipos {
                 eq.setCodEquipo(codEquipo);
             }
             return eq;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -119,8 +107,6 @@ public class TablaEquipos {
                 eq.setCodEquipo(codEquipo);
             }
             return eq;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -2,6 +2,7 @@ package controlador.admin;
 
 import controlador.ControladorVista;
 import controlador.equipos.ControladorEquipo;
+import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.staff.ControladorStaff;
 import view.VentanaEquipos;
@@ -16,6 +17,7 @@ public class ControladorAdmin {
     private ControladorEquipo ce;
     private ControladorJugador cj;
     private ControladorStaff cs;
+    private ControladorJuego cje;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -31,6 +33,7 @@ public class ControladorAdmin {
         vpa.addBEquipos(new bEquipo());
         vpa.addBJugadores(new bJugador());
         vpa.addBStaff(new bStaff());
+        vpa.addBJuegos(new bJuegos());
     }
     private class bSalir implements ActionListener {
         @Override
@@ -55,6 +58,13 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cs = new ControladorStaff(cv);
+        }
+    }
+
+    private class bJuegos implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cje = new ControladorJuego(cv);
         }
     }
 }
