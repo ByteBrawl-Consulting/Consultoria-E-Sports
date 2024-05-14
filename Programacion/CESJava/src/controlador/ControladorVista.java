@@ -1,5 +1,6 @@
 package controlador;
 
+import controlador.admin.ControladorAdmin;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
@@ -20,20 +21,17 @@ public class ControladorVista {
     private VentanaPrincipalAdmin vpa;
 
     /* ----------- Controladores ----------- */
-    private ControladorVentanaPrincipalAdmin cvpa;
+    private ControladorAdmin cvpa;
     private ControladorEquipo ce;
     private ControladorCompeticion cc;
     private ControladorJuego cjueg;
     private ControladorJugador cjuga;
     private ControladorPatrocinador cpat;
 
-//    private VentanaEquipos ve;
-
 
 
     public ControladorVista(ControladorPrincipal cp) {
         cl = new ControladorLogin(this);
-        cvpa = new ControladorVentanaPrincipalAdmin();
         this.cp=cp;
     }
 

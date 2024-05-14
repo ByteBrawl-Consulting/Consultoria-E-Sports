@@ -14,6 +14,7 @@ public class ControladorEquipo {
     private ControladorVista cv;
     public ControladorEquipo(ControladorVista cv) {
         ve = new VentanaEquipos();
+        mostrar();
         ve.bAceptarAl(new bAceptar());
         ve.bSalirAL(new bSalir());
         ve.bRbAltaAL(new bAlta());
@@ -22,7 +23,9 @@ public class ControladorEquipo {
         ve.bRbConsultaAL(new bConsulta());
         this.cv = cv;
     }
-
+    public void mostrar(){
+        ve.setVisible(true);
+    }
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

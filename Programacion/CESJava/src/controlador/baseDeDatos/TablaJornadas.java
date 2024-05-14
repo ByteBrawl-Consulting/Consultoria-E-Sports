@@ -27,7 +27,7 @@ public class TablaJornadas {
             pre.setString(1, nomCompe);
             pre.setString(2, nomCompe);
             ResultSet respuesta = pre.executeQuery();
-            if (respuesta.next()) {
+            while (respuesta.next()) {
                 enfre = new Enfrentamiento();
                     Jornada jor = new Jornada();
                     jor.setCodJornada(respuesta.getInt(1));
