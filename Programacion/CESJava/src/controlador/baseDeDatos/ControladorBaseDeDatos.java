@@ -7,6 +7,7 @@ import modelo.Staff;
 import modelo.Usuarios;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ControladorBaseDeDatos {
     private TablaJornadas tj;
@@ -101,8 +102,8 @@ public class ControladorBaseDeDatos {
         return te.consultaEquipo(nombreEq).toString();
     }
 
-    public void ultimaJornada(Competiciones com) {
-        tj.ultimaJornada(com);
+    public ArrayList ultimaJornada(Competiciones com) {
+       return tj.ultimaJornada(com);
 }
     public Equipos buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);

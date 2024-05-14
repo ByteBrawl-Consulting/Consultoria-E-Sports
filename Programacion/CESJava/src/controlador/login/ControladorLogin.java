@@ -10,6 +10,7 @@ import view.VentanaPrincipalUsuario;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class ControladorLogin {
     private VentanaPrincipalUsuario vpu;
@@ -44,6 +45,7 @@ public class ControladorLogin {
 //    }
 
     //Clases creadas para los tf y los botones
+    /*Estas clases son para el login*/
     public class bAyuda implements ActionListener {
         public void actionPerformed (ActionEvent e){
             JOptionPane.showMessageDialog(null,"Si necesitas ayuda contacte con nuestros administradores. \n " +
@@ -70,8 +72,9 @@ public class ControladorLogin {
                 } else if (nombreAU.equals("Usuario")) {
                     vpu = new VentanaPrincipalUsuario();
                     vpu.setVisible(true);
-                    vpu.rbClasiAL(new rbUsuClasi());
-                    vpu.rbJornadaAL(new rbUsuJornada());
+                    botones();
+                    vpu.getpClasificacion().setVisible(false);
+                    vpu.getpJornada().setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -79,23 +82,26 @@ public class ControladorLogin {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        public void botones (){
+            vpu.rbClasiAL(new rbUsuClasi());
+            vpu.rbJornadaAL(new rbUsuJornada());
+            vpu.botonAceprtarJornadaAL(new bAceptarJornada());
+            vpu.botonAceptarClasiAL(new bAceptarClase());
+            vpu.bSalirAL(new bSalirUsu());
+            vpu.bSesion(new bSesionUsu());
+        }
     }
+    /*Estas clases son para la ventana del usuario*/
     public class rbUsuJornada implements ActionListener{
-        public void actionPerformed (ActionEvent e){
-            vpu.getpClasificacion().setVisible(false);
-            vpu.getpJornada().setVisible(false);
+        public void actionPerformed (ActionEvent e) {
 
-            if (vpu.getpJornada().isEnabled()){
+            if (vpu.getpJornada().isEnabled()) {
                 vpu.getpJornada().setVisible(true);
                 vpu.getpClasificacion().setVisible(false);
             }
-            Competiciones com=new Competiciones();
-            com.setNombre(vpu.getTfJornada().getText());
-            Jornadas jor = new Jornadas();
-            jor.setCodCompe(com);
-            cv.ultimaJornada(com);
         }
     }
+
     public class rbUsuClasi implements ActionListener{
         public void actionPerformed (ActionEvent e){
             vpu.getpClasificacion().setVisible(false);
@@ -161,6 +167,35 @@ public class ControladorLogin {
         @Override
         public void mouseExited(MouseEvent e) {
 
+        }
+    }
+    public class bAceptarJornada implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            Competiciones com = new Competiciones();
+            com.setNombre(vpu.getTfJornada().getText());
+            Jornadas jor = new Jornadas();
+            jor.setCodCompe(com);
+            ArrayList info = cv.ultimaJornada(com);
+            for (int x = 0; x < info.size(); x++) {
+                vpu.getTaJornada().setText(info.get(x).toString());
+            }
+        }
+    }
+    public class bAceptarClase implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+
+        }
+    }
+    public class bSalirUsu implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            System.exit(0);
+        }
+    }
+    public class bSesionUsu implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            vpu.dispose();
+            vpu.getTfJornada().setText("");
+            vpu.getTfClasi().setText("");
         }
     }
 }

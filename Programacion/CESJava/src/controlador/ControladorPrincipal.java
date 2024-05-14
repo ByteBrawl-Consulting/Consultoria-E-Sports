@@ -8,6 +8,7 @@ import modelo.Usuarios;
 import view.VentanaLogin;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ControladorPrincipal {
     private ControladorVista cv;
@@ -39,8 +40,8 @@ public class ControladorPrincipal {
         return cbd.consultaEquipo(nombreEq).toString();
     }
 
-    public void ultimaJornada(Competiciones com) {
-        cbd.ultimaJornada(com);
+    public ArrayList ultimaJornada(Competiciones com) {
+       return cbd.ultimaJornada(com);
     }
 
     public Equipos buscarEquipo(String nombreEq) {
