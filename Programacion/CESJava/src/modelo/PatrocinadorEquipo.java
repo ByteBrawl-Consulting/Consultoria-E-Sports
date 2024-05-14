@@ -1,11 +1,11 @@
 package modelo;
 
-public class PatrocinadoresEquipo {
+public class PatrocinadorEquipo {
     private int codPatrEqui;
-    private Patrocinadores codPatrocinadores;
-    private Equipos codEquipo;
+    private Patrocinador codPatrocinadores;
+    private Equipo codEquipo;
 
-    public PatrocinadoresEquipo(int codPatrEqui, Patrocinadores codPatrocinadores, Equipos codEquipo) {
+    public PatrocinadorEquipo(int codPatrEqui, Patrocinador codPatrocinadores, Equipo codEquipo) {
         this.codPatrEqui = codPatrEqui;
         this.codPatrocinadores = codPatrocinadores;
         this.codEquipo = codEquipo;
@@ -19,19 +19,19 @@ public class PatrocinadoresEquipo {
         this.codPatrEqui = codPatrEqui;
     }
 
-    public Patrocinadores getCodPatrocinadores() {
+    public Patrocinador getCodPatrocinadores() {
         return codPatrocinadores;
     }
 
-    public void setCodPatrocinadores(Patrocinadores codPatrocinadores) {
+    public void setCodPatrocinadores(Patrocinador codPatrocinadores) {
         this.codPatrocinadores = codPatrocinadores;
     }
 
-    public Equipos getCodEquipo() {
+    public Equipo getCodEquipo() {
         return codEquipo;
     }
 
-    public void setCodEquipo(Equipos codEquipo) {
+    public void setCodEquipo(Equipo codEquipo) {
         this.codEquipo = codEquipo;
     }
 }

@@ -1,13 +1,12 @@
 package controlador.staff;
 
 import controlador.ControladorVista;
-import modelo.Equipos;
+import modelo.Equipo;
 import modelo.Staff;
 import view.VentanaStaff;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 
 public class ControladorStaff {
     VentanaStaff vs;
@@ -40,7 +39,7 @@ public class ControladorStaff {
                 String cargo = vs.getTfCargoAlta().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoAlta().getText());
                 //Buscar equipo
-                Equipos eq = cv.buscarEquipo(nombre);
+                Equipo eq = cv.buscarEquipo(nombre);
                 staff.setNombre(nombre);
                 staff.setCargo(cargo);
                 staff.setSueldo(sueldo);
@@ -51,7 +50,9 @@ public class ControladorStaff {
                 staff.setNombre(nombre);
                 cv.bajaStaff(staff);
             }else if (vs.getRbModi().isSelected()){
-
+                String nombre = vs.getTfNombreCons().getText();
+                String cargo = vs.getTfCargoModi().getText();
+                Integer sueldo = Integer.valueOf(vs.getTfSueldoModi().getText());
             }else if (vs.getRbConsulta().isSelected()){
 
             }

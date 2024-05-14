@@ -1,7 +1,7 @@
 package controlador.equipos;
 
 import controlador.ControladorVista;
-import modelo.Equipos;
+import modelo.Equipo;
 import view.VentanaEquipos;
 
 import java.awt.event.ActionEvent;
@@ -33,7 +33,7 @@ public class ControladorEquipo {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Equipos eq = new Equipos();
+            Equipo eq = new Equipo();
             if(ve.getRbAlta().isSelected()){
                 try {
                     String nombre = ve.getTfNombreAlta().getText();
@@ -43,7 +43,7 @@ public class ControladorEquipo {
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql);
+                    eq.setFechaFundacion(fechaSql.toLocalDate());
                     cv.altaEquipo(eq);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
@@ -66,7 +66,7 @@ public class ControladorEquipo {
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql);
+                    eq.setFechaFundacion(fechaSql.toLocalDate());
                     cv.modiEquipo(eq);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);

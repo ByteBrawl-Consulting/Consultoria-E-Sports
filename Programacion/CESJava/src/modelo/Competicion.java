@@ -1,20 +1,21 @@
 package modelo;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
-public class Competiciones {
+public class Competicion {
     private int codCompe;
     private String nombre;
-    private java.sql.Date fechaInicio;
-    private java.sql.Date fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private int curso;
-    private Equipos equipoGanador;
-    private Juegos codJuego;
+    private Equipo equipoGanador;
+    private Juego codJuego;
 
-    public Competiciones() {
+    public Competicion() {
     }
 
-    public Competiciones(int codCompe, String nombre, Date fechaInicio, Date fechaFin, int curso, Equipos equipoGanador, Juegos codJuego) {
+    public Competicion(int codCompe, String nombre, LocalDate fechaInicio, LocalDate fechaFin, int curso, Equipo equipoGanador, Juego codJuego) {
         this.codCompe = codCompe;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
@@ -40,19 +41,19 @@ public class Competiciones {
         this.nombre = nombre;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 
@@ -64,19 +65,19 @@ public class Competiciones {
         this.curso = curso;
     }
 
-    public Equipos getEquipoGanador() {
+    public Equipo getEquipoGanador() {
         return equipoGanador;
     }
 
-    public void setEquipoGanador(Equipos equipoGanador) {
+    public void setEquipoGanador(Equipo equipoGanador) {
         this.equipoGanador = equipoGanador;
     }
 
-    public Juegos getCodJuego() {
+    public Juego getCodJuego() {
         return codJuego;
     }
 
-    public void setCodJuego(Juegos codJuego) {
+    public void setCodJuego(Juego codJuego) {
         this.codJuego = codJuego;
     }
 }

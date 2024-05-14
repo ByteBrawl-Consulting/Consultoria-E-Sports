@@ -1,17 +1,17 @@
 package modelo;
 
-public class Usuarios {
+public class Usuario {
     private int codUsuario;
     private String tipo;
     private String contrasena;
 
-    public Usuarios(int codUsuario, String tipo, String contrasena) {
+    public Usuario(int codUsuario, String tipo, String contrasena) {
         this.codUsuario = codUsuario;
         this.tipo = tipo;
         this.contrasena = contrasena;
     }
 
-    public Usuarios() {
+    public Usuario() {
     }
 
     public int getCodUsuario() {

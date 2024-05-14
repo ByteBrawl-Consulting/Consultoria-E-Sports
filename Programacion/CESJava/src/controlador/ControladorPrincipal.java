@@ -1,11 +1,10 @@
 package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
-import modelo.Competiciones;
-import modelo.Equipos;
+import modelo.Competicion;
+import modelo.Equipo;
 import modelo.Staff;
-import modelo.Usuarios;
-import view.VentanaLogin;
+import modelo.Usuario;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,19 +19,19 @@ public class ControladorPrincipal {
 
     }
 
-    public String login (Usuarios usu) throws SQLException {
+    public String login (Usuario usu) throws SQLException {
         return cbd.login(usu);
     }
 
-    public void altaEquipo(Equipos eq) {
+    public void altaEquipo(Equipo eq) {
         cbd.altaEquipo(eq);
     }
 
-    public void bajaEquipo(Equipos eq) {
+    public void bajaEquipo(Equipo eq) {
         cbd.bajaEquipo(eq);
     }
 
-    public void modiEquipo(Equipos eq) {
+    public void modiEquipo(Equipo eq) {
         cbd.modiEquipo(eq);
     }
 
@@ -42,7 +41,7 @@ public class ControladorPrincipal {
 
 
 
-    public Equipos buscarEquipo(String nombreEq) {
+    public Equipo buscarEquipo(String nombreEq) {
         return cbd.buscarEquipo(nombreEq);
     }
 

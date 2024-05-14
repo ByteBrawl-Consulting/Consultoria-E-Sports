@@ -1,6 +1,6 @@
 package controlador.baseDeDatos;
 
-import modelo.Competiciones;
+import modelo.Competicion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +14,7 @@ public class TablaJornadas {
     public TablaJornadas(Connection con) {
         this.con = con;
     }
+
 
 
 }

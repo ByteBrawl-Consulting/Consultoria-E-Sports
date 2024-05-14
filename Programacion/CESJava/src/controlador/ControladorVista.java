@@ -6,11 +6,10 @@ import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
 import controlador.patrocinadores.ControladorPatrocinador;
-import modelo.Competiciones;
-import modelo.Equipos;
+import modelo.Competicion;
+import modelo.Equipo;
 import modelo.Staff;
-import modelo.Usuarios;
-import view.VentanaEquipos;
+import modelo.Usuario;
 import view.VentanaPrincipalAdmin;
 
 import java.awt.event.ActionEvent;
@@ -40,7 +39,7 @@ public class ControladorVista {
         iniciarBotones();
     }
 
-    public String login (Usuarios usu) throws SQLException {
+    public String login (Usuario usu) throws SQLException {
         return cp.login(usu);
     }
     public void iniciarBotones(){
@@ -59,15 +58,15 @@ public class ControladorVista {
 
     /* ----------- Metodos  ----------- */
 
-    public void altaEquipo(Equipos eq) {
+    public void altaEquipo(Equipo eq) {
         cp.altaEquipo(eq);
     }
 
-    public void bajaEquipo(Equipos eq) {
+    public void bajaEquipo(Equipo eq) {
         cp.bajaEquipo(eq);
     }
 
-    public void modiEquipo(Equipos eq) {
+    public void modiEquipo(Equipo eq) {
         cp.modiEquipo(eq);
     }
     public void altaStaff(Staff staff) {
@@ -80,7 +79,7 @@ public class ControladorVista {
     public String consultaEquipo(String nombreEq) {
         return cp.consultaEquipo(nombreEq).toString();
     }
-    public Equipos buscarEquipo(String nombreEq) {
+    public Equipo buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
     }
 

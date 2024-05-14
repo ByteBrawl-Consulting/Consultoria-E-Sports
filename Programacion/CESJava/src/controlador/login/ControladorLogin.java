@@ -1,9 +1,9 @@
 package controlador.login;
 
 import controlador.ControladorVista;
-import modelo.Competiciones;
-import modelo.Jornadas;
-import modelo.Usuarios;
+import modelo.Competicion;
+import modelo.Jornada;
+import modelo.Usuario;
 import view.VentanaLogin;
 import view.VentanaPrincipalAdmin;
 import view.VentanaPrincipalUsuario;
@@ -60,7 +60,7 @@ public class ControladorLogin {
     public class bEntrar implements ActionListener {
         public void actionPerformed (ActionEvent e){
             try {
-                Usuarios usu = new Usuarios();
+                Usuario usu = new Usuario();
 
                 usu.setTipo(vl.getTfUsu().getText());
                 usu.setContrasena(vl.getTfPassword().getText());
@@ -101,6 +101,7 @@ public class ControladorLogin {
 
                 
             }
+
         }
     }
 
