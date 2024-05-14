@@ -75,4 +75,20 @@ public class ControladorPrincipal {
     public String consultaJugador(String nombre) {
         return cbd.consultaJugador(nombre).toString();
     }
+
+    public void altaJuego(Juego juego) {
+        cbd.altaJuego(juego);
+    }
+
+    public void bajaJuego(Juego juego) {
+        cbd.bajaJuego(juego);
+    }
+
+    public void modiJuego(Juego juego) {
+        cbd.modiJuego(juego);
+    }
+
+    public Object consultaJuego(String nombreJu) {
+        return cbd.consultaJuego(nombreJu).toString();
+    }
 }

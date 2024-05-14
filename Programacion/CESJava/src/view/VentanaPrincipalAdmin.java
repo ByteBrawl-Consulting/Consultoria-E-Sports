@@ -45,4 +45,7 @@ public class VentanaPrincipalAdmin  extends JFrame {
     public void addBStaff(ActionListener listener){
         staffButton.addActionListener(listener);
     }
+    public void addBJuegos(ActionListener listener){
+        juegosButton.addActionListener(listener);
+    }
 }
