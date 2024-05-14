@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <Jornadas
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="resultados_ultima_jornada.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+    xs:noNamespaceSchemaLocation="resultados_ultima_jornada.xsd"
 >
     <Jornada Codigo_Jornada="12" Numero_Jornada="3">
         <Enfrentamiento>
