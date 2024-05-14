@@ -174,9 +174,9 @@ public class ControladorLogin {
     }
     public class bAceptarJornada implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            Competiciones com = new Competiciones();
+            Competicion com = new Competicion();
             com.setNombre(vpu.getTfJornada().getText());
-            Jornadas jor = new Jornadas();
+            Jornada jor = new Jornada();
             jor.setCodCompe(com);
             ArrayList info = cv.ultimaJornada(com);
             for (int x = 0; x < info.size(); x++) {
