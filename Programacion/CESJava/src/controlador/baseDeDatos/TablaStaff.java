@@ -9,8 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-public class TablaStaff {
+public class TablaStaff{
     Connection con;
+    public TablaStaff(Connection con) {
+        this.con = con;
+    }
     public void altaStaff (Staff staff){
         try {
             String plantilla = "INSERT INTO staff (nombre,cargo,sueldo,cod_equipo) VALUES (?,?,?,?)";

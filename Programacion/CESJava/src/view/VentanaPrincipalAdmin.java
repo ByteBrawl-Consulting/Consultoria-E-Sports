@@ -32,7 +32,7 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setSize(750, 450);
         setLocationRelativeTo(null);
     }
-    public void addMEquipos(ActionListener listener){
+    public void addBEquipos(ActionListener listener){
         equiposButton.addActionListener(listener);
     }
 }

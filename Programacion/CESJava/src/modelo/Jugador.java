@@ -24,6 +24,10 @@ public class Jugador {
         this.codEquipo = codEquipo;
     }
 
+    public Jugador() {
+
+    }
+
     public int getCodJugador() {
         return codJugador;
     }

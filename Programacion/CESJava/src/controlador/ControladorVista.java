@@ -6,10 +6,7 @@ import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.login.ControladorLogin;
 import controlador.patrocinadores.ControladorPatrocinador;
-import modelo.Competicion;
-import modelo.Equipo;
-import modelo.Staff;
-import modelo.Usuario;
+import modelo.*;
 import view.VentanaPrincipalAdmin;
 
 import java.awt.event.ActionEvent;
@@ -44,7 +41,7 @@ public class ControladorVista {
     }
     public void iniciarBotones(){
         vpa = new VentanaPrincipalAdmin();
-        vpa.addMEquipos(new controlEquipos());
+        vpa.addBEquipos(new controlEquipos());
     }
 
     public void modiStaff(Staff staff) {
@@ -53,6 +50,22 @@ public class ControladorVista {
 
     public String cosultaStaff(String nombreSt) {
         return cp.consultaStaff(nombreSt).toString();
+    }
+
+    public void altaJugador(Jugador ju) {
+        cp.altaJugador(ju);
+    }
+
+    public void bajaJugador(Jugador ju) {
+        cp.bajaJugador(ju);
+    }
+
+    public void modiJugador(Jugador ju) {
+        cp.modiJugador(ju);
+    }
+
+    public String consultaJugador(String nombre) {
+        return cp.consultaJugador(nombre).toString();
     }
 
     /* ----------- Botones Menus ------------- */

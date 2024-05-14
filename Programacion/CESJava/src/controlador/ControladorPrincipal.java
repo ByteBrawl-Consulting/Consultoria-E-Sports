@@ -1,10 +1,7 @@
 package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
-import modelo.Competicion;
-import modelo.Equipo;
-import modelo.Staff;
-import modelo.Usuario;
+import modelo.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -61,5 +58,21 @@ public class ControladorPrincipal {
 
     public String consultaStaff(String nombreSt) {
         return cbd.consultaStaff(nombreSt).toString();
+    }
+
+    public void altaJugador(Jugador ju) {
+        cbd.altaJugador(ju);
+    }
+
+    public void bajaJugador(Jugador ju) {
+        cbd.bajaJugador(ju);
+    }
+
+    public void modiJugador(Jugador ju) {
+        cbd.modiJugador(ju);
+    }
+
+    public String consultaJugador(String nombre) {
+        return cbd.consultaJugador(nombre).toString();
     }
 }
