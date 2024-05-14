@@ -1,18 +1,19 @@
 package controlador.baseDeDatos;
 
 import controlador.ControladorPrincipal;
-import modelo.Competiciones;
-import modelo.Equipos;
-import modelo.Staff;
-import modelo.Usuarios;
+import modelo.*;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ControladorBaseDeDatos {
     private TablaJornadas tj;
     private TablaUsuarios tu;
     private TablaEquipos te;
     private TablaStaff ts;
+    private TablaJugadores tju;
+    private TablaJuegos tjue;
+    private TablaPatrocinadores tp;
     private Connection con;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
@@ -77,35 +78,32 @@ public class ControladorBaseDeDatos {
 
     public void inicializarTablas(ControladorPrincipal cp) {
         tu = new TablaUsuarios(con);
+        ts = new TablaStaff(con);
         te = new TablaEquipos(con);
         tj = new TablaJornadas(con);
+        tju = new TablaJugadores(con);
+        tjue = new TablaJuegos(con);
+        tp = new TablaPatrocinadores(con);
     }
 
-    public String login (Usuarios usu) throws SQLException {
+    public String login (Usuario usu) throws SQLException {
         return tu.login(usu);
     }
 
-    public void altaEquipo(Equipos eq) {
+    public void altaEquipo(Equipo eq) {
         te.altaEquipo(eq);
     }
 
-    public void bajaEquipo(Equipos eq) {
+    public void bajaEquipo(Equipo eq) {
         te.bajaEquipo(eq);
     }
 
-    public void modiEquipo(Equipos eq) {
+    public void modiEquipo(Equipo eq) {
         te.modiEquipo(eq);
     }
 
     public String consultaEquipo(String nombreEq) {
         return te.consultaEquipo(nombreEq).toString();
-    }
-
-    public void ultimaJornada(Competiciones com) {
-        tj.ultimaJornada(com);
-}
-    public Equipos buscarEquipo(String nombreEq) {
-        return te.buscarEquipo(nombreEq);
     }
 
     public void altaStaff(Staff staff) {
@@ -114,5 +112,60 @@ public class ControladorBaseDeDatos {
 
     public void bajaStaff(Staff staff) {
         ts.bajaStaff(staff);
+    }
+
+    public void modiStaff(Staff staff) {
+        ts.modiStaff(staff);
+    }
+
+    public String consultaStaff(String nombreSt) {
+        return ts.consultaStaff(nombreSt).toString();
+    }
+
+    public Equipo buscarEquipo(String nombreEq) {
+        return te.buscarEquipo(nombreEq);
+    }
+    public ArrayList ultimaJornada(Competicion com) {
+        return tj.ultimaJornada(com);
+    }
+
+    public void altaJugador(Jugador ju) {
+        tju.altaJugador(ju);
+    }
+
+    public void bajaJugador(Jugador ju) {
+        tju.bajaJugador(ju);
+    }
+
+    public void modiJugador(Jugador ju) {
+        tju.modiJugador(ju);
+    }
+
+    public String consultaJugador(String nombre) {
+        return tju.consultaJugador(nombre).toString();
+    }
+
+    public void altaJuego(Juego juego) {
+        tjue.altaJuego(juego);
+    }
+
+    public void bajaJuego(Juego juego) {
+        tjue.bajaJuego(juego);
+    }
+
+    public void modiJuego(Juego juego) {
+        tjue.modiJuego(juego);
+    }
+
+    public Object consultaJuego(String nombreJu) {
+        return tjue.consultaJuego(nombreJu).toString();
+    }
+
+    public void altaPatrocinador(Patrocinador patr) {
+        tp.altaPatrocinador(patr);
+    }
+
+    public void bajaPatrocinador(Patrocinador patr) {
+        tp.bajaPatrocinador(patr);
     }
 }

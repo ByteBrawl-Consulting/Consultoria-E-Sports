@@ -1,6 +1,6 @@
 package controlador.baseDeDatos;
 
-import modelo.Equipos;
+import modelo.Equipo;
 import modelo.Staff;
 
 import java.sql.Connection;
@@ -8,10 +8,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
-public class TablaStaff {
+public class TablaStaff{
     Connection con;
+    public TablaStaff(Connection con) {
+        this.con = con;
+    }
     public void altaStaff (Staff staff){
         try {
             String plantilla = "INSERT INTO staff (nombre,cargo,sueldo,cod_equipo) VALUES (?,?,?,?)";
@@ -59,6 +61,7 @@ public class TablaStaff {
             sentenciaPre.setString(1, staff.getCargo());
             sentenciaPre.setInt(2, staff.getSueldo());
             sentenciaPre.setObject(3, staff.getCodEquipo());
+            sentenciaPre.setString(4, staff.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
@@ -84,7 +87,7 @@ public class TablaStaff {
             if (respuesta.next()){
                 Integer sueldo = respuesta.getInt("sueldo");
                 String cargo = respuesta.getString("cargo");
-                Equipos equipos = (Equipos)respuesta.getObject("cod_equipo");
+                Equipo equipos = (Equipo)respuesta.getObject("cod_equipo");
                 staff = new Staff();
                 staff.setNombre(nombreStaff);
                 staff.setCargo(cargo);

@@ -1,8 +1,6 @@
 package controlador.baseDeDatos;
 
-import modelo.Equipos;
-import oracle.jdbc.proxy.annotation.Pre;
-import oracle.jdbc.replay.internal.ReplayableConnection;
+import modelo.Equipo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,13 +10,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class TablaEquipos {
-   private Connection con;
+    private Connection con;
 
     public TablaEquipos(Connection con) {
         this.con = con;
     }
 
-    public void altaEquipo (Equipos eq){
+    public void altaEquipo (Equipo eq){
         try {
             String plantilla = "INSERT INTO equipos (nombre,fecha_fundacion) VALUES (?,?)";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
@@ -34,15 +32,11 @@ public class TablaEquipos {
             }else{
                 throw new Exception("Equipo insertado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void bajaEquipo(Equipos eq){
+    public void bajaEquipo(Equipo eq){
         try {
             String plantilla = "DELETE FROM equipos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
@@ -54,13 +48,11 @@ public class TablaEquipos {
             }else{
                 throw new Exception("Equipo no encontrado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void modiEquipo(Equipos eq){
+    public void modiEquipo(Equipo eq){
         try {
             String plantilla = "UPDATE equipos SET fecha_fundacion = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
@@ -77,16 +69,12 @@ public class TablaEquipos {
             }else{
                 throw new Exception("Equipo no encontrado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public Equipos consultaEquipo(String nombreEq){
-        Equipos eq = null;
+    public Equipo consultaEquipo(String nombreEq){
+        Equipo eq = null;
         try {
             String plantilla = "SELECT cod_equipo,fecha_fundacion FROM equipos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
@@ -95,20 +83,18 @@ public class TablaEquipos {
             if (respuesta.next()){
                 Integer codEquipo = respuesta.getInt("cod_equipo");
                 java.sql.Date fecha = respuesta.getDate("fecha_fundacion");
-                eq = new Equipos();
+                eq = new Equipo();
                 eq.setNombre(nombreEq);
-                eq.setFechaFundacion(fecha);
+                eq.setFechaFundacion(fecha.toLocalDate());
                 eq.setCodEquipo(codEquipo);
             }
             return eq;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public Equipos buscarEquipo(String nombreEq){
-        Equipos eq = null;
+    public Equipo buscarEquipo(String nombreEq){
+        Equipo eq = null;
         try {
             String plantilla = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
@@ -116,13 +102,11 @@ public class TablaEquipos {
             ResultSet respuesta = sentenciaPre.executeQuery();
             if (respuesta.next()){
                 Integer codEquipo = respuesta.getInt("cod_equipo");
-                eq = new Equipos();
+                eq = new Equipo();
                 eq.setNombre(nombreEq);
                 eq.setCodEquipo(codEquipo);
             }
             return eq;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

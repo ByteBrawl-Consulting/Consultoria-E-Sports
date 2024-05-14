@@ -19,6 +19,10 @@ public class VentanaPrincipalUsuario extends JFrame {
     private JLabel claselb;
     private JRadioButton rbJornada;
     private JRadioButton rbClasi;
+    private JButton bAceptarJornada;
+    private JButton bAceptarClasi;
+    private JButton bSalir;
+    private JButton bSesion;
 
     public VentanaPrincipalUsuario() throws HeadlessException {
         super("Pagina Principal");
@@ -27,20 +31,53 @@ public class VentanaPrincipalUsuario extends JFrame {
         setLocationRelativeTo(null);
 
     }
-    public void jornadaAL (ActionListener al){
-        tfJornada.addActionListener(al);
-    }
-    public void claseAL (ActionListener al){
-        tfClasi.addActionListener(al);
-    }
     public void rbJornadaAL (ActionListener al){
         rbJornada.addActionListener(al);
     }
     public void rbClasiAL (ActionListener al){
         rbClasi.addActionListener(al);
     }
+    public void botonAceprtarJornadaAL (ActionListener al){
+        bAceptarJornada.addActionListener(al);
+    }
+    public void botonAceptarClasiAL(ActionListener al){
+        bAceptarClasi.addActionListener(al);
+    }
+    public void bSalirAL(ActionListener al){bSalir.addActionListener(al);}
+    public void bSesion (ActionListener al){bSesion.addActionListener(al);}
 
 
+    public JButton getbSesion() {
+        return bSesion;
+    }
+
+    public void setbSesion(JButton bSesion) {
+        this.bSesion = bSesion;
+    }
+
+    public JButton getbAceptarJornada() {
+        return bAceptarJornada;
+    }
+
+    public void setbAceptarJornada(JButton bAceptarJornada) {
+        this.bAceptarJornada = bAceptarJornada;
+    }
+
+    public JButton getbAceptarClasi() {
+        return bAceptarClasi;
+    }
+
+    public void setbAceptarClasi(JButton bAceptarClasi) {
+        this.bAceptarClasi = bAceptarClasi;
+    }
+
+    public JButton getbSalir() {
+        return bSalir;
+    }
+
+    public void setbSalir(JButton bSalir) {
+        this.bSalir = bSalir;
+    }
 
     public JButton getbClasi() {
         return bClasi;

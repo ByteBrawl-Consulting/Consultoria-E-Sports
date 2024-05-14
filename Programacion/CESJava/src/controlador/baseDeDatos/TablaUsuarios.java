@@ -1,6 +1,6 @@
 package controlador.baseDeDatos;
 
-import modelo.Usuarios;
+import modelo.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class TablaUsuarios {
         this.connection = connection;
     }
 
-    public String login(Usuarios usu) throws SQLException {
+    public String login(Usuario usu) throws SQLException {
         String usuario = usu.getTipo();
         String pass = usu.getContrasena();
         String tipoUsuario = "";

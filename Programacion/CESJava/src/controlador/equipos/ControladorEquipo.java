@@ -1,7 +1,7 @@
 package controlador.equipos;
 
 import controlador.ControladorVista;
-import modelo.Equipos;
+import modelo.Equipo;
 import view.VentanaEquipos;
 
 import java.awt.event.ActionEvent;
@@ -14,6 +14,7 @@ public class ControladorEquipo {
     private ControladorVista cv;
     public ControladorEquipo(ControladorVista cv) {
         ve = new VentanaEquipos();
+        mostrar();
         ve.bAceptarAl(new bAceptar());
         ve.bSalirAL(new bSalir());
         ve.bRbAltaAL(new bAlta());
@@ -22,7 +23,9 @@ public class ControladorEquipo {
         ve.bRbConsultaAL(new bConsulta());
         this.cv = cv;
     }
-
+    public void mostrar(){
+        ve.setVisible(true);
+    }
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -33,7 +36,7 @@ public class ControladorEquipo {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Equipos eq = new Equipos();
+            Equipo eq = new Equipo();
             if(ve.getRbAlta().isSelected()){
                 try {
                     String nombre = ve.getTfNombreAlta().getText();
@@ -43,7 +46,7 @@ public class ControladorEquipo {
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql);
+                    eq.setFechaFundacion(fechaSql.toLocalDate());
                     cv.altaEquipo(eq);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
@@ -66,15 +69,19 @@ public class ControladorEquipo {
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql);
+                    eq.setFechaFundacion(fechaSql.toLocalDate());
                     cv.modiEquipo(eq);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
             }else if (ve.getRbConsulta().isSelected()){
-                String nombre = ve.getTfNombreCons().getText();
-                eq.setNombre(nombre);
-                ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
+                try {
+                    String nombre = ve.getTfNombreCons().getText();
+                    eq.setNombre(nombre);
+                    ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         }
     }

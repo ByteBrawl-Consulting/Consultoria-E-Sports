@@ -1,13 +1,12 @@
 package controlador.staff;
 
 import controlador.ControladorVista;
-import modelo.Equipos;
+import modelo.Equipo;
 import modelo.Staff;
 import view.VentanaStaff;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
 
 public class ControladorStaff {
     VentanaStaff vs;
@@ -15,6 +14,7 @@ public class ControladorStaff {
 
     public ControladorStaff(ControladorVista cv) {
         vs = new VentanaStaff();
+        mostrar();
         vs.bAceptarAL(new bAceptar());
         vs.bSalirAL(new bSalir());
         vs.bRbAltaAL(new bAlta());
@@ -40,7 +40,7 @@ public class ControladorStaff {
                 String cargo = vs.getTfCargoAlta().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoAlta().getText());
                 //Buscar equipo
-                Equipos eq = cv.buscarEquipo(nombre);
+                Equipo eq = cv.buscarEquipo(nombre);
                 staff.setNombre(nombre);
                 staff.setCargo(cargo);
                 staff.setSueldo(sueldo);
@@ -51,9 +51,19 @@ public class ControladorStaff {
                 staff.setNombre(nombre);
                 cv.bajaStaff(staff);
             }else if (vs.getRbModi().isSelected()){
-
+                String nombre = vs.getTfNombreCons().getText();
+                String cargo = vs.getTfCargoModi().getText();
+                Integer sueldo = Integer.valueOf(vs.getTfSueldoModi().getText());
+                Equipo eq = cv.buscarEquipo(nombre);
+                staff.setNombre(nombre);
+                staff.setCargo(cargo);
+                staff.setSueldo(sueldo);
+                staff.setCodEquipo(eq);
+                cv.modiStaff(staff);
             }else if (vs.getRbConsulta().isSelected()){
-
+                String nombre = vs.getTfNombreCons().getText();
+                staff.setNombre(nombre);
+                vs.getTaConsulta().setText(cv.cosultaStaff(nombre));
             }
         }
     }
@@ -84,5 +94,8 @@ public class ControladorStaff {
         public void actionPerformed(ActionEvent e) {
             vs.eleccionConsulta();
         }
+    }
+    public void mostrar(){
+        vs.setVisible(true);
     }
 }

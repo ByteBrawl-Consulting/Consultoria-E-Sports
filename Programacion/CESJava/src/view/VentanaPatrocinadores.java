@@ -3,28 +3,25 @@ package view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class VentanaEquipos extends JFrame{
+public class VentanaPatrocinadores extends JFrame{
+    private JPanel pPrincipal;
     private JRadioButton rbAlta;
     private JRadioButton rbBaja;
-    private JRadioButton rbModificacion;
+    private JRadioButton rbModi;
+    private JRadioButton rbCons;
     private JPanel pAlta;
-    private JPanel pPrincipal;
     private JPanel pBaja;
-    private JPanel pModificacion;
-    private JRadioButton rbConsulta;
-    private JTextField tfNombreAlta;
-    private JTextField tfFechaAlta;
-    private JTextField tfNombreBaja;
-    private JTextField tfNombreModi;
-    private JTextField tfFechaModi;
-    private JTextField tfNombreCons;
-    private JTextArea taConsulta;
+    private JPanel pModi;
+    private JPanel pCons;
     private JButton bAceptar;
     private JButton bSalir;
-    private JPanel pConsulta;
-
-    public VentanaEquipos(){
-        super("Ventana Equipos");
+    private JTextField tfNombreAlta;
+    private JTextField tfNombreBaja;
+    private JTextField tfNombreModi;
+    private JTextField tfNombreCons;
+    private JTextArea taCons;
+    public VentanaPatrocinadores(){
+        super("Ventana Patrocinadores");
         setContentPane(pPrincipal);
         setLocationRelativeTo(null);
         setSize(500,600);
@@ -32,26 +29,26 @@ public class VentanaEquipos extends JFrame{
     public void eleccionAlta(){
         pAlta.setVisible(true);
         pBaja.setVisible(false);
-        pModificacion.setVisible(false);
-        pConsulta.setVisible(false);
+        pModi.setVisible(false);
+        pCons.setVisible(false);
     }
     public void eleccionBaja(){
         pAlta.setVisible(false);
         pBaja.setVisible(true);
-        pModificacion.setVisible(false);
-        pConsulta.setVisible(false);
+        pModi.setVisible(false);
+        pCons.setVisible(false);
     }
     public void eleccionModi(){
         pAlta.setVisible(false);
         pBaja.setVisible(false);
-        pModificacion.setVisible(true);
-        pConsulta.setVisible(false);
+        pModi.setVisible(true);
+        pCons.setVisible(false);
     }
     public void eleccionConsulta(){
         pAlta.setVisible(false);
         pBaja.setVisible(false);
-        pModificacion.setVisible(false);
-        pConsulta.setVisible(true);
+        pModi.setVisible(false);
+        pCons.setVisible(true);
     }
     public void bAceptarAl(ActionListener listener){
         bAceptar.addActionListener(listener);
@@ -66,10 +63,10 @@ public class VentanaEquipos extends JFrame{
         rbBaja.addActionListener(listener);
     }
     public void bRbModiAl(ActionListener listener){
-        rbModificacion.addActionListener(listener);
+        rbModi.addActionListener(listener);
     }
     public void bRbConsultaAL(ActionListener listener){
-        rbConsulta.addActionListener(listener);
+        rbCons.addActionListener(listener);
     }
 
     public JRadioButton getRbAlta() {
@@ -88,20 +85,20 @@ public class VentanaEquipos extends JFrame{
         this.rbBaja = rbBaja;
     }
 
-    public JRadioButton getRbModificacion() {
-        return rbModificacion;
+    public JRadioButton getRbModi() {
+        return rbModi;
     }
 
-    public void setRbModificacion(JRadioButton rbModificacion) {
-        this.rbModificacion = rbModificacion;
+    public void setRbModi(JRadioButton rbModi) {
+        this.rbModi = rbModi;
     }
 
-    public JRadioButton getRbConsulta() {
-        return rbConsulta;
+    public JRadioButton getRbCons() {
+        return rbCons;
     }
 
-    public void setRbConsulta(JRadioButton rbConsulta) {
-        this.rbConsulta = rbConsulta;
+    public void setRbCons(JRadioButton rbCons) {
+        this.rbCons = rbCons;
     }
 
     public JTextField getTfNombreAlta() {
@@ -110,14 +107,6 @@ public class VentanaEquipos extends JFrame{
 
     public void setTfNombreAlta(JTextField tfNombreAlta) {
         this.tfNombreAlta = tfNombreAlta;
-    }
-
-    public JTextField getTfFechaAlta() {
-        return tfFechaAlta;
-    }
-
-    public void setTfFechaAlta(JTextField tfFechaAlta) {
-        this.tfFechaAlta = tfFechaAlta;
     }
 
     public JTextField getTfNombreBaja() {
@@ -136,14 +125,6 @@ public class VentanaEquipos extends JFrame{
         this.tfNombreModi = tfNombreModi;
     }
 
-    public JTextField getTfFechaModi() {
-        return tfFechaModi;
-    }
-
-    public void setTfFechaModi(JTextField tfFechaModi) {
-        this.tfFechaModi = tfFechaModi;
-    }
-
     public JTextField getTfNombreCons() {
         return tfNombreCons;
     }
@@ -152,11 +133,11 @@ public class VentanaEquipos extends JFrame{
         this.tfNombreCons = tfNombreCons;
     }
 
-    public JTextArea getTaConsulta() {
-        return taConsulta;
+    public JTextArea getTaCons() {
+        return taCons;
     }
 
-    public void setTaConsulta(JTextArea taConsulta) {
-        this.taConsulta = taConsulta;
+    public void setTaCons(JTextArea taCons) {
+        this.taCons = taCons;
     }
 }

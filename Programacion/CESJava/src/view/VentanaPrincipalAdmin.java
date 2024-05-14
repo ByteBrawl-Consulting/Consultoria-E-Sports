@@ -2,17 +2,12 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin  extends JFrame {
     private JPanel pPrincipal;
-    private JMenuBar menuBar;
     private JMenu menuEquipos;
-    private JMenu menuJugadores;
-    private JMenu staffMenu;
-    private JMenu patrocinadoresMenu;
-    private JMenu Juegos;
-    private JMenu Competiciones;
     private JPanel pSecundario;
     private JLabel tituloLabel;
     private JMenuItem cerrarEtapaInscripcionMenuItem;
@@ -25,14 +20,32 @@ public class VentanaPrincipalAdmin  extends JFrame {
     private JMenuBar menuDosBar;
     private JButton cerrarSesionButton;
     private JButton salirButton;
+    private JButton equiposButton;
+    private JButton jugadoresButton;
+    private JButton staffButton;
+    private JButton patrocinadoresButton;
+    private JButton juegosButton;
+    private JButton competicionesButton;
 
     public VentanaPrincipalAdmin() throws HeadlessException {
-        super("Login");
+        super("Panel de Administrador");
         setContentPane(pPrincipal);
-        setSize(500, 300);
+        setSize(750, 450);
         setLocationRelativeTo(null);
     }
-    public void addMEquipos(ActionListener listener){
-        menuEquipos.addActionListener(listener);
+    public void addBSalir(ActionListener listener){
+        salirButton.addActionListener(listener);
+    }
+    public void addBEquipos(ActionListener listener){
+        equiposButton.addActionListener(listener);
+    }
+    public void addBJugadores(ActionListener listener){
+        jugadoresButton.addActionListener(listener);
+    }
+    public void addBStaff(ActionListener listener){
+        staffButton.addActionListener(listener);
+    }
+    public void addBJuegos(ActionListener listener){
+        juegosButton.addActionListener(listener);
     }
 }
