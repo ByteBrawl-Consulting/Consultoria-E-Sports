@@ -87,6 +87,22 @@ public class ControladorVista {
         cp.bajaPatrocinador(patr);
     }
 
+    public void altaCompeticion(Competicion compe) {
+        cp.altaCompeticion(compe);
+    }
+
+    public void bajaCompeticion(Competicion compe) {
+        cp.bajaCompeticion(compe);
+    }
+
+    public void modiCompeticion(Competicion compe) {
+        cp.modiCompeticion(compe);
+    }
+
+    public String consultaCompeticion(String nombreCo) {
+        return cp.consultaCompeticion(nombreCo).toString();
+    }
+
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override
@@ -117,6 +133,9 @@ public class ControladorVista {
 
     public String consultaEquipo(String nombreEq) {
         return cp.consultaEquipo(nombreEq).toString();
+    }
+    public Juego buscarJuego(String nombreJu){
+        return cp.buscarJuego(nombreJu);
     }
     public Equipo buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);

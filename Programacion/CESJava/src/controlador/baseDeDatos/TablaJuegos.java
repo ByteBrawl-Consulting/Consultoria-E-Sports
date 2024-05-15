@@ -91,4 +91,22 @@ public class TablaJuegos {
             throw new RuntimeException(e);
         }
     }
+    public Juego buscarJuego(String nombreJu){
+        Juego juego = null;
+        try {
+            String plantilla = "SELECT cod_juego FROM juegos WHERE nombre = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setString(1, nombreJu);
+            ResultSet respuesta = sentenciaPre.executeQuery();
+            if (respuesta.next()){
+                int codJuego = respuesta.getInt("cod_juego");
+                juego = new Juego();
+                juego.setNombre(nombreJu);
+                juego.setCodJuego(codJuego);
+            }
+            return juego;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
