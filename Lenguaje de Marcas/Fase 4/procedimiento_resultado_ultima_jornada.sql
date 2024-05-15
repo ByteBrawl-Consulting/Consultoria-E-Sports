@@ -7,41 +7,56 @@ CREATE TABLE temp_ultima_jornada_tab (
 );
 
 DECLARE
-    v_xml_data CLOB;
-    v_ultima_jornada NUMBER;
-    resultado CLOB; -- Declare resultado variable
+    resultado CLOB;
 BEGIN
-    -- Obtener el número de la última jornada
-    SELECT MAX(num_jornada) INTO v_ultima_jornada FROM jornadas;
-
-    -- Generar XML con los datos de la última jornada
-    SELECT XMLElement("Jornadas",
-               XMLAgg(
-                   XMLElement("Jornada",
-                       XMLAttributes(j.num_jornada AS "Numero_Jornada", j.cod_compe AS "Codigo_Competencion", j.cod_jornadas AS "Codigo_Jornada"),
-                       XMLAgg(
-                           XMLElement("Enfrentamiento",
-                               XMLForest(
-                                   e.cod_enfrentamiento AS "Codigo_Enfrentamiento",
-                                   el.nombre AS "Equipo_Local",
-                                   ev.nombre AS "Equipo_Visitante",
-                                   e.resultado AS "Ganador"
-                               )
-                           )
-                       )
-                   )
-               )
-           ).getClobVal()
-    INTO v_xml_data
-    FROM jornadas j
-    LEFT JOIN enfrentamientos e ON j.cod_jornadas = e.cod_jornada
-    LEFT JOIN equipos el ON e.cod_equipo_local = el.cod_equipo
-    LEFT JOIN equipos ev ON e.cod_equipo_visitante = ev.cod_equipo
-    WHERE j.num_jornada = v_ultima_jornada -- Aquí se filtra por el número de jornada
-    GROUP BY j.cod_jornadas, j.num_jornada, j.cod_compe;
+    SELECT
+        XMLELEMENT(
+            "competiciones",
+            XMLAGG(
+                XMLELEMENT(
+                    "competicion",
+                    XMLATTRIBUTES(c.cod_compe AS "id_competicion"),
+                    XMLELEMENT("nombre_competicion", c.nombre),
+                    (SELECT
+                    XMLAGG(
+                        XMLELEMENT(
+                            "jornada",
+                            XMLATTRIBUTES(j.cod_jornadas AS "id_jornada", j.dia AS "Fecha"),
+                            XMLELEMENT("numero_jornada", j.num_jornada),
+                            (
+                                SELECT
+                                    XMLAGG(
+                                        XMLELEMENT(
+                                            "enfrentamiento",
+                                            XMLATTRIBUTES(rj.cod_enfrentamiento AS "id"),
+                                            XMLFOREST(
+                                                rj.cod_equipo_local AS "cod_equipo_local",
+                                                rj.cod_equipo_visitante AS "cod_equipo_visitante",
+                                                rj.resultado AS "ganador"
+                                            )
+                                        )
+                                    )
+                                FROM enfrentamientos rj
+                                WHERE rj.cod_jornada = j.cod_jornadas
+                            )
+                        )
+                    )
+                    FROM (
+                        SELECT * FROM jornadas j
+                        WHERE j.cod_compe = c.cod_compe
+                        ORDER BY j.num_jornada DESC
+                    ) j
+                    WHERE ROWNUM = 1
+                    )
+                )
+            )
+        ).getClobVal()
+    INTO resultado
+    FROM competiciones c;
 
     -- Concatenar el encabezado XML y el DTD al resultado
-    resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || '<!DOCTYPE Jornadas SYSTEM "resultados_ultima_jornada.dtd">' || v_xml_data;
+    resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || 
+    '<!DOCTYPE competiciones SYSTEM "resultados_todas_jornadas.dtd">' || resultado;
     DBMS_OUTPUT.PUT_LINE(resultado);
     
     -- Insertar el resultado en la tabla
