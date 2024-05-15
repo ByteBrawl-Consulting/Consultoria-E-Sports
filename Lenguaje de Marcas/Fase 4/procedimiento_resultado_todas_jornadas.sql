@@ -21,7 +21,7 @@ BEGIN
                     XMLAGG(
                         XMLELEMENT(
                             "jornada",
-                            XMLATTRIBUTES(j.cod_jornadas AS "id_jornada"),
+                            XMLATTRIBUTES(j.cod_jornadas AS "id_jornada", j.dia AS "Fecha"),
                             XMLELEMENT("numero_jornada", j.num_jornada),
                             (
                                 SELECT
