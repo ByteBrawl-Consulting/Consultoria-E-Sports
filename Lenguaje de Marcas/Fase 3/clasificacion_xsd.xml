@@ -70,4 +70,55 @@ xs:noNamespaceSchemaLocation="clasificacion.xsd">
             </Equipo>
         </Equipos>
     </Clasificacion>
+    <Clasificacion>
+        <compId>5</compId>
+        <Equipos>
+            <Equipo>
+                <Nombre>Team Neon</Nombre>
+                <Puntos>15</Puntos>
+            </Equipo>
+            <Equipo>
+                <Nombre>Team Omega</Nombre>
+                <Puntos>10</Puntos>
+            </Equipo>
+            <Equipo>
+                <Nombre>Team Psi</Nombre>
+                <Puntos>5</Puntos>
+            </Equipo>
+            <Equipo>
+                <Nombre>Team Quantum</Nombre>
+                <Puntos>3</Puntos>
+            </Equipo>
+        </Equipos>
+    </Clasificacion>
+    <Clasificacion>
+        <compId>6</compId>
+        <Equipos>
+            <Equipo>
+                <Nombre>Team Rhino</Nombre>
+                <Puntos>8</Puntos>
+            </Equipo>
+            <Equipo>
+                <Nombre>Team Sigma</Nombre>
+                <Puntos>7</Puntos>
+            </Equipo>
+            <Equipo>
+                <Nombre>Team Tango</Nombre>
+                <Puntos>5</Puntos>
+            </Equipo>
+        </Equipos>
+    </Clasificacion>
+    <Clasificacion>
+        <compId>7</compId>
+        <Equipos>
+            <Equipo>
+                <Nombre>Team Uniform</Nombre>
+                <Puntos>4</Puntos>
+            </Equipo>
+            <Equipo>
+                <Nombre>Team Victor</Nombre>
+                <Puntos>2</Puntos>
+            </Equipo>
+        </Equipos>
+    </Clasificacion>
 </Clasificaciones>
