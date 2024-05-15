@@ -1,8 +1,8 @@
 SET SERVEROUTPUT ON;
 
-DROP TABLE temp_ultima_jornada_tab;
+DROP TABLE temp_jornadas_tab;
 
-CREATE TABLE temp_ultima_jornada_tab (
+CREATE TABLE temp_jornadas_tab (
   xml_data CLOB
 );
 
@@ -41,12 +41,8 @@ BEGIN
                             )
                         )
                     )
-                    FROM (
-                        SELECT * FROM jornadas j
-                        WHERE j.cod_compe = c.cod_compe
-                        ORDER BY j.num_jornada DESC
-                    ) j
-                    WHERE ROWNUM = 1
+                    FROM jornadas j
+                    WHERE j.cod_compe = c.cod_compe
                     )
                 )
             )
@@ -60,7 +56,7 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE(resultado);
     
     -- Insertar el resultado en la tabla
-    INSERT INTO temp_ultima_jornada_tab (xml_data) VALUES (resultado);
+    INSERT INTO temp_jornadas_tab (xml_data) VALUES (resultado);
     
     COMMIT; -- Realiza la inserción de manera permanente
 END;

@@ -14,7 +14,7 @@
     <xs:element name="nombre_competicion" type="xs:string"/>
     <xs:element name="jornada" type="tJornada" maxOccurs="unbounded"/>
     </xs:sequence>
-    <xs:attribute name="id_competicion" type="xs:int" use="required"/>
+    <xs:attribute name="id_competicion" type="xs:string" use="required"/>
 </xs:complexType>
 
 <xs:complexType name="tJornada">
@@ -23,6 +23,7 @@
     <xs:element name="enfrentamiento" type="tEnfrentamiento" maxOccurs="unbounded"/>
     </xs:sequence>
     <xs:attribute name="id_jornada" type="xs:int" use="required"/>
+    <xs:attribute name="Fecha" type="xs:date" use="required"/>
 </xs:complexType>
 
 <xs:complexType name="tEnfrentamiento">
