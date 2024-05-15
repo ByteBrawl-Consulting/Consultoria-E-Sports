@@ -65,4 +65,31 @@
             </enfrentamiento>
         </jornada>
     </competicion>
+    <competicion id_competicion="5">
+        <nombre_competicion>torneo 5</nombre_competicion>
+        <jornada id_jornada="13" Fecha="2024-03-20">
+            <numero_jornada>4</numero_jornada>
+            <enfrentamiento id="20">
+                <equipo_local>Team Golf</equipo_local>
+                <equipo_visitante>Team Hotel</equipo_visitante>
+                <ganador>Team Golf</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="21">
+                <equipo_local>Team India</equipo_local>
+                <equipo_visitante>Team Juliet</equipo_visitante>
+                <ganador>Team Juliet</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="6">
+        <nombre_competicion>torneo 6</nombre_competicion>
+        <jornada id_jornada="14" Fecha="2024-03-20">
+            <numero_jornada>4</numero_jornada>
+            <enfrentamiento id="22">
+                <equipo_local>Team Kilo</equipo_local>
+                <equipo_visitante>Team Lima</equipo_visitante>
+                <ganador>Team Kilo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
 </competiciones>

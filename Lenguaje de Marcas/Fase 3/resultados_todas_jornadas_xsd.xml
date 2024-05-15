@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<competiciones 
+xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+xs:noNamespaceSchemaLocation="resultados_todas_jornadas.xsd">
+    <competicion id_competicion="1">
+        <nombre_competicion>torneo 1</nombre_competicion>
+        <jornada id_jornada="1" Fecha="2024-03-01">
+            <numero_jornada>1</numero_jornada>
+            <enfrentamiento id="1">
+                <equipo_local>Team Alpha</equipo_local>
+                <equipo_visitante>Team Bravo</equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="2">
+                <equipo_local>Team Charlie</equipo_local>
+                <equipo_visitante>Team Delta</equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="2" Fecha="2024-03-08">
+            <numero_jornada>2</numero_jornada>
+            <enfrentamiento id="3">
+                <equipo_local>Team Alpha</equipo_local>
+                <equipo_visitante>Team Charlie</equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="4">
+                <equipo_local>Team Bravo</equipo_local>
+                <equipo_visitante>Team Delta</equipo_visitante>
+                <ganador>Team Delta</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="3" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="5">
+                <equipo_local>Team Alpha</equipo_local>
+                <equipo_visitante>Team Delta</equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="6">
+                <equipo_local>Team Bravo</equipo_local>
+                <equipo_visitante>Team Charlie</equipo_visitante>
+                <ganador>Team Bravo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="4">
+        <nombre_competicion>torneo 4</nombre_competicion>
+        <jornada id_jornada="10" Fecha="2024-03-01">
+            <numero_jornada>1</numero_jornada>
+            <enfrentamiento id="16">
+                <equipo_local>Team Magma</equipo_local>
+                <equipo_visitante>Team Nectar</equipo_visitante>
+                <ganador>Team Magma</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="11" Fecha="2024-03-08">
+            <numero_jornada>2</numero_jornada>
+            <enfrentamiento id="17">
+                <equipo_local>Team Ozone</equipo_local>
+                <equipo_visitante>Team Pulsar</equipo_visitante>
+                <ganador>Team Pulsar</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="12" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="18">
+                <equipo_local>Team Quasar</equipo_local>
+                <equipo_visitante>Team Rover</equipo_visitante>
+                <ganador>Team Rover</ganador>
+            </enfrentamiento>
+        </jornada>
+</competicion>
+</competiciones>
