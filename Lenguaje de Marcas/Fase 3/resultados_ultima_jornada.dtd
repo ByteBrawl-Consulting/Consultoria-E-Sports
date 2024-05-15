@@ -1,11 +1,16 @@
-<!ELEMENT Jornadas (Jornada+)>
-<!ELEMENT Jornada (Enfrentamiento+)>
-<!ATTLIST Jornada
-        Numero_Jornada CDATA #REQUIRED
-        Codigo_Competencion CDATA #REQUIRED
-        Codigo_Jornada CDATA #REQUIRED>
-<!ELEMENT Enfrentamiento (Codigo_Enfrentamiento, Equipo_Local, Equipo_Visitante, Ganador)>
-<!ELEMENT Codigo_Enfrentamiento (#PCDATA)>
-<!ELEMENT Equipo_Local (#PCDATA)>
-<!ELEMENT Equipo_Visitante (#PCDATA)>
-<!ELEMENT Ganador (#PCDATA)>
+<!ELEMENT competiciones (competicion*)>
+<!ELEMENT competicion (nombre_competicion, jornada*)>
+<!ATTLIST competicion
+        id_competicion CDATA #REQUIRED>
+<!ELEMENT nombre_competicion (#PCDATA)>
+<!ELEMENT jornada (numero_jornada, enfrentamiento*)>
+<!ATTLIST jornada
+        id_jornada CDATA #REQUIRED
+        Fecha CDATA #IMPLIED>
+<!ELEMENT numero_jornada (#PCDATA)>
+<!ELEMENT enfrentamiento (cod_equipo_local, cod_equipo_visitante, ganador)>
+<!ATTLIST enfrentamiento
+        id CDATA #REQUIRED>
+<!ELEMENT cod_equipo_local (#PCDATA)>
+<!ELEMENT cod_equipo_visitante (#PCDATA)>
+<!ELEMENT ganador (#PCDATA)>

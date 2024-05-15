@@ -1,62 +1,70 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<Jornadas
+<competiciones
     xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
     xs:noNamespaceSchemaLocation="resultados_ultima_jornada.xsd"
 >
-    <Jornada Numero_Jornada="3" Codigo_Competencion="1" Codigo_Jornada="3">
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>6</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Bravo</Equipo_Local>
-            <Equipo_Visitante>Team Charlie</Equipo_Visitante>
-            <Ganador>Team Bravo</Ganador>
-        </Enfrentamiento>
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>5</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Alpha</Equipo_Local>
-            <Equipo_Visitante>Team Delta</Equipo_Visitante>
-            <Ganador>Team Alpha</Ganador>
-        </Enfrentamiento>
-    </Jornada>
-    <Jornada Numero_Jornada="3" Codigo_Competencion="2" Codigo_Jornada="6">
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>12</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Foxtrot</Equipo_Local>
-            <Equipo_Visitante>Team Gamma</Equipo_Visitante>
-            <Ganador>Team Foxtrot</Ganador>
-        </Enfrentamiento>
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>11</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Echo</Equipo_Local>
-            <Equipo_Visitante>Team Hippie</Equipo_Visitante>
-            <Ganador>Team Echo</Ganador>
-        </Enfrentamiento>
-    </Jornada>
-    <Jornada Numero_Jornada="3" Codigo_Competencion="3" Codigo_Jornada="9">
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>15</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Krack</Equipo_Local>
-            <Equipo_Visitante>Team Lego</Equipo_Visitante>
-            <Ganador>Team Krack</Ganador>
-        </Enfrentamiento>
-    </Jornada>
-    <Jornada Numero_Jornada="3" Codigo_Competencion="4" Codigo_Jornada="12">
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>17</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Alpha</Equipo_Local>
-            <Equipo_Visitante>Team Bravo</Equipo_Visitante>
-            <Ganador>Team Alpha</Ganador>
-        </Enfrentamiento>
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>19</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Echo</Equipo_Local>
-            <Equipo_Visitante>Team Foxtrot</Equipo_Visitante>
-            <Ganador>Team Echo</Ganador>
-        </Enfrentamiento>
-        <Enfrentamiento>
-            <Codigo_Enfrentamiento>18</Codigo_Enfrentamiento>
-            <Equipo_Local>Team Charlie</Equipo_Local>
-            <Equipo_Visitante>Team Delta</Equipo_Visitante>
-            <Ganador>Team Charlie</Ganador>
-        </Enfrentamiento>
-    </Jornada>
-</Jornadas>
+    <competicion id_competicion="1">
+        <nombre_competicion>torneo 1</nombre_competicion>
+        <jornada id_jornada="3" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="5">
+                <cod_equipo_local>1</cod_equipo_local>
+                <cod_equipo_visitante>4</cod_equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="6">
+                <cod_equipo_local>2</cod_equipo_local>
+                <cod_equipo_visitante>3</cod_equipo_visitante>
+                <ganador>Team Bravo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="2">
+        <nombre_competicion>torneo 2</nombre_competicion>
+        <jornada id_jornada="6" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="11">
+                <cod_equipo_local>5</cod_equipo_local>
+                <cod_equipo_visitante>8</cod_equipo_visitante>
+                <ganador>Team Echo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="12">
+                <cod_equipo_local>6</cod_equipo_local>
+                <cod_equipo_visitante>7</cod_equipo_visitante>
+                <ganador>Team Foxtrot</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="3">
+        <nombre_competicion>torneo 3</nombre_competicion>
+        <jornada id_jornada="9" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="15">
+                <cod_equipo_local>11</cod_equipo_local>
+                <cod_equipo_visitante>12</cod_equipo_visitante>
+                <ganador>Team Krack</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="4">
+        <nombre_competicion>torneo 4</nombre_competicion>
+        <jornada id_jornada="12" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="17">
+                <cod_equipo_local>1</cod_equipo_local>
+                <cod_equipo_visitante>2</cod_equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="18">
+                <cod_equipo_local>3</cod_equipo_local>
+                <cod_equipo_visitante>4</cod_equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="19">
+                <cod_equipo_local>5</cod_equipo_local>
+                <cod_equipo_visitante>6</cod_equipo_visitante>
+                <ganador>Team Echo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+</competiciones>
