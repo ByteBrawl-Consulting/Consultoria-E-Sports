@@ -1,6 +1,6 @@
 # Consultoria-E-Sports
 
-![Logo](https://github.com/ByteBrawl-Consulting/Consultoria-E-Sports/blob/main/Logo.jpg)
+![Logo](https://raw.githubusercontent.com/adriloma21/Consultoria-E-Sports/develop/logo.webp)
 
 ## Authors
 
