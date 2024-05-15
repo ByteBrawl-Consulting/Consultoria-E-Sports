@@ -1,46 +1,45 @@
-<?xml version='1.0'  encoding='UTF-8' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <competiciones 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
-    xs:noNamespaceSchemaLocation="resultados_todas_jornadas.xsd"
->
+xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+xs:noNamespaceSchemaLocation="resultados_todas_jornadas.xsd">
 <competicion id_competicion="1">
     <nombre_competicion>torneo 1</nombre_competicion>
     <jornada id_jornada="1" Fecha="2024-03-01">
         <numero_jornada>1</numero_jornada>
         <enfrentamiento id="1">
-            <cod_equipo_local>1</cod_equipo_local>
-            <cod_equipo_visitante>2</cod_equipo_visitante>
+            <equipo_local>Team Alpha</equipo_local>
+            <equipo_visitante>Team Bravo</equipo_visitante>
             <ganador>Team Alpha</ganador>
         </enfrentamiento>
         <enfrentamiento id="2">
-            <cod_equipo_local>3</cod_equipo_local>
-            <cod_equipo_visitante>4</cod_equipo_visitante>
+            <equipo_local>Team Charlie</equipo_local>
+            <equipo_visitante>Team Delta</equipo_visitante>
             <ganador>Team Charlie</ganador>
         </enfrentamiento>
     </jornada>
     <jornada id_jornada="2" Fecha="2024-03-08">
         <numero_jornada>2</numero_jornada>
         <enfrentamiento id="3">
-            <cod_equipo_local>1</cod_equipo_local>
-            <cod_equipo_visitante>3</cod_equipo_visitante>
+            <equipo_local>Team Alpha</equipo_local>
+            <equipo_visitante>Team Charlie</equipo_visitante>
             <ganador>Team Charlie</ganador>
         </enfrentamiento>
         <enfrentamiento id="4">
-            <cod_equipo_local>2</cod_equipo_local>
-            <cod_equipo_visitante>4</cod_equipo_visitante>
+            <equipo_local>Team Bravo</equipo_local>
+            <equipo_visitante>Team Delta</equipo_visitante>
             <ganador>Team Delta</ganador>
         </enfrentamiento>
     </jornada>
     <jornada id_jornada="3" Fecha="2024-03-15">
         <numero_jornada>3</numero_jornada>
         <enfrentamiento id="5">
-            <cod_equipo_local>1</cod_equipo_local>
-            <cod_equipo_visitante>4</cod_equipo_visitante>
+            <equipo_local>Team Alpha</equipo_local>
+            <equipo_visitante>Team Delta</equipo_visitante>
             <ganador>Team Alpha</ganador>
         </enfrentamiento>
         <enfrentamiento id="6">
-            <cod_equipo_local>2</cod_equipo_local>
-            <cod_equipo_visitante>3</cod_equipo_visitante>
+            <equipo_local>Team Bravo</equipo_local>
+            <equipo_visitante>Team Charlie</equipo_visitante>
             <ganador>Team Bravo</ganador>
         </enfrentamiento>
     </jornada>
@@ -50,39 +49,39 @@
     <jornada id_jornada="4" Fecha="2024-03-01">
         <numero_jornada>1</numero_jornada>
         <enfrentamiento id="7">
-            <cod_equipo_local>5</cod_equipo_local>
-            <cod_equipo_visitante>6</cod_equipo_visitante>
+            <equipo_local>Team Echo</equipo_local>
+            <equipo_visitante>Team Foxtrot</equipo_visitante>
             <ganador>Team Echo</ganador>
         </enfrentamiento>
         <enfrentamiento id="8">
-            <cod_equipo_local>7</cod_equipo_local>
-            <cod_equipo_visitante>8</cod_equipo_visitante>
+            <equipo_local>Team Gamma</equipo_local>
+            <equipo_visitante>Team Hippie</equipo_visitante>
             <ganador>Team Gamma</ganador>
         </enfrentamiento>
     </jornada>
     <jornada id_jornada="5" Fecha="2024-03-08">
         <numero_jornada>2</numero_jornada>
         <enfrentamiento id="9">
-            <cod_equipo_local>5</cod_equipo_local>
-            <cod_equipo_visitante>7</cod_equipo_visitante>
+            <equipo_local>Team Echo</equipo_local>
+            <equipo_visitante>Team Gamma</equipo_visitante>
             <ganador>Team Gamma</ganador>
         </enfrentamiento>
         <enfrentamiento id="10">
-            <cod_equipo_local>6</cod_equipo_local>
-            <cod_equipo_visitante>8</cod_equipo_visitante>
+            <equipo_local>Team Foxtrot</equipo_local>
+            <equipo_visitante>Team Hippie</equipo_visitante>
             <ganador>Team Hippie</ganador>
         </enfrentamiento>
     </jornada>
     <jornada id_jornada="6" Fecha="2024-03-15">
         <numero_jornada>3</numero_jornada>
         <enfrentamiento id="11">
-            <cod_equipo_local>5</cod_equipo_local>
-            <cod_equipo_visitante>8</cod_equipo_visitante>
+            <equipo_local>Team Echo</equipo_local>
+            <equipo_visitante>Team Hippie</equipo_visitante>
             <ganador>Team Echo</ganador>
         </enfrentamiento>
         <enfrentamiento id="12">
-            <cod_equipo_local>6</cod_equipo_local>
-            <cod_equipo_visitante>7</cod_equipo_visitante>
+            <equipo_local>Team Foxtrot</equipo_local>
+            <equipo_visitante>Team Gamma</equipo_visitante>
             <ganador>Team Foxtrot</ganador>
         </enfrentamiento>
     </jornada>
@@ -92,44 +91,25 @@
     <jornada id_jornada="7" Fecha="2024-03-01">
         <numero_jornada>1</numero_jornada>
         <enfrentamiento id="13">
-            <cod_equipo_local>9</cod_equipo_local>
-            <cod_equipo_visitante>10</cod_equipo_visitante>
+            <equipo_local>Team Indy</equipo_local>
+            <equipo_visitante>Team Jack</equipo_visitante>
             <ganador>Team Indy</ganador>
         </enfrentamiento>
     </jornada>
     <jornada id_jornada="8" Fecha="2024-03-08">
         <numero_jornada>2</numero_jornada>
         <enfrentamiento id="14">
-            <cod_equipo_local>10</cod_equipo_local>
-            <cod_equipo_visitante>9</cod_equipo_visitante>
+            <equipo_local>Team Jack</equipo_local>
+            <equipo_visitante>Team Indy</equipo_visitante>
             <ganador>Team Indy</ganador>
         </enfrentamiento>
     </jornada>
     <jornada id_jornada="9" Fecha="2024-03-15">
         <numero_jornada>3</numero_jornada>
         <enfrentamiento id="15">
-            <cod_equipo_local>11</cod_equipo_local>
-            <cod_equipo_visitante>12</cod_equipo_visitante>
+            <equipo_local>Team Krack</equipo_local>
+            <equipo_visitante>Team Lego</equipo_visitante>
             <ganador>Team Krack</ganador>
-        </enfrentamiento>
-    </jornada>
-</competicion>
-<competicion id_competicion="4">
-    <nombre_competicion>torneo 4</nombre_competicion>
-    <jornada id_jornada="10" Fecha="2024-03-01">
-        <numero_jornada>1</numero_jornada>
-        <enfrentamiento id="16">
-            <cod_equipo_local>12</cod_equipo_local>
-            <cod_equipo_visitante>11</cod_equipo_visitante>
-            <ganador>Team Krack</ganador>
-        </enfrentamiento>
-    </jornada>
-    <jornada id_jornada="11" Fecha="2024-03-08">
-        <numero_jornada>2</numero_jornada>
-        <enfrentamiento id="20">
-            <cod_equipo_local>1</cod_equipo_local>
-            <cod_equipo_visitante>4</cod_equipo_visitante>
-            <ganador>Team Alpha</ganador>
         </enfrentamiento>
     </jornada>
 </competicion>

@@ -1,26 +1,25 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <Clasificaciones 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
-    xs:noNamespaceSchemaLocation="clasificacion.xsd"
->
+xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+xs:noNamespaceSchemaLocation="clasificacion.xsd">
     <Clasificacion>
         <compId>1</compId>
         <Equipos>
             <Equipo>
+                <Nombre>Team Charlie</Nombre>
+                <Puntos>20</Puntos>
+            </Equipo>
+            <Equipo>
                 <Nombre>Team Alpha</Nombre>
-                <Puntos>89</Puntos>
+                <Puntos>7</Puntos>
             </Equipo>
             <Equipo>
                 <Nombre>Team Delta</Nombre>
-                <Puntos>10</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Charlie</Nombre>
-                <Puntos>0</Puntos>
+                <Puntos>4</Puntos>
             </Equipo>
             <Equipo>
                 <Nombre>Team Bravo</Nombre>
-                <Puntos>0</Puntos>
+                <Puntos>1</Puntos>
             </Equipo>
         </Equipos>
     </Clasificacion>
@@ -28,19 +27,19 @@
         <compId>2</compId>
         <Equipos>
             <Equipo>
-                <Nombre>Team Echo</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
                 <Nombre>Team Hippie</Nombre>
-                <Puntos>0</Puntos>
+                <Puntos>5</Puntos>
             </Equipo>
             <Equipo>
-                <Nombre>Team Gamma</Nombre>
-                <Puntos>0</Puntos>
+                <Nombre>Team Echo</Nombre>
+                <Puntos>2</Puntos>
             </Equipo>
             <Equipo>
                 <Nombre>Team Foxtrot</Nombre>
+                <Puntos>1</Puntos>
+            </Equipo>
+            <Equipo>
+                <Nombre>Team Gamma</Nombre>
                 <Puntos>0</Puntos>
             </Equipo>
         </Equipos>
@@ -50,19 +49,11 @@
         <Equipos>
             <Equipo>
                 <Nombre>Team Indy</Nombre>
-                <Puntos>0</Puntos>
+                <Puntos>9</Puntos>
             </Equipo>
             <Equipo>
                 <Nombre>Team Jack</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Kilo</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Lima</Nombre>
-                <Puntos>0</Puntos>
+                <Puntos>9</Puntos>
             </Equipo>
         </Equipos>
     </Clasificacion>
@@ -70,69 +61,11 @@
         <compId>4</compId>
         <Equipos>
             <Equipo>
-                <Nombre>Team Krack</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
                 <Nombre>Team Lego</Nombre>
-                <Puntos>0</Puntos>
+                <Puntos>1</Puntos>
             </Equipo>
             <Equipo>
-                <Nombre>Team Mike</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team November</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-        </Equipos>
-    </Clasificacion>
-    <Clasificacion>
-        <compId>5</compId>
-        <Equipos>
-            <Equipo>
-                <Nombre>Team Oscar</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Papa</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Quebec</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Romeo</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Sierra</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-        </Equipos>
-    </Clasificacion>
-    <Clasificacion>
-        <compId>6</compId>
-        <Equipos>
-            <Equipo>
-                <Nombre>Team Tango</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Uniform</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Victor</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Whiskey</Nombre>
-                <Puntos>0</Puntos>
-            </Equipo>
-            <Equipo>
-                <Nombre>Team Xray</Nombre>
+                <Nombre>Team Krack</Nombre>
                 <Puntos>0</Puntos>
             </Equipo>
         </Equipos>
