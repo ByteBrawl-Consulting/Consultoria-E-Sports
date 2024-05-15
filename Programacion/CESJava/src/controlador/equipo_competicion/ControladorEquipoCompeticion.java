@@ -1,2 +1,4 @@
-package controlador.equipo_competicion;public class ControladorEquipoCompeticion {
+package controlador.equipo_competicion;
+
+public class ControladorEquipoCompeticion {
 }
