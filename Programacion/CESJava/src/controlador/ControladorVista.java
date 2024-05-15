@@ -128,4 +128,23 @@ public class ControladorVista {
     public ArrayList ultimaJornada(Competicion com) {
         return cp.ultimaJornada(com);
     }
+    public void altaCompeticion(Competicion compe) {
+        cp.altaCompeticion(compe);
+    }
+
+    public void bajaCompeticion(Competicion compe) {
+        cp.bajaCompeticion(compe);
+    }
+
+    public void modiCompeticion(Competicion compe) {
+        cp.modiCompeticion(compe);
+    }
+
+    public String consultaCompeticion(String nombreCo) {
+        return cp.consultaCompeticion(nombreCo).toString();
+    }
+
+    public ArrayList clasificacion(Competicion com) {
+        return cp.clasificacion(com);
+    }
 }
