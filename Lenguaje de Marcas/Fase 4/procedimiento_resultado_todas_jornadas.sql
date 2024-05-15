@@ -52,7 +52,7 @@ BEGIN
 
     -- Concatenar el encabezado XML y el DTD al resultado
     resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || 
-    '<!DOCTYPE Jornadas SYSTEM "resultados_todas_jornadas.dtd">' || resultado;
+    '<!DOCTYPE competiciones SYSTEM "resultados_todas_jornadas.dtd">' || resultado;
     DBMS_OUTPUT.PUT_LINE(resultado);
     
     -- Insertar el resultado en la tabla
