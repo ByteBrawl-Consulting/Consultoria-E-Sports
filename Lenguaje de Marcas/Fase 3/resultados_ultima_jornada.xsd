@@ -12,9 +12,9 @@
     <xs:complexType name="tCompeticion">
         <xs:sequence>
             <xs:element name="nombre_competicion" type="xs:string"/>
-            <xs:element name="jornada" type="tJornada" maxOccurs="unbounded"/>
+            <xs:element name="jornada" type="tJornada"/>
         </xs:sequence>
-        <xs:attribute name="id_competicion" type="xs:int" use="required"/>
+        <xs:attribute name="id_competicion" type="xs:int"/>
     </xs:complexType>
 
     <xs:complexType name="tJornada">
@@ -22,17 +22,17 @@
             <xs:element name="numero_jornada" type="xs:int"/>
             <xs:element name="enfrentamiento" type="tEnfrentamiento" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="id_jornada" type="xs:int" use="required"/>
-        <xs:attribute name="Fecha" type="xs:string" use="required"/>
+        <xs:attribute name="id_jornada" type="xs:int"/>
+        <xs:attribute name="Fecha" type="xs:string"/>
     </xs:complexType>
 
     <xs:complexType name="tEnfrentamiento">
         <xs:sequence>
-            <xs:element name="cod_equipo_local" type="xs:int"/>
-            <xs:element name="cod_equipo_visitante" type="xs:int"/>
+            <xs:element name="equipo_local" type="xs:string"/>
+            <xs:element name="equipo_visitante" type="xs:string"/>
             <xs:element name="ganador" type="xs:string"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:int" use="required"/>
+        <xs:attribute name="id" type="xs:int"/>
     </xs:complexType>
 
 </xs:schema>
