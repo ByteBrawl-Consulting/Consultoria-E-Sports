@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE competiciones SYSTEM "resultados_ultima_jornada.dtd">
+<competiciones>
+    <competicion id_competicion="1">
+        <nombre_competicion>torneo 1</nombre_competicion>
+        <jornada id_jornada="3" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="5">
+                <equipo_local>Team Alpha</equipo_local>
+                <equipo_visitante>Team Delta</equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="6">
+                <equipo_local>Team Bravo</equipo_local>
+                <equipo_visitante>Team Charlie</equipo_visitante>
+                <ganador>Team Bravo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="2">
+        <nombre_competicion>torneo 2</nombre_competicion>
+        <jornada id_jornada="6" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="11">
+                <equipo_local>Team Echo</equipo_local>
+                <equipo_visitante>Team Hippie</equipo_visitante>
+                <ganador>Team Echo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="12">
+                <equipo_local>Team Foxtrot</equipo_local>
+                <equipo_visitante>Team Gamma</equipo_visitante>
+                <ganador>Team Foxtrot</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="3">
+        <nombre_competicion>torneo 3</nombre_competicion>
+        <jornada id_jornada="9" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="15">
+                <equipo_local>Team Krack</equipo_local>
+                <equipo_visitante>Team Lego</equipo_visitante>
+                <ganador>Team Krack</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="4">
+        <nombre_competicion>torneo 4</nombre_competicion>
+        <jornada id_jornada="12" Fecha="2024-03-15">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="17">
+                <equipo_local>Team Alpha</equipo_local>
+                <equipo_visitante>Team Bravo</equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="18">
+                <equipo_local>Team Charlie</equipo_local>
+                <equipo_visitante>Team Delta</equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="19">
+                <equipo_local>Team Echo</equipo_local>
+                <equipo_visitante>Team Foxtrot</equipo_visitante>
+                <ganador>Team Echo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="5">
+        <nombre_competicion>torneo 5</nombre_competicion>
+        <jornada id_jornada="13" Fecha="2024-03-20">
+            <numero_jornada>4</numero_jornada>
+            <enfrentamiento id="20">
+                <equipo_local>Team Golf</equipo_local>
+                <equipo_visitante>Team Hotel</equipo_visitante>
+                <ganador>Team Golf</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="21">
+                <equipo_local>Team India</equipo_local>
+                <equipo_visitante>Team Juliet</equipo_visitante>
+                <ganador>Team Juliet</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="6">
+        <nombre_competicion>torneo 6</nombre_competicion>
+        <jornada id_jornada="14" Fecha="2024-03-20">
+            <numero_jornada>4</numero_jornada>
+            <enfrentamiento id="22">
+                <equipo_local>Team Kilo</equipo_local>
+                <equipo_visitante>Team Lima</equipo_visitante>
+                <ganador>Team Kilo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+</competiciones>

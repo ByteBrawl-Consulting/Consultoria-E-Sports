@@ -14,11 +14,14 @@ public class ControladorBaseDeDatos {
     private TablaJugadores tju;
     private TablaJuegos tjue;
     private TablaPatrocinadores tp;
+    private TablaCompeticiones tc;
+    private TablaClasi tb;
     private Connection con;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
         inicializarTablas(cp);
+
     }
 
     public void conexionBD(ControladorPrincipal cp) {
@@ -39,7 +42,7 @@ public class ControladorBaseDeDatos {
 //        } catch (ClassNotFoundException e) {
 //            throw new RuntimeException(e);
 //        }
-      
+
         /* ----------------- Conexion con la BD Clase Portatil ----------------- */
 
         String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
@@ -84,6 +87,8 @@ public class ControladorBaseDeDatos {
         tju = new TablaJugadores(con);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
+        tc = new TablaCompeticiones(con);
+        tb = new TablaClasi(con);
     }
 
     public String login (Usuario usu) throws SQLException {
@@ -160,12 +165,33 @@ public class ControladorBaseDeDatos {
     public Object consultaJuego(String nombreJu) {
         return tjue.consultaJuego(nombreJu).toString();
     }
-
+    public Juego buscarJuego(String nombreJu){
+        return tjue.buscarJuego(nombreJu);
+    }
     public void altaPatrocinador(Patrocinador patr) {
         tp.altaPatrocinador(patr);
     }
 
     public void bajaPatrocinador(Patrocinador patr) {
         tp.bajaPatrocinador(patr);
+    }
+
+    public ArrayList calsificacion(Competicion com) {
+        return tb.clasificacion(com);
+    }
+    public void altaCompeticion(Competicion compe) {
+        tc.altaCompeticion(compe);
+    }
+
+    public void bajaCompeticion(Competicion compe) {
+        tc.bajaCompeticion(compe);
+    }
+
+    public void modiCompeticion(Competicion compe) {
+        tc.modiCompeticion(compe);
+    }
+
+    public String consultaCompeticion(String nombreCo) {
+        return tc.consultaCompeticion(nombreCo).toString();
     }
 }

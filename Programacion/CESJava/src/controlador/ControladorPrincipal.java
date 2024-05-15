@@ -1,6 +1,7 @@
 package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
+import controlador.competiciones.ControladorCompeticion;
 import modelo.*;
 
 import java.sql.SQLException;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class ControladorPrincipal {
     private ControladorVista cv;
     private ControladorBaseDeDatos cbd;
+
 
     public ControladorPrincipal() {
         cv = new ControladorVista(this);
@@ -91,6 +93,9 @@ public class ControladorPrincipal {
     public Object consultaJuego(String nombreJu) {
         return cbd.consultaJuego(nombreJu).toString();
     }
+    public Juego buscarJuego(String nombreJu){
+        return cbd.buscarJuego(nombreJu);
+    }
 
     public void altaPatrocinador(Patrocinador patr) {
         cbd.altaPatrocinador(patr);
@@ -99,4 +104,22 @@ public class ControladorPrincipal {
     public void bajaPatrocinador(Patrocinador patr) {
         cbd.bajaPatrocinador(patr);
     }
+    public void altaCompeticion(Competicion compe) {
+        cbd.altaCompeticion(compe);
+    }
+
+    public void bajaCompeticion(Competicion compe) {
+        cbd.bajaCompeticion(compe);
+    }
+
+    public void modiCompeticion(Competicion compe) {
+        cbd.modiCompeticion(compe);
+    }
+
+    public String consultaCompeticion(String nombreCo) {
+        return cbd.consultaCompeticion(nombreCo).toString();
+    }
+        public ArrayList clasificacion(Competicion com) {
+            return cbd.calsificacion(com);
+        }
 }

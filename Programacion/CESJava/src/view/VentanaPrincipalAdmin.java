@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin  extends JFrame {
@@ -26,6 +25,8 @@ public class VentanaPrincipalAdmin  extends JFrame {
     private JButton patrocinadoresButton;
     private JButton juegosButton;
     private JButton competicionesButton;
+    private JButton añadirEquipoACompeticiónButton;
+    private JButton añadirPatrocinadorEquipoButton;
 
     public VentanaPrincipalAdmin() throws HeadlessException {
         super("Panel de Administrador");

@@ -1,11 +1,11 @@
 package modelo;
 
 public class Clasificacion {
-    private int codequipo;
-    private int puntos;
-    private int codcompe;
+    private Equipo codequipo;
+    private EquipoCompeticion puntos;
+    private Competicion codcompe;
 
-    public Clasificacion(int codequipo, int puntos, int codcompe) {
+    public Clasificacion(Equipo codequipo, EquipoCompeticion puntos, Competicion codcompe) {
         this.codequipo = codequipo;
         this.puntos = puntos;
         this.codcompe = codcompe;
@@ -14,27 +14,28 @@ public class Clasificacion {
     public Clasificacion() {
     }
 
-    public int getCodequipo() {
+    public Equipo getCodequipo() {
         return codequipo;
     }
 
-    public void setCodequipo(int codequipo) {
+    public void setCodequipo(Equipo codequipo) {
         this.codequipo = codequipo;
     }
 
-    public int getPuntos() {
+    public EquipoCompeticion getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(int puntos) {
+    public void setPuntos(EquipoCompeticion puntos) {
         this.puntos = puntos;
     }
 
-    public int getCodcompe() {
+    public Competicion getCodcompe() {
         return codcompe;
     }
 
-    public void setCodcompe(int codcompe) {
+    public void setCodcompe(Competicion codcompe) {
         this.codcompe = codcompe;
     }
 }
+

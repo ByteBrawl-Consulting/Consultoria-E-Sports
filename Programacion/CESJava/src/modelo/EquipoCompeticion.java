@@ -6,6 +6,9 @@ public class EquipoCompeticion {
     private Competicion codCompe;
     private int puntos;
 
+    public EquipoCompeticion() {
+    }
+
     public EquipoCompeticion(int codEquipoCompe, Equipo codEquipo, Competicion codCompe, int puntos) {
         this.codEquipoCompe = codEquipoCompe;
         this.codEquipo = codEquipo;
