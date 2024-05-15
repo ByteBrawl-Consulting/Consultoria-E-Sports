@@ -103,21 +103,5 @@ public class ControladorPrincipal {
 
     public void bajaPatrocinador(Patrocinador patr) {
         cbd.bajaPatrocinador(patr);
-    }
-
-    public void altaCompeticion(Competicion compe) {
-        cbd.altaCompeticion(compe);
-    }
-
-    public void bajaCompeticion(Competicion compe) {
-        cbd.bajaCompeticion(compe);
-    }
-
-    public void modiCompeticion(Competicion compe) {
-        cbd.modiCompeticion(compe);
-    }
-
-    public String consultaCompeticion(String nombreCo) {
-        return cbd.consultaCompeticion(nombreCo).toString();
-    }
+    }S
 }

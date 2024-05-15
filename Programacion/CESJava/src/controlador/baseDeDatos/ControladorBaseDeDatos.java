@@ -14,12 +14,11 @@ public class ControladorBaseDeDatos {
     private TablaJugadores tju;
     private TablaJuegos tjue;
     private TablaPatrocinadores tp;
-    private TablaCompeticiones tc;
-    private Connection con;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
         inicializarTablas(cp);
+
     }
 
     public void conexionBD(ControladorPrincipal cp) {
@@ -40,7 +39,7 @@ public class ControladorBaseDeDatos {
 //        } catch (ClassNotFoundException e) {
 //            throw new RuntimeException(e);
 //        }
-      
+
         /* ----------------- Conexion con la BD Clase Portatil ----------------- */
 
         String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
@@ -85,7 +84,6 @@ public class ControladorBaseDeDatos {
         tju = new TablaJugadores(con);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
-        tc = new TablaCompeticiones(con);
     }
 
     public String login (Usuario usu) throws SQLException {
@@ -171,21 +169,9 @@ public class ControladorBaseDeDatos {
 
     public void bajaPatrocinador(Patrocinador patr) {
         tp.bajaPatrocinador(patr);
-    }
+    }S
 
-    public void altaCompeticion(Competicion compe) {
-        tc.altaCompeticion(compe);
-    }
-
-    public void bajaCompeticion(Competicion compe) {
-        tc.bajaCompeticion(compe);
-    }
-
-    public void modiCompeticion(Competicion compe) {
-        tc.modiCompeticion(compe);
-    }
-
-    public String consultaCompeticion(String nombreCo) {
-        return tc.consultaCompeticion(nombreCo).toString();
+    public ArrayList calsificacion(Competicion com) {
+        return tb.clasificacion(com);
     }
 }
