@@ -27,15 +27,15 @@ BEGIN
                                 SELECT
                                     XMLAGG(
                                         XMLELEMENT(
-                                            "enfrentamiento",
-                                            XMLATTRIBUTES(rj.cod_enfrentamiento AS "id"),
-                                            XMLFOREST(
-                                                rj.cod_equipo_local AS "cod_equipo_local",
-                                                rj.cod_equipo_visitante AS "cod_equipo_visitante",
-                                                rj.resultado AS "ganador"
+                                                    "enfrentamiento",
+                                                    XMLATTRIBUTES(rj.cod_enfrentamiento AS "id"),
+                                                    XMLFOREST(
+                                                        (SELECT nombre FROM equipos WHERE cod_equipo = rj.cod_equipo_local) AS "equipo_local",
+                                                        (SELECT nombre FROM equipos WHERE cod_equipo = rj.cod_equipo_visitante) AS "equipo_visitante",
+                                                        rj.resultado AS "ganador"
+                                                    )
+                                                )
                                             )
-                                        )
-                                    )
                                 FROM enfrentamientos rj
                                 WHERE rj.cod_jornada = j.cod_jornadas
                             )
@@ -58,6 +58,6 @@ BEGIN
     -- Insertar el resultado en la tabla
     INSERT INTO temp_jornadas_tab (xml_data) VALUES (resultado);
     
-    COMMIT; -- Realiza la inserción de manera permanente
+    COMMIT; -- Realiza la inserciï¿½n de manera permanente
 END;
 /
