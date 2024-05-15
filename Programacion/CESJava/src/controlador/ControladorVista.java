@@ -87,10 +87,6 @@ public class ControladorVista {
         cp.bajaPatrocinador(patr);
     }
 
-    public ArrayList clasificacion(Competicion com) {
-       return cp.clasificacion(com);
-    }
-
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override
@@ -121,6 +117,9 @@ public class ControladorVista {
 
     public String consultaEquipo(String nombreEq) {
         return cp.consultaEquipo(nombreEq).toString();
+    }
+    public Juego buscarJuego(String nombreJu){
+        return cp.buscarJuego(nombreJu);
     }
     public Equipo buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
