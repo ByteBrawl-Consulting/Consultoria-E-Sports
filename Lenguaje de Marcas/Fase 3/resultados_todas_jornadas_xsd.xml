@@ -1,150 +1,269 @@
 <?xml version='1.0'  encoding='UTF-8' ?>
-<Jornadas 
+<competiciones 
     xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
     xs:noNamespaceSchemaLocation="resultados_todas_jornadas.xsd"
 >
-<Jornada Numero_Jornada="1" Codigo_Competencion="1" Codigo_Jornada="1">
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>1</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Alpha</Equipo_Local>
-        <Equipo_Visitante>Team Bravo</Equipo_Visitante>
-        <Ganador>Team Alpha</Ganador>
-    </Enfrentamiento>
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>2</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Charlie</Equipo_Local>
-        <Equipo_Visitante>Team Delta</Equipo_Visitante>
-        <Ganador>Team Charlie</Ganador>
-    </Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="2" Codigo_Competencion="1" Codigo_Jornada="2">
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>3</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Alpha</Equipo_Local>
-        <Equipo_Visitante>Team Charlie</Equipo_Visitante>
-        <Ganador>Team Charlie</Ganador>
-    </Enfrentamiento>
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>4</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Bravo</Equipo_Local>
-        <Equipo_Visitante>Team Delta</Equipo_Visitante>
-        <Ganador>Team Delta</Ganador>
-    </Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="3" Codigo_Competencion="1" Codigo_Jornada="3">
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>6</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Bravo</Equipo_Local>
-        <Equipo_Visitante>Team Charlie</Equipo_Visitante>
-        <Ganador>Team Bravo</Ganador>
-    </Enfrentamiento>
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>5</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Alpha</Equipo_Local>
-        <Equipo_Visitante>Team Delta</Equipo_Visitante>
-        <Ganador>Team Alpha</Ganador>
-    </Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="1" Codigo_Competencion="2" Codigo_Jornada="4">
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>7</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Echo</Equipo_Local>
-        <Equipo_Visitante>Team Foxtrot</Equipo_Visitante>
-        <Ganador>Team Echo</Ganador>
-    </Enfrentamiento>
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>8</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Gamma</Equipo_Local>
-        <Equipo_Visitante>Team Hippie</Equipo_Visitante>
-        <Ganador>Team Gamma</Ganador>
-    </Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="2" Codigo_Competencion="2" Codigo_Jornada="5">
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>9</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Echo</Equipo_Local>
-        <Equipo_Visitante>Team Gamma</Equipo_Visitante>
-        <Ganador>Team Gamma</Ganador>
-    </Enfrentamiento>
-    <Enfrentamiento>
-        <Codigo_Enfrentamiento>10</Codigo_Enfrentamiento>
-        <Equipo_Local>Team Foxtrot</Equipo_Local>
-        <Equipo_Visitante>Team Hippie</Equipo_Visitante>
-        <Ganador>Team Hippie</Ganador>
-    </Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="3" Codigo_Competencion="2" Codigo_Jornada="6">
-    <Enfrentamiento>
-    <Codigo_Enfrentamiento>12</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Foxtrot</Equipo_Local>
-    <Equipo_Visitante>Team Gamma</Equipo_Visitante>
-    <Ganador>Team Foxtrot</Ganador>
-</Enfrentamiento>
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>11</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Echo</Equipo_Local>
-    <Equipo_Visitante>Team Hippie</Equipo_Visitante>
-    <Ganador>Team Echo</Ganador>
-</Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="1" Codigo_Competencion="3" Codigo_Jornada="7">
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>13</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Indy</Equipo_Local>
-    <Equipo_Visitante>Team Jack</Equipo_Visitante>
-    <Ganador>Team Indy</Ganador>
-</Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="2" Codigo_Competencion="3" Codigo_Jornada="8">
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>14</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Jack</Equipo_Local>
-    <Equipo_Visitante>Team Indy</Equipo_Visitante>
-    <Ganador>Team Indy</Ganador>
-</Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="3" Codigo_Competencion="3" Codigo_Jornada="9">
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>15</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Krack</Equipo_Local>
-    <Equipo_Visitante>Team Lego</Equipo_Visitante>
-    <Ganador>Team Krack</Ganador>
-</Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="1" Codigo_Competencion="4" Codigo_Jornada="10">
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>16</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Lego</Equipo_Local>
-    <Equipo_Visitante>Team Krack</Equipo_Visitante>
-    <Ganador>Team Krack</Ganador>
-</Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="2" Codigo_Competencion="4" Codigo_Jornada="11">
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>17</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Jefe</Equipo_Local>
-    <Equipo_Visitante>Team Lambo</Equipo_Visitante>
-    <Ganador>Team Alpha</Ganador>
-</Enfrentamiento>
-</Jornada>
-<Jornada Numero_Jornada="3" Codigo_Competencion="4" Codigo_Jornada="12">
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>18</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Alpha</Equipo_Local>
-    <Equipo_Visitante>Team Bravo</Equipo_Visitante>
-    <Ganador>Team Alpha</Ganador>
-</Enfrentamiento>
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>19</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Echo</Equipo_Local>
-    <Equipo_Visitante>Team Foxtrot</Equipo_Visitante>
-    <Ganador>Team Echo</Ganador>
-</Enfrentamiento>
-<Enfrentamiento>
-    <Codigo_Enfrentamiento>20</Codigo_Enfrentamiento>
-    <Equipo_Local>Team Charlie</Equipo_Local>
-    <Equipo_Visitante>Team Delta</Equipo_Visitante>
-    <Ganador>Team Charlie</Ganador>
-</Enfrentamiento>
-</Jornada>
-</Jornadas>
+    <competicion id_competicion="1">
+        <nombre_competicion>torneo 1</nombre_competicion>
+        <jornada id_jornada="1">
+            <numero_jornada>1</numero_jornada>
+            <enfrentamiento id="1">
+                <cod_equipo_local>1</cod_equipo_local>
+                <cod_equipo_visitante>2</cod_equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="2">
+                <cod_equipo_local>3</cod_equipo_local>
+                <cod_equipo_visitante>4</cod_equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="2">
+            <numero_jornada>2</numero_jornada>
+            <enfrentamiento id="3">
+                <cod_equipo_local>1</cod_equipo_local>
+                <cod_equipo_visitante>3</cod_equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="4">
+                <cod_equipo_local>2</cod_equipo_local>
+                <cod_equipo_visitante>4</cod_equipo_visitante>
+                <ganador>Team Delta</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="5">
+                <cod_equipo_local>5</cod_equipo_local>
+                <cod_equipo_visitante>6</cod_equipo_visitante>
+                <ganador>Team Echo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="6">
+                <cod_equipo_local>7</cod_equipo_local>
+                <cod_equipo_visitante>8</cod_equipo_visitante>
+                <ganador>Team Foxtrot</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="3">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="7">
+                <cod_equipo_local>1</cod_equipo_local>
+                <cod_equipo_visitante>4</cod_equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="8">
+                <cod_equipo_local>2</cod_equipo_local>
+                <cod_equipo_visitante>3</cod_equipo_visitante>
+                <ganador>Team Bravo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="9">
+                <cod_equipo_local>5</cod_equipo_local>
+                <cod_equipo_visitante>7</cod_equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="10">
+                <cod_equipo_local>6</cod_equipo_local>
+                <cod_equipo_visitante>8</cod_equipo_visitante>
+                <ganador>Team Delta</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="2">
+        <nombre_competicion>torneo 2</nombre_competicion>
+        <jornada id_jornada="4">
+            <numero_jornada>1</numero_jornada>
+            <enfrentamiento id="11">
+                <cod_equipo_local>9</cod_equipo_local>
+                <cod_equipo_visitante>10</cod_equipo_visitante>
+                <ganador>Team Echo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="12">
+                <cod_equipo_local>11</cod_equipo_local>
+                <cod_equipo_visitante>12</cod_equipo_visitante>
+                <ganador>Team Foxtrot</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="13">
+                <cod_equipo_local>13</cod_equipo_local>
+                <cod_equipo_visitante>14</cod_equipo_visitante>
+                <ganador>Team Golf</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="14">
+                <cod_equipo_local>15</cod_equipo_local>
+                <cod_equipo_visitante>16</cod_equipo_visitante>
+                <ganador>Team Hotel</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="5">
+            <numero_jornada>2</numero_jornada>
+            <enfrentamiento id="15">
+                <cod_equipo_local>17</cod_equipo_local>
+                <cod_equipo_visitante>18</cod_equipo_visitante>
+                <ganador>Team India</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="16">
+                <cod_equipo_local>19</cod_equipo_local>
+                <cod_equipo_visitante>20</cod_equipo_visitante>
+                <ganador>Team Juliet</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="17">
+                <cod_equipo_local>21</cod_equipo_local>
+                <cod_equipo_visitante>22</cod_equipo_visitante>
+                <ganador>Team Kilo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="18">
+                <cod_equipo_local>23</cod_equipo_local>
+                <cod_equipo_visitante>24</cod_equipo_visitante>
+                <ganador>Team Lima</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="6">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="19">
+                <cod_equipo_local>25</cod_equipo_local>
+                <cod_equipo_visitante>26</cod_equipo_visitante>
+                <ganador>Team Mike</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="20">
+                <cod_equipo_local>27</cod_equipo_local>
+                <cod_equipo_visitante>28</cod_equipo_visitante>
+                <ganador>Team November</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="21">
+                <cod_equipo_local>29</cod_equipo_local>
+                <cod_equipo_visitante>30</cod_equipo_visitante>
+                <ganador>Team Oscar</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="22">
+                <cod_equipo_local>31</cod_equipo_local>
+                <cod_equipo_visitante>32</cod_equipo_visitante>
+                <ganador>Team Papa</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="3">
+        <nombre_competicion>torneo 3</nombre_competicion>
+        <jornada id_jornada="7">
+            <numero_jornada>1</numero_jornada>
+            <enfrentamiento id="23">
+                <cod_equipo_local>33</cod_equipo_local>
+                <cod_equipo_visitante>34</cod_equipo_visitante>
+                <ganador>Team Quebec</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="24">
+                <cod_equipo_local>35</cod_equipo_local>
+                <cod_equipo_visitante>36</cod_equipo_visitante>
+                <ganador>Team Romeo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="25">
+                <cod_equipo_local>37</cod_equipo_local>
+                <cod_equipo_visitante>38</cod_equipo_visitante>
+                <ganador>Team Sierra</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="26">
+                <cod_equipo_local>39</cod_equipo_local>
+                <cod_equipo_visitante>40</cod_equipo_visitante>
+                <ganador>Team Tango</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="8">
+            <numero_jornada>2</numero_jornada>
+            <enfrentamiento id="27">
+                <cod_equipo_local>41</cod_equipo_local>
+                <cod_equipo_visitante>42</cod_equipo_visitante>
+                <ganador>Team Uniform</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="28">
+                <cod_equipo_local>43</cod_equipo_local>
+                <cod_equipo_visitante>44</cod_equipo_visitante>
+                <ganador>Team Victor</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="29">
+                <cod_equipo_local>45</cod_equipo_local>
+                <cod_equipo_visitante>46</cod_equipo_visitante>
+                <ganador>Team Whiskey</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="30">
+                <cod_equipo_local>47</cod_equipo_local>
+                <cod_equipo_visitante>48</cod_equipo_visitante>
+                <ganador>Team X-ray</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="9">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="31">
+                <cod_equipo_local>49</cod_equipo_local>
+                <cod_equipo_visitante>50</cod_equipo_visitante>
+                <ganador>Team Yankee</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="32">
+                <cod_equipo_local>51</cod_equipo_local>
+                <cod_equipo_visitante>52</cod_equipo_visitante>
+                <ganador>Team Zulu</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="33">
+                <cod_equipo_local>53</cod_equipo_local>
+                <cod_equipo_visitante>54</cod_equipo_visitante>
+                <ganador>Team Alpha</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="34">
+                <cod_equipo_local>55</cod_equipo_local>
+                <cod_equipo_visitante>56</cod_equipo_visitante>
+                <ganador>Team Bravo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+    <competicion id_competicion="4">
+        <nombre_competicion>torneo 4</nombre_competicion>
+        <jornada id_jornada="10">
+            <numero_jornada>1</numero_jornada>
+            <enfrentamiento id="35">
+                <cod_equipo_local>57</cod_equipo_local>
+                <cod_equipo_visitante>58</cod_equipo_visitante>
+                <ganador>Team Charlie</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="36">
+                <cod_equipo_local>59</cod_equipo_local>
+                <cod_equipo_visitante>60</cod_equipo_visitante>
+                <ganador>Team Delta</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="37">
+                <cod_equipo_local>61</cod_equipo_local>
+                <cod_equipo_visitante>62</cod_equipo_visitante>
+                <ganador>Team Echo</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="38">
+                <cod_equipo_local>63</cod_equipo_local>
+                <cod_equipo_visitante>64</cod_equipo_visitante>
+                <ganador>Team Foxtrot</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="11">
+            <numero_jornada>2</numero_jornada>
+            <enfrentamiento id="39">
+                <cod_equipo_local>65</cod_equipo_local>
+                <cod_equipo_visitante>66</cod_equipo_visitante>
+                <ganador>Team Golf</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="40">
+                <cod_equipo_local>67</cod_equipo_local>
+                <cod_equipo_visitante>68</cod_equipo_visitante>
+                <ganador>Team Hotel</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="41">
+                <cod_equipo_local>69</cod_equipo_local>
+                <cod_equipo_visitante>70</cod_equipo_visitante>
+                <ganador>Team India</ganador>
+            </enfrentamiento>
+            <enfrentamiento id="42">
+                <cod_equipo_local>71</cod_equipo_local>
+                <cod_equipo_visitante>72</cod_equipo_visitante>
+                <ganador>Team Juliet</ganador>
+            </enfrentamiento>
+        </jornada>
+        <jornada id_jornada="12">
+            <numero_jornada>3</numero_jornada>
+            <enfrentamiento id="43">
+                <cod_equipo_local>73</cod_equipo_local>
+                <cod_equipo_visitante>74</cod_equipo_visitante>
+                <ganador>Team Kilo</ganador>
+            </enfrentamiento>
+        </jornada>
+    </competicion>
+</competiciones>
