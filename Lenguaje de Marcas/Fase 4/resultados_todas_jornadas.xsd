@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="Jornadas">
+    <xs:element name="competiciones">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Jornada" type="tJornada" maxOccurs="unbounded"/>
+                <xs:element name="competicion" type="tCompeticion" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
+    <xs:complexType name="tCompeticion">
+        <xs:sequence>
+            <xs:element name="nombre_competicion" type="xs:string"/>
+            <xs:element name="jornada" type="tJornada" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id_competicion" type="xs:int"/>
+    </xs:complexType>
+
     <xs:complexType name="tJornada">
         <xs:sequence>
-            <xs:element name="Enfrentamiento" type="tEnfrentamiento" maxOccurs="unbounded"/>
+            <xs:element name="numero_jornada" type="xs:int"/>
+            <xs:element name="enfrentamiento" type="tEnfrentamiento" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="Numero_Jornada" type="xs:int"/>
-        <xs:attribute name="Codigo_Competencion" type="xs:int"/>
-        <xs:attribute name="Codigo_Jornada" type="xs:int"/>
+        <xs:attribute name="id_jornada" type="xs:int"/>
+        <xs:attribute name="Fecha" type="xs:string"/>
     </xs:complexType>
 
     <xs:complexType name="tEnfrentamiento">
         <xs:sequence>
-            <xs:element name="Codigo_Enfrentamiento" type="xs:int"/>
-            <xs:element name="Equipo_Local" type="xs:string"/>
-            <xs:element name="Equipo_Visitante" type="xs:string"/>
-            <xs:element name="Ganador" type="xs:string"/>
+            <xs:element name="equipo_local" type="xs:string"/>
+            <xs:element name="equipo_visitante" type="xs:string"/>
+            <xs:element name="ganador" type="xs:string"/>
         </xs:sequence>
+        <xs:attribute name="id" type="xs:int"/>
     </xs:complexType>
 
 </xs:schema>
