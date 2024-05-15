@@ -99,4 +99,8 @@ public class ControladorPrincipal {
     public void bajaPatrocinador(Patrocinador patr) {
         cbd.bajaPatrocinador(patr);
     }
+
+    public ArrayList clasificacion(Competicion com) {
+        return cbd.calsificacion(com);
+    }
 }

@@ -2,6 +2,7 @@ package controlador.usuario;
 
 import controlador.ControladorVista;
 import controlador.login.ControladorLogin;
+import modelo.Clasificacion;
 import modelo.Competicion;
 import modelo.Enfrentamiento;
 import modelo.Jornada;
@@ -10,6 +11,7 @@ import view.VentanaPrincipalUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorUsuario {
     private VentanaPrincipalUsuario vpu;
@@ -64,14 +66,21 @@ public class ControladorUsuario {
             StringBuilder total = new StringBuilder();
             ArrayList<Enfrentamiento> lista = cv.ultimaJornada(com);
             for(x=0; x<lista.size();x++){
-                total.append(lista.get(x).getCodJornada().getNumJornada()).append("\n").append(lista.get(x).getHora()).append("\n").append(lista.get(x).getFecha()).append("\n").append(lista.get(x).getResultado()).append("\n").append(lista.get(x).getCodEquipoLocal()).append("\n").append(lista.get(x).getCodEquipoVisitante()).append("\n -------------------");
+                total.append("Numero de jornada: "+lista.get(x).getCodJornada().getNumJornada()).append("\n").append("Hora: "+lista.get(x).getHora()).append("\n").append("Fecha de el enfrentamiento: "+lista.get(x).getFecha()).append("\n").append("Equipo Ganador: "+lista.get(x).getResultado()).append("\n").append("Equipo local: "+lista.get(x).getCodEquipoLocal().getCodEquipo()).append("\n").append("Equipo visitante: "+lista.get(x).getCodEquipoVisitante().getCodEquipo()).append("\n --------------------------------------  \n");
             }
             vpu.getTaJornada().setText(String.valueOf(total));
         }
     }
     public class bAceptarClasi implements ActionListener{
         public void actionPerformed(ActionEvent e){
-
+            Competicion com = new Competicion();
+            StringBuilder resultado = new StringBuilder();
+            com.setCodCompe(Integer.parseInt(vpu.getTfClasi().getText()));
+            List<Clasificacion> lista = cv.clasificacion(com);
+            for(int x=0;x<lista.size();x++){
+                resultado.append("Codigo del equipo: "+lista.get(x).getCodequipo().getCodEquipo()).append("\n").append("Puntos del equipo: "+lista.get(x).getPuntos().getPuntos()).append("\n").append("Codigo de la competicion: "+lista.get(x).getCodcompe().getCodCompe());
+            }
+            vpu.getTaClasi().setText(String.valueOf(resultado));
         }
     }
     public class bSalirUsu implements ActionListener{
