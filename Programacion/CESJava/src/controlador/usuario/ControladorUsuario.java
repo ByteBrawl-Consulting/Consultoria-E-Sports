@@ -64,7 +64,7 @@ public class ControladorUsuario {
             StringBuilder total = new StringBuilder();
             ArrayList<Enfrentamiento> lista = cv.ultimaJornada(com);
             for(x=0; x<lista.size();x++){
-                total.append(lista.get(x).getCodJornada()).append("\n").append(lista.get(x).getHora()).append("\n").append(lista.get(x).getFecha()).append("\n").append(lista.get(x).getResultado()).append("\n").append(lista.get(x).getCodEquipoLocal()).append("\n").append(lista.get(x).getCodEquipoVisitante()).append("\n -------------------");
+                total.append(lista.get(x).getCodJornada().getNumJornada()).append("\n").append(lista.get(x).getHora()).append("\n").append(lista.get(x).getFecha()).append("\n").append(lista.get(x).getResultado()).append("\n").append(lista.get(x).getCodEquipoLocal()).append("\n").append(lista.get(x).getCodEquipoVisitante()).append("\n -------------------");
             }
             vpu.getTaJornada().setText(String.valueOf(total));
         }

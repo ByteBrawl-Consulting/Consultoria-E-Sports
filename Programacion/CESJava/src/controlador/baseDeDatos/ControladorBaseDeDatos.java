@@ -19,6 +19,7 @@ public class ControladorBaseDeDatos {
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
         inicializarTablas(cp);
+        
     }
 
     public void conexionBD(ControladorPrincipal cp) {
