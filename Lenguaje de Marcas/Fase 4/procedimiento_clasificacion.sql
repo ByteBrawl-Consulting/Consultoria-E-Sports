@@ -12,7 +12,6 @@ CREATE OR REPLACE PROCEDURE generar_clasificacion(
 IS
     v_xml CLOB;
 BEGIN
-    -- Generar el XML utilizando la consulta, sin agregar manualmente la versión y codificación
     SELECT 
        XMLElement("Clasificaciones",
            XMLAgg(
@@ -37,7 +36,6 @@ BEGIN
     JOIN EQUIPOS E ON EC.COD_EQUIPO = E.COD_EQUIPO
     GROUP BY EC.COD_COMPETICION;
 
-    -- Concatenar el encabezado XML y el DTD al resultado
     resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || '<!DOCTYPE Clasificaciones SYSTEM "clasificacion.dtd">' || v_xml;
     DBMS_OUTPUT.PUT_LINE(resultado);
 END generar_clasificacion;
@@ -46,10 +44,8 @@ END generar_clasificacion;
 DECLARE
     xml_data CLOB;
 BEGIN
-    -- Llamar al procedimiento para generar la clasificación
     generar_clasificacion(xml_data);
 
-    -- Insertar el resultado en la tabla
     INSERT INTO temp_clasificacion_tab (XML_DATA) VALUES (xml_data);
 
     COMMIT;

@@ -45,7 +45,7 @@ CREATE OR REPLACE PACKAGE BODY gestion_xml IS
 
     PROCEDURE generar_todas_jornadas IS
     v_xml CLOB;
-    resultado CLOB; -- Declaración movida aquí
+    resultado CLOB;
 BEGIN
     SELECT
         XMLELEMENT(
@@ -89,15 +89,13 @@ BEGIN
     INTO resultado
     FROM competiciones c;
 
-    -- Concatenar el encabezado XML y el DTD al resultado
     resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || 
     '<!DOCTYPE competiciones SYSTEM "resultados_todas_jornadas.dtd">' || resultado;
     DBMS_OUTPUT.PUT_LINE(resultado);
 
-    -- Insertar el resultado en la tabla
     INSERT INTO temp_jornadas_tab (xml_data) VALUES (resultado);
 
-    COMMIT; -- Realiza la inserción de manera permanente
+    COMMIT;
 END generar_todas_jornadas;
 
     PROCEDURE generar_clasificacion(
@@ -105,7 +103,7 @@ END generar_todas_jornadas;
     ) IS
         v_xml CLOB;
     BEGIN
-    -- Generar el XML utilizando la consulta, sin agregar manualmente la versión y codificación
+
     SELECT 
        XMLElement("Clasificaciones",
            XMLAgg(
@@ -130,7 +128,6 @@ END generar_todas_jornadas;
         JOIN EQUIPOS E ON EC.COD_EQUIPO = E.COD_EQUIPO
         GROUP BY EC.COD_COMPETICION;
 
-        -- Concatenar el encabezado XML y el DTD al resultado
         resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || '<!DOCTYPE Clasificaciones SYSTEM "clasificacion.dtd">' || v_xml;
         DBMS_OUTPUT.PUT_LINE(resultado);
     END generar_clasificacion;
@@ -139,7 +136,7 @@ END generar_todas_jornadas;
     PROCEDURE generar_ultima_jornada IS
         v_xml_data CLOB;
         v_ultima_jornada NUMBER;
-        resultado CLOB; -- Declaración movida aquí
+        resultado CLOB;
     BEGIN
         SELECT
             XMLELEMENT(
@@ -186,37 +183,31 @@ END generar_todas_jornadas;
         INTO resultado
         FROM competiciones c;
 
-        -- Concatenar el encabezado XML y el DTD al resultado
         resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || 
         '<!DOCTYPE competiciones SYSTEM "resultados_ultima_jornada.dtd">' || resultado;
         DBMS_OUTPUT.PUT_LINE(resultado);
     
-        -- Insertar el resultado en la tabla
         INSERT INTO temp_ultima_jornada_tab (xml_data) VALUES (resultado);
     
-        COMMIT; -- Realiza la inserción de manera permanente
+        COMMIT;
     END generar_ultima_jornada;
 END gestion_xml;
 /
 
 
 BEGIN
-    -- Preparar el entorno (crear tablas temporales)
     gestion_xml.preparar_entorno;
     
-    -- Generar todas las jornadas
     gestion_xml.generar_todas_jornadas;
 
     DECLARE
         xml_data CLOB;
     BEGIN
-        -- Generar clasificación y almacenar el resultado
         gestion_xml.generar_clasificacion(xml_data);
         INSERT INTO temp_clasificacion_tab (XML_DATA) VALUES (xml_data);
         COMMIT;
     END;
 
-    -- Generar la última jornada
     gestion_xml.generar_ultima_jornada;
 END;
 /

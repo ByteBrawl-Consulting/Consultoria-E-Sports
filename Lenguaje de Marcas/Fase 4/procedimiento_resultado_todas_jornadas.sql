@@ -50,14 +50,12 @@ BEGIN
     INTO resultado
     FROM competiciones c;
 
-    -- Concatenar el encabezado XML y el DTD al resultado
     resultado := '<?xml version=''1.0'' encoding=''UTF-8'' ?>' || 
     '<!DOCTYPE competiciones SYSTEM "resultados_todas_jornadas.dtd">' || resultado;
     DBMS_OUTPUT.PUT_LINE(resultado);
     
-    -- Insertar el resultado en la tabla
     INSERT INTO temp_jornadas_tab (xml_data) VALUES (resultado);
     
-    COMMIT; -- Realiza la inserci�n de manera permanente
+    COMMIT;
 END;
 /
