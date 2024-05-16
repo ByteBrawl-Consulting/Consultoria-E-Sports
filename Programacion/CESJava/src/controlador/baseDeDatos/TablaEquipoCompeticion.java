@@ -3,6 +3,7 @@ package controlador.baseDeDatos;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class TablaEquipoCompeticion {
     private Connection con;
@@ -31,7 +32,8 @@ public class TablaEquipoCompeticion {
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setInt(1, codEquipo);
             sentenciaPre.setInt(2, codCompeticion);
-            sentenciaPre.setInt(3, 0); // Inicialmente establecemos 'puntos' a 0
+            sentenciaPre.setInt(3, 0);
+
             int n = sentenciaPre.executeUpdate();
             if (n != 1) {
                 throw new Exception("No se ha podido asociar");
@@ -39,8 +41,14 @@ public class TablaEquipoCompeticion {
                 System.out.println("Asociación insertada");
                 mostrar("Asociación insertada");
             }
+        } catch (SQLException e) {
+            System.out.println("SQL Error Code: " + e.getErrorCode());
+            System.out.println("SQL State: " + e.getSQLState());
+            System.out.println("Error Message: " + e.getMessage());
+            e.printStackTrace(); // Logs Depuracion
+            throw new RuntimeException(e);
         } catch (Exception e) {
-            e.printStackTrace(); // Imprime la traza de la excepción para depuración
+            e.printStackTrace(); // Logs Depuracion
             throw new RuntimeException(e);
         }
     }
