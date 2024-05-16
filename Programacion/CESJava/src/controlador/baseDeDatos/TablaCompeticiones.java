@@ -3,6 +3,7 @@ package controlador.baseDeDatos;
 import modelo.Competicion;
 import modelo.Juego;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,9 +33,9 @@ public class TablaCompeticiones {
             sentencia.setObject(4, compe.getCodJuego());
             int n = sentencia.executeUpdate();
             if (n != 1){
-                throw new Exception("No se ha insertado ninguna competición");
+                mostrar("No se ha insertado ninguna competición");
             }else{
-                throw new Exception("Competición insertada");
+                mostrar("Competición insertada");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -47,9 +48,9 @@ public class TablaCompeticiones {
             int n = sentencia.executeUpdate();
             sentencia.close();
             if (n == 1){
-                throw new Exception("Competición borrada");
+                mostrar("Competición borrada");
             }else{
-                throw new Exception("Competición no encontrada");
+                mostrar("Competición no encontrada");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -73,9 +74,9 @@ public class TablaCompeticiones {
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Competición actualizada");
+                mostrar("Competición actualizada");
             }else{
-                throw new Exception("Competición no encontrada");
+                mostrar("Competición no encontrada");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -102,5 +103,8 @@ public class TablaCompeticiones {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void mostrar(String m) {
+        JOptionPane.showMessageDialog(null, m);
     }
 }

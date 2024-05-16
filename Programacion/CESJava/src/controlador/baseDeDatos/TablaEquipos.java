@@ -3,10 +3,7 @@ package controlador.baseDeDatos;
 import modelo.Equipo;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -29,9 +26,8 @@ public class TablaEquipos {
             sentenciaPre.setTimestamp(2, fechaSql);
             int n =sentenciaPre.executeUpdate();
             if (n != 1){
-                throw new Exception("No se ha insertado ningún equipo");
+                mostrar("No se ha insertado ningún equipo");
             }else{
-                System.out.println("Equipo insertado");
                 mostrar("Equipo insertado");
             }
         } catch (Exception e) {
@@ -47,9 +43,9 @@ public class TablaEquipos {
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Equipo borrado");
+                mostrar("Equipo borrado");
             }else{
-                throw new Exception("Equipo no encontrado");
+                mostrar("Equipo no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -60,19 +56,20 @@ public class TablaEquipos {
             String plantilla = "UPDATE equipos SET fecha_fundacion = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             String fechaVentana = String.valueOf(eq.getFechaFundacion());
+            System.out.println(fechaVentana);
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             System.out.println(fechaJava);
-            java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
+            java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
             System.out.println(fechaSql);
-            sentenciaPre.setDate(1, fechaSql);
+            sentenciaPre.setTimestamp(1, fechaSql);
             sentenciaPre.setString(2, eq.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Equipo actualizado");
+                mostrar("Equipo actualizado");
             }else{
-                throw new Exception("Equipo no encontrado");
+                mostrar("Equipo no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -119,5 +116,19 @@ public class TablaEquipos {
 
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
+    }
+    public int getCodigoEquipo(String nombreEquipo) {
+        try {
+            String plantilla = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setString(1, nombreEquipo);
+            ResultSet respuesta = sentenciaPre.executeQuery();
+            if (respuesta.next()){
+                return respuesta.getInt("cod_equipo");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return -1; // Devuelve -1 si no se encuentra el equipo
     }
 }
