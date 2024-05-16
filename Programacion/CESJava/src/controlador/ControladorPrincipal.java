@@ -122,4 +122,8 @@ public class ControladorPrincipal {
         public ArrayList clasificacion(Competicion com) {
             return cbd.calsificacion(com);
         }
+
+    public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        cbd.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
 }

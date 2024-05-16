@@ -147,4 +147,8 @@ public class ControladorVista {
     public ArrayList clasificacion(Competicion com) {
         return cp.clasificacion(com);
     }
+
+    public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        cp.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
 }
