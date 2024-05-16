@@ -17,6 +17,7 @@ public class ControladorBaseDeDatos {
     private TablaCompeticiones tc;
     private TablaClasi tb;
     private Connection con;
+    private TablaEquipoCompeticion tce;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
@@ -89,6 +90,7 @@ public class ControladorBaseDeDatos {
         tp = new TablaPatrocinadores(con);
         tc = new TablaCompeticiones(con);
         tb = new TablaClasi(con);
+        tce = new TablaEquipoCompeticion(con, te, tc);
     }
 
     public String login (Usuario usu) throws SQLException {
@@ -193,5 +195,9 @@ public class ControladorBaseDeDatos {
 
     public String consultaCompeticion(String nombreCo) {
         return tc.consultaCompeticion(nombreCo).toString();
+    }
+
+    public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        tce.altaEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
 }
