@@ -65,8 +65,7 @@ public class ControladorEquipo {
                     String nombre = ve.getTfNombreModi().getText();
                     String fecha = ve.getTfFechaModi().getText();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = null;
-                    fechaJava = formato.parse(fecha);
+                    java.util.Date fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
                     eq.setFechaFundacion(fechaSql.toLocalDate());

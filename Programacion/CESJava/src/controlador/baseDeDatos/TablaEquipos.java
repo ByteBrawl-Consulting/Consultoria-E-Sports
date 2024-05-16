@@ -76,22 +76,21 @@ public class TablaEquipos {
             throw new RuntimeException(e);
         }
     }
-    public Equipo consultaEquipo(String nombreEq){
+    public StringBuilder consultaEquipo(String nombreEq){
         Equipo eq = null;
         try {
             String plantilla = "SELECT cod_equipo,fecha_fundacion FROM equipos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreEq);
             ResultSet respuesta = sentenciaPre.executeQuery();
+            StringBuilder pantalla =new StringBuilder();
+            Date fechaBD = respuesta.getDate("fecha_fundacion");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaFormateada = formato.format(fechaBD);
             if (respuesta.next()){
-                Integer codEquipo = respuesta.getInt("cod_equipo");
-                java.sql.Date fecha = respuesta.getDate("fecha_fundacion");
-                eq = new Equipo();
-                eq.setNombre(nombreEq);
-                eq.setFechaFundacion(fecha.toLocalDate());
-                eq.setCodEquipo(codEquipo);
+                pantalla.append("CODIGO EQUIPO: ").append(respuesta.getString("cod_equipo")).append("\n").append("FECHA FUNDACION: ").append(fechaFormateada);
             }
-            return eq;
+            return pantalla;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -120,15 +119,15 @@ public class TablaEquipos {
     }
     public int getCodigoEquipo(String nombreEquipo) {
         try {
-            String plantilla = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
-            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
-            sentenciaPre.setString(1, nombreEquipo);
-            ResultSet respuesta = sentenciaPre.executeQuery();
-            if (respuesta.next()){
-                return respuesta.getInt("cod_equipo");
+            String query = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, nombreEquipo);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("cod_equipo");
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return -1; // Devuelve -1 si no se encuentra el equipo
     }
