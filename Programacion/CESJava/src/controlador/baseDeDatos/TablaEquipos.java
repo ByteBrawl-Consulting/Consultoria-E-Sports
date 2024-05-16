@@ -52,17 +52,14 @@ public class TablaEquipos {
             throw new RuntimeException(e);
         }
     }
-    public void modiEquipo(Equipo eq){
+    public void modiEquipo(Equipo eq, String fecha){
         try {
             String plantilla = "UPDATE equipos SET fecha_fundacion = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
-            String fechaVentana = String.valueOf(eq.getFechaFundacion());
-            System.out.println(fechaVentana);
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaVentana = fecha;
+            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
             java.util.Date fechaJava = formato.parse(fechaVentana);
-            System.out.println(fechaJava);
             java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
-            System.out.println(fechaSql);
             sentenciaPre.setTimestamp(1, fechaSql);
             sentenciaPre.setString(2, eq.getNombre());
             int n = sentenciaPre.executeUpdate();
@@ -84,10 +81,10 @@ public class TablaEquipos {
             sentenciaPre.setString(1, nombreEq);
             ResultSet respuesta = sentenciaPre.executeQuery();
             StringBuilder pantalla =new StringBuilder();
-            Date fechaBD = respuesta.getDate("fecha_fundacion");
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-            String fechaFormateada = formato.format(fechaBD);
             if (respuesta.next()){
+                Date fechaBD = respuesta.getDate("fecha_fundacion");
+                SimpleDateFormat formato = new SimpleDateFormat("yy-MM-dd");
+                String fechaFormateada = formato.format(fechaBD);
                 pantalla.append("CODIGO EQUIPO: ").append(respuesta.getString("cod_equipo")).append("\n").append("FECHA FUNDACION: ").append(fechaFormateada);
             }
             return pantalla;

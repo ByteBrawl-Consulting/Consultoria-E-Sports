@@ -69,7 +69,7 @@ public class ControladorEquipo {
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     eq.setNombre(nombre);
                     eq.setFechaFundacion(fechaSql.toLocalDate());
-                    cv.modiEquipo(eq);
+                    cv.modiEquipo(eq, fecha);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }

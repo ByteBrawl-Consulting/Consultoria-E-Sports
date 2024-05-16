@@ -59,7 +59,7 @@ public class ControladorStaff {
                 staff.setCargo(cargo);
                 staff.setSueldo(sueldo);
                 staff.setCodEquipo(eq);
-                cv.modiStaff(staff);
+                cv.modiStaff(staff,cargo,sueldo,eq);
             }else if (vs.getRbConsulta().isSelected()){
                 String nombre = vs.getTfNombreCons().getText();
                 staff.setNombre(nombre);

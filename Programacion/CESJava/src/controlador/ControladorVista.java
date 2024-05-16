@@ -39,8 +39,8 @@ public class ControladorVista {
         return cp.login(usu);
     }
 
-    public void modiStaff(Staff staff) {
-        cp.modiStaff(staff);
+    public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo) {
+        cp.modiStaff(staff, cargo, sueldo, cod_equipo);
     }
 
     public String cosultaStaff(String nombreSt) {
@@ -55,8 +55,8 @@ public class ControladorVista {
         cp.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju) {
-        cp.modiJugador(ju);
+    public void modiJugador(Jugador ju, String fecha) {
+        cp.modiJugador(ju, fecha);
     }
 
     public String consultaJugador(String nombre) {
@@ -105,8 +105,8 @@ public class ControladorVista {
         cp.bajaEquipo(eq);
     }
 
-    public void modiEquipo(Equipo eq) {
-        cp.modiEquipo(eq);
+    public void modiEquipo(Equipo eq, String fecha) {
+        cp.modiEquipo(eq, fecha);
     }
     public void altaStaff(Staff staff) {
         cp.altaStaff(staff);
