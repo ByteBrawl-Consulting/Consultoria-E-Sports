@@ -2,6 +2,7 @@ package controlador.baseDeDatos;
 
 import modelo.Juego;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,15 +21,15 @@ public class TablaJuegos {
             sentencia.setString(1, juego.getNombre());
             sentencia.setString(2, juego.getDesarrolladora());
             String fechaVentana = String.valueOf(juego.getFechaLanzamiento());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
             sentencia.setDate(3, fechaSql);
             int n = sentencia.executeUpdate();
             if (n != 1){
-                throw new Exception("No se ha insertado ningún juego");
+                mostrar("No se ha insertado ningún juego");
             }else{
-                throw new Exception("Juego insertado");
+                mostrar("Juego insertado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -42,9 +43,9 @@ public class TablaJuegos {
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Juego borrado");
+                mostrar("Juego borrado");
             }else{
-                throw new Exception("Juego no encontrado");
+                mostrar("Juego no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -56,16 +57,16 @@ public class TablaJuegos {
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, juego.getNombre());
             String fechaVentana = String.valueOf(juego.getFechaLanzamiento());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
             sentenciaPre.setDate(2, fechaSql);
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Juego actualizado");
+                mostrar("Juego actualizado");
             }else{
-                throw new Exception("Juego no encontrado");
+                mostrar("Juego no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -108,5 +109,8 @@ public class TablaJuegos {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public void mostrar(String m) {
+        JOptionPane.showMessageDialog(null, m);
     }
 }

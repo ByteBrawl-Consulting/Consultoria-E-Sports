@@ -3,6 +3,7 @@ package controlador.baseDeDatos;
 import modelo.Equipo;
 import modelo.Staff;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,14 +25,10 @@ public class TablaStaff{
             sentenciaPre.setObject(4, staff.getCodEquipo());
             int n =sentenciaPre.executeUpdate();
             if (n != 1){
-                throw new Exception("No se ha insertado ningún Staff");
+                mostrar("No se ha insertado ningún Staff");
             }else{
-                throw new Exception("Staff insertado");
+                mostrar("Staff insertado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -44,35 +41,29 @@ public class TablaStaff{
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Staff borrado");
+                mostrar("Staff borrado");
             }else{
-                throw new Exception("Staff no encontrado");
+                mostrar("Staff no encontrado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void modiStaff(Staff staff){
+    public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo){
         try {
-            String plantilla = "UPDATE staff SET cargo = ? AND sueldo = ? AND cod_equipo = ? WHERE nombre = ?";
+            String plantilla = "UPDATE staff SET cargo = ?, sueldo = ?, cod_equipo = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
-            sentenciaPre.setString(1, staff.getCargo());
-            sentenciaPre.setInt(2, staff.getSueldo());
-            sentenciaPre.setObject(3, staff.getCodEquipo());
+            sentenciaPre.setString(1, cargo);
+            sentenciaPre.setInt(2, sueldo);
+            sentenciaPre.setObject(3, cod_equipo);
             sentenciaPre.setString(4, staff.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Staff actualizado");
+                mostrar("Staff actualizado");
             }else{
-                throw new Exception("Staff no encontrado");
+                mostrar("Staff no encontrado");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -95,10 +86,11 @@ public class TablaStaff{
                 staff.setCodEquipo(equipos);
             }
             return staff;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public void mostrar(String m) {
+        JOptionPane.showMessageDialog(null, m);
     }
 }

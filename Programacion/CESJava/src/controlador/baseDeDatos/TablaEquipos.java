@@ -2,12 +2,11 @@ package controlador.baseDeDatos;
 
 import modelo.Equipo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.swing.*;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class TablaEquipos {
     private Connection con;
@@ -22,20 +21,21 @@ public class TablaEquipos {
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, eq.getNombre());
             String fechaVentana = String.valueOf(eq.getFechaFundacion());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
-            java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-            sentenciaPre.setDate(2, fechaSql);
+            java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
+            sentenciaPre.setTimestamp(2, fechaSql);
             int n =sentenciaPre.executeUpdate();
             if (n != 1){
-                throw new Exception("No se ha insertado ningún equipo");
+                mostrar("No se ha insertado ningún equipo");
             }else{
-                throw new Exception("Equipo insertado");
+                mostrar("Equipo insertado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
     public void bajaEquipo(Equipo eq){
         try {
             String plantilla = "DELETE FROM equipos WHERE nombre = ?";
@@ -44,51 +44,50 @@ public class TablaEquipos {
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Equipo borrado");
+                mostrar("Equipo borrado");
             }else{
-                throw new Exception("Equipo no encontrado");
+                mostrar("Equipo no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void modiEquipo(Equipo eq){
+    public void modiEquipo(Equipo eq, String fecha){
         try {
             String plantilla = "UPDATE equipos SET fecha_fundacion = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
-            String fechaVentana = String.valueOf(eq.getFechaFundacion());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            String fechaVentana = fecha;
+            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
             java.util.Date fechaJava = formato.parse(fechaVentana);
-            java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-            sentenciaPre.setDate(1, fechaSql);
+            java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
+            sentenciaPre.setTimestamp(1, fechaSql);
             sentenciaPre.setString(2, eq.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Equipo actualizado");
+                mostrar("Equipo actualizado");
             }else{
-                throw new Exception("Equipo no encontrado");
+                mostrar("Equipo no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public Equipo consultaEquipo(String nombreEq){
+    public StringBuilder consultaEquipo(String nombreEq){
         Equipo eq = null;
         try {
             String plantilla = "SELECT cod_equipo,fecha_fundacion FROM equipos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreEq);
             ResultSet respuesta = sentenciaPre.executeQuery();
+            StringBuilder pantalla =new StringBuilder();
             if (respuesta.next()){
-                Integer codEquipo = respuesta.getInt("cod_equipo");
-                java.sql.Date fecha = respuesta.getDate("fecha_fundacion");
-                eq = new Equipo();
-                eq.setNombre(nombreEq);
-                eq.setFechaFundacion(fecha.toLocalDate());
-                eq.setCodEquipo(codEquipo);
+                Date fechaBD = respuesta.getDate("fecha_fundacion");
+                SimpleDateFormat formato = new SimpleDateFormat("yy-MM-dd");
+                String fechaFormateada = formato.format(fechaBD);
+                pantalla.append("CODIGO EQUIPO: ").append(respuesta.getString("cod_equipo")).append("\n").append("FECHA FUNDACION: ").append(fechaFormateada);
             }
-            return eq;
+            return pantalla;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -110,5 +109,23 @@ public class TablaEquipos {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void mostrar(String m) {
+        JOptionPane.showMessageDialog(null, m);
+    }
+    public int getCodigoEquipo(String nombreEquipo) {
+        try {
+            String query = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, nombreEquipo);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("cod_equipo");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Devuelve -1 si no se encuentra el equipo
     }
 }

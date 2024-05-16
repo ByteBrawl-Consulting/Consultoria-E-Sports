@@ -1,9 +1,12 @@
 package controlador.admin;
 
 import controlador.ControladorVista;
+import controlador.competiciones.ControladorCompeticion;
+import controlador.equipo_competicion.ControladorEquipoCompeticion;
 import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
+import controlador.patrocinadores.ControladorPatrocinador;
 import controlador.staff.ControladorStaff;
 import view.VentanaEquipos;
 import view.VentanaPrincipalAdmin;
@@ -18,6 +21,9 @@ public class ControladorAdmin {
     private ControladorJugador cj;
     private ControladorStaff cs;
     private ControladorJuego cje;
+    private ControladorPatrocinador cp;
+    private ControladorCompeticion cc;
+    private ControladorEquipoCompeticion cec;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -34,6 +40,9 @@ public class ControladorAdmin {
         vpa.addBJugadores(new bJugador());
         vpa.addBStaff(new bStaff());
         vpa.addBJuegos(new bJuegos());
+        vpa.addBCompeticiones(new bCompeticiones());
+        vpa.addBPatrocinadores(new bPatrocinadores());
+        vpa.addBAsociarEquiCompe(new bAsociarEquiCompe());
     }
     private class bSalir implements ActionListener {
         @Override
@@ -65,6 +74,27 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cje = new ControladorJuego(cv);
+        }
+    }
+
+    private class bCompeticiones implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cc = new ControladorCompeticion(cv);
+        }
+    }
+
+    private class bPatrocinadores implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cp = new ControladorPatrocinador(cv);
+        }
+    }
+
+    private class bAsociarEquiCompe implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cec = new ControladorEquipoCompeticion(cv);
         }
     }
 }

@@ -1,26 +1,32 @@
 /* ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired
-alter session set ddl_lock_timeout = 1000; */
-
+alter session set ddl_lock_timeout = 500; */
+/*alter session set plscope_settings = 'IDENTIFIERS:NONE';*/
 /*MAXIMO 6 JUGADORES EN EL EQUIPO*/
-CREATE OR REPLACE TRIGGER MAX_JUGADORES
-BEFORE INSERT ON JUGADORES
-FOR EACH ROW
-DECLARE
+create or replace NONEDITIONABLE TRIGGER MAX_JUGADORES
+FOR INSERT OR UPDATE ON JUGADORES
+COMPOUND TRIGGER
     NUM_JUGADORES NUMBER;
-BEGIN
+    V_COD_EQUIPO NUMBER;
+BEFORE EACH ROW IS
+    BEGIN
+    V_COD_EQUIPO := :NEW.COD_EQUIPO;  
+    END BEFORE EACH ROW;
+AFTER STATEMENT IS
+    BEGIN
     -- Contar el numero de jugadores en el equipo actual
     SELECT COUNT(*) INTO NUM_JUGADORES 
-    FROM JUGADORES WHERE COD_EQUIPO = :NEW.COD_EQUIPO;
-    -- Si el numero de jugadores es 6 o mas --> Error
-    IF NUM_JUGADORES >= 6 THEN
-        RAISE_APPLICATION_ERROR(-20001, 'El equipo ya esta completo');
-    END IF;
+        FROM JUGADORES WHERE COD_EQUIPO = V_COD_EQUIPO;
+        -- Si el numero de jugadores es 6 o mas --> Error
+        IF NUM_JUGADORES >= 6 THEN
+            RAISE_APPLICATION_ERROR(-20001, 'El equipo ya esta completo');
+        END IF;
+    END AFTER STATEMENT;
 END;
-
+/
 
 /*MINIMO 2 JUGADORES EN EL EQUIPO*/
 CREATE OR REPLACE TRIGGER MIN_JUGADORES
-BEFORE INSERT ON EQUIPO_COMPETICION
+BEFORE INSERT OR UPDATE ON EQUIPO_COMPETICION
 FOR EACH ROW
 DECLARE
   JUGADORES INTEGER;
@@ -34,7 +40,7 @@ BEGIN
     RAISE_APPLICATION_ERROR(-20002, 'Equipo con menos de 2 jugadores');
   END IF;
 END;
-
+/
 
 
 /*NUMERO DE EQUIPOS PAR*/
@@ -58,32 +64,34 @@ BEGIN
     END IF;
   END IF;
 END;    
-
+/
 
 /*SALARIO TOPE DE 200.000 euros*/
 CREATE OR REPLACE TRIGGER SALARIO_MAXIMO_JUGADORES
-BEFORE INSERT OR UPDATE ON JUGADORES
-FOR EACH ROW
-DECLARE
-    SUELDO_TOTAL NUMBER;
-BEGIN
-    -- Calcular el sueldo total del equipo antes de la insercion o actualizacion
-    SELECT NVL(SUM(SUELDO), 0) INTO SUELDO_TOTAL
-    FROM JUGADORES
-    WHERE COD_EQUIPO = :NEW.COD_EQUIPO;
-    -- Si estamos insertando, sumar el nuevo sueldo
-    IF INSERTING THEN
-        SUELDO_TOTAL := SUELDO_TOTAL + :NEW.SUELDO;
-    ELSIF UPDATING THEN
-        -- Si estamos actualizando, ajustar con el sueldo anterior y el nuevo
-        SUELDO_TOTAL := SUELDO_TOTAL - :OLD.SUELDO + :NEW.SUELDO;
-    END IF;
-    -- Verificar si el sueldo total supera el limite de 200,000 euros
-    IF SUELDO_TOTAL > 200000 THEN
-        RAISE_APPLICATION_ERROR(-20004, 
-        'Sobrepasa el limite salarial para jugadores');
-    END IF;
+FOR INSERT OR UPDATE ON JUGADORES
+COMPOUND TRIGGER
+    SUELDO_TOTAL NUMBER := 0; -- Suma del sueldo
+    V_COD_EQUIPO_NEW NUMBER; -- Código de equipo para nueva inserción o actualización
+BEFORE EACH ROW IS
+    BEGIN
+        V_COD_EQUIPO_NEW := :NEW.COD_EQUIPO;
+    END BEFORE EACH ROW;
+AFTER STATEMENT IS
+    BEGIN
+        -- Calcular el sueldo total del equipo después de insert o update
+        SELECT NVL(SUM(SUELDO), 0) INTO SUELDO_TOTAL
+        FROM JUGADORES
+        WHERE COD_EQUIPO = V_COD_EQUIPO_NEW;
+        -- Verificar si el sueldo total supera el límite de 200,000 euros
+        IF SUELDO_TOTAL > 200000 THEN
+            RAISE_APPLICATION_ERROR(-20004, 
+                'Sobrepasa el límite salarial para jugadores');
+        END IF;
+    END AFTER STATEMENT;
 END;
+/
+
+
 
 CREATE OR REPLACE TRIGGER SALARIO_MAXIMO_STAFF
 BEFORE INSERT OR UPDATE ON STAFF
@@ -109,7 +117,7 @@ BEGIN
     RAISE_APPLICATION_ERROR(-20005, 'Sobrepasa de limite salarial');
   END IF;
 END;
-
+/
 
 /*MINIMO UN ENTRENTADOR*/
 CREATE OR REPLACE TRIGGER MIN_ENTRENADOR
@@ -143,7 +151,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20006, 'EQUIPO SIN ENTRENADOR');
     END IF;
 END;
-
+/
 
 
 /*MAXIMO UN ASISTENTE*/
@@ -179,7 +187,7 @@ BEGIN
         'SOLO SE PERMITE UN ASISTENTE POR EQUIPO');
     END IF;
 END;
-
+/
 
 /*BLOQUEO DE LA TABLA EQUIPOS CON LA COMPETICION EN CURSO*/
 CREATE OR REPLACE TRIGGER BLOQUEO_EQUIPO_COMPETICION
@@ -197,8 +205,8 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20008, 'Competicion en curso');
     END IF;
 END;
-
-CREATE OR REPLACE TRIGGER BLOQUEO_JUGADORES
+/
+CREATE OR REPLACE TRIGGER BLOQUEO_JUGADORES_1
 BEFORE INSERT OR UPDATE OR DELETE ON JUGADORES
 FOR EACH ROW
 DECLARE
@@ -216,7 +224,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20009, 'Competicion en curso');
     END IF;
 END;
-
+/
 
 CREATE OR REPLACE TRIGGER BLOQUEO_STAFF
 BEFORE INSERT OR UPDATE OR DELETE ON STAFF
@@ -236,7 +244,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20010, 'Competicion en curso');
     END IF;
 END;
-
+/
 
 
 /*ENFRENTAMIENTOS EN EL MISMO DIA*/
@@ -256,7 +264,7 @@ BEGIN
 	RAISE_APPLICATION_ERROR(-20011, 'Fechas diferentes');
   END IF;
 END;
-
+/
 
 /*EQUIPOS SIN REPETIR EN ENFRENTAMIENTOS*/
 CREATE OR REPLACE TRIGGER ENFRENTAMIENTO_UNICO
@@ -290,7 +298,7 @@ BEGIN
 	RAISE_APPLICATION_ERROR(-20013,'Equipo 2 veces visitante');
   END IF;
 END;
-
+/
 /* CAMBIAR ESTADO (CERRAR PLAZO INSCRIPCION SI COMPETICION ESTA YA EN CURSO) */
 CREATE OR REPLACE TRIGGER CERRAR_INSCRIPCION
 BEFORE INSERT ON COMPETICIONES
@@ -300,5 +308,5 @@ BEGIN
         :NEW.CURSO := 1;
     END IF;
 END;
-
+/
 

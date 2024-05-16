@@ -26,8 +26,8 @@ public class VentanaEquipos extends JFrame{
     public VentanaEquipos(){
         super("Ventana Equipos");
         setContentPane(pPrincipal);
-        setLocationRelativeTo(null);
         setSize(500,600);
+        setLocationRelativeTo(null);
     }
     public void eleccionAlta(){
         pAlta.setVisible(true);

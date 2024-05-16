@@ -177,7 +177,7 @@ CHECK (CURSO IN(0,1))
 
 ALTER TABLE USUARIOS
 ADD CONSTRAINT CHCK_TIPO_USU
-CHECK (TIPO IN('Administrador','Usuario'))
+CHECK (TIPO IN('Administrador','Usuario','1', '2'))
 ;
 /*Fin de los check*/
 

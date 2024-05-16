@@ -3,6 +3,7 @@ package controlador.baseDeDatos;
 import modelo.Equipo;
 import modelo.Patrocinador;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,9 +22,9 @@ public class TablaPatrocinadores {
             sentenciaPre.setString(1, patrocinador.getNombre());
             int n =sentenciaPre.executeUpdate();
             if (n != 1){
-                throw new Exception("No se ha insertado ningún patrocinador");
+                mostrar("No se ha insertado ningún patrocinador");
             }else{
-                throw new Exception("Patrocinador insertado");
+                mostrar("Patrocinador insertado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -37,12 +38,15 @@ public class TablaPatrocinadores {
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
-                throw new Exception("Patrocinador borrado");
+                mostrar("Patrocinador borrado");
             }else{
-                throw new Exception("Patrocinador no encontrado");
+                mostrar("Patrocinador no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public void mostrar(String m) {
+        JOptionPane.showMessageDialog(null, m);
     }
 }
