@@ -23,8 +23,8 @@ public class VentanaPatrocinadores extends JFrame{
     public VentanaPatrocinadores(){
         super("Ventana Patrocinadores");
         setContentPane(pPrincipal);
-        setLocationRelativeTo(null);
         setSize(500,600);
+        setLocationRelativeTo(null);
     }
     public void eleccionAlta(){
         pAlta.setVisible(true);

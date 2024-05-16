@@ -35,8 +35,8 @@ public class VentanaJugadores extends JFrame{
     public VentanaJugadores(){
         super("Ventana Jugadores");
         setContentPane(pPrincipal);
-        setLocationRelativeTo(null);
         setSize(500,600);
+        setLocationRelativeTo(null);
     }
     public void eleccionAlta(){
         pAlta.setVisible(true);

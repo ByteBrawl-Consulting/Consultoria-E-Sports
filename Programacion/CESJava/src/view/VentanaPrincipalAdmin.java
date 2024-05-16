@@ -49,4 +49,10 @@ public class VentanaPrincipalAdmin  extends JFrame {
     public void addBJuegos(ActionListener listener){
         juegosButton.addActionListener(listener);
     }
+    public void addBPatrocinadores(ActionListener listener){
+        patrocinadoresButton.addActionListener(listener);
+    }
+    public void addBCompeticiones(ActionListener listener){
+        competicionesButton.addActionListener(listener);
+    }
 }
