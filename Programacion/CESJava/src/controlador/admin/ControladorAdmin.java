@@ -2,6 +2,7 @@ package controlador.admin;
 
 import controlador.ControladorVista;
 import controlador.competiciones.ControladorCompeticion;
+import controlador.equipo_competicion.ControladorEquipoCompeticion;
 import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
@@ -22,6 +23,7 @@ public class ControladorAdmin {
     private ControladorJuego cje;
     private ControladorPatrocinador cp;
     private ControladorCompeticion cc;
+    private ControladorEquipoCompeticion cec;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -40,6 +42,7 @@ public class ControladorAdmin {
         vpa.addBJuegos(new bJuegos());
         vpa.addBCompeticiones(new bCompeticiones());
         vpa.addBPatrocinadores(new bPatrocinadores());
+        vpa.addBAsociarEquiCompe(new bAsociarEquiCompe());
     }
     private class bSalir implements ActionListener {
         @Override
@@ -85,6 +88,13 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cp = new ControladorPatrocinador(cv);
+        }
+    }
+
+    private class bAsociarEquiCompe implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cec = new ControladorEquipoCompeticion(cv);
         }
     }
 }
