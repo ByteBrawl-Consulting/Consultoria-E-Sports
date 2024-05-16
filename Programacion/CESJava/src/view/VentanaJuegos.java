@@ -28,8 +28,8 @@ public class VentanaJuegos extends JFrame{
     public VentanaJuegos(){
         super("Ventana Juegos");
         setContentPane(pPrincipal);
-        setLocationRelativeTo(null);
         setSize(500,600);
+        setLocationRelativeTo(null);
     }
     public void eleccionAlta(){
         pAlta.setVisible(true);

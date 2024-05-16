@@ -29,8 +29,8 @@ public class VentanaCompeticiones extends JFrame{
     public VentanaCompeticiones(){
         super("Ventana Competiciones");
         setContentPane(pPrincipal);
-        setLocationRelativeTo(null);
         setSize(500,600);
+        setLocationRelativeTo(null);
     }
     public void eleccionAlta(){
         pAlta.setVisible(true);
