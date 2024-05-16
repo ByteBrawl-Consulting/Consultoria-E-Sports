@@ -105,8 +105,8 @@ public class ControladorBaseDeDatos {
         te.bajaEquipo(eq);
     }
 
-    public void modiEquipo(Equipo eq) {
-        te.modiEquipo(eq);
+    public void modiEquipo(Equipo eq, String fecha) {
+        te.modiEquipo(eq, fecha);
     }
 
     public String consultaEquipo(String nombreEq) {
@@ -121,8 +121,8 @@ public class ControladorBaseDeDatos {
         ts.bajaStaff(staff);
     }
 
-    public void modiStaff(Staff staff) {
-        ts.modiStaff(staff);
+    public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo) {
+        ts.modiStaff(staff, cargo, sueldo, cod_equipo);
     }
 
     public String consultaStaff(String nombreSt) {
@@ -144,8 +144,8 @@ public class ControladorBaseDeDatos {
         tju.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju) {
-        tju.modiJugador(ju);
+    public void modiJugador(Jugador ju,String fecha) {
+        tju.modiJugador(ju, fecha);
     }
 
     public String consultaJugador(String nombre) {

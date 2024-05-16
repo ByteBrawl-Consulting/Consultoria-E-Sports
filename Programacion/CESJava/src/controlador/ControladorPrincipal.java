@@ -30,8 +30,8 @@ public class ControladorPrincipal {
         cbd.bajaEquipo(eq);
     }
 
-    public void modiEquipo(Equipo eq) {
-        cbd.modiEquipo(eq);
+    public void modiEquipo(Equipo eq, String fecha) {
+        cbd.modiEquipo(eq, fecha);
     }
 
     public String consultaEquipo(String nombreEq) {
@@ -54,8 +54,8 @@ public class ControladorPrincipal {
         cbd.bajaStaff(staff);
     }
 
-    public void modiStaff(Staff staff) {
-        cbd.modiStaff(staff);
+    public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo) {
+        cbd.modiStaff(staff, cargo, sueldo, cod_equipo);
     }
 
     public String consultaStaff(String nombreSt) {
@@ -70,8 +70,8 @@ public class ControladorPrincipal {
         cbd.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju) {
-        cbd.modiJugador(ju);
+    public void modiJugador(Jugador ju, String fecha) {
+        cbd.modiJugador(ju, fecha);
     }
 
     public String consultaJugador(String nombre) {
