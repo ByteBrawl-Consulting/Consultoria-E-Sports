@@ -2,6 +2,7 @@ package controlador.baseDeDatos;
 
 import modelo.Jugador;
 
+import javax.swing.*;
 import java.sql.*;
 
 public class TablaJugadores {
@@ -23,9 +24,9 @@ public class TablaJugadores {
             sentencia.setObject(7, jugador.getCodEquipo());
             int n = sentencia.executeUpdate();
             if (n != 1){
-                throw new Exception("No se ha insertado ningún jugador");
+                mostrar("No se ha insertado ningún jugador");
             }else{
-                throw new Exception("Jugador insertado");
+                mostrar("Jugador insertado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -40,9 +41,9 @@ public class TablaJugadores {
             int n = sentencia.executeUpdate();
             sentencia.close();
             if (n == 1){
-                throw new Exception("Jugador borrado");
+                mostrar("Jugador borrado");
             }else{
-                throw new Exception("Jugador no encontrado");
+                mostrar("Jugador no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -62,9 +63,9 @@ public class TablaJugadores {
             int n = sentencia.executeUpdate();
             sentencia.close();
             if (n == 1){
-                throw new Exception("Jugador actualizado");
+                mostrar("Jugador actualizado");
             }else{
-                throw new Exception("Jugador no encontrado");
+                mostrar("Jugador no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -96,5 +97,8 @@ public class TablaJugadores {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public void mostrar(String m) {
+        JOptionPane.showMessageDialog(null, m);
     }
 }
