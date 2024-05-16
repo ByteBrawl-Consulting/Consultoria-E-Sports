@@ -1,6 +1,7 @@
 package controlador.equipo_competicion;
 
 import controlador.ControladorVista;
+import controlador.equipos.ControladorEquipo;
 import controlador.login.ControladorLogin;
 import modelo.Equipo;
 import view.VentanaAsociacionEquipoCompe;
@@ -26,6 +27,9 @@ public class ControladorEquipoCompeticion {
         vaec.clickRatonEquiAL(new clickRatonEqui());
         vaec.bAceptarAL(new bAceptar());
         vaec.bSalirAL(new bSalir());
+
+        vaec.bRbAltaAL(new bAlta());
+        vaec.bRbBajaAL(new bBaja());
 
         vaec.setVisible(true);
     }
@@ -95,18 +99,35 @@ public class ControladorEquipoCompeticion {
     public class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String nombreEquipo = vaec.getTfEquipo().getText();
-            String nombreCompeticion = vaec.getTfCompeticion().getText();
+            if (vaec.getAltaRadioButton().isSelected()) {
+                String nombreEquipo = vaec.getTfEquipo().getText();
+                String nombreCompeticion = vaec.getTfCompeticion().getText();
 
-            if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
-                return;
-            }
+                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
+                    return;
+                }
 
-            try {
-                cv.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
-            } catch (RuntimeException ex) {
-                JOptionPane.showMessageDialog(null, "Error al asociar equipo y competición: " + ex.getMessage());
+                try {
+                    cv.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+                } catch (RuntimeException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al asociar equipo y competición: " + ex.getMessage());
+                }
+            } else if (vaec.getBajaRadioButton().isSelected()) {
+                //TODO HACER BAJA DE EQUIPO COMPETICION
+//                String nombreEquipo = vaec.getTfEquipo().getText();
+//                String nombreCompeticion = vaec.getTfCompeticion().getText();
+//
+//                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
+//                    JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
+//                    return;
+//                }
+//
+//                try {
+//                    cv.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+//                } catch (RuntimeException ex) {
+//                    JOptionPane.showMessageDialog(null, "Error al desasociar equipo y competición: " + ex.getMessage());
+//                }
             }
         }
     }
@@ -115,6 +136,20 @@ public class ControladorEquipoCompeticion {
         @Override
         public void actionPerformed(ActionEvent e) {
             vaec.dispose();
+        }
+    }
+
+    private class bAlta implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vaec.eleccionAlta();
+        }
+    }
+
+    private class bBaja implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vaec.eleccionBaja();
         }
     }
 }
