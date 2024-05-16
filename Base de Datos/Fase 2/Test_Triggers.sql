@@ -14,8 +14,8 @@ SUELDO, COD_EQUIPO) VALUES ('Zahir Rivera', 'Peru',
                             'SUPPORT', 1000, 1);
 
 SELECT * FROM JUGADORES WHERE COD_EQUIPO = 1;
-
-UPDATE jugadores SET cod_equipo = 1 WHERE UPPER(cod_jugador) = 3;
+--Prueba con update
+UPDATE jugadores SET cod_equipo = 1 WHERE UPPER(cod_jugador) = 6;
 
 ROLLBACK;
 
