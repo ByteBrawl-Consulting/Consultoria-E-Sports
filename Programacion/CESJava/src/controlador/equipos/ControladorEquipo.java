@@ -41,7 +41,7 @@ public class ControladorEquipo {
                 try {
                     String nombre = ve.getTfNombreAlta().getText();
                     String fecha = ve.getTfFechaAlta().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                     java.util.Date fechaJava = null;
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
@@ -64,7 +64,7 @@ public class ControladorEquipo {
                 try {
                     String nombre = ve.getTfNombreModi().getText();
                     String fecha = ve.getTfFechaModi().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                     java.util.Date fechaJava = null;
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());

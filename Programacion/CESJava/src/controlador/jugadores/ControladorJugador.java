@@ -39,7 +39,7 @@ public class ControladorJugador {
                     String nombre = vj.getTfNombreAlta().getText();
                     String nacionalidad = vj.getTfNacionalidadAlta().getText();
                     String fecha = vj.getTfFechaAlta().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                     java.util.Date fechaJava = null;
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
@@ -69,7 +69,7 @@ public class ControladorJugador {
                     String nombre = vj.getTfNombreModi().getText();
                     String nacionalidad = vj.getTfNacionalidadModi().getText();
                     String fecha = vj.getTfFechaModi().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                     java.util.Date fechaJava = null;
                     fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
