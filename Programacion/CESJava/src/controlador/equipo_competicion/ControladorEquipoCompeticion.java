@@ -2,6 +2,7 @@ package controlador.equipo_competicion;
 
 import controlador.ControladorVista;
 import controlador.login.ControladorLogin;
+import modelo.Equipo;
 import view.VentanaAsociacionEquipoCompe;
 import view.VentanaLogin;
 
@@ -10,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class ControladorEquipoCompeticion {
     private VentanaAsociacionEquipoCompe vaec;
