@@ -72,7 +72,7 @@ public class ControladorCompeticion {
                 try {
                     String nombre = vc.getTfNombreAlta().getText();
                     String fecha1 = vc.getTfFechaIniAlta().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                     java.util.Date fechaJava1 = null;
                     fechaJava1 = formato.parse(fecha1);
                     java.sql.Date fechaSql1 = new java.sql.Date(fechaJava1.getTime());
@@ -100,7 +100,7 @@ public class ControladorCompeticion {
                 try {
                     String nombre = vc.getTfNombreModi().getText();
                     String fecha1 = vc.getTfFechaIniModi().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
                     java.util.Date fechaJava1 = null;
                     fechaJava1 = formato.parse(fecha1);
                     java.sql.Date fechaSql1 = new java.sql.Date(fechaJava1.getTime());

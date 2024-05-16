@@ -58,9 +58,9 @@ public class ControladorLogin {
                 usu.setContrasena(vl.getTfPassword().getText());
                 String nombreAU = cv.login(usu);
 
-                if (nombreAU.equals("Administrador")) {
+                if (nombreAU.equals("Administrador") || nombreAU.equals("1")) {
                     ca = new ControladorAdmin(cv);
-                } else if (nombreAU.equals("Usuario")) {
+                } else if (nombreAU.equals("Usuario") || nombreAU.equals("2")) {
                     cu = new ControladorUsuario(cv);
 
                 } else {
