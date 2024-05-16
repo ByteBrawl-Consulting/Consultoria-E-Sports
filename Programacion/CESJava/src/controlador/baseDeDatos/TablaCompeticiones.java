@@ -120,7 +120,7 @@ public class TablaCompeticiones {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return -1; // Devuelve -1 si no se encuentra la competición
+        return -1;
     }
 
 }

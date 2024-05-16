@@ -111,7 +111,6 @@ public class ControladorEquipoCompeticion {
         }
     }
 
-
     public class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
