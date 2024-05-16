@@ -107,4 +107,20 @@ public class TablaCompeticiones {
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
+
+    public int getCodigoCompeticionPorNombre(String nombreCompeticion) {
+        try {
+            String query = "SELECT cod_compe FROM competiciones WHERE nombre = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, nombreCompeticion);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("cod_compe");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Devuelve -1 si no se encuentra la competición
+    }
+
 }
