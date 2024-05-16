@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class TablaEquipos {
     private Connection con;
