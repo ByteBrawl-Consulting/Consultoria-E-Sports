@@ -95,9 +95,22 @@ public class ControladorEquipoCompeticion {
     public class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            String nombreEquipo = vaec.getTfEquipo().getText();
+            String nombreCompeticion = vaec.getTfCompeticion().getText();
 
+            if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
+                return;
+            }
+
+            try {
+                cv.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+            } catch (RuntimeException ex) {
+                JOptionPane.showMessageDialog(null, "Error al asociar equipo y competición: " + ex.getMessage());
+            }
         }
     }
+
 
     public class bSalir implements ActionListener {
         @Override
