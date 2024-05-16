@@ -20,7 +20,7 @@ public class TablaJuegos {
             sentencia.setString(1, juego.getNombre());
             sentencia.setString(2, juego.getDesarrolladora());
             String fechaVentana = String.valueOf(juego.getFechaLanzamiento());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
             sentencia.setDate(3, fechaSql);
@@ -56,7 +56,7 @@ public class TablaJuegos {
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, juego.getNombre());
             String fechaVentana = String.valueOf(juego.getFechaLanzamiento());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
             sentenciaPre.setDate(2, fechaSql);

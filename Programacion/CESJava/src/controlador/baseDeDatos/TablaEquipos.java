@@ -2,6 +2,7 @@ package controlador.baseDeDatos;
 
 import modelo.Equipo;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,20 +23,22 @@ public class TablaEquipos {
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, eq.getNombre());
             String fechaVentana = String.valueOf(eq.getFechaFundacion());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
-            java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-            sentenciaPre.setDate(2, fechaSql);
+            java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
+            sentenciaPre.setTimestamp(2, fechaSql);
             int n =sentenciaPre.executeUpdate();
             if (n != 1){
                 throw new Exception("No se ha insertado ningún equipo");
             }else{
-                throw new Exception("Equipo insertado");
+                System.out.println("Equipo insertado");
+                mostrar("Equipo insertado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
     public void bajaEquipo(Equipo eq){
         try {
             String plantilla = "DELETE FROM equipos WHERE nombre = ?";
@@ -57,9 +60,11 @@ public class TablaEquipos {
             String plantilla = "UPDATE equipos SET fecha_fundacion = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             String fechaVentana = String.valueOf(eq.getFechaFundacion());
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
+            System.out.println(fechaJava);
             java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
+            System.out.println(fechaSql);
             sentenciaPre.setDate(1, fechaSql);
             sentenciaPre.setString(2, eq.getNombre());
             int n = sentenciaPre.executeUpdate();
@@ -110,5 +115,9 @@ public class TablaEquipos {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void mostrar(String m) {
+        JOptionPane.showMessageDialog(null, m);
     }
 }
