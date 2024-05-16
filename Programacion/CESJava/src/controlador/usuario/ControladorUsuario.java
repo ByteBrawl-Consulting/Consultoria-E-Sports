@@ -75,10 +75,10 @@ public class ControladorUsuario {
         public void actionPerformed(ActionEvent e){
             Competicion com = new Competicion();
             StringBuilder resultado = new StringBuilder();
-            com.setCodCompe(Integer.parseInt(vpu.getTfClasi().getText()));
-            List<Clasificacion> lista = cv.clasificacion(com);
+            com.setNombre(vpu.getTfClasi().getText());
+            ArrayList<Clasificacion> lista = cv.clasificacion(com);
             for(int x=0;x<lista.size();x++){
-                resultado.append("Codigo del equipo: "+lista.get(x).getCodequipo().getCodEquipo()).append("\n").append("Puntos del equipo: "+lista.get(x).getPuntos().getPuntos()).append("\n").append("Codigo de la competicion: "+lista.get(x).getCodcompe().getCodCompe());
+                resultado.append("Nombre del equipo: " + lista.get(x).getCodequipo().getNombre()).append("\n").append("Puntos del equipo: " + lista.get(x).getPuntos().getPuntos()).append("\n").append("Codigo de la competicion: " + lista.get(x).getCodcompe().getNombre()).append("\n ------------------------------ \n");
             }
             vpu.getTaClasi().setText(String.valueOf(resultado));
         }
