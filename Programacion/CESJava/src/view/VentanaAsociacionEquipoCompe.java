@@ -8,17 +8,19 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
     private JPanel pTitulo;
     private JButton aceptarButton;
     private JButton salirButton;
-    private JPanel pCompe;
-    private JPanel pEquipo;
+    private JPanel pAlta;
+    private JPanel pBaja;
     private JPanel pBotones;
     private JTextField tfCompeticion;
     private JTextField tfEquipo;
     private JPanel pPrincipal;
+    private JRadioButton altaRadioButton;
+    private JRadioButton bajaRadioButton;
 
     public VentanaAsociacionEquipoCompe(){
         super("Ventana Asociacion Equipo-Competicion");
         setContentPane(pPrincipal);
-        setSize(500,600);
+        setSize(750,500);
         setLocationRelativeTo(null);
     }
 
@@ -54,6 +56,22 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
         this.tfEquipo = tfEquipo;
     }
 
+    public JRadioButton getAltaRadioButton() {
+        return altaRadioButton;
+    }
+
+    public void setAltaRadioButton(JRadioButton altaRadioButton) {
+        this.altaRadioButton = altaRadioButton;
+    }
+
+    public JRadioButton getBajaRadioButton() {
+        return bajaRadioButton;
+    }
+
+    public void setBajaRadioButton(JRadioButton bajaRadioButton) {
+        this.bajaRadioButton = bajaRadioButton;
+    }
+
     public void clickRatonCompeAL (MouseListener al){
         tfCompeticion.addMouseListener(al);
     }
@@ -65,5 +83,20 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
     }
     public void bSalirAL (ActionListener al){
         salirButton.addActionListener(al);
+    }
+    public void bRbAltaAL (ActionListener al){
+        altaRadioButton.addActionListener(al);
+    }
+    public void bRbBajaAL (ActionListener al){
+        bajaRadioButton.addActionListener(al);
+    }
+
+    public void eleccionAlta(){
+        pAlta.setVisible(true);
+        pBaja.setVisible(false);
+    }
+    public void eleccionBaja(){
+        pAlta.setVisible(false);
+        pBaja.setVisible(true);
     }
 }
