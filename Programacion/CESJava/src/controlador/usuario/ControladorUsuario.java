@@ -8,6 +8,7 @@ import modelo.Enfrentamiento;
 import modelo.Jornada;
 import view.VentanaPrincipalUsuario;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -18,14 +19,22 @@ public class ControladorUsuario {
     private ControladorVista cv;
 
     public ControladorUsuario(ControladorVista cv) {
-        mostrar();
         this.cv = cv;
+        mostrar();
         botones();
+
+        vpu.getTaClasi().setEditable(false);
+        vpu.getTaClasi().setBackground(new Color(205, 205, 205));
+
+        vpu.getTaJornada().setEditable(false);
+        vpu.getTaJornada().setBackground(new Color(205, 205, 205));
     }
+
     public void mostrar(){
         vpu = new VentanaPrincipalUsuario();
         vpu.setVisible(true);
     }
+
     public void botones (){
     vpu.getpJornada().setVisible(false);
     vpu.getpClasificacion().setVisible(false);
@@ -36,6 +45,7 @@ public class ControladorUsuario {
     vpu.bSalirAL(new bSalirUsu());
     vpu.bSesion(new bSesionUsu());
     }
+
     public class rbUsuJornada implements ActionListener{
         public void actionPerformed (ActionEvent e) {
 
@@ -45,6 +55,7 @@ public class ControladorUsuario {
             }
         }
     }
+
     public class rbUsuClasi implements ActionListener{
         public void actionPerformed (ActionEvent e){
             vpu.getpClasificacion().setVisible(false);
@@ -56,6 +67,7 @@ public class ControladorUsuario {
             }
         }
     }
+
     public class bAceptarJornada implements ActionListener {
         public void actionPerformed(ActionEvent e){
             int x=0;
@@ -71,6 +83,7 @@ public class ControladorUsuario {
             vpu.getTaJornada().setText(String.valueOf(total));
         }
     }
+
     public class bAceptarClasi implements ActionListener{
         public void actionPerformed(ActionEvent e){
             Competicion com = new Competicion();
@@ -85,11 +98,13 @@ public class ControladorUsuario {
             vpu.getTaClasi().setText(String.valueOf(resultado));
         }
     }
+
     public class bSalirUsu implements ActionListener{
         public void actionPerformed (ActionEvent e){
             System.exit(0);
         }
     }
+
     public class bSesionUsu implements ActionListener{
         public void actionPerformed (ActionEvent e){
             vpu.dispose();
