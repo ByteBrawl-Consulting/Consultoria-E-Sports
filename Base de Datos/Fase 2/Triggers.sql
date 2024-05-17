@@ -232,15 +232,14 @@ BEGIN
     BEGIN
         SELECT CURSO INTO EN_CURSO
         FROM COMPETICIONES
-        WHERE COD_COMPE = :NEW.COD_COMPETICION; -- Use the correct column
+        WHERE COD_COMPE = :NEW.COD_COMPETICION;
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
-            EN_CURSO := 0; -- Asume que no está en curso si no encuentra la competencia
+            EN_CURSO := 0;
         WHEN OTHERS THEN
             RAISE_APPLICATION_ERROR(-20009, 'Error desconocido al verificar la competición');
     END;
 
-    -- Si esta en curso, impedir el insert, update o delete
     IF EN_CURSO = 1 THEN
         RAISE_APPLICATION_ERROR(-20008, 'Competicion en curso');
     END IF;
