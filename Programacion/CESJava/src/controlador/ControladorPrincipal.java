@@ -127,6 +127,10 @@ public class ControladorPrincipal {
         cbd.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
 
+    public void desasociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        cbd.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
+
     public void altaUsu(Usuario usu) throws Exception{
         cbd.altaUsu(usu);
     }
