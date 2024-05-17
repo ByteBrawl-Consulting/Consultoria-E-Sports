@@ -200,4 +200,12 @@ public class ControladorBaseDeDatos {
     public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         tce.altaEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
+
+    public void altaUsu(Usuario usu) throws Exception{
+        tu.altaUsu(usu);
+    }
+
+    public Usuario comprobarUsu(Usuario usu) throws Exception{
+       return tu.comprobarUsu(usu);
+    }
 }
