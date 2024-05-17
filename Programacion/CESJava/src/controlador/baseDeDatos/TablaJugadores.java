@@ -98,7 +98,7 @@ public class TablaJugadores {
                 Integer sueldo = respuesta.getInt("sueldo");
                 int codEq = respuesta.getInt("cod_equipo");
                 Equipo eq = cbd.getNombreEquipoPorCodigo(codEq);
-                pantalla.append("CODIGO JUGADOR: ").append(codJugador).append("\n").append("NACIONALIDAD: ").append(nacionalidad).append("\n").append("FECHA NACIMIENTO: ").append(fechaFormateada).append("\n").append("NICKNAME: ").append(nick).append("\n").append("ROL: ").append(rol).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("EQUIPO: ").append(eq);
+                pantalla.append("CODIGO JUGADOR: ").append(codJugador).append("\n").append("NACIONALIDAD: ").append(nacionalidad).append("\n").append("FECHA NACIMIENTO: ").append(fechaFormateada).append("\n").append("NICKNAME: ").append(nick).append("\n").append("ROL: ").append(rol).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("EQUIPO: ").append(eq.getNombre().toUpperCase());
             }
             return pantalla;
         } catch (Exception e) {

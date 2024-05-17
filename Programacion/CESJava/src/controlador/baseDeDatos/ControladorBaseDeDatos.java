@@ -82,7 +82,7 @@ public class ControladorBaseDeDatos {
 
     public void inicializarTablas(ControladorPrincipal cp) {
         tu = new TablaUsuarios(con);
-        ts = new TablaStaff(con);
+        ts = new TablaStaff(con, this);
         te = new TablaEquipos(con);
         tj = new TablaJornadas(con);
         tju = new TablaJugadores(con,this);
