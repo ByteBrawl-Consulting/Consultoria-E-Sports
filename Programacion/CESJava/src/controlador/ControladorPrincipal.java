@@ -6,6 +6,7 @@ import modelo.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorPrincipal {
     private ControladorVista cv;
@@ -161,5 +162,13 @@ public class ControladorPrincipal {
 
     public void desasociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
         cbd.desasociarPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
+    }
+
+    public List<String> getEquiposPorPatrocinador(String nombrePatrocinador) {
+        return cbd.getEquiposPorPatrocinador(nombrePatrocinador);
+    }
+
+    public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
+        return cbd.getPatrocinadoresPorEquipo(nombreEquipo);
     }
 }
