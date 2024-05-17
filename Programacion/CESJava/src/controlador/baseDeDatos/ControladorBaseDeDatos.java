@@ -85,7 +85,7 @@ public class ControladorBaseDeDatos {
         ts = new TablaStaff(con);
         te = new TablaEquipos(con);
         tj = new TablaJornadas(con);
-        tju = new TablaJugadores(con);
+        tju = new TablaJugadores(con,this);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
         tc = new TablaCompeticiones(con,this);
