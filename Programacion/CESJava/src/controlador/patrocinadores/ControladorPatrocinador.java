@@ -4,8 +4,11 @@ import controlador.ControladorVista;
 import modelo.Patrocinador;
 import view.VentanaPatrocinadores;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class ControladorPatrocinador {
     VentanaPatrocinadores vp;
@@ -13,11 +16,17 @@ public class ControladorPatrocinador {
 
     public ControladorPatrocinador(ControladorVista cv) {
         vp = new VentanaPatrocinadores();
+
         vp.bSalirAL(new bSalir());
         vp.bAceptarAl(new bAceptar());
         vp.bRbAltaAL(new bAlta());
         vp.bRbBajaAL(new bBaja());
+
         mostrar();
+
+        vp.getTfNombreAlta().addFocusListener(new PlaceholderListener("Nombre"));
+        vp.getTfNombreBaja().addFocusListener(new PlaceholderListener("Nombre"));
+
         this.cv = cv;
     }
 
@@ -61,6 +70,30 @@ public class ControladorPatrocinador {
                 String nombre = vp.getTfNombreBaja().getText();
                 patr.setNombre(nombre);
                 cv.bajaPatrocinador(patr);
+            }
+        }
+    }
+
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
+            }
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
             }
         }
     }

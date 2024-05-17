@@ -4,8 +4,8 @@ import controlador.ControladorVista;
 import modelo.Jugador;
 import view.VentanaJugadores;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -15,13 +15,36 @@ public class ControladorJugador {
 
     public ControladorJugador(ControladorVista cv) {
         vj = new VentanaJugadores();
+
         mostrar();
+
         vj.bAceptarAL(new bAceptar());
         vj.bSalirAL(new bSalir());
         vj.bRbAltaAL(new bAlta());
         vj.bRbBajaAL(new bBaja());
         vj.bRbModiAl(new bModi());
         vj.bRbConsultaAL(new bCons());
+
+        vj.getTfNombreAlta().addFocusListener(new PlaceholderListener("Nombre"));
+        vj.getTfFechaAlta().addFocusListener(new PlaceholderListener("Fecha Nacimiento"));
+        vj.getTfNacionalidadAlta().addFocusListener(new PlaceholderListener("Nacionalidad"));
+        vj.getTfNickAlta().addFocusListener(new PlaceholderListener("Nickname"));
+        vj.getTfRolAlta().addFocusListener(new PlaceholderListener("Rol"));
+        vj.getTfSueldoAlta().addFocusListener(new PlaceholderListener("Sueldo"));
+        vj.getTfEquipoAlta().addFocusListener(new PlaceholderListener("Equipo"));
+
+        vj.getTfNombreBaja().addFocusListener(new PlaceholderListener("Nombre"));
+
+        vj.getTfNombreModi().addFocusListener(new PlaceholderListener("Nombre"));
+        vj.getTfNacionalidadModi().addFocusListener(new PlaceholderListener("Nacionalidad"));
+        vj.getTfFechaModi().addFocusListener(new PlaceholderListener("Fecha Nacimiento"));
+        vj.getTfNickModi().addFocusListener(new PlaceholderListener("Nickname"));
+        vj.getTfRolModi().addFocusListener(new PlaceholderListener("Rol"));
+        vj.getTfSueldoModi().addFocusListener(new PlaceholderListener("Sueldo"));
+        vj.getTfEquipoModi().addFocusListener(new PlaceholderListener("Equipo"));
+
+        vj.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
+
         this.cv = cv;
     }
     private class bSalir implements ActionListener {
@@ -126,5 +149,29 @@ public class ControladorJugador {
     }
     public void mostrar(){
         vj.setVisible(true);
+    }
+
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
+            }
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
+            }
+        }
     }
 }
