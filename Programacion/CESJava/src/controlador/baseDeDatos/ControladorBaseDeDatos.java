@@ -5,6 +5,7 @@ import modelo.*;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorBaseDeDatos {
     private TablaJornadas tj;
@@ -238,4 +239,13 @@ public class ControladorBaseDeDatos {
     public void desasociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
         tpe.bajaPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
     }
+
+    public List<String> getEquiposPorPatrocinador(String nombrePatrocinador) {
+        return tpe.getEquiposPorPatrocinador(nombrePatrocinador);
+    }
+
+    public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
+        return tpe.getPatrocinadoresPorEquipo(nombreEquipo);
+    }
+
 }

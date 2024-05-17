@@ -3,7 +3,10 @@ package controlador.baseDeDatos;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TablaPatrocinadorEquipo {
 
@@ -89,6 +92,45 @@ public class TablaPatrocinadorEquipo {
         }
     }
 
+    public List<String> getEquiposPorPatrocinador(String nombrePatrocinador) {
+        List<String> equipos = new ArrayList<>();
+        try {
+            String query = "SELECT e.nombre " +
+                    "FROM equipos e " +
+                    "JOIN patrocinadores_equipos pe ON e.cod_equipo = pe.cod_equipo " +
+                    "JOIN patrocinadores p ON pe.cod_patrocinadores = p.cod_patrocinadores " +
+                    "WHERE p.nombre = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, nombrePatrocinador);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                equipos.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return equipos;
+    }
+
+    public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
+        List<String> patrocinadores = new ArrayList<>();
+        try {
+            String query = "SELECT p.nombre " +
+                    "FROM patrocinadores p " +
+                    "JOIN patrocinadores_equipos pe ON p.cod_patrocinadores = pe.cod_patrocinadores " +
+                    "JOIN equipos e ON pe.cod_equipo = e.cod_equipo " +
+                    "WHERE e.nombre = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, nombreEquipo);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                patrocinadores.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return patrocinadores;
+    }
 
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);

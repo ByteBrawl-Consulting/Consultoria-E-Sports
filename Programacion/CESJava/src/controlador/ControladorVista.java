@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorVista {
     private ControladorPrincipal cp;
@@ -189,5 +190,13 @@ public class ControladorVista {
 
     public void desasociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
         cp.desasociarPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
+    }
+
+    public List<String> getEquiposPorPatrocinador(String nombrePatrocinador) {
+        return cp.getEquiposPorPatrocinador(nombrePatrocinador);
+    }
+
+    public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
+        return cp.getPatrocinadoresPorEquipo(nombreEquipo);
     }
 }
