@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 public class VentanaJugadores extends JFrame{
     private JRadioButton rbAlta;
@@ -32,6 +33,7 @@ public class VentanaJugadores extends JFrame{
     private JTextField tfEquipoModi;
     private JTextField tfNombreCons;
     private JTextArea taCons;
+
     public VentanaJugadores(){
         super("Ventana Jugadores");
         setContentPane(pPrincipal);
@@ -62,21 +64,31 @@ public class VentanaJugadores extends JFrame{
         pModi.setVisible(false);
         pCons.setVisible(true);
     }
+
+    public void clickRatonNombreConsAL (MouseListener al){
+        tfNombreCons.addMouseListener(al);
+    }
+
     public void bAceptarAL(ActionListener listener){
         bAceptar.addActionListener(listener);
     }
+
     public void bSalirAL(ActionListener listener){
         bSalir.addActionListener(listener);
     }
+
     public void bRbAltaAL(ActionListener listener){
         rbAlta.addActionListener(listener);
     }
+
     public void bRbBajaAL(ActionListener listener){
         rbBaja.addActionListener(listener);
     }
+
     public void bRbModiAl(ActionListener listener){
         rbModi.addActionListener(listener);
     }
+
     public void bRbConsultaAL(ActionListener listener){
         rbCons.addActionListener(listener);
     }
