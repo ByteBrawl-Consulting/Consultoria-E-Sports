@@ -1,5 +1,6 @@
 package controlador.baseDeDatos;
 
+import modelo.Equipo;
 import modelo.Jugador;
 
 import javax.swing.*;
@@ -8,8 +9,10 @@ import java.text.SimpleDateFormat;
 
 public class TablaJugadores {
     private Connection con;
-    public TablaJugadores(Connection con) {
+    ControladorBaseDeDatos cbd;
+    public TablaJugadores(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
+        this.cbd = cbd;
     }
     public void altaJugador(Jugador jugador){
         try{
@@ -94,7 +97,8 @@ public class TablaJugadores {
                 String nick = respuesta.getString("nickname");
                 String rol = respuesta.getString("rol");
                 Integer sueldo = respuesta.getInt("sueldo");
-                Object eq = respuesta.getObject("cod_equipo");
+                int codEq = respuesta.getInt("cod_equipo");
+                Equipo eq = cbd.getNombreEquipoPorCodigo(codJugador);
                 pantalla.append("CODIGO JUGADOR: ").append(codJugador).append("\n").append("NACIONALIDAD: ").append(nacionalidad).append("\n").append("FECHA NACIMIENTO: ").append(fechaFormateada).append("\n").append("NICKNAME: ").append(nick).append("\n").append("ROL: ").append(rol).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("EQUIPO: ").append(eq);
             }
             return pantalla;

@@ -128,7 +128,7 @@ public class TablaEquipos {
     public Equipo getNombreEquipoPorCodigo(int codEquipo){
         Equipo equipo = null;
         try {
-            String plantilla = "SELECT nombre FROM juegos WHERE cod_juego = ?";
+            String plantilla = "SELECT nombre FROM equipos WHERE cod_equipo = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setInt(1, codEquipo);
             ResultSet respuesta = sentenciaPre.executeQuery();
