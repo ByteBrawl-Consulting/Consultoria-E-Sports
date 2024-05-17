@@ -114,7 +114,7 @@ public class ControladorJugador {
                     ju.setNickname(nick);
                     ju.setRol(rol);
                     ju.setSueldo(sueldo);
-                    ju.setCodEquipo(cv.get);
+                    ju.setCodEquipo(cv.getNombreEquipoPorCodigo(cv.buscarEquipo(equipo).getCodEquipo()));
                     cv.modiJugador(ju, fecha);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);

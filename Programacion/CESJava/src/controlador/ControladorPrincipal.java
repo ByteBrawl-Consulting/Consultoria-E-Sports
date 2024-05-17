@@ -138,4 +138,8 @@ public class ControladorPrincipal {
     public Juego getNombreJuegoPorCodigo(int cod) {
         return cbd.getNombreJuegoPorCodigo(cod);
     }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo) {
+        return cbd.getNombreEquipoPorCodigo(codEquipo);
+    }
 }

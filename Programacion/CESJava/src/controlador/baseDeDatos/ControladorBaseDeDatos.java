@@ -212,4 +212,8 @@ public class ControladorBaseDeDatos {
     public Juego getNombreJuegoPorCodigo(int cod) {
         return tjue.getNombreJuegoPorCodigo(cod);
     }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo) {
+        return te.getNombreEquipoPorCodigo(codEquipo);
+    }
 }
