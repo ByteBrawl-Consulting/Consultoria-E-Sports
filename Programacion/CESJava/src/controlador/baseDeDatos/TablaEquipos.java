@@ -57,7 +57,7 @@ public class TablaEquipos {
             String plantilla = "UPDATE equipos SET fecha_fundacion = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             String fechaVentana = fecha;
-            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
             sentenciaPre.setTimestamp(1, fechaSql);
@@ -82,10 +82,8 @@ public class TablaEquipos {
             ResultSet respuesta = sentenciaPre.executeQuery();
             StringBuilder pantalla =new StringBuilder();
             if (respuesta.next()){
-                Date fechaBD = respuesta.getDate("fecha_fundacion");
-                SimpleDateFormat formato = new SimpleDateFormat("yy-MM-dd");
-                String fechaFormateada = formato.format(fechaBD);
-                pantalla.append("CODIGO EQUIPO: ").append(respuesta.getString("cod_equipo")).append("\n").append("FECHA FUNDACION: ").append(fechaFormateada);
+                Timestamp fechaBD = respuesta.getTimestamp("fecha_fundacion");
+                pantalla.append("CODIGO EQUIPO: ").append(respuesta.getString("cod_equipo")).append("\n").append("FECHA FUNDACION: ").append(fechaBD);
             }
             return pantalla;
         } catch (Exception e) {

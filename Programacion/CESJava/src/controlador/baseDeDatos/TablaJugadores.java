@@ -22,7 +22,7 @@ public class TablaJugadores {
             sentencia.setString(4, jugador.getNickname());
             sentencia.setString(5, jugador.getRol());
             sentencia.setInt(6, jugador.getSueldo());
-            sentencia.setObject(7, jugador.getCodEquipo());
+            sentencia.setObject(7, jugador.getCodEquipo().getCodEquipo());
             int n = sentencia.executeUpdate();
             if (n != 1){
                 mostrar("No se ha insertado ningún jugador");
