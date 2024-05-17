@@ -1,6 +1,7 @@
 package controlador;
 
 import controlador.admin.ControladorAdmin;
+import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
@@ -27,6 +28,7 @@ public class ControladorVista {
     private ControladorJuego cjueg;
     private ControladorJugador cjuga;
     private ControladorPatrocinador cpat;
+    private ControladorClasificacion ccl;
 
 
 
@@ -94,16 +96,7 @@ public class ControladorVista {
     public Usuario comprobarUsu(Usuario usu) throws Exception{
         return cp.comprobarUsu(usu);
     }
-
-    public Juego getNombreJuegoPorCodigo(int cod) {
-        return cp.getNombreJuegoPorCodigo(cod);
-    }
-
-    public Equipo getNombreEquipoPorCodigo(int codEquipo) {
-        return cp.getNombreEquipoPorCodigo(codEquipo);
-    }
-
-
+  
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override

@@ -216,4 +216,12 @@ public class ControladorBaseDeDatos {
     public Equipo getNombreEquipoPorCodigo(int codEquipo) {
         return te.getNombreEquipoPorCodigo(codEquipo);
     }
+
+    public ArrayList clasiEquipo() throws Exception{
+        return tc.clasiEquipo();
+    }
+
+    public ArrayList calsificacionAdmin(Competicion com) {
+       return tc.clasificacionAdmin(com);
+    }
 }

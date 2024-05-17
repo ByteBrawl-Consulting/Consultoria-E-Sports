@@ -1,6 +1,7 @@
 package controlador.admin;
 
 import controlador.ControladorVista;
+import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipo_competicion.ControladorEquipoCompeticion;
 import controlador.equipos.ControladorEquipo;
@@ -26,6 +27,7 @@ public class ControladorAdmin {
     private ControladorCompeticion cc;
     private ControladorEquipoCompeticion cec;
     private ControladorRegistrar cr;
+    private ControladorClasificacion ccl;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -47,6 +49,7 @@ public class ControladorAdmin {
         vpa.addBAsociarEquiCompe(new bAsociarEquiCompe());
         vpa.bAltaUSu(new bAltaUsu());
         vpa.cerrarSesion(new cerrarSesion());
+        vpa.addClasi(new clasi());
     }
     private class cerrarSesion implements ActionListener{
         public void actionPerformed (ActionEvent e){
@@ -109,6 +112,11 @@ public class ControladorAdmin {
     private class bAltaUsu implements ActionListener{
         public void actionPerformed (ActionEvent e){
             cr = new ControladorRegistrar(cv);
+        }
+    }
+    private class clasi implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            ccl = new ControladorClasificacion(cv);
         }
     }
 }
