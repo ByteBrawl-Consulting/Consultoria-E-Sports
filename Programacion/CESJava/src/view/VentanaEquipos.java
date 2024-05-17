@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 public class VentanaEquipos extends JFrame{
     private JRadioButton rbAlta;
@@ -53,6 +54,26 @@ public class VentanaEquipos extends JFrame{
         pModificacion.setVisible(false);
         pConsulta.setVisible(true);
     }
+
+    public void clickRatonNombreAltaAL (MouseListener al){
+        tfNombreAlta.addMouseListener(al);
+    }
+    public void clickRatonFechaAltaAL (MouseListener al){
+        tfFechaAlta.addMouseListener(al);
+    }
+    public void clickRatonNombreBajaAL (MouseListener al){
+        tfNombreBaja.addMouseListener(al);
+    }
+    public void clickRatonNombreModiAL (MouseListener al){
+        tfNombreModi.addMouseListener(al);
+    }
+    public void clickRatonFechaModiAL (MouseListener al){
+        tfFechaModi.addMouseListener(al);
+    }
+    public void clickRatonNombreConsAL (MouseListener al){
+        tfNombreCons.addMouseListener(al);
+    }
+
     public void bAceptarAl(ActionListener listener){
         bAceptar.addActionListener(listener);
     }

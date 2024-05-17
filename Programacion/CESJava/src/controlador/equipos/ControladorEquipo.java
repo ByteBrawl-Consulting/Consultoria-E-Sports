@@ -4,8 +4,8 @@ import controlador.ControladorVista;
 import modelo.Equipo;
 import view.VentanaEquipos;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -14,13 +14,26 @@ public class ControladorEquipo {
     private ControladorVista cv;
     public ControladorEquipo(ControladorVista cv) {
         ve = new VentanaEquipos();
+
         mostrar();
+        
         ve.bAceptarAl(new bAceptar());
         ve.bSalirAL(new bSalir());
         ve.bRbAltaAL(new bAlta());
         ve.bRbBajaAL(new bBaja());
         ve.bRbModiAl(new bModi());
         ve.bRbConsultaAL(new bConsulta());
+
+        ve.getTfNombreAlta().addFocusListener(new PlaceholderListener("Nombre"));
+        ve.getTfFechaAlta().addFocusListener(new PlaceholderListener("Fecha Fundación"));
+
+        ve.getTfNombreBaja().addFocusListener(new PlaceholderListener("Nombre"));
+
+        ve.getTfNombreModi().addFocusListener(new PlaceholderListener("Nombre"));
+        ve.getTfFechaModi().addFocusListener(new PlaceholderListener("Fecha Fundación"));
+
+        ve.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
+
         this.cv = cv;
     }
     public void mostrar(){
@@ -112,4 +125,29 @@ public class ControladorEquipo {
             ve.eleccionConsulta();
         }
     }
+
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
+            }
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
+            }
+        }
+    }
+
 }
