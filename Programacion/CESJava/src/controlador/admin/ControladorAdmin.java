@@ -1,12 +1,14 @@
 package controlador.admin;
 
 import controlador.ControladorVista;
+import controlador.cerrar_inscripciones.ControladorCerrarInscripciones;
 import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipo_competicion.ControladorEquipoCompeticion;
 import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
+import controlador.patrocinador_equipo.ControladorPatrEqui;
 import controlador.patrocinadores.ControladorPatrocinador;
 import controlador.registrar.ControladorRegistrar;
 import controlador.staff.ControladorStaff;
@@ -28,17 +30,21 @@ public class ControladorAdmin {
     private ControladorEquipoCompeticion cec;
     private ControladorRegistrar cr;
     private ControladorClasificacion ccl;
+    private ControladorPatrEqui cpe;
+    private ControladorCerrarInscripciones cci;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
         botones();
         this.cv=cv;
     }
-    public void mostrar(){
+
+    public void mostrar() {
         vpa = new VentanaPrincipalAdmin();
         vpa.setVisible(true);
     }
-    public void botones(){
+
+    public void botones() {
         vpa.addBSalir(new bSalir());
         vpa.addBEquipos(new bEquipo());
         vpa.addBJugadores(new bJugador());
@@ -50,18 +56,23 @@ public class ControladorAdmin {
         vpa.bAltaUSu(new bAltaUsu());
         vpa.cerrarSesion(new cerrarSesion());
         vpa.addClasi(new clasi());
+        vpa.addBAsociarPatrocinadorEquipo(new bAsociarPatroEqui());
+        vpa.addBCerrarEtapaInscripcion(new bCierreInscripciones());
     }
+
     private class cerrarSesion implements ActionListener{
         public void actionPerformed (ActionEvent e){
             vpa.dispose();
         }
     }
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
     }
+
     public class bEquipo implements ActionListener{
         public void actionPerformed(ActionEvent e){
             ce = new ControladorEquipo(cv);
@@ -109,14 +120,30 @@ public class ControladorAdmin {
             cec = new ControladorEquipoCompeticion(cv);
         }
     }
+
     private class bAltaUsu implements ActionListener{
         public void actionPerformed (ActionEvent e){
             cr = new ControladorRegistrar(cv);
         }
     }
+
     private class clasi implements ActionListener{
         public void actionPerformed (ActionEvent e){
             ccl = new ControladorClasificacion(cv);
+        }
+    }
+
+    public class bAsociarPatroEqui implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cpe = new ControladorPatrEqui(cv);
+        }
+    }
+
+    public class bCierreInscripciones implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cci = new ControladorCerrarInscripciones(cv);
         }
     }
 }

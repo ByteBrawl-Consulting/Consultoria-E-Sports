@@ -175,7 +175,6 @@ ADD CONSTRAINT CHCK_CURSO_COMPE
 CHECK (CURSO IN(0,1))
 ;
 
-;
 /*Fin de los check*/
 
 
