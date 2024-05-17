@@ -18,7 +18,7 @@ public class TablaEquipoCompeticion {
 
     public void altaEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         try {
-            int codEquipo = tablaEquipos.getCodigoEquipo(nombreEquipo);
+            int codEquipo = tablaEquipos.getCodigoEquipoPorNombre(nombreEquipo);
             int codCompeticion = tablaCompeticiones.getCodigoCompeticionPorNombre(nombreCompeticion);
 
             if (codEquipo == -1 || codCompeticion == -1) {

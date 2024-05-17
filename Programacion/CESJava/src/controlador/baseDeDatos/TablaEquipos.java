@@ -4,9 +4,7 @@ import modelo.Equipo;
 
 import javax.swing.*;
 import java.sql.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 
 public class TablaEquipos {
     private Connection con;
@@ -98,7 +96,7 @@ public class TablaEquipos {
             sentenciaPre.setString(1, nombreEq);
             ResultSet respuesta = sentenciaPre.executeQuery();
             if (respuesta.next()){
-                Integer codEquipo = respuesta.getInt("cod_equipo");
+                int codEquipo = respuesta.getInt("cod_equipo");
                 eq = new Equipo();
                 eq.setNombre(nombreEq);
                 eq.setCodEquipo(codEquipo);
@@ -112,7 +110,7 @@ public class TablaEquipos {
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
-    public int getCodigoEquipo(String nombreEquipo) {
+    public int getCodigoEquipoPorNombre(String nombreEquipo) {
         try {
             String query = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
             PreparedStatement stmt = con.prepareStatement(query);
@@ -125,5 +123,24 @@ public class TablaEquipos {
             e.printStackTrace();
         }
         return -1; // Devuelve -1 si no se encuentra el equipo
+    }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo){
+        Equipo equipo = null;
+        try {
+            String plantilla = "SELECT nombre FROM juegos WHERE cod_juego = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setInt(1, codEquipo);
+            ResultSet respuesta = sentenciaPre.executeQuery();
+            if (respuesta.next()){
+                String nombreJuego = respuesta.getString("nombre");
+                equipo = new Equipo();
+                equipo.setNombre(nombreJuego);
+                equipo.setCodEquipo(codEquipo);
+            }
+            return equipo;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
