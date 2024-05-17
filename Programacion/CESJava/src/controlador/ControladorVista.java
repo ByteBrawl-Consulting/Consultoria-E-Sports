@@ -101,6 +101,10 @@ public class ControladorVista {
         return cp.clasiEquipos();
     }
 
+    public ArrayList clasificacionAdmin(Competicion com) {
+        return cp.clasificacionAdmin(com);
+    }
+
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override

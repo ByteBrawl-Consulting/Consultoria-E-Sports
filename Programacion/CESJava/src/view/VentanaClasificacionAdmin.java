@@ -13,7 +13,7 @@ public class VentanaClasificacionAdmin extends JFrame {
 
     public VentanaClasificacionAdmin() throws HeadlessException {
         super("Clasificacion");
-        setSize(500,300);
+        setSize(1000,1000);
         setLocationRelativeTo(null);
         setContentPane(pPirncipal);
     }

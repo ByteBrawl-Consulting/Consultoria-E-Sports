@@ -3,6 +3,7 @@ package controlador.clasificacion;
 import controlador.ControladorPrincipal;
 import controlador.ControladorVista;
 import modelo.Clasificacion;
+import modelo.Competicion;
 import view.VentanaClasificacionAdmin;
 
 import java.awt.*;
@@ -19,19 +20,34 @@ public class ControladorClasificacion {
         vca = new VentanaClasificacionAdmin();
         vca.setVisible(true);
         vca.getTaClasi().setEditable(false);
+        vca.cbClasiAL(new taClasi());
         llenarCB();
 
     }
         public void llenarCB (){
             try {
-                ArrayList<Clasificacion> lista = cv.clasiEquipos();
+                ArrayList<Competicion> lista = cv.clasiEquipos();
+                vca.getCbClasi().addItem("");
                 for (int x=0;x<lista.size();x++){
-                    vca.getCbClasi().setSelectedIndex(lista.get(x).getCodequipo().getCodEquipo());
+                    vca.getCbClasi().addItem(lista.get(x).getNombre());
                 }
             }catch (Exception ex){
 
             }
 
+        }
+        public class taClasi implements ActionListener {
+        public void actionPerformed (ActionEvent e){
+            Competicion com = new Competicion();
+            com.setNombre(String.valueOf(vca.getCbClasi().getSelectedItem()));
+            StringBuilder resultado = new StringBuilder();
+            int x1=0;
+            ArrayList<Clasificacion> lista = cv.clasificacionAdmin(com);
+            for (int x=0;x<lista.size();x++,x1++){
+                resultado.append("Posicion en la clasificacion es: " + x1 +"º \n").append("Nombre del equipo: " + lista.get(x).getCodequipo().getNombre()).append("\n").append("Puntos del equipo: " + lista.get(x).getPuntos().getPuntos()).append("\n").append(" ------------------------------ \n");
+
+            }
+        }
         }
     }
 

@@ -138,4 +138,8 @@ public class ControladorPrincipal {
     public ArrayList clasiEquipos() throws Exception{
         return cbd.clasiEquipo();
     }
+
+    public ArrayList clasificacionAdmin(Competicion com) {
+       return cbd.calsificacionAdmin(com);
+    }
 }

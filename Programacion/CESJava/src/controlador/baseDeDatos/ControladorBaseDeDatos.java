@@ -212,4 +212,8 @@ public class ControladorBaseDeDatos {
     public ArrayList clasiEquipo() throws Exception{
         return tc.clasiEquipo();
     }
+
+    public ArrayList calsificacionAdmin(Competicion com) {
+       return tc.clasificacionAdmin(com);
+    }
 }
