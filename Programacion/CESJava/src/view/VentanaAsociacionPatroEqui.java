@@ -15,10 +15,6 @@ public class VentanaAsociacionPatroEqui extends JFrame{
     private JPanel pBotones;
     private JButton aceptarButton;
     private JButton salirButton;
-    private JPanel pModif;
-    private JTextField tfPatroModi;
-    private JTextField tfEquiModi;
-    private JRadioButton modificaciónRadioButton;
     private JRadioButton consultaPorPatrocinadorRadioButton;
     private JRadioButton consultaPorEquipoRadioButton;
     private JPanel pBaja;
@@ -37,51 +33,50 @@ public class VentanaAsociacionPatroEqui extends JFrame{
         setSize(750,500);
         setLocationRelativeTo(null);
     }
-    public void eleccionAlta(){
+
+    public void eleccionAlta() {
         pAlta.setVisible(true);
         pBotones.setVisible(true);
         pBaja.setVisible(false);
-        pModif.setVisible(false);
         pConsulEqui.setVisible(false);
         pConsultPatro.setVisible(false);
         pTA.setVisible(false);
         pTitulo.setVisible(true);
     }
-    public void eleccionBaja(){
+    public void eleccionBaja() {
         pAlta.setVisible(false);
         pBotones.setVisible(true);
         pBaja.setVisible(true);
-        pModif.setVisible(false);
         pConsulEqui.setVisible(false);
         pConsultPatro.setVisible(false);
         pTA.setVisible(false);
         pTitulo.setVisible(true);
     }
-    public void eleccionModi(){
+
+    public void eleccionModi() {
         pAlta.setVisible(false);
         pBotones.setVisible(true);
         pBaja.setVisible(false);
-        pModif.setVisible(true);
         pConsulEqui.setVisible(false);
         pConsultPatro.setVisible(false);
         pTA.setVisible(false);
         pTitulo.setVisible(true);
     }
-    public void eleccionConsPatr(){
+
+    public void eleccionConsPatr() {
         pAlta.setVisible(false);
         pBotones.setVisible(true);
         pBaja.setVisible(false);
-        pModif.setVisible(false);
         pConsulEqui.setVisible(false);
         pConsultPatro.setVisible(true);
         pTA.setVisible(true);
         pTitulo.setVisible(true);
     }
-    public void eleccionConsEqui(){
+
+    public void eleccionConsEqui() {
         pAlta.setVisible(false);
         pBotones.setVisible(true);
         pBaja.setVisible(false);
-        pModif.setVisible(false);
         pConsulEqui.setVisible(true);
         pConsultPatro.setVisible(false);
         pTA.setVisible(true);
@@ -118,30 +113,6 @@ public class VentanaAsociacionPatroEqui extends JFrame{
 
     public void setTfEquiAlta(JTextField tfEquiAlta) {
         this.tfEquiAlta = tfEquiAlta;
-    }
-
-    public JTextField getTfPatroModi() {
-        return tfPatroModi;
-    }
-
-    public void setTfPatroModi(JTextField tfPatroModi) {
-        this.tfPatroModi = tfPatroModi;
-    }
-
-    public JTextField getTfEquiModi() {
-        return tfEquiModi;
-    }
-
-    public void setTfEquiModi(JTextField tfEquiModi) {
-        this.tfEquiModi = tfEquiModi;
-    }
-
-    public JRadioButton getModificaciónRadioButton() {
-        return modificaciónRadioButton;
-    }
-
-    public void setModificaciónRadioButton(JRadioButton modificaciónRadioButton) {
-        this.modificaciónRadioButton = modificaciónRadioButton;
     }
 
     public JRadioButton getConsultaPorPatrocinadorRadioButton() {
@@ -199,6 +170,7 @@ public class VentanaAsociacionPatroEqui extends JFrame{
     public void setTaConsulta(JTextArea taConsulta) {
         this.taConsulta = taConsulta;
     }
+
     public void bAceptarAL (ActionListener al){
         aceptarButton.addActionListener(al);
     }
@@ -214,12 +186,11 @@ public class VentanaAsociacionPatroEqui extends JFrame{
     public void bRbBajaAL (ActionListener al){
         bajaRadioButton.addActionListener(al);
     }
-    public void bRbModiAL(ActionListener listener){
-        modificaciónRadioButton.addActionListener(listener);
-    }
+
     public void bRbConsPatrAL(ActionListener listener){
         consultaPorPatrocinadorRadioButton.addActionListener(listener);
     }
+
     public void bRbConsEquiAL(ActionListener listener){
         consultaPorEquipoRadioButton.addActionListener(listener);
     }
