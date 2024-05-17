@@ -5,6 +5,7 @@ import modelo.Jugador;
 import view.VentanaJugadores;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,6 +15,8 @@ public class ControladorJugador {
     private ControladorVista cv;
 
     public ControladorJugador(ControladorVista cv) {
+        this.cv = cv;
+
         vj = new VentanaJugadores();
 
         mostrar();
@@ -45,14 +48,17 @@ public class ControladorJugador {
 
         vj.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
 
-        this.cv = cv;
+        vj.getTaCons().setEditable(false);
+        vj.getTaCons().setBackground(new Color(205, 205, 205));
     }
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.dispose();
         }
     }
+
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -120,6 +126,7 @@ public class ControladorJugador {
             }
         }
     }
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -147,6 +154,7 @@ public class ControladorJugador {
             vj.eleccionConsulta();
         }
     }
+
     public void mostrar(){
         vj.setVisible(true);
     }

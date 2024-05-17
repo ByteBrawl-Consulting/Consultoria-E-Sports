@@ -5,6 +5,7 @@ import modelo.Equipo;
 import view.VentanaEquipos;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +14,8 @@ public class ControladorEquipo {
     private VentanaEquipos ve;
     private ControladorVista cv;
     public ControladorEquipo(ControladorVista cv) {
+        this.cv = cv;
+
         ve = new VentanaEquipos();
 
         mostrar();
@@ -34,7 +37,8 @@ public class ControladorEquipo {
 
         ve.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
 
-        this.cv = cv;
+        ve.getTaConsulta().setEditable(false);
+        ve.getTaConsulta().setBackground(new Color(205, 205, 205));
     }
     public void mostrar(){
         ve.setVisible(true);
