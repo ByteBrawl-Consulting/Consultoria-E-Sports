@@ -1,6 +1,7 @@
 package controlador.admin;
 
 import controlador.ControladorVista;
+import controlador.cerrar_inscripciones.ControladorCerrarInscripciones;
 import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipo_competicion.ControladorEquipoCompeticion;
@@ -30,6 +31,7 @@ public class ControladorAdmin {
     private ControladorRegistrar cr;
     private ControladorClasificacion ccl;
     private ControladorPatrEqui cpe;
+    private ControladorCerrarInscripciones cci;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -55,6 +57,7 @@ public class ControladorAdmin {
         vpa.cerrarSesion(new cerrarSesion());
         vpa.addClasi(new clasi());
         vpa.addBAsociarPatrocinadorEquipo(new bAsociarPatroEqui());
+        vpa.addBCerrarEtapaInscripcion(new bCierreInscripciones());
     }
 
     private class cerrarSesion implements ActionListener{
@@ -134,6 +137,13 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cpe = new ControladorPatrEqui(cv);
+        }
+    }
+
+    public class bCierreInscripciones implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cci = new ControladorCerrarInscripciones(cv);
         }
     }
 }
