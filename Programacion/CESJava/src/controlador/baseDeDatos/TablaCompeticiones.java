@@ -98,7 +98,7 @@ public class TablaCompeticiones {
                 java.sql.Timestamp fechaFin = respuesta.getTimestamp("fecha_fin");
                 int codJuego = respuesta.getInt("cod_juego");
                 Juego ju = cbd.getNombreJuegoPorCodigo(codJuego);
-                pantalla.append("FECHA INICIO: ").append(fechaInicio).append("\n").append("FECHA FIN: ").append(fechaFin).append("\n").append("JUEGO: ").append(ju.getNombre());
+                pantalla.append("FECHA INICIO: ").append(fechaInicio).append("\n").append("FECHA FIN: ").append(fechaFin).append("\n").append("JUEGO: ").append(ju.getNombre().toLowerCase());
             }
             return pantalla;
         } catch (SQLException e) {

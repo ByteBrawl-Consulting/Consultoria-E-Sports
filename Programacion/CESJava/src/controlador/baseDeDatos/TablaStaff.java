@@ -12,8 +12,10 @@ import java.text.ParseException;
 
 public class TablaStaff{
     Connection con;
-    public TablaStaff(Connection con) {
+    ControladorBaseDeDatos cbd;
+    public TablaStaff(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
+        this.cbd = cbd;
     }
     public void altaStaff (Staff staff){
         try {
@@ -79,8 +81,9 @@ public class TablaStaff{
             if (respuesta.next()){
                 Integer sueldo = respuesta.getInt("sueldo");
                 String cargo = respuesta.getString("cargo");
-                Equipo equipos = (Equipo)respuesta.getObject("cod_equipo");
-                pantalla.append("CARGO: ").append(cargo).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("CODIGO EQUIPO: ").append(equipos);
+                int codEquipo = respuesta.getInt("cod_equipo");
+                Equipo eq = cbd.getNombreEquipoPorCodigo(codEquipo);
+                pantalla.append("CARGO: ").append(cargo).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("EQUIPO: ").append(eq.getNombre().toUpperCase());
             }
             return pantalla;
         } catch (Exception e) {
