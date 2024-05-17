@@ -81,7 +81,6 @@ public class TablaJugadores {
         }
     }
     public StringBuilder consultaJugador(String nombreJu){
-        Jugador jugador = null;
         try {
             String plantilla = "SELECT cod_jugador,nacionalidad,fecha_nac,nickname,rol,sueldo,cod_equipo FROM jugadores WHERE nombre_jugador = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
