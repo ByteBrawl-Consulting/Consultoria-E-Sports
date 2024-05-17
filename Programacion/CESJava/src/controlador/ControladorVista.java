@@ -87,6 +87,10 @@ public class ControladorVista {
         cp.bajaPatrocinador(patr);
     }
 
+    public void altaUsu(Usuario usu) throws Exception{
+        cp.altaUsu(usu);
+    }
+
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override

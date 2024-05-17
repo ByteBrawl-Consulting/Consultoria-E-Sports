@@ -37,4 +37,18 @@ public class TablaUsuarios {
 
         return tipoUsuario;
     }
+
+
+    public void altaUsu(Usuario usu) throws Exception{
+        String tipo = usu.getTipo();
+        int pass = Integer.parseInt(usu.getContrasena());
+
+            String plantilla="insert into usuarios (tipo,contraseña) values(?,?)";
+            PreparedStatement pre = connection.prepareCall(plantilla);
+            int x = pre.executeUpdate();
+            if (x != 1){
+                System.out.println("Error en insercion");
+            } else System.out.println("Insertado correctamente");
+
+    }
 }

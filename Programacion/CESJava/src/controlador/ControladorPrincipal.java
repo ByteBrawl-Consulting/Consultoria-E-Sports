@@ -126,4 +126,8 @@ public class ControladorPrincipal {
     public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         cbd.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
+
+    public void altaUsu(Usuario usu) throws Exception{
+        cbd.altaUsu(usu);
+    }
 }

@@ -27,6 +27,7 @@ public class VentanaPrincipalAdmin  extends JFrame {
     private JButton competicionesButton;
     private JButton añadirEquipoACompeticiónButton;
     private JButton añadirPatrocinadorEquipoButton;
+    private JButton altaNuevoUsuarioButton;
 
     public VentanaPrincipalAdmin() throws HeadlessException {
         super("Panel de Administrador");
@@ -34,6 +35,18 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setSize(750, 450);
         setLocationRelativeTo(null);
     }
+    public void bAltaUSu (ActionListener al){
+        altaNuevoUsuarioButton.addActionListener(al);
+    }
+
+    public JButton getAltaNuevoUsuarioButton() {
+        return altaNuevoUsuarioButton;
+    }
+
+    public void setAltaNuevoUsuarioButton(JButton altaNuevoUsuarioButton) {
+        this.altaNuevoUsuarioButton = altaNuevoUsuarioButton;
+    }
+
     public void addBSalir(ActionListener listener){
         salirButton.addActionListener(listener);
     }

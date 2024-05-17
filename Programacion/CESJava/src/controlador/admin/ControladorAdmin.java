@@ -7,6 +7,7 @@ import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.patrocinadores.ControladorPatrocinador;
+import controlador.registrar.ControladorRegistrar;
 import controlador.staff.ControladorStaff;
 import view.VentanaEquipos;
 import view.VentanaPrincipalAdmin;
@@ -24,6 +25,7 @@ public class ControladorAdmin {
     private ControladorPatrocinador cp;
     private ControladorCompeticion cc;
     private ControladorEquipoCompeticion cec;
+    private ControladorRegistrar cr;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -43,6 +45,7 @@ public class ControladorAdmin {
         vpa.addBCompeticiones(new bCompeticiones());
         vpa.addBPatrocinadores(new bPatrocinadores());
         vpa.addBAsociarEquiCompe(new bAsociarEquiCompe());
+        vpa.bAltaUSu(new bAltaUsu());
     }
     private class bSalir implements ActionListener {
         @Override
@@ -95,6 +98,11 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cec = new ControladorEquipoCompeticion(cv);
+        }
+    }
+    private class bAltaUsu implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            cr = new ControladorRegistrar(cv);
         }
     }
 }
