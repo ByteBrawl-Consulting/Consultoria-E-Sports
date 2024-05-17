@@ -4,10 +4,8 @@ import controlador.ControladorVista;
 import modelo.Equipo;
 import view.VentanaEquipos;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import javax.swing.*;
+import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -26,12 +24,15 @@ public class ControladorEquipo {
         ve.bRbModiAl(new bModi());
         ve.bRbConsultaAL(new bConsulta());
 
-        ve.clickRatonNombreAltaAL(new clickRatonNombreAlta());
-        ve.clickRatonFechaAltaAL(new clickRatonFechaAlta());
-        ve.clickRatonNombreBajaAL(new clickRatonNombreBaja());
-        ve.clickRatonNombreModiAL(new clickRatonNombreModi());
-        ve.clickRatonFechaModiAL(new clickRatonFechaModi());
-        ve.clickRatonNombreConsAL(new clickRatonNombreConsul());
+        ve.getTfNombreAlta().addFocusListener(new PlaceholderListener("Nombre"));
+        ve.getTfFechaAlta().addFocusListener(new PlaceholderListener("Fecha Fundación"));
+
+        ve.getTfNombreBaja().addFocusListener(new PlaceholderListener("Nombre"));
+
+        ve.getTfNombreModi().addFocusListener(new PlaceholderListener("Nombre"));
+        ve.getTfFechaModi().addFocusListener(new PlaceholderListener("Fecha Fundación"));
+
+        ve.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
 
         this.cv = cv;
     }
@@ -125,183 +126,28 @@ public class ControladorEquipo {
         }
     }
 
-    public class clickRatonNombreAlta implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (ve.getTfNombreAlta().getText().equals("Nombre")) {
-                ve.getTfNombreAlta().setText("");
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
             }
-            if (ve.getTfFechaAlta().getText().isEmpty()) {
-                ve.getTfFechaAlta().setText("Fecha");
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
             }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
         }
     }
 
-    public class clickRatonFechaAlta implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (ve.getTfFechaAlta().getText().equals("Fecha")) {
-                ve.getTfFechaAlta().setText("");
-            }
-            if (ve.getTfNombreAlta().getText().isEmpty()) {
-                ve.getTfNombreAlta().setText("Nombre");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonNombreBaja implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (ve.getTfNombreBaja().getText().equals("Nombre")) {
-                ve.getTfNombreBaja().setText("");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonNombreModi implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (ve.getTfNombreModi().getText().equals("Nombre")) {
-                ve.getTfNombreModi().setText("");
-            }
-            if (ve.getTfFechaModi().getText().isEmpty()) {
-                ve.getTfFechaModi().setText("Fecha");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonFechaModi implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (ve.getTfFechaModi().getText().equals("Fecha")) {
-                ve.getTfFechaModi().setText("");
-            }
-            if (ve.getTfNombreModi().getText().isEmpty()) {
-                ve.getTfNombreModi().setText("Nombre");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonNombreConsul implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (ve.getTfNombreCons().getText().equals("Nombre")) {
-                ve.getTfNombreCons().setText("");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
 }
