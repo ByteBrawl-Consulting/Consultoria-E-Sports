@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 public class TablaPatrocinadores {
@@ -46,6 +47,22 @@ public class TablaPatrocinadores {
             throw new RuntimeException(e);
         }
     }
+
+    public int getCodigoPatrocinadorPorNombre(String nombrePatrocinador) {
+        try {
+            String query = "SELECT cod_patrocinadores FROM patrocinadores WHERE nombre = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, nombrePatrocinador);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("cod_patrocinadores");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
