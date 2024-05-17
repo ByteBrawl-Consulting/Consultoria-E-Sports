@@ -75,12 +75,14 @@ public class ControladorJugador {
                     String nick = vj.getTfNickAlta().getText();
                     String rol = vj.getTfRolAlta().getText();
                     Integer sueldo = Integer.parseInt(vj.getTfSueldoAlta().getText());
+                    String equipo = vj.getTfEquipoAlta().getText();
                     ju.setNombreJugador(nombre);
                     ju.setNacionalidad(nacionalidad);
                     ju.setFechaNacimiento(fechaSql.toLocalDate());
                     ju.setNickname(nick);
                     ju.setRol(rol);
                     ju.setSueldo(sueldo);
+                    ju.setCodEquipo(cv.buscarEquipo(equipo));
                     cv.altaJugador(ju);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
@@ -105,12 +107,14 @@ public class ControladorJugador {
                     String nick = vj.getTfNickModi().getText();
                     String rol = vj.getTfRolModi().getText();
                     Integer sueldo = Integer.parseInt(vj.getTfSueldoModi().getText());
+                    String equipo = vj.getTfEquipoModi().getText();
                     ju.setNombreJugador(nombre);
                     ju.setNacionalidad(nacionalidad);
                     ju.setFechaNacimiento(fechaSql.toLocalDate());
                     ju.setNickname(nick);
                     ju.setRol(rol);
                     ju.setSueldo(sueldo);
+                    ju.setCodEquipo(cv.get);
                     cv.modiJugador(ju, fecha);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
