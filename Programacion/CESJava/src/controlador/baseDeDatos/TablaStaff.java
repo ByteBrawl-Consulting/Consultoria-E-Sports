@@ -22,7 +22,7 @@ public class TablaStaff{
             sentenciaPre.setString(1, staff.getNombre());
             sentenciaPre.setString(2, staff.getCargo());
             sentenciaPre.setInt(3, staff.getSueldo());
-            sentenciaPre.setObject(4, staff.getCodEquipo());
+            sentenciaPre.setObject(4, staff.getCodEquipo().getCodEquipo());
             int n =sentenciaPre.executeUpdate();
             if (n != 1){
                 mostrar("No se ha insertado ningún Staff");
@@ -55,7 +55,7 @@ public class TablaStaff{
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, cargo);
             sentenciaPre.setInt(2, sueldo);
-            sentenciaPre.setObject(3, cod_equipo);
+            sentenciaPre.setObject(3, staff.getCodEquipo().getCodEquipo());
             sentenciaPre.setString(4, staff.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();

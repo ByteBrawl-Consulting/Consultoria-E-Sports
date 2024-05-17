@@ -63,13 +63,17 @@ public class ControladorStaff {
                 String nombre = vs.getTfNombreAlta().getText();
                 String cargo = vs.getTfCargoAlta().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoAlta().getText());
-                //Buscar equipo
-                Equipo eq = cv.buscarEquipo(nombre);
+                String equipo = vs.getTfEquipoAlta().getText();
                 staff.setNombre(nombre);
                 staff.setCargo(cargo);
                 staff.setSueldo(sueldo);
-                staff.setCodEquipo(eq);
-                cv.altaStaff(staff);
+                Equipo eq = cv.buscarEquipo(equipo);
+                if (eq != null){
+                    staff.setCodEquipo(eq);
+                    cv.altaStaff(staff);
+                }else{
+                    JOptionPane.showMessageDialog(vs, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             } else if (vs.getRbBaja().isSelected()) {
                 String nombre = vs.getTfNombreBaja().getText();
                 staff.setNombre(nombre);
@@ -78,12 +82,17 @@ public class ControladorStaff {
                 String nombre = vs.getTfNombreModi().getText();
                 String cargo = vs.getTfCargoModi().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoModi().getText());
-                Equipo eq = cv.buscarEquipo(nombre);
+                String equipo = vs.getTfEquipoModi().getText();
                 staff.setNombre(nombre);
                 staff.setCargo(cargo);
                 staff.setSueldo(sueldo);
-                staff.setCodEquipo(eq);
-                cv.modiStaff(staff,cargo,sueldo,eq);
+                Equipo eq = cv.buscarEquipo(equipo);
+                if (eq != null){
+                    staff.setCodEquipo(eq);
+                    cv.modiStaff(staff,cargo,sueldo,eq);
+                }else{
+                    JOptionPane.showMessageDialog(vs, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             } else if (vs.getRbConsulta().isSelected()) {
                 String nombre = vs.getTfNombreCons().getText();
                 staff.setNombre(nombre);
