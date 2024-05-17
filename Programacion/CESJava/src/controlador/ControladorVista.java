@@ -182,4 +182,12 @@ public class ControladorVista {
     public void desasociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         cp.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
+
+    public void asociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
+        cp.asociarPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
+    }
+
+    public void desasociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
+        cp.desasociarPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
+    }
 }

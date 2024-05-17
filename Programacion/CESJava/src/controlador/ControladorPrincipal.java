@@ -154,4 +154,12 @@ public class ControladorPrincipal {
     public ArrayList clasificacionAdmin(Competicion com) {
        return cbd.calsificacionAdmin(com);
     }
+
+    public void asociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
+        cbd.asociarPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
+    }
+
+    public void desasociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
+        cbd.desasociarPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
+    }
 }

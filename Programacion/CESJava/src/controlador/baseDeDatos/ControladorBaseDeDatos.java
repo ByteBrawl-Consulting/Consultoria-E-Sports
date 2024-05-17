@@ -16,6 +16,7 @@ public class ControladorBaseDeDatos {
     private TablaPatrocinadores tp;
     private TablaCompeticiones tc;
     private TablaClasi tb;
+    private TablaPatrocinadorEquipo tpe;
     private Connection con;
     private TablaEquipoCompeticion tce;
 
@@ -91,6 +92,7 @@ public class ControladorBaseDeDatos {
         tc = new TablaCompeticiones(con,this);
         tb = new TablaClasi(con);
         tce = new TablaEquipoCompeticion(con, te, tc);
+        tpe = new TablaPatrocinadorEquipo(con, te, tp);
     }
 
     public String login (Usuario usu) throws SQLException {
@@ -227,5 +229,13 @@ public class ControladorBaseDeDatos {
 
     public ArrayList calsificacionAdmin(Competicion com) {
        return tc.clasificacionAdmin(com);
+    }
+
+    public void asociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
+        tpe.altaPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
+    }
+
+    public void desasociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
+        tpe.bajaPatrocinadorEquipo(nombreEquipo, nombrePatrocinador);
     }
 }
