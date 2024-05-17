@@ -6,6 +6,8 @@ import view.VentanaEquipos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -14,13 +16,23 @@ public class ControladorEquipo {
     private ControladorVista cv;
     public ControladorEquipo(ControladorVista cv) {
         ve = new VentanaEquipos();
+
         mostrar();
+        
         ve.bAceptarAl(new bAceptar());
         ve.bSalirAL(new bSalir());
         ve.bRbAltaAL(new bAlta());
         ve.bRbBajaAL(new bBaja());
         ve.bRbModiAl(new bModi());
         ve.bRbConsultaAL(new bConsulta());
+
+        ve.clickRatonNombreAltaAL(new clickRatonNombreAlta());
+        ve.clickRatonFechaAltaAL(new clickRatonFechaAlta());
+        ve.clickRatonNombreBajaAL(new clickRatonNombreBaja());
+        ve.clickRatonNombreModiAL(new clickRatonNombreModi());
+        ve.clickRatonFechaModiAL(new clickRatonFechaModi());
+        ve.clickRatonNombreConsAL(new clickRatonNombreConsul());
+
         this.cv = cv;
     }
     public void mostrar(){
@@ -110,6 +122,186 @@ public class ControladorEquipo {
         @Override
         public void actionPerformed(ActionEvent e) {
             ve.eleccionConsulta();
+        }
+    }
+
+    public class clickRatonNombreAlta implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            if (ve.getTfNombreAlta().getText().equals("Nombre")) {
+                ve.getTfNombreAlta().setText("");
+            }
+            if (ve.getTfFechaAlta().getText().isEmpty()) {
+                ve.getTfFechaAlta().setText("Fecha");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
+    public class clickRatonFechaAlta implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            if (ve.getTfFechaAlta().getText().equals("Fecha")) {
+                ve.getTfFechaAlta().setText("");
+            }
+            if (ve.getTfNombreAlta().getText().isEmpty()) {
+                ve.getTfNombreAlta().setText("Nombre");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
+    public class clickRatonNombreBaja implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            if (ve.getTfNombreBaja().getText().equals("Nombre")) {
+                ve.getTfNombreBaja().setText("");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
+    public class clickRatonNombreModi implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            if (ve.getTfNombreModi().getText().equals("Nombre")) {
+                ve.getTfNombreModi().setText("");
+            }
+            if (ve.getTfFechaModi().getText().isEmpty()) {
+                ve.getTfFechaModi().setText("Fecha");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
+    public class clickRatonFechaModi implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            if (ve.getTfFechaModi().getText().equals("Fecha")) {
+                ve.getTfFechaModi().setText("");
+            }
+            if (ve.getTfNombreModi().getText().isEmpty()) {
+                ve.getTfNombreModi().setText("Nombre");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
+    public class clickRatonNombreConsul implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            if (ve.getTfNombreCons().getText().equals("Nombre")) {
+                ve.getTfNombreCons().setText("");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
         }
     }
 }
