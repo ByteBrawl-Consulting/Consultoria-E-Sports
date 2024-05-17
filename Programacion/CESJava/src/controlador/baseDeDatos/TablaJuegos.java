@@ -110,6 +110,24 @@ public class TablaJuegos {
             throw new RuntimeException(e);
         }
     }
+    public String getNombreJuegoPorCodigo(int cod){
+        Juego juego = null;
+        try {
+            String plantilla = "SELECT nombre FROM juegos WHERE cod_juego = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setInt(1, cod);
+            ResultSet respuesta = sentenciaPre.executeQuery();
+            String nombreJuego = "";
+            if (respuesta.next()){
+            nombreJuego = respuesta.getString("nombre");
+                juego = new Juego();
+                juego.setNombre(nombreJuego);
+            }
+            return nombreJuego;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
