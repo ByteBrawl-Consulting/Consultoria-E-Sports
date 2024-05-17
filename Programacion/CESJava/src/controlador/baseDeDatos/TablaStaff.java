@@ -68,24 +68,21 @@ public class TablaStaff{
             throw new RuntimeException(e);
         }
     }
-    public Staff consultaStaff(String nombreStaff){
+    public StringBuilder consultaStaff(String nombreStaff){
         Staff staff = null;
         try {
             String plantilla = "SELECT cargo,sueldo,cod_equipo FROM staff WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreStaff);
             ResultSet respuesta = sentenciaPre.executeQuery();
+            StringBuilder pantalla = new StringBuilder();
             if (respuesta.next()){
                 Integer sueldo = respuesta.getInt("sueldo");
                 String cargo = respuesta.getString("cargo");
                 Equipo equipos = (Equipo)respuesta.getObject("cod_equipo");
-                staff = new Staff();
-                staff.setNombre(nombreStaff);
-                staff.setCargo(cargo);
-                staff.setSueldo(sueldo);
-                staff.setCodEquipo(equipos);
+                pantalla.append("CARGO: ").append(cargo).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("CODIGO EQUIPO: ").append(equipos);
             }
-            return staff;
+            return pantalla;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

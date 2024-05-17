@@ -26,4 +26,5 @@ public class VentanaAsociacionPatroEqui extends JFrame{
     private JTextField tfEquiBaja;
     private JTextField tfPatroConsul;
     private JTextField tfEquiConsul;
+    private JTextArea taConsulta;
 }

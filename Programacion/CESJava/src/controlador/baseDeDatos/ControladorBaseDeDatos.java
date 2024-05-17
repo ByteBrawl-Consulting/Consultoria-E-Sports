@@ -85,10 +85,10 @@ public class ControladorBaseDeDatos {
         ts = new TablaStaff(con);
         te = new TablaEquipos(con);
         tj = new TablaJornadas(con);
-        tju = new TablaJugadores(con);
+        tju = new TablaJugadores(con,this);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
-        tc = new TablaCompeticiones(con);
+        tc = new TablaCompeticiones(con,this);
         tb = new TablaClasi(con);
         tce = new TablaEquipoCompeticion(con, te, tc);
     }
@@ -206,7 +206,15 @@ public class ControladorBaseDeDatos {
     }
 
     public Usuario comprobarUsu(Usuario usu) throws Exception{
-       return tu.comprobarUsu(usu);
+        return tu.comprobarUsu(usu);
+    }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return tjue.getNombreJuegoPorCodigo(cod);
+    }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo) {
+        return te.getNombreEquipoPorCodigo(codEquipo);
     }
 
     public ArrayList clasiEquipo() throws Exception{
