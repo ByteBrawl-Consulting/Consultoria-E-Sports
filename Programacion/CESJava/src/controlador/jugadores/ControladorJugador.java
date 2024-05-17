@@ -1,6 +1,7 @@
 package controlador.jugadores;
 
 import controlador.ControladorVista;
+import modelo.Equipo;
 import modelo.Jugador;
 import view.VentanaJugadores;
 
@@ -63,64 +64,76 @@ public class ControladorJugador {
         @Override
         public void actionPerformed(ActionEvent e) {
             Jugador ju = new Jugador();
-            if (vj.getRbAlta().isSelected()){
-                try{
+            if (vj.getRbAlta().isSelected()) {
+                try {
                     String nombre = vj.getTfNombreAlta().getText();
                     String nacionalidad = vj.getTfNacionalidadAlta().getText();
                     String fecha = vj.getTfFechaAlta().getText();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = null;
-                    fechaJava = formato.parse(fecha);
+                    java.util.Date fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     String nick = vj.getTfNickAlta().getText();
                     String rol = vj.getTfRolAlta().getText();
                     Integer sueldo = Integer.parseInt(vj.getTfSueldoAlta().getText());
                     String equipo = vj.getTfEquipoAlta().getText();
+
                     ju.setNombreJugador(nombre);
                     ju.setNacionalidad(nacionalidad);
                     ju.setFechaNacimiento(fechaSql.toLocalDate());
                     ju.setNickname(nick);
                     ju.setRol(rol);
                     ju.setSueldo(sueldo);
-                    ju.setCodEquipo(cv.buscarEquipo(equipo));
-                    cv.altaJugador(ju);
+
+                    Equipo equipoObj = cv.buscarEquipo(equipo);
+                    if (equipoObj != null) {
+                        ju.setCodEquipo(equipoObj); // Pass the entire Equipo object
+                        cv.altaJugador(ju);
+                    } else {
+                        JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
-            }else if (vj.getRbBaja().isSelected()){
-                try{
+            } else if (vj.getRbBaja().isSelected()) {
+                try {
                     String nombre = vj.getTfNombreBaja().getText();
                     ju.setNombreJugador(nombre);
                     cv.bajaJugador(ju);
-                }catch (Exception ex) {
+                } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
-            }else if (vj.getRbModi().isSelected()){
-                try{
+            } else if (vj.getRbModi().isSelected()) {
+                try {
                     String nombre = vj.getTfNombreModi().getText();
                     String nacionalidad = vj.getTfNacionalidadModi().getText();
                     String fecha = vj.getTfFechaModi().getText();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = null;
-                    fechaJava = formato.parse(fecha);
+                    java.util.Date fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     String nick = vj.getTfNickModi().getText();
                     String rol = vj.getTfRolModi().getText();
                     Integer sueldo = Integer.parseInt(vj.getTfSueldoModi().getText());
                     String equipo = vj.getTfEquipoModi().getText();
+
                     ju.setNombreJugador(nombre);
                     ju.setNacionalidad(nacionalidad);
                     ju.setFechaNacimiento(fechaSql.toLocalDate());
                     ju.setNickname(nick);
                     ju.setRol(rol);
                     ju.setSueldo(sueldo);
-                    ju.setCodEquipo(cv.getNombreEquipoPorCodigo(cv.buscarEquipo(equipo).getCodEquipo()));
-                    cv.modiJugador(ju, fecha);
+
+                    Equipo equipoObj = cv.buscarEquipo(equipo);
+                    if (equipoObj != null) {
+                        ju.setCodEquipo(equipoObj); // Pass the entire Equipo object
+                        cv.modiJugador(ju, fecha);
+                    } else {
+                        JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
-            }else if (vj.getRbCons().isSelected()){
-                try{
+            } else if (vj.getRbCons().isSelected()) {
+                try {
                     String nombre = vj.getTfNombreCons().getText();
                     ju.setNombreJugador(nombre);
                     vj.getTaCons().setText(cv.consultaJugador(nombre));
@@ -159,7 +172,7 @@ public class ControladorJugador {
         }
     }
 
-    public void mostrar(){
+    public void mostrar() {
         vj.setVisible(true);
     }
 
