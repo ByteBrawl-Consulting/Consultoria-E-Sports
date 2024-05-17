@@ -88,7 +88,7 @@ public class ControladorBaseDeDatos {
         tju = new TablaJugadores(con);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
-        tc = new TablaCompeticiones(con);
+        tc = new TablaCompeticiones(con,this);
         tb = new TablaClasi(con);
         tce = new TablaEquipoCompeticion(con, te, tc);
     }

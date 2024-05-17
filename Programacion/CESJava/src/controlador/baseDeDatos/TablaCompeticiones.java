@@ -14,8 +14,9 @@ public class TablaCompeticiones {
     Connection con;
     ControladorBaseDeDatos cbd;
 
-    public TablaCompeticiones(Connection con) {
+    public TablaCompeticiones(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
+        this.cbd = cbd;
     }
     public void altaCompeticion(Competicion compe){
         try{
