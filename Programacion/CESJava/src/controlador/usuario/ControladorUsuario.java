@@ -77,8 +77,10 @@ public class ControladorUsuario {
             StringBuilder resultado = new StringBuilder();
             com.setNombre(vpu.getTfClasi().getText());
             ArrayList<Clasificacion> lista = cv.clasificacion(com);
-            for(int x=0;x<lista.size();x++){
-                resultado.append("Nombre del equipo: " + lista.get(x).getCodequipo().getNombre()).append("\n").append("Puntos del equipo: " + lista.get(x).getPuntos().getPuntos()).append("\n").append(" ------------------------------ \n");
+            int x1 = 1;
+            for(int x=0;x<lista.size();x++,x1++){
+
+                resultado.append("Posicion en la clasificacion es: " + x1 +"º \n").append("Nombre del equipo: " + lista.get(x).getCodequipo().getNombre()).append("\n").append("Puntos del equipo: " + lista.get(x).getPuntos().getPuntos()).append("\n").append(" ------------------------------ \n");
             }
             vpu.getTaClasi().setText(String.valueOf(resultado));
         }

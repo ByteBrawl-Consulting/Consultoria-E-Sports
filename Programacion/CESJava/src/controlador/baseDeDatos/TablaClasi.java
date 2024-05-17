@@ -21,7 +21,7 @@ public class TablaClasi {
         ArrayList<Clasificacion> lista=new ArrayList<>();
         try {
             String nombreCompe=com.getNombre();//solo hay nombre en com
-            String plantilla= "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where c.nombre=?";
+            String plantilla= "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where c.nombre=? order by puntos desc";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, String.valueOf(nombreCompe));
             ResultSet res = pre.executeQuery();
@@ -36,11 +36,6 @@ public class TablaClasi {
                 compe.setCodCompe(res.getInt(3));
                     ec.setCodCompe(compe);
 
-
-
-
-
-
                 cla=datosCompletosClasi(ec,com);
 
                 lista.add(cla);
@@ -53,6 +48,8 @@ public class TablaClasi {
     }
     public Clasificacion datosCompletosClasi(EquipoCompeticion ec, Competicion com) {
         Clasificacion cla =new Clasificacion();
+        Equipo eq = new Equipo();
+
         try {
             String nombreCompe = com.getNombre();
             int codigoEquipo = ec.getCodEquipo().getCodEquipo();
@@ -61,16 +58,19 @@ public class TablaClasi {
             String plantilla= "select e.nombre from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe join equipos e on ec.cod_equipo=e.cod_equipo where c.nombre= ? and e.cod_equipo=?";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, String.valueOf(nombreCompe));
+            pre.setString(2, String.valueOf(codigoEquipo));
             ResultSet res = pre.executeQuery();
 
             while (res.next()) {
-                
+                eq.setNombre(res.getString("nombre"));
+
+                ec.setCodEquipo(eq);
             }
 
             String plantilla1= "select puntos from equipo_competicion where cod_competicion=? and cod_equipo=?";
             PreparedStatement pre1 = con.prepareStatement(plantilla1);
             pre1.setString(1, String.valueOf(codigoCompe));
-            pre1.setString(2, String.valueOf(eq.getCodEquipo()));
+            pre1.setString(2, String.valueOf(codigoEquipo));
             ResultSet res1 = pre1.executeQuery();
             while (res1.next()){
                 ec.setPuntos(res1.getInt(1));
