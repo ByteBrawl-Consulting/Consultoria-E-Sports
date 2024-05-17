@@ -16,7 +16,9 @@ public class ControladorRegistrar {
 
     public ControladorRegistrar(ControladorVista cv) {
         this.cv=cv;
+
         vru=new VentanaRegistrarusu();
+
         vru.setVisible(true);
         vru.bAceptarAL(new bAceptar());
         vru.bSalirAL(new bSalir());

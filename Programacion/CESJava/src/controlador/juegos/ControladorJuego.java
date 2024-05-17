@@ -5,8 +5,11 @@ import controlador.equipos.ControladorEquipo;
 import modelo.Juego;
 import view.VentanaJuegos;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -16,13 +19,28 @@ public class ControladorJuego {
 
     public ControladorJuego(ControladorVista cv) {
         vj = new VentanaJuegos();
+
         mostar();
+
         vj.bAceptarAl(new bAceptar());
         vj.bSalirAL(new bSalir());
         vj.bRbAltaAL(new bAlta());
         vj.bRbBajaAL(new bBaja());
         vj.bRbModiAl(new bModi());
         vj.bRbConsultaAL(new bConsulta());
+
+        vj.getTfNombreAlta().addFocusListener(new PlaceholderListener("Nombre"));
+        vj.getTfDesaAlta().addFocusListener(new PlaceholderListener("Desarrolladora"));
+        vj.getTfFechaAlta().addFocusListener(new PlaceholderListener("Fecha Lanzamiento"));
+
+        vj.getTfNombreBaja().addFocusListener(new PlaceholderListener("Nombre"));
+
+        vj.getTfNombreModi().addFocusListener(new PlaceholderListener("Nombre"));
+        vj.getTfDesaModi().addFocusListener(new PlaceholderListener("Desarrolladora"));
+        vj.getTfFechaModi().addFocusListener(new PlaceholderListener("Fecha Lanzamiento"));
+
+        vj.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
+
         this.cv = cv;
     }
     private class bSalir implements ActionListener {
@@ -115,6 +133,30 @@ public class ControladorJuego {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.eleccionConsulta();
+        }
+    }
+
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
+            }
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
+            }
         }
     }
 }
