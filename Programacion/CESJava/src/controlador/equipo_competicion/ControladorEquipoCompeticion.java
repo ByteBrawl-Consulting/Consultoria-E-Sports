@@ -4,10 +4,7 @@ import controlador.ControladorVista;
 import view.VentanaAsociacionEquipoCompe;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class ControladorEquipoCompeticion {
     private VentanaAsociacionEquipoCompe vaec;
@@ -17,10 +14,10 @@ public class ControladorEquipoCompeticion {
         this.cv = cv;
         vaec = new VentanaAsociacionEquipoCompe();
 
-        vaec.clickRatonCompeAltaAL(new clickRatonCompeAltaAL());
-        vaec.clickRatonEquiAltaAL(new clickRatonEquiAltaAL());
-        vaec.clickRatonCompeBajaAL(new clickRatonCompeBajaAL());
-        vaec.clickRatonEquiBajaAL(new clickRatonEquiBajaAL());
+        vaec.getTfCompeAlta().addFocusListener(new PlaceholderListener("Competición"));
+        vaec.getTfEquiAlta().addFocusListener(new PlaceholderListener("Equipo"));
+        vaec.getTfCompeBaja().addFocusListener(new PlaceholderListener("Competición"));
+        vaec.getTfEquiBaja().addFocusListener(new PlaceholderListener("Equipo"));
 
         vaec.bAceptarAL(new bAceptar());
         vaec.bSalirAL(new bSalir());
@@ -88,127 +85,27 @@ public class ControladorEquipoCompeticion {
         }
     }
 
-    public class clickRatonCompeAltaAL implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (vaec.getTfCompeAlta().getText().equals("Competición")) {
-                vaec.getTfCompeAlta().setText("");
-            }
-            if (vaec.getTfEquiAlta().getText().isEmpty()) {
-                vaec.getTfEquiAlta().setText("Equipo");
-            }
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonEquiAltaAL implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (vaec.getTfEquiAlta().getText().equals("Equipo")) {
-                vaec.getTfEquiAlta().setText("");
-            }
-            if (vaec.getTfCompeAlta().getText().isEmpty()) {
-                vaec.getTfCompeAlta().setText("Competición");
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
             }
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonCompeBajaAL implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (vaec.getTfCompeBaja().getText().equals("Competición")) {
-                vaec.getTfCompeBaja().setText("");
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
             }
-            if (vaec.getTfEquiBaja().getText().isEmpty()) {
-                vaec.getTfEquiBaja().setText("Equipo");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonEquiBajaAL implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (vaec.getTfEquiBaja().getText().equals("Equipo")) {
-                vaec.getTfEquiBaja().setText("");
-            }
-            if (vaec.getTfCompeBaja().getText().isEmpty()) {
-                vaec.getTfCompeBaja().setText("Competicion");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
         }
     }
 }
