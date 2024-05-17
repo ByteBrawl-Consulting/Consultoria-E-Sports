@@ -6,6 +6,7 @@ import modelo.Juego;
 import view.VentanaJuegos;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -18,6 +19,8 @@ public class ControladorJuego {
     private ControladorVista cv;
 
     public ControladorJuego(ControladorVista cv) {
+        this.cv = cv;
+
         vj = new VentanaJuegos();
 
         mostar();
@@ -41,8 +44,10 @@ public class ControladorJuego {
 
         vj.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
 
-        this.cv = cv;
+        vj.getTaCons().setEditable(false);
+        vj.getTaCons().setBackground(new Color(205, 205, 205));
     }
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -105,9 +110,11 @@ public class ControladorJuego {
             }
         }
     }
+
     private void mostar() {
         vj.setVisible(true);
     }
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
