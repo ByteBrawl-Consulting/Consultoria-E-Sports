@@ -53,7 +53,7 @@ public class TablaJugadores {
     public void modiJugador(Jugador jugador, String fecha){
         try{
             String nombreProcedimiento = "GESTION_JUGADORES.ACTUALIZAR_JUGADOR";
-            String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?)}";
+            String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?,?)}";
             CallableStatement sentencia = con.prepareCall(plantilla);
             sentencia.setString(1, jugador.getNombreJugador());
             sentencia.setString(2, jugador.getNacionalidad());
@@ -65,6 +65,7 @@ public class TablaJugadores {
             sentencia.setString(4, jugador.getNickname());
             sentencia.setString(5, jugador.getRol());
             sentencia.setInt(6, jugador.getSueldo());
+            sentencia.setObject(7, jugador.getCodEquipo().getCodEquipo());
             int n = sentencia.executeUpdate();
             sentencia.close();
             if (n == 1){
