@@ -11,11 +11,13 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
     private JPanel pAlta;
     private JPanel pBaja;
     private JPanel pBotones;
-    private JTextField tfCompeticion;
-    private JTextField tfEquipo;
+    private JTextField tfCompeAlta;
+    private JTextField tfEquiAlta;
     private JPanel pPrincipal;
     private JRadioButton altaRadioButton;
     private JRadioButton bajaRadioButton;
+    private JTextField tfCompeBaja;
+    private JTextField tfEquiBaja;
 
     public VentanaAsociacionEquipoCompe(){
         super("Ventana Asociacion Equipo-Competicion");
@@ -40,20 +42,20 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
         this.salirButton = salirButton;
     }
 
-    public JTextField getTfCompeticion() {
-        return tfCompeticion;
+    public JTextField getTfCompeAlta() {
+        return tfCompeAlta;
     }
 
-    public void setTfCompeticion(JTextField tfCompeticion) {
-        this.tfCompeticion = tfCompeticion;
+    public void setTfCompeAlta(JTextField tfCompeAlta) {
+        this.tfCompeAlta = tfCompeAlta;
     }
 
-    public JTextField getTfEquipo() {
-        return tfEquipo;
+    public JTextField getTfEquiAlta() {
+        return tfEquiAlta;
     }
 
-    public void setTfEquipo(JTextField tfEquipo) {
-        this.tfEquipo = tfEquipo;
+    public void setTfEquiAlta(JTextField tfEquiAlta) {
+        this.tfEquiAlta = tfEquiAlta;
     }
 
     public JRadioButton getAltaRadioButton() {
@@ -72,21 +74,50 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
         this.bajaRadioButton = bajaRadioButton;
     }
 
-    public void clickRatonCompeAL (MouseListener al){
-        tfCompeticion.addMouseListener(al);
+    public JTextField getTfEquiBaja() {
+        return tfEquiBaja;
     }
-    public void clickRatonEquiAL (MouseListener al){
-        tfEquipo.addMouseListener(al);
+
+    public void setTfEquiBaja(JTextField tfEquiBaja) {
+        this.tfEquiBaja = tfEquiBaja;
     }
+
+    public JTextField getTfCompeBaja() {
+        return tfCompeBaja;
+    }
+
+    public void setTfCompeBaja(JTextField tfCompeBaja) {
+        this.tfCompeBaja = tfCompeBaja;
+    }
+
+    public void clickRatonCompeAltaAL(MouseListener al){
+        tfCompeAlta.addMouseListener(al);
+    }
+
+    public void clickRatonEquiAltaAL(MouseListener al){
+        tfEquiAlta.addMouseListener(al);
+    }
+
+    public void clickRatonCompeBajaAL (MouseListener al){
+        tfCompeBaja.addMouseListener(al);
+    }
+
+    public void clickRatonEquiBajaAL (MouseListener al){
+        tfEquiBaja.addMouseListener(al);
+    }
+
     public void bAceptarAL (ActionListener al){
         aceptarButton.addActionListener(al);
     }
+
     public void bSalirAL (ActionListener al){
         salirButton.addActionListener(al);
     }
+
     public void bRbAltaAL (ActionListener al){
         altaRadioButton.addActionListener(al);
     }
+
     public void bRbBajaAL (ActionListener al){
         bajaRadioButton.addActionListener(al);
     }
