@@ -57,7 +57,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="Fecha"/>
+              <text value="Fecha Fundación"/>
             </properties>
           </component>
         </children>
@@ -107,7 +107,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="Fecha"/>
+              <text value="Fecha Fundación"/>
             </properties>
           </component>
         </children>

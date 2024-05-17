@@ -1,5 +1,6 @@
 package controlador.baseDeDatos;
 
+import modelo.Equipo;
 import modelo.Jugador;
 
 import javax.swing.*;
@@ -8,8 +9,10 @@ import java.text.SimpleDateFormat;
 
 public class TablaJugadores {
     private Connection con;
-    public TablaJugadores(Connection con) {
+    ControladorBaseDeDatos cbd;
+    public TablaJugadores(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
+        this.cbd = cbd;
     }
     public void altaJugador(Jugador jugador){
         try{
@@ -22,7 +25,7 @@ public class TablaJugadores {
             sentencia.setString(4, jugador.getNickname());
             sentencia.setString(5, jugador.getRol());
             sentencia.setInt(6, jugador.getSueldo());
-            sentencia.setObject(7, jugador.getCodEquipo());
+            sentencia.setObject(7, jugador.getCodEquipo().getCodEquipo());
             int n = sentencia.executeUpdate();
             if (n != 1){
                 mostrar("No se ha insertado ningún jugador");
@@ -53,7 +56,7 @@ public class TablaJugadores {
     public void modiJugador(Jugador jugador, String fecha){
         try{
             String nombreProcedimiento = "GESTION_JUGADORES.ACTUALIZAR_JUGADOR";
-            String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?)}";
+            String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?,?)}";
             CallableStatement sentencia = con.prepareCall(plantilla);
             sentencia.setString(1, jugador.getNombreJugador());
             sentencia.setString(2, jugador.getNacionalidad());
@@ -65,6 +68,7 @@ public class TablaJugadores {
             sentencia.setString(4, jugador.getNickname());
             sentencia.setString(5, jugador.getRol());
             sentencia.setInt(6, jugador.getSueldo());
+            sentencia.setObject(7, jugador.getCodEquipo().getCodEquipo());
             int n = sentencia.executeUpdate();
             sentencia.close();
             if (n == 1){
@@ -77,7 +81,6 @@ public class TablaJugadores {
         }
     }
     public StringBuilder consultaJugador(String nombreJu){
-        Jugador jugador = null;
         try {
             String plantilla = "SELECT cod_jugador,nacionalidad,fecha_nac,nickname,rol,sueldo,cod_equipo FROM jugadores WHERE nombre_jugador = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
@@ -93,8 +96,9 @@ public class TablaJugadores {
                 String nick = respuesta.getString("nickname");
                 String rol = respuesta.getString("rol");
                 Integer sueldo = respuesta.getInt("sueldo");
-                Object eq = respuesta.getObject("cod_equipo");
-                pantalla.append("CODIGO JUGADOR: ").append(codJugador).append("\n").append("NACIONALIDAD: ").append(nacionalidad).append("\n").append("FECHA NACIMIENTO: ").append(fechaFormateada).append("\n").append("NICKNAME: ").append(nick).append("\n").append("ROL: ").append(rol).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("EQUIPO: ").append(eq);
+                int codEq = respuesta.getInt("cod_equipo");
+                Equipo eq = cbd.getNombreEquipoPorCodigo(codEq);
+                pantalla.append("CODIGO JUGADOR: ").append(codJugador).append("\n").append("NACIONALIDAD: ").append(nacionalidad).append("\n").append("FECHA NACIMIENTO: ").append(fechaFormateada).append("\n").append("NICKNAME: ").append(nick).append("\n").append("ROL: ").append(rol).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("EQUIPO: ").append(eq.getNombre().toUpperCase());
             }
             return pantalla;
         } catch (Exception e) {

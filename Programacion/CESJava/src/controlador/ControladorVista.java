@@ -1,6 +1,7 @@
 package controlador;
 
 import controlador.admin.ControladorAdmin;
+import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
@@ -27,6 +28,7 @@ public class ControladorVista {
     private ControladorJuego cjueg;
     private ControladorJugador cjuga;
     private ControladorPatrocinador cpat;
+    private ControladorClasificacion ccl;
 
 
 
@@ -86,6 +88,31 @@ public class ControladorVista {
     public void bajaPatrocinador(Patrocinador patr) {
         cp.bajaPatrocinador(patr);
     }
+
+    public void altaUsu(Usuario usu) throws Exception{
+        cp.altaUsu(usu);
+    }
+
+    public Usuario comprobarUsu(Usuario usu) throws Exception{
+        return cp.comprobarUsu(usu);
+    }
+
+    public ArrayList clasiEquipos() throws Exception{
+        return cp.clasiEquipos();
+    }
+
+    public ArrayList clasificacionAdmin(Competicion com) {
+        return cp.clasificacionAdmin(com);
+    }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return cp.getNombreJuegoPorCodigo(cod);
+    }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo) {
+        return cp.getNombreEquipoPorCodigo(codEquipo);
+    }
+
 
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
@@ -150,5 +177,9 @@ public class ControladorVista {
 
     public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         cp.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
+
+    public void desasociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        cp.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
 }

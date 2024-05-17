@@ -126,4 +126,32 @@ public class ControladorPrincipal {
     public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         cbd.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
+
+    public void desasociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        cbd.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
+
+    public void altaUsu(Usuario usu) throws Exception{
+        cbd.altaUsu(usu);
+    }
+
+    public Usuario comprobarUsu(Usuario usu) throws Exception{
+        return cbd.comprobarUsu(usu);
+    }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return cbd.getNombreJuegoPorCodigo(cod);
+    }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo) {
+        return cbd.getNombreEquipoPorCodigo(codEquipo);
+    }
+
+    public ArrayList clasiEquipos() throws Exception{
+        return cbd.clasiEquipo();
+    }
+
+    public ArrayList clasificacionAdmin(Competicion com) {
+       return cbd.calsificacionAdmin(com);
+    }
 }

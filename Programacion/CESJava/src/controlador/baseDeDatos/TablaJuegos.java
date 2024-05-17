@@ -16,7 +16,7 @@ public class TablaJuegos {
     }
     public void altaJuego (Juego juego){
         try{
-            String plantilla = "INSERT INTO juegos (nombre,desarrolladore,fecha_lanzamiento) VALUES (?,?,?)";
+            String plantilla = "INSERT INTO juegos (nombre,desarrolladora,fecha_lanzamiento) VALUES (?,?,?)";
             PreparedStatement sentencia = con.prepareStatement(plantilla);
             sentencia.setString(1, juego.getNombre());
             sentencia.setString(2, juego.getDesarrolladora());
@@ -53,14 +53,15 @@ public class TablaJuegos {
     }
     public void modiJuego(Juego juego){
         try {
-            String plantilla = "UPDATE juegos SET desarrolladora = ? AND fecha_lanzamiento = ? WHERE nombre = ?";
+            String plantilla = "UPDATE juegos SET desarrolladora = ?, fecha_lanzamiento = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
-            sentenciaPre.setString(1, juego.getNombre());
+            sentenciaPre.setString(3, juego.getNombre());
             String fechaVentana = String.valueOf(juego.getFechaLanzamiento());
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
-            java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-            sentenciaPre.setDate(2, fechaSql);
+            java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
+            sentenciaPre.setTimestamp(2, fechaSql);
+            sentenciaPre.setString(1, juego.getDesarrolladora());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
             if (n == 1){
@@ -72,22 +73,20 @@ public class TablaJuegos {
             throw new RuntimeException(e);
         }
     }
-    public Juego consultaJuego(String nombreJu){
+    public StringBuilder consultaJuego(String nombreJu){
         Juego juego = null;
         try {
             String plantilla = "SELECT desarrolladora,fecha_lanzamiento FROM juegos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreJu);
             ResultSet respuesta = sentenciaPre.executeQuery();
+            StringBuilder pantalla = new StringBuilder();
             if (respuesta.next()){
                 String desarrolladora = respuesta.getString("desarrolladora");
-                java.sql.Date fecha = respuesta.getDate("fecha_lanzamiento");
-                juego = new Juego();
-                juego.setNombre(nombreJu);
-                juego.setFechaLanzamiento(fecha.toLocalDate());
-                juego.setDesarrolladora(desarrolladora);
+                java.sql.Timestamp fecha = respuesta.getTimestamp("fecha_lanzamiento");
+                pantalla.append("DESARROLLADORA: ").append(desarrolladora).append("\n").append("FECHA LANZAMIENTO: ").append(fecha);
             }
-            return juego;
+            return pantalla;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -104,6 +103,24 @@ public class TablaJuegos {
                 juego = new Juego();
                 juego.setNombre(nombreJu);
                 juego.setCodJuego(codJuego);
+            }
+            return juego;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public Juego getNombreJuegoPorCodigo(int cod){
+        Juego juego = null;
+        try {
+            String plantilla = "SELECT nombre FROM juegos WHERE cod_juego = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setInt(1, cod);
+            ResultSet respuesta = sentenciaPre.executeQuery();
+            if (respuesta.next()){
+            String nombreJuego = respuesta.getString("nombre");
+                juego = new Juego();
+                juego.setNombre(nombreJuego);
+                juego.setCodJuego(cod);
             }
             return juego;
         } catch (Exception e) {

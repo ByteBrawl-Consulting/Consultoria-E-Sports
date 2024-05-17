@@ -15,7 +15,6 @@ public class VentanaPrincipalUsuario extends JFrame {
     private JPanel pClasificacion;
     private JTextField tfClasi;
     private JTextArea taClasi;
-    private JLabel jornadalb;
     private JLabel claselb;
     private JRadioButton rbJornada;
     private JRadioButton rbClasi;

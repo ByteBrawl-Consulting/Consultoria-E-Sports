@@ -4,9 +4,7 @@ import modelo.Equipo;
 
 import javax.swing.*;
 import java.sql.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 
 public class TablaEquipos {
     private Connection con;
@@ -57,7 +55,7 @@ public class TablaEquipos {
             String plantilla = "UPDATE equipos SET fecha_fundacion = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             String fechaVentana = fecha;
-            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
             sentenciaPre.setTimestamp(1, fechaSql);
@@ -82,10 +80,8 @@ public class TablaEquipos {
             ResultSet respuesta = sentenciaPre.executeQuery();
             StringBuilder pantalla =new StringBuilder();
             if (respuesta.next()){
-                Date fechaBD = respuesta.getDate("fecha_fundacion");
-                SimpleDateFormat formato = new SimpleDateFormat("yy-MM-dd");
-                String fechaFormateada = formato.format(fechaBD);
-                pantalla.append("CODIGO EQUIPO: ").append(respuesta.getString("cod_equipo")).append("\n").append("FECHA FUNDACION: ").append(fechaFormateada);
+                Timestamp fechaBD = respuesta.getTimestamp("fecha_fundacion");
+                pantalla.append("CODIGO EQUIPO: ").append(respuesta.getString("cod_equipo")).append("\n").append("FECHA FUNDACION: ").append(fechaBD);
             }
             return pantalla;
         } catch (Exception e) {
@@ -100,7 +96,7 @@ public class TablaEquipos {
             sentenciaPre.setString(1, nombreEq);
             ResultSet respuesta = sentenciaPre.executeQuery();
             if (respuesta.next()){
-                Integer codEquipo = respuesta.getInt("cod_equipo");
+                int codEquipo = respuesta.getInt("cod_equipo");
                 eq = new Equipo();
                 eq.setNombre(nombreEq);
                 eq.setCodEquipo(codEquipo);
@@ -114,7 +110,7 @@ public class TablaEquipos {
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
-    public int getCodigoEquipo(String nombreEquipo) {
+    public int getCodigoEquipoPorNombre(String nombreEquipo) {
         try {
             String query = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
             PreparedStatement stmt = con.prepareStatement(query);
@@ -127,5 +123,24 @@ public class TablaEquipos {
             e.printStackTrace();
         }
         return -1; // Devuelve -1 si no se encuentra el equipo
+    }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo){
+        Equipo equipo = null;
+        try {
+            String plantilla = "SELECT nombre FROM equipos WHERE cod_equipo = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setInt(1, codEquipo);
+            ResultSet respuesta = sentenciaPre.executeQuery();
+            if (respuesta.next()){
+                String nombreJuego = respuesta.getString("nombre");
+                equipo = new Equipo();
+                equipo.setNombre(nombreJuego);
+                equipo.setCodEquipo(codEquipo);
+            }
+            return equipo;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

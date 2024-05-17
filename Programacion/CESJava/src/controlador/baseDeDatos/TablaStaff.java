@@ -12,8 +12,10 @@ import java.text.ParseException;
 
 public class TablaStaff{
     Connection con;
-    public TablaStaff(Connection con) {
+    ControladorBaseDeDatos cbd;
+    public TablaStaff(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
+        this.cbd = cbd;
     }
     public void altaStaff (Staff staff){
         try {
@@ -22,7 +24,7 @@ public class TablaStaff{
             sentenciaPre.setString(1, staff.getNombre());
             sentenciaPre.setString(2, staff.getCargo());
             sentenciaPre.setInt(3, staff.getSueldo());
-            sentenciaPre.setObject(4, staff.getCodEquipo());
+            sentenciaPre.setObject(4, staff.getCodEquipo().getCodEquipo());
             int n =sentenciaPre.executeUpdate();
             if (n != 1){
                 mostrar("No se ha insertado ningún Staff");
@@ -55,7 +57,7 @@ public class TablaStaff{
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, cargo);
             sentenciaPre.setInt(2, sueldo);
-            sentenciaPre.setObject(3, cod_equipo);
+            sentenciaPre.setObject(3, staff.getCodEquipo().getCodEquipo());
             sentenciaPre.setString(4, staff.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
@@ -68,24 +70,22 @@ public class TablaStaff{
             throw new RuntimeException(e);
         }
     }
-    public Staff consultaStaff(String nombreStaff){
+    public StringBuilder consultaStaff(String nombreStaff){
         Staff staff = null;
         try {
             String plantilla = "SELECT cargo,sueldo,cod_equipo FROM staff WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreStaff);
             ResultSet respuesta = sentenciaPre.executeQuery();
+            StringBuilder pantalla = new StringBuilder();
             if (respuesta.next()){
                 Integer sueldo = respuesta.getInt("sueldo");
                 String cargo = respuesta.getString("cargo");
-                Equipo equipos = (Equipo)respuesta.getObject("cod_equipo");
-                staff = new Staff();
-                staff.setNombre(nombreStaff);
-                staff.setCargo(cargo);
-                staff.setSueldo(sueldo);
-                staff.setCodEquipo(equipos);
+                int codEquipo = respuesta.getInt("cod_equipo");
+                Equipo eq = cbd.getNombreEquipoPorCodigo(codEquipo);
+                pantalla.append("CARGO: ").append(cargo).append("\n").append("SUELDO: ").append(sueldo).append("\n").append("EQUIPO: ").append(eq.getNombre().toUpperCase());
             }
-            return staff;
+            return pantalla;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin  extends JFrame {
@@ -27,6 +28,7 @@ public class VentanaPrincipalAdmin  extends JFrame {
     private JButton competicionesButton;
     private JButton añadirEquipoACompeticiónButton;
     private JButton añadirPatrocinadorEquipoButton;
+    private JButton altaNuevoUsuarioButton;
 
     public VentanaPrincipalAdmin() throws HeadlessException {
         super("Panel de Administrador");
@@ -34,6 +36,19 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setSize(750, 450);
         setLocationRelativeTo(null);
     }
+    public void cerrarSesion (ActionListener al){cerrarSesionButton.addActionListener(al);}
+    public void bAltaUSu (ActionListener al){
+        altaNuevoUsuarioButton.addActionListener(al);
+    }
+
+    public JButton getAltaNuevoUsuarioButton() {
+        return altaNuevoUsuarioButton;
+    }
+
+    public void setAltaNuevoUsuarioButton(JButton altaNuevoUsuarioButton) {
+        this.altaNuevoUsuarioButton = altaNuevoUsuarioButton;
+    }
+
     public void addBSalir(ActionListener listener){
         salirButton.addActionListener(listener);
     }
@@ -58,4 +73,5 @@ public class VentanaPrincipalAdmin  extends JFrame {
     public void addBAsociarEquiCompe(ActionListener listener){
         añadirEquipoACompeticiónButton.addActionListener(listener);
     }
+    public void addClasi (ActionListener al){clasificacionMenuItem.addActionListener(al);}
 }

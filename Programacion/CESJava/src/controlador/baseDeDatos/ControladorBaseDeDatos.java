@@ -46,49 +46,49 @@ public class ControladorBaseDeDatos {
 
         /* ----------------- Conexion con la BD Clase Portatil ----------------- */
 
-        String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
-        String user = "eqdaw04";
-        String passwd = "eqdaw04";
-
-        try {
-            Class.forName("oracle.jdbc.OracleDriver");
-            con = DriverManager.getConnection(url, user, passwd);
-            System.out.println("Conexión exitosa a la base de datos");
-        } catch (SQLException e) {
-            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+//        String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
+//        String user = "eqdaw04";
+//        String passwd = "eqdaw04";
+//
+//        try {
+//            Class.forName("oracle.jdbc.OracleDriver");
+//            con = DriverManager.getConnection(url, user, passwd);
+//            System.out.println("Conexión exitosa a la base de datos");
+//        } catch (SQLException e) {
+//            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
 
         /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
 
-//            String url = "jdbc:oracle:thin:@localhost:1521:XE";
-//            String user = "userproyecto";
-//            String passwd = "userproyecto";
-//
-//            try {
-//                Class.forName("oracle.jdbc.OracleDriver");
-//                con = DriverManager.getConnection(url, user, passwd);
-//                System.out.println("Conexión exitosa a la base de datos");
-//
-//            } catch (SQLException e) {
-//                System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-//            } catch (ClassNotFoundException e) {
-//                throw new RuntimeException(e);
-//            }
+            String url = "jdbc:oracle:thin:@localhost:1521:XE";
+            String user = "userproyecto";
+            String passwd = "userproyecto";
+
+            try {
+                Class.forName("oracle.jdbc.OracleDriver");
+                con = DriverManager.getConnection(url, user, passwd);
+                System.out.println("Conexión exitosa a la base de datos");
+
+            } catch (SQLException e) {
+                System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
     }
 
     /* ----------------- Metodo Inicializacion Tablas  ----------------- */
 
     public void inicializarTablas(ControladorPrincipal cp) {
         tu = new TablaUsuarios(con);
-        ts = new TablaStaff(con);
+        ts = new TablaStaff(con, this);
         te = new TablaEquipos(con);
         tj = new TablaJornadas(con);
-        tju = new TablaJugadores(con);
+        tju = new TablaJugadores(con,this);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
-        tc = new TablaCompeticiones(con);
+        tc = new TablaCompeticiones(con,this);
         tb = new TablaClasi(con);
         tce = new TablaEquipoCompeticion(con, te, tc);
     }
@@ -199,5 +199,33 @@ public class ControladorBaseDeDatos {
 
     public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         tce.altaEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
+
+    public void desasociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        tce.bajaEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
+
+    public void altaUsu(Usuario usu) throws Exception{
+        tu.altaUsu(usu);
+    }
+
+    public Usuario comprobarUsu(Usuario usu) throws Exception{
+        return tu.comprobarUsu(usu);
+    }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return tjue.getNombreJuegoPorCodigo(cod);
+    }
+
+    public Equipo getNombreEquipoPorCodigo(int codEquipo) {
+        return te.getNombreEquipoPorCodigo(codEquipo);
+    }
+
+    public ArrayList clasiEquipo() throws Exception{
+        return tc.clasiEquipo();
+    }
+
+    public ArrayList calsificacionAdmin(Competicion com) {
+       return tc.clasificacionAdmin(com);
     }
 }

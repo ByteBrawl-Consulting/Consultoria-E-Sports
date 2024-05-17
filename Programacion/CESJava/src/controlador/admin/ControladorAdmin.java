@@ -1,12 +1,14 @@
 package controlador.admin;
 
 import controlador.ControladorVista;
+import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipo_competicion.ControladorEquipoCompeticion;
 import controlador.equipos.ControladorEquipo;
 import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.patrocinadores.ControladorPatrocinador;
+import controlador.registrar.ControladorRegistrar;
 import controlador.staff.ControladorStaff;
 import view.VentanaEquipos;
 import view.VentanaPrincipalAdmin;
@@ -24,6 +26,8 @@ public class ControladorAdmin {
     private ControladorPatrocinador cp;
     private ControladorCompeticion cc;
     private ControladorEquipoCompeticion cec;
+    private ControladorRegistrar cr;
+    private ControladorClasificacion ccl;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -43,6 +47,14 @@ public class ControladorAdmin {
         vpa.addBCompeticiones(new bCompeticiones());
         vpa.addBPatrocinadores(new bPatrocinadores());
         vpa.addBAsociarEquiCompe(new bAsociarEquiCompe());
+        vpa.bAltaUSu(new bAltaUsu());
+        vpa.cerrarSesion(new cerrarSesion());
+        vpa.addClasi(new clasi());
+    }
+    private class cerrarSesion implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            vpa.dispose();
+        }
     }
     private class bSalir implements ActionListener {
         @Override
@@ -95,6 +107,16 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cec = new ControladorEquipoCompeticion(cv);
+        }
+    }
+    private class bAltaUsu implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            cr = new ControladorRegistrar(cv);
+        }
+    }
+    private class clasi implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            ccl = new ControladorClasificacion(cv);
         }
     }
 }

@@ -1,19 +1,10 @@
 package controlador.equipo_competicion;
 
 import controlador.ControladorVista;
-import controlador.equipos.ControladorEquipo;
-import controlador.login.ControladorLogin;
-import modelo.Equipo;
 import view.VentanaAsociacionEquipoCompe;
-import view.VentanaLogin;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.awt.event.*;
 
 public class ControladorEquipoCompeticion {
     private VentanaAsociacionEquipoCompe vaec;
@@ -23,8 +14,11 @@ public class ControladorEquipoCompeticion {
         this.cv = cv;
         vaec = new VentanaAsociacionEquipoCompe();
 
-        vaec.clickRatonCompeAL(new clickRatonCompe());
-        vaec.clickRatonEquiAL(new clickRatonEqui());
+        vaec.getTfCompeAlta().addFocusListener(new PlaceholderListener("Competición"));
+        vaec.getTfEquiAlta().addFocusListener(new PlaceholderListener("Equipo"));
+        vaec.getTfCompeBaja().addFocusListener(new PlaceholderListener("Competición"));
+        vaec.getTfEquiBaja().addFocusListener(new PlaceholderListener("Equipo"));
+
         vaec.bAceptarAL(new bAceptar());
         vaec.bSalirAL(new bSalir());
 
@@ -34,74 +28,12 @@ public class ControladorEquipoCompeticion {
         vaec.setVisible(true);
     }
 
-    public class clickRatonCompe implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (vaec.getTfCompeticion().getText().equals("Competición")) {
-                vaec.getTfCompeticion().setText("");
-            }
-            if (vaec.getTfEquipo().getText().isEmpty()) {
-                vaec.getTfEquipo().setText("Competición");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
-    public class clickRatonEqui implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            if (vaec.getTfEquipo().getText().equals("Equipo")) {
-                vaec.getTfEquipo().setText("");
-            }
-            if (vaec.getTfCompeticion().getText().isEmpty()) {
-                vaec.getTfCompeticion().setText("Equipo");
-            }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-
     public class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (vaec.getAltaRadioButton().isSelected()) {
-                String nombreEquipo = vaec.getTfEquipo().getText();
-                String nombreCompeticion = vaec.getTfCompeticion().getText();
+                String nombreEquipo = vaec.getTfEquiAlta().getText();
+                String nombreCompeticion = vaec.getTfCompeAlta().getText();
 
                 if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
@@ -114,23 +46,23 @@ public class ControladorEquipoCompeticion {
                     JOptionPane.showMessageDialog(null, "Error al asociar equipo y competición: " + ex.getMessage());
                 }
             } else if (vaec.getBajaRadioButton().isSelected()) {
-                //TODO HACER BAJA DE EQUIPO COMPETICION
-//                String nombreEquipo = vaec.getTfEquipo().getText();
-//                String nombreCompeticion = vaec.getTfCompeticion().getText();
-//
-//                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
-//                    JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
-//                    return;
-//                }
-//
-//                try {
-//                    cv.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
-//                } catch (RuntimeException ex) {
-//                    JOptionPane.showMessageDialog(null, "Error al desasociar equipo y competición: " + ex.getMessage());
-//                }
+                String nombreEquipo = vaec.getTfEquiBaja().getText();
+                String nombreCompeticion = vaec.getTfCompeBaja().getText();
+
+                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
+                    return;
+                }
+
+                try {
+                    cv.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+                } catch (RuntimeException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al desasociar equipo y competición: " + ex.getMessage());
+                }
             }
         }
     }
+
 
     public class bSalir implements ActionListener {
         @Override
@@ -150,6 +82,30 @@ public class ControladorEquipoCompeticion {
         @Override
         public void actionPerformed(ActionEvent e) {
             vaec.eleccionBaja();
+        }
+    }
+
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
+            }
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
+            }
         }
     }
 }
