@@ -134,4 +134,8 @@ public class ControladorPrincipal {
     public Usuario comprobarUsu(Usuario usu) throws Exception{
        return cbd.comprobarUsu(usu);
     }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return cbd.getNombreJuegoPorCodigo(cod);
+    }
 }

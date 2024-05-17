@@ -95,6 +95,10 @@ public class ControladorVista {
        return cp.comprobarUsu(usu);
     }
 
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return cp.getNombreJuegoPorCodigo(cod);
+    }
+
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override

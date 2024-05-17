@@ -206,6 +206,10 @@ public class ControladorBaseDeDatos {
     }
 
     public Usuario comprobarUsu(Usuario usu) throws Exception{
-       return tu.comprobarUsu(usu);
+        return tu.comprobarUsu(usu);
+    }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return tjue.getNombreJuegoPorCodigo(cod);
     }
 }

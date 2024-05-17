@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 
 public class TablaCompeticiones {
     Connection con;
+    ControladorBaseDeDatos cbd;
 
     public TablaCompeticiones(Connection con) {
         this.con = con;
@@ -94,9 +95,9 @@ public class TablaCompeticiones {
             if (respuesta.next()){
                 java.sql.Timestamp fechaInicio = respuesta.getTimestamp("fecha_inicio");
                 java.sql.Timestamp fechaFin = respuesta.getTimestamp("fecha_fin");
-                //cambiar esto: devuelve integer
                 int codJuego = respuesta.getInt("cod_juego");
-                pantalla.append("FECHA INICIO: ").append(fechaInicio).append("\n").append("FECHA FIN: ").append(fechaFin).append("\n").append("JUEGO: ");
+                Juego ju = cbd.getNombreJuegoPorCodigo(codJuego);
+                pantalla.append("FECHA INICIO: ").append(fechaInicio).append("\n").append("FECHA FIN: ").append(fechaFin).append("\n").append("JUEGO: ").append(ju.getNombre());
             }
             return pantalla;
         } catch (SQLException e) {

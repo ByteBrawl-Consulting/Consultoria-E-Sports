@@ -112,7 +112,7 @@ public class ControladorCompeticion {
                     compe.setNombre(nombre);
                     compe.setFechaInicio(fechaSql1.toLocalDate());
                     compe.setFechaFin(fechaSql2.toLocalDate());
-                    compe.setCodJuego(cv.buscarJuego(juego));
+                    compe.setCodJuego(cv.getNombreJuegoPorCodigo(cv.buscarJuego(nombre).getCodJuego()));
                     cv.modiCompeticion(compe);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
