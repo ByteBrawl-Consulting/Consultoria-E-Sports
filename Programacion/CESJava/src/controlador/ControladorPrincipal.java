@@ -130,4 +130,8 @@ public class ControladorPrincipal {
     public void altaUsu(Usuario usu) throws Exception{
         cbd.altaUsu(usu);
     }
+
+    public Usuario comprobarUsu(Usuario usu) throws Exception{
+       return cbd.comprobarUsu(usu);
+    }
 }

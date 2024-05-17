@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin  extends JFrame {
@@ -35,6 +36,7 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setSize(750, 450);
         setLocationRelativeTo(null);
     }
+    public void cerrarSesion (ActionListener al){cerrarSesionButton.addActionListener(al);}
     public void bAltaUSu (ActionListener al){
         altaNuevoUsuarioButton.addActionListener(al);
     }

@@ -91,6 +91,10 @@ public class ControladorVista {
         cp.altaUsu(usu);
     }
 
+    public Usuario comprobarUsu(Usuario usu) throws Exception{
+       return cp.comprobarUsu(usu);
+    }
+
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
         @Override

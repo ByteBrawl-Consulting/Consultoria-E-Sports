@@ -57,12 +57,16 @@ public class ControladorLogin {
                 usu.setTipo(vl.getTfUsu().getText());
                 usu.setContrasena(vl.getTfPassword().getText());
                 String nombreAU = cv.login(usu);
-
+                Usuario usu2 = cv.comprobarUsu(usu);
                 if (nombreAU.equals("Administrador") || nombreAU.equals("1")) {
+                    vl.getTfUsu().setText("Usuario");
+                    vl.getTfPassword().setText("Contraseña");
                     ca = new ControladorAdmin(cv);
-                } else if (nombreAU.equals("Usuario") || nombreAU.equals("2")) {
-                    cu = new ControladorUsuario(cv);
 
+                } else if (usu.getTipo().equals(usu2.getTipo()) && usu.getContrasena().equals(usu2.getContrasena()) || nombreAU.equals("2")) {
+                    vl.getTfUsu().setText("Usuario");
+                    vl.getTfPassword().setText("Contraseña");
+                    cu = new ControladorUsuario(cv);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecto", "Error", JOptionPane.ERROR_MESSAGE);
                 }

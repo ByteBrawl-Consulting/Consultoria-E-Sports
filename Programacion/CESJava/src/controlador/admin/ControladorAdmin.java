@@ -46,6 +46,12 @@ public class ControladorAdmin {
         vpa.addBPatrocinadores(new bPatrocinadores());
         vpa.addBAsociarEquiCompe(new bAsociarEquiCompe());
         vpa.bAltaUSu(new bAltaUsu());
+        vpa.cerrarSesion(new cerrarSesion());
+    }
+    private class cerrarSesion implements ActionListener{
+        public void actionPerformed (ActionEvent e){
+            vpa.dispose();
+        }
     }
     private class bSalir implements ActionListener {
         @Override

@@ -7,6 +7,8 @@ import view.VentanaRegistrarusu;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControladorRegistrar {
     private VentanaRegistrarusu vru;
@@ -26,7 +28,15 @@ public class ControladorRegistrar {
                 Usuario usu = new Usuario();
                 usu.setTipo(vru.getTfUsu().getText());
                 usu.setContrasena(vru.getTfPass().getText());
+                Pattern pat = Pattern.compile("^[0-9]*$");
+                Matcher mach = pat.matcher(usu.getContrasena());
+                if (!mach.matches()) throw new Exception("Error en el formato de la contraseña 'Solo pueden ser numeros'");
+                Pattern pat1 = Pattern.compile("^[a-z\sA-Z]*$");
+                Matcher mach1 = pat1.matcher(usu.getTipo());
+                if (!mach1.matches()) throw new Exception("El nombre de usuario solo puede contener letras");
                 cv.altaUsu(usu);
+                vru.getTfUsu().setText("");
+                vru.getTfPass().setText("");
             }catch (Exception ex){
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
