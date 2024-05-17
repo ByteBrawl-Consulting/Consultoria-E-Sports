@@ -92,7 +92,11 @@ public class ControladorVista {
     }
 
     public Usuario comprobarUsu(Usuario usu) throws Exception{
-       return cp.comprobarUsu(usu);
+        return cp.comprobarUsu(usu);
+    }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return cp.getNombreJuegoPorCodigo(cod);
     }
 
     /* ----------- Botones Ventana Administrador ------------- */

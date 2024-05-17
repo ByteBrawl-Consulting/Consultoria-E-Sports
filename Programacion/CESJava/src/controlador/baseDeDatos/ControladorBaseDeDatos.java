@@ -88,7 +88,7 @@ public class ControladorBaseDeDatos {
         tju = new TablaJugadores(con);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
-        tc = new TablaCompeticiones(con);
+        tc = new TablaCompeticiones(con,this);
         tb = new TablaClasi(con);
         tce = new TablaEquipoCompeticion(con, te, tc);
     }
@@ -206,6 +206,10 @@ public class ControladorBaseDeDatos {
     }
 
     public Usuario comprobarUsu(Usuario usu) throws Exception{
-       return tu.comprobarUsu(usu);
+        return tu.comprobarUsu(usu);
+    }
+
+    public Juego getNombreJuegoPorCodigo(int cod) {
+        return tjue.getNombreJuegoPorCodigo(cod);
     }
 }
