@@ -6,6 +6,7 @@ import modelo.Staff;
 import view.VentanaStaff;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -42,6 +43,9 @@ public class ControladorStaff {
         vs.getTfEquipoModi().addFocusListener(new PlaceholderListener("Equipo"));
 
         vs.getTfNombreCons().addFocusListener(new PlaceholderListener("Nombre"));
+
+        vs.getTaConsulta().setEditable(false);
+        vs.getTaConsulta().setBackground(new Color(205, 205, 205));
     }
 
     private class bSalir implements ActionListener {
@@ -55,7 +59,7 @@ public class ControladorStaff {
         @Override
         public void actionPerformed(ActionEvent e) {
             Staff staff = new Staff();
-            if (vs.getRbAlta().isSelected()){
+            if (vs.getRbAlta().isSelected()) {
                 String nombre = vs.getTfNombreAlta().getText();
                 String cargo = vs.getTfCargoAlta().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoAlta().getText());
@@ -66,11 +70,11 @@ public class ControladorStaff {
                 staff.setSueldo(sueldo);
                 staff.setCodEquipo(eq);
                 cv.altaStaff(staff);
-            }else if (vs.getRbBaja().isSelected()){
+            } else if (vs.getRbBaja().isSelected()) {
                 String nombre = vs.getTfNombreBaja().getText();
                 staff.setNombre(nombre);
                 cv.bajaStaff(staff);
-            }else if (vs.getRbModi().isSelected()){
+            } else if (vs.getRbModi().isSelected()) {
                 String nombre = vs.getTfNombreModi().getText();
                 String cargo = vs.getTfCargoModi().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoModi().getText());
@@ -80,7 +84,7 @@ public class ControladorStaff {
                 staff.setSueldo(sueldo);
                 staff.setCodEquipo(eq);
                 cv.modiStaff(staff,cargo,sueldo,eq);
-            }else if (vs.getRbConsulta().isSelected()){
+            } else if (vs.getRbConsulta().isSelected()) {
                 String nombre = vs.getTfNombreCons().getText();
                 staff.setNombre(nombre);
                 vs.getTaConsulta().setText(cv.cosultaStaff(nombre));
