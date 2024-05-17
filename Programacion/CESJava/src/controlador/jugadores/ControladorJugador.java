@@ -82,7 +82,7 @@ public class ControladorJugador {
                     ju.setNickname(nick);
                     ju.setRol(rol);
                     ju.setSueldo(sueldo);
-                    cv.modiJugador(ju);
+                    cv.modiJugador(ju, fecha);
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }

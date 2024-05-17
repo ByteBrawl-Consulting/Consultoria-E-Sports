@@ -49,13 +49,13 @@ public class TablaStaff{
             throw new RuntimeException(e);
         }
     }
-    public void modiStaff(Staff staff){
+    public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo){
         try {
-            String plantilla = "UPDATE staff SET cargo = ? AND sueldo = ? AND cod_equipo = ? WHERE nombre = ?";
+            String plantilla = "UPDATE staff SET cargo = ?, sueldo = ?, cod_equipo = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
-            sentenciaPre.setString(1, staff.getCargo());
-            sentenciaPre.setInt(2, staff.getSueldo());
-            sentenciaPre.setObject(3, staff.getCodEquipo());
+            sentenciaPre.setString(1, cargo);
+            sentenciaPre.setInt(2, sueldo);
+            sentenciaPre.setObject(3, cod_equipo);
             sentenciaPre.setString(4, staff.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
