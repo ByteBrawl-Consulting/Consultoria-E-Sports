@@ -77,4 +77,5 @@ public class VentanaPrincipalAdmin  extends JFrame {
         añadirPatrocinadorEquipoButton.addActionListener(listener);
     }
     public void addClasi (ActionListener al){clasificacionMenuItem.addActionListener(al);}
+    public void addBCerrarEtapaInscripcion (ActionListener al){cerrarEtapaInscripcionMenuItem.addActionListener(al);}
 }

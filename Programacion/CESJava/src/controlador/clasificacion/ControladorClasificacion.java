@@ -24,6 +24,7 @@ public class ControladorClasificacion {
         llenarCB();
         vca.cbClasiAL(new taClasi());
     }
+
         public void llenarCB (){
             try {
                 ArrayList<Competicion> lista = cv.clasiEquipos();
@@ -36,6 +37,7 @@ public class ControladorClasificacion {
             }
 
         }
+
         public class taClasi implements ActionListener {
         public void actionPerformed (ActionEvent e){
             Competicion com = new Competicion();
@@ -49,6 +51,6 @@ public class ControladorClasificacion {
             }
             vca.getTaClasi().setText(String.valueOf(resultado));
         }
-        }
     }
+}
 
