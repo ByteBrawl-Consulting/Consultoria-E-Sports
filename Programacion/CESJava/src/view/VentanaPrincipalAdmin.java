@@ -73,4 +73,5 @@ public class VentanaPrincipalAdmin  extends JFrame {
     public void addBAsociarEquiCompe(ActionListener listener){
         añadirEquipoACompeticiónButton.addActionListener(listener);
     }
+    public void addClasi (ActionListener al){clasificacionMenuItem.addActionListener(al);}
 }

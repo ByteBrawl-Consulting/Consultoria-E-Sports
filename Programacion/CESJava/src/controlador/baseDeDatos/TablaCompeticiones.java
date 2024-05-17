@@ -1,7 +1,6 @@
 package controlador.baseDeDatos;
 
-import modelo.Competicion;
-import modelo.Juego;
+import modelo.*;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -9,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class TablaCompeticiones {
     Connection con;
@@ -123,6 +123,4 @@ public class TablaCompeticiones {
         }
         return -1;
     }
-
-
 }

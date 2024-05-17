@@ -142,4 +142,12 @@ public class ControladorPrincipal {
     public Equipo getNombreEquipoPorCodigo(int codEquipo) {
         return cbd.getNombreEquipoPorCodigo(codEquipo);
     }
+
+    public ArrayList clasiEquipos() throws Exception{
+        return cbd.clasiEquipo();
+    }
+
+    public ArrayList clasificacionAdmin(Competicion com) {
+       return cbd.calsificacionAdmin(com);
+    }
 }
