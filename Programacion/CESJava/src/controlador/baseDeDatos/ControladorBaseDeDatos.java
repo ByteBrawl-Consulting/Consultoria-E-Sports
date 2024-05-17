@@ -208,4 +208,8 @@ public class ControladorBaseDeDatos {
     public Usuario comprobarUsu(Usuario usu) throws Exception{
        return tu.comprobarUsu(usu);
     }
+
+    public ArrayList clasiEquipo() throws Exception{
+        return tc.clasiEquipo();
+    }
 }

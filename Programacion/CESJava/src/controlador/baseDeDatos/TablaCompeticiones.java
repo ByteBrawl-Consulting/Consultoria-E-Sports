@@ -1,6 +1,8 @@
 package controlador.baseDeDatos;
 
+import modelo.Clasificacion;
 import modelo.Competicion;
+import modelo.Equipo;
 import modelo.Juego;
 
 import javax.swing.*;
@@ -9,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class TablaCompeticiones {
     Connection con;
@@ -123,4 +126,20 @@ public class TablaCompeticiones {
         return -1;
     }
 
+    public ArrayList clasiEquipo() throws Exception{
+        ArrayList<Clasificacion> lista = new ArrayList<>();
+        String plantilla = "select e.nombre from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe join equipos e on ec.cod_equipo=e.cod_equipo";
+        PreparedStatement pre = con.prepareStatement(plantilla);
+        ResultSet res = pre.executeQuery();
+        while (res.next()){
+            Equipo eq =new Equipo();
+            Clasificacion cla = new Clasificacion();
+
+            eq.setNombre(res.getString(1));
+            cla.setCodequipo(eq);
+            lista.add(cla);
+        }
+
+        return lista;
+    }
 }
