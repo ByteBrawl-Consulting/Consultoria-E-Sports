@@ -46,23 +46,23 @@ public class ControladorEquipoCompeticion {
                     JOptionPane.showMessageDialog(null, "Error al asociar equipo y competición: " + ex.getMessage());
                 }
             } else if (vaec.getBajaRadioButton().isSelected()) {
-                //TODO HACER BAJA DE EQUIPO COMPETICION
-//                String nombreEquipo = vaec.getTfEquipo().getText();
-//                String nombreCompeticion = vaec.getTfCompeticion().getText();
-//
-//                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
-//                    JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
-//                    return;
-//                }
-//
-//                try {
-//                    cv.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
-//                } catch (RuntimeException ex) {
-//                    JOptionPane.showMessageDialog(null, "Error al desasociar equipo y competición: " + ex.getMessage());
-//                }
+                String nombreEquipo = vaec.getTfEquiBaja().getText();
+                String nombreCompeticion = vaec.getTfCompeBaja().getText();
+
+                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
+                    return;
+                }
+
+                try {
+                    cv.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
+                } catch (RuntimeException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al desasociar equipo y competición: " + ex.getMessage());
+                }
             }
         }
     }
+
 
     public class bSalir implements ActionListener {
         @Override

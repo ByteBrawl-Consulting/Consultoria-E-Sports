@@ -53,6 +53,42 @@ public class TablaEquipoCompeticion {
         }
     }
 
+    public void bajaEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        try {
+            int codEquipo = tablaEquipos.getCodigoEquipoPorNombre(nombreEquipo);
+            int codCompeticion = tablaCompeticiones.getCodigoCompeticionPorNombre(nombreCompeticion);
+
+            if (codEquipo == -1 || codCompeticion == -1) {
+                System.out.println("Equipo o Competición no encontrados");
+                throw new Exception("Equipo o Competición no encontrados");
+            }
+
+            System.out.println("CodEquipo: " + codEquipo + ", CodCompeticion: " + codCompeticion);
+
+            String plantilla = "DELETE FROM equipo_competicion WHERE cod_equipo = ? AND cod_competicion = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setInt(1, codEquipo);
+            sentenciaPre.setInt(2, codCompeticion);
+
+            int n = sentenciaPre.executeUpdate();
+            if (n != 1) {
+                throw new Exception("No se ha podido eliminar la asociación");
+            } else {
+                System.out.println("Asociación eliminada");
+                mostrar("Asociación eliminada");
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL Error Code: " + e.getErrorCode());
+            System.out.println("SQL State: " + e.getSQLState());
+            System.out.println("Error Message: " + e.getMessage());
+            e.printStackTrace(); // Logs Depuracion
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace(); // Logs Depuracion
+            throw new RuntimeException(e);
+        }
+    }
+
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }

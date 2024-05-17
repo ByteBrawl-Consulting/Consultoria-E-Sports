@@ -201,6 +201,10 @@ public class ControladorBaseDeDatos {
         tce.altaEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
 
+    public void desasociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
+        tce.bajaEquipoCompeticion(nombreEquipo, nombreCompeticion);
+    }
+
     public void altaUsu(Usuario usu) throws Exception{
         tu.altaUsu(usu);
     }
