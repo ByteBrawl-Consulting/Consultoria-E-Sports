@@ -25,11 +25,12 @@ public class ControladorLogin {
         this.cv = cv;
         vl = new VentanaLogin();
 
-        vl.clickRatonUsuAL(new clickRatonUsu());
-        vl.clickRatonPassAL(new clickRatonPass());
         vl.bAyudaAL(new bAyuda());
         vl.bEntrarAL(new bEntrar());
         vl.bSalirAL(new bSalir());
+
+        vl.getTfUsu().addFocusListener(new PlaceholderListener("Usuario"));
+        vl.getTfPassword().addFocusListener(new PlaceholderListener("Contraseña"));
 
         vl.setVisible(true);
     }
@@ -76,60 +77,27 @@ public class ControladorLogin {
         }
     }
 
-    public class clickRatonUsu implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            vl.getTfUsu().setText("");
-            if (vl.getTfPassword().getText().isEmpty()) {
-                vl.getTfPassword().setText("Contraseña");
+    public class PlaceholderListener implements FocusListener {
+        private String placeholder;
+
+        public PlaceholderListener(String placeholder) {
+            this.placeholder = placeholder;
+        }
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().equals(placeholder)) {
+                textField.setText("");
             }
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
-        }
-    }
-    public class clickRatonPass implements MouseListener {
-        public void mouseClicked(MouseEvent e) {
-            vl.getTfPassword().setText("");
-            if (vl.getTfUsu().getText().isEmpty()) {
-                vl.getTfUsu().setText("Usuario");
+        public void focusLost(FocusEvent e) {
+            JTextField textField = (JTextField) e.getSource();
+            if (textField.getText().isEmpty()) {
+                textField.setText(placeholder);
             }
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-
         }
     }
 }
