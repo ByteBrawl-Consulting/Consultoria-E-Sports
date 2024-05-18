@@ -3,7 +3,7 @@ package view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class VentanaCerrarInscripciones extends JFrame{
+public class VentanaCerrarInscripciones extends JFrame {
     private JPanel pPrincipal;
     private JTextArea taConsulta;
     private JButton aceptarButton;
@@ -16,7 +16,7 @@ public class VentanaCerrarInscripciones extends JFrame{
     public VentanaCerrarInscripciones() {
         super("Ventana Cerrar Inscripciones");
         setContentPane(pPrincipal);
-        setSize(850,500);
+        setSize(850, 500);
         setLocationRelativeTo(null);
     }
 

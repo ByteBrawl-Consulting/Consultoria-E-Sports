@@ -3,7 +3,7 @@ package view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class VentanaPatrocinadores extends JFrame{
+public class VentanaPatrocinadores extends JFrame {
     private JPanel pPrincipal;
     private JRadioButton rbAlta;
     private JRadioButton rbBaja;
@@ -14,38 +14,46 @@ public class VentanaPatrocinadores extends JFrame{
     private JTextField tfNombreAlta;
     private JTextField tfNombreBaja;
 
-    public VentanaPatrocinadores(){
+    public VentanaPatrocinadores() {
         super("Ventana Patrocinadores");
         setContentPane(pPrincipal);
-        setSize(500,600);
+        setSize(500, 600);
         setLocationRelativeTo(null);
     }
-    public void eleccionAlta(){
+
+    public void eleccionAlta() {
         pAlta.setVisible(true);
         pBaja.setVisible(false);
     }
-    public void eleccionBaja(){
+
+    public void eleccionBaja() {
         pAlta.setVisible(false);
         pBaja.setVisible(true);
     }
-    public void eleccionModi(){
+
+    public void eleccionModi() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
     }
-    public void eleccionConsulta(){
+
+    public void eleccionConsulta() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
     }
-    public void bAceptarAl(ActionListener listener){
+
+    public void bAceptarAl(ActionListener listener) {
         bAceptar.addActionListener(listener);
     }
-    public void bSalirAL(ActionListener listener){
+
+    public void bSalirAL(ActionListener listener) {
         bSalir.addActionListener(listener);
     }
-    public void bRbAltaAL(ActionListener listener){
+
+    public void bRbAltaAL(ActionListener listener) {
         rbAlta.addActionListener(listener);
     }
-    public void bRbBajaAL(ActionListener listener){
+
+    public void bRbBajaAL(ActionListener listener) {
         rbBaja.addActionListener(listener);
     }
 

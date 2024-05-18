@@ -10,12 +10,14 @@ import java.text.SimpleDateFormat;
 public class TablaJugadores {
     private Connection con;
     ControladorBaseDeDatos cbd;
+
     public TablaJugadores(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
         this.cbd = cbd;
     }
-    public void altaJugador(Jugador jugador){
-        try{
+
+    public void altaJugador(Jugador jugador) {
+        try {
             String nombreProcedimiento = "GESTION_JUGADORES.AGREGAR_JUGADOR";
             String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?,?)}";
             CallableStatement sentencia = con.prepareCall(plantilla);
@@ -27,34 +29,36 @@ public class TablaJugadores {
             sentencia.setInt(6, jugador.getSueldo());
             sentencia.setObject(7, jugador.getCodEquipo().getCodEquipo());
             int n = sentencia.executeUpdate();
-            if (n != 1){
+            if (n != 1) {
                 mostrar("No se ha insertado ningún jugador");
-            }else{
+            } else {
                 mostrar("Jugador insertado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void bajaJugador(Jugador jugador){
-        try{
+
+    public void bajaJugador(Jugador jugador) {
+        try {
             String nombreProcedimiento = "GESTION_JUGADORES.ELIMINAR_JUGADOR";
             String plantilla = "{call " + nombreProcedimiento + "(?)}";
             CallableStatement sentencia = con.prepareCall(plantilla);
             sentencia.setString(1, jugador.getNombreJugador());
             int n = sentencia.executeUpdate();
             sentencia.close();
-            if (n == 1){
+            if (n == 1) {
                 mostrar("Jugador borrado");
-            }else{
+            } else {
                 mostrar("Jugador no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void modiJugador(Jugador jugador, String fecha){
-        try{
+
+    public void modiJugador(Jugador jugador, String fecha) {
+        try {
             String nombreProcedimiento = "GESTION_JUGADORES.ACTUALIZAR_JUGADOR";
             String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?,?)}";
             CallableStatement sentencia = con.prepareCall(plantilla);
@@ -71,23 +75,24 @@ public class TablaJugadores {
             sentencia.setObject(7, jugador.getCodEquipo().getCodEquipo());
             int n = sentencia.executeUpdate();
             sentencia.close();
-            if (n == 1){
+            if (n == 1) {
                 mostrar("Jugador actualizado");
-            }else{
+            } else {
                 mostrar("Jugador no encontrado");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public StringBuilder consultaJugador(String nombreJu){
+
+    public StringBuilder consultaJugador(String nombreJu) {
         try {
             String plantilla = "SELECT cod_jugador,nacionalidad,fecha_nac,nickname,rol,sueldo,cod_equipo FROM jugadores WHERE nombre_jugador = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreJu);
             ResultSet respuesta = sentenciaPre.executeQuery();
             StringBuilder pantalla = new StringBuilder();
-            if (respuesta.next()){
+            if (respuesta.next()) {
                 Integer codJugador = respuesta.getInt("cod_jugador");
                 String nacionalidad = respuesta.getString("nacionalidad");
                 Date fechaBD = respuesta.getDate("fecha_nac");
@@ -105,6 +110,7 @@ public class TablaJugadores {
             throw new RuntimeException(e);
         }
     }
+
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }

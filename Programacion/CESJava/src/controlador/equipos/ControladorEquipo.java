@@ -13,13 +13,14 @@ import java.text.SimpleDateFormat;
 public class ControladorEquipo {
     private VentanaEquipos ve;
     private ControladorVista cv;
+
     public ControladorEquipo(ControladorVista cv) {
         this.cv = cv;
 
         ve = new VentanaEquipos();
 
         mostrar();
-        
+
         ve.bAceptarAl(new bAceptar());
         ve.bSalirAL(new bSalir());
         ve.bRbAltaAL(new bAlta());
@@ -40,9 +41,11 @@ public class ControladorEquipo {
         ve.getTaConsulta().setEditable(false);
         ve.getTaConsulta().setBackground(new Color(205, 205, 205));
     }
-    public void mostrar(){
+
+    public void mostrar() {
         ve.setVisible(true);
     }
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -54,7 +57,7 @@ public class ControladorEquipo {
         @Override
         public void actionPerformed(ActionEvent e) {
             Equipo eq = new Equipo();
-            if(ve.getRbAlta().isSelected()){
+            if (ve.getRbAlta().isSelected()) {
                 try {
                     String nombre = ve.getTfNombreAlta().getText();
                     String fecha = ve.getTfFechaAlta().getText();
@@ -68,16 +71,15 @@ public class ControladorEquipo {
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
-            }else if (ve.getRbBaja().isSelected()){
-                try{
+            } else if (ve.getRbBaja().isSelected()) {
+                try {
                     String nombre = ve.getTfNombreBaja().getText();
                     eq.setNombre(nombre);
                     cv.bajaEquipo(eq);
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
-            }
-            else if (ve.getRbModificacion().isSelected()){
+            } else if (ve.getRbModificacion().isSelected()) {
                 try {
                     String nombre = ve.getTfNombreModi().getText();
                     String fecha = ve.getTfFechaModi().getText();
@@ -90,7 +92,7 @@ public class ControladorEquipo {
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
-            }else if (ve.getRbConsulta().isSelected()){
+            } else if (ve.getRbConsulta().isSelected()) {
                 try {
                     String nombre = ve.getTfNombreCons().getText();
                     eq.setNombre(nombre);

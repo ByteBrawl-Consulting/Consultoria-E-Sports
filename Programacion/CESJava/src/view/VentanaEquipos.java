@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
-public class VentanaEquipos extends JFrame{
+public class VentanaEquipos extends JFrame {
     private JRadioButton rbAlta;
     private JRadioButton rbBaja;
     private JRadioButton rbModificacion;
@@ -24,72 +24,86 @@ public class VentanaEquipos extends JFrame{
     private JButton bSalir;
     private JPanel pConsulta;
 
-    public VentanaEquipos(){
+    public VentanaEquipos() {
         super("Ventana Equipos");
         setContentPane(pPrincipal);
-        setSize(500,600);
+        setSize(500, 600);
         setLocationRelativeTo(null);
     }
-    public void eleccionAlta(){
+
+    public void eleccionAlta() {
         pAlta.setVisible(true);
         pBaja.setVisible(false);
         pModificacion.setVisible(false);
         pConsulta.setVisible(false);
     }
-    public void eleccionBaja(){
+
+    public void eleccionBaja() {
         pAlta.setVisible(false);
         pBaja.setVisible(true);
         pModificacion.setVisible(false);
         pConsulta.setVisible(false);
     }
-    public void eleccionModi(){
+
+    public void eleccionModi() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
         pModificacion.setVisible(true);
         pConsulta.setVisible(false);
     }
-    public void eleccionConsulta(){
+
+    public void eleccionConsulta() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
         pModificacion.setVisible(false);
         pConsulta.setVisible(true);
     }
 
-    public void clickRatonNombreAltaAL (MouseListener al){
+    public void clickRatonNombreAltaAL(MouseListener al) {
         tfNombreAlta.addMouseListener(al);
     }
-    public void clickRatonFechaAltaAL (MouseListener al){
+
+    public void clickRatonFechaAltaAL(MouseListener al) {
         tfFechaAlta.addMouseListener(al);
     }
-    public void clickRatonNombreBajaAL (MouseListener al){
+
+    public void clickRatonNombreBajaAL(MouseListener al) {
         tfNombreBaja.addMouseListener(al);
     }
-    public void clickRatonNombreModiAL (MouseListener al){
+
+    public void clickRatonNombreModiAL(MouseListener al) {
         tfNombreModi.addMouseListener(al);
     }
-    public void clickRatonFechaModiAL (MouseListener al){
+
+    public void clickRatonFechaModiAL(MouseListener al) {
         tfFechaModi.addMouseListener(al);
     }
-    public void clickRatonNombreConsAL (MouseListener al){
+
+    public void clickRatonNombreConsAL(MouseListener al) {
         tfNombreCons.addMouseListener(al);
     }
 
-    public void bAceptarAl(ActionListener listener){
+    public void bAceptarAl(ActionListener listener) {
         bAceptar.addActionListener(listener);
     }
-    public void bSalirAL(ActionListener listener){
+
+    public void bSalirAL(ActionListener listener) {
         bSalir.addActionListener(listener);
     }
-    public void bRbAltaAL(ActionListener listener){
+
+    public void bRbAltaAL(ActionListener listener) {
         rbAlta.addActionListener(listener);
     }
-    public void bRbBajaAL(ActionListener listener){
+
+    public void bRbBajaAL(ActionListener listener) {
         rbBaja.addActionListener(listener);
     }
-    public void bRbModiAl(ActionListener listener){
+
+    public void bRbModiAl(ActionListener listener) {
         rbModificacion.addActionListener(listener);
     }
-    public void bRbConsultaAL(ActionListener listener){
+
+    public void bRbConsultaAL(ActionListener listener) {
         rbConsulta.addActionListener(listener);
     }
 

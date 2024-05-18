@@ -26,24 +26,34 @@ public class VentanaPrincipalUsuario extends JFrame {
     public VentanaPrincipalUsuario() throws HeadlessException {
         super("Pagina Principal");
         setContentPane(panel1);
-        setSize(500,300);
+        setSize(500, 300);
         setLocationRelativeTo(null);
 
     }
-    public void rbJornadaAL (ActionListener al){
+
+    public void rbJornadaAL(ActionListener al) {
         rbJornada.addActionListener(al);
     }
-    public void rbClasiAL (ActionListener al){
+
+    public void rbClasiAL(ActionListener al) {
         rbClasi.addActionListener(al);
     }
-    public void botonAceprtarJornadaAL (ActionListener al){
+
+    public void botonAceprtarJornadaAL(ActionListener al) {
         bAceptarJornada.addActionListener(al);
     }
-    public void botonAceptarClasiAL(ActionListener al){
+
+    public void botonAceptarClasiAL(ActionListener al) {
         bAceptarClasi.addActionListener(al);
     }
-    public void bSalirAL(ActionListener al){bSalir.addActionListener(al);}
-    public void bSesion (ActionListener al){bSesion.addActionListener(al);}
+
+    public void bSalirAL(ActionListener al) {
+        bSalir.addActionListener(al);
+    }
+
+    public void bSesion(ActionListener al) {
+        bSesion.addActionListener(al);
+    }
 
 
     public JButton getbSesion() {

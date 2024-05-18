@@ -105,10 +105,10 @@ public class ControladorCompeticion {
                     compe.setFechaInicio(fechaSql1.toLocalDate());
                     compe.setFechaFin(fechaSql2.toLocalDate());
                     Juego ju = cv.buscarJuego(juego);
-                    if (ju != null){
+                    if (ju != null) {
                         compe.setCodJuego(ju);
                         cv.altaCompeticion(compe);
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(vc, "Juego no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (ParseException ex) {

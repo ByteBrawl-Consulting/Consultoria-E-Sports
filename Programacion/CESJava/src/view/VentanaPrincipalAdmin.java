@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VentanaPrincipalAdmin  extends JFrame {
+public class VentanaPrincipalAdmin extends JFrame {
     private JPanel pPrincipal;
     private JMenu menuEquipos;
     private JPanel pSecundario;
@@ -36,8 +36,12 @@ public class VentanaPrincipalAdmin  extends JFrame {
         setSize(750, 450);
         setLocationRelativeTo(null);
     }
-    public void cerrarSesion (ActionListener al){cerrarSesionButton.addActionListener(al);}
-    public void bAltaUSu (ActionListener al){
+
+    public void cerrarSesion(ActionListener al) {
+        cerrarSesionButton.addActionListener(al);
+    }
+
+    public void bAltaUSu(ActionListener al) {
         altaNuevoUsuarioButton.addActionListener(al);
     }
 
@@ -49,34 +53,51 @@ public class VentanaPrincipalAdmin  extends JFrame {
         this.altaNuevoUsuarioButton = altaNuevoUsuarioButton;
     }
 
-    public void addBSalir(ActionListener listener){
+    public void addBSalir(ActionListener listener) {
         salirButton.addActionListener(listener);
     }
-    public void addBEquipos(ActionListener listener){
+
+    public void addBEquipos(ActionListener listener) {
         equiposButton.addActionListener(listener);
     }
-    public void addBJugadores(ActionListener listener){
+
+    public void addBJugadores(ActionListener listener) {
         jugadoresButton.addActionListener(listener);
     }
-    public void addBStaff(ActionListener listener){
+
+    public void addBStaff(ActionListener listener) {
         staffButton.addActionListener(listener);
     }
-    public void addBJuegos(ActionListener listener){
+
+    public void addBJuegos(ActionListener listener) {
         juegosButton.addActionListener(listener);
     }
-    public void addBPatrocinadores(ActionListener listener){
+
+    public void addBPatrocinadores(ActionListener listener) {
         patrocinadoresButton.addActionListener(listener);
     }
-    public void addBCompeticiones(ActionListener listener){
+
+    public void addBCompeticiones(ActionListener listener) {
         competicionesButton.addActionListener(listener);
     }
-    public void addBAsociarEquiCompe(ActionListener listener){
+
+    public void addBAsociarEquiCompe(ActionListener listener) {
         añadirEquipoACompeticiónButton.addActionListener(listener);
     }
-    public void addBAsociarPatrocinadorEquipo(ActionListener listener){
+
+    public void addBAsociarPatrocinadorEquipo(ActionListener listener) {
         añadirPatrocinadorEquipoButton.addActionListener(listener);
     }
-    public void addClasi (ActionListener al){clasificacionMenuItem.addActionListener(al);}
-    public void addBCerrarEtapaInscripcion (ActionListener al){cerrarEtapaInscripcionMenuItem.addActionListener(al);}
-    public void addBResultadosJornadas (ActionListener al){resultadosJornadasMenuItem.addActionListener(al);}
+
+    public void addClasi(ActionListener al) {
+        clasificacionMenuItem.addActionListener(al);
+    }
+
+    public void addBCerrarEtapaInscripcion(ActionListener al) {
+        cerrarEtapaInscripcionMenuItem.addActionListener(al);
+    }
+
+    public void addBResultadosJornadas(ActionListener al) {
+        resultadosJornadasMenuItem.addActionListener(al);
+    }
 }

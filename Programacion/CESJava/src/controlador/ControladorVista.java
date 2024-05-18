@@ -32,13 +32,12 @@ public class ControladorVista {
     private ControladorClasificacion ccl;
 
 
-
     public ControladorVista(ControladorPrincipal cp) {
         cl = new ControladorLogin(this);
-        this.cp=cp;
+        this.cp = cp;
     }
 
-    public String login (Usuario usu) throws SQLException {
+    public String login(Usuario usu) throws SQLException {
         return cp.login(usu);
     }
 
@@ -90,15 +89,15 @@ public class ControladorVista {
         cp.bajaPatrocinador(patr);
     }
 
-    public void altaUsu(Usuario usu) throws Exception{
+    public void altaUsu(Usuario usu) throws Exception {
         cp.altaUsu(usu);
     }
 
-    public Usuario comprobarUsu(Usuario usu) throws Exception{
+    public Usuario comprobarUsu(Usuario usu) throws Exception {
         return cp.comprobarUsu(usu);
     }
 
-    public ArrayList clasiEquipos() throws Exception{
+    public ArrayList clasiEquipos() throws Exception {
         return cp.clasiEquipos();
     }
 
@@ -136,9 +135,11 @@ public class ControladorVista {
     public void modiEquipo(Equipo eq, String fecha) {
         cp.modiEquipo(eq, fecha);
     }
+
     public void altaStaff(Staff staff) {
         cp.altaStaff(staff);
     }
+
     public void bajaStaff(Staff staff) {
         cp.bajaStaff(staff);
     }
@@ -146,9 +147,11 @@ public class ControladorVista {
     public String consultaEquipo(String nombreEq) {
         return cp.consultaEquipo(nombreEq).toString();
     }
-    public Juego buscarJuego(String nombreJu){
+
+    public Juego buscarJuego(String nombreJu) {
         return cp.buscarJuego(nombreJu);
     }
+
     public Equipo buscarEquipo(String nombreEq) {
         return cp.buscarEquipo(nombreEq);
     }
