@@ -175,4 +175,12 @@ public class ControladorPrincipal {
     public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
         return cbd.getPatrocinadoresPorEquipo(nombreEquipo);
     }
+
+    public ArrayList<Equipo> getEquiposPorCompeticion(Competicion com) {
+        return cbd.getEquiposPorCompeticion(com);
+    }
+
+    public void cerrarIncripcionCompeticion(String nombreCompeticion) {
+        cbd.cerrarIncripcionCompeticion(nombreCompeticion);
+    }
 }

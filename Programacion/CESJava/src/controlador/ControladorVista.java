@@ -204,4 +204,12 @@ public class ControladorVista {
     public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
         return cp.getPatrocinadoresPorEquipo(nombreEquipo);
     }
+
+    public ArrayList<Equipo> getEquiposPorCompeticion(Competicion com) {
+        return cp.getEquiposPorCompeticion(com);
+    }
+
+    public void cerrarIncripcionCompeticion(String nombreCompeticion) {
+        cp.cerrarIncripcionCompeticion(nombreCompeticion);
+    }
 }

@@ -253,4 +253,11 @@ public class ControladorBaseDeDatos {
         return tpe.getPatrocinadoresPorEquipo(nombreEquipo);
     }
 
+    public ArrayList<Equipo> getEquiposPorCompeticion(Competicion com) {
+        return te.obtenerEquiposPorCompeticion(com);
+    }
+
+    public void cerrarIncripcionCompeticion(String nombreCompeticion) {
+        tc.cerrarInscripcion(nombreCompeticion);
+    }
 }
