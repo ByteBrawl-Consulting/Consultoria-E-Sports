@@ -208,7 +208,63 @@ public class TablaCompeticiones {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
+
+    public void cerrarInscripcion(String nombreCompeticion) {
+        try {
+            int codCompeticion = getCodigoCompeticionPorNombre(nombreCompeticion);
+
+            if (codCompeticion == -1) {
+                System.out.println("Competición no encontrada");
+                throw new Exception("Competición no encontrada");
+            }
+
+            // Verificar si la etapa de inscripción ya está cerrada
+            boolean inscripcionCerrada = etapaInscripcionCerrada(nombreCompeticion);
+            if (inscripcionCerrada) {
+                System.out.println("La inscripción para la competición ya está cerrada.");
+                mostrar("La inscripción para la competición ya está cerrada.");
+                return; // Salir del método si la inscripción ya está cerrada
+            }
+
+            // Continuar con el proceso de cerrar la inscripción
+            String plantilla = "UPDATE competiciones SET curso = 1 WHERE cod_compe = ?";
+            PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
+            sentenciaPre.setInt(1, codCompeticion);
+
+            int n = sentenciaPre.executeUpdate();
+            if (n != 1) {
+                throw new Exception("No se ha podido cerrar la inscripción");
+            } else {
+                System.out.println("Inscripción cerrada para la competición: " + nombreCompeticion);
+                mostrar("Inscripción cerrada para la competición: " + nombreCompeticion);
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL Error Code: " + e.getErrorCode());
+            System.out.println("SQL State: " + e.getSQLState());
+            System.out.println("Error Message: " + e.getMessage());
+            e.printStackTrace(); // Logs Depuración
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace(); // Logs Depuración
+            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean etapaInscripcionCerrada(String nombreCompeticion) {
+        try {
+            String query = "SELECT curso FROM competiciones WHERE nombre = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setString(1, nombreCompeticion);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int curso = rs.getInt("curso");
+                return curso == 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }
