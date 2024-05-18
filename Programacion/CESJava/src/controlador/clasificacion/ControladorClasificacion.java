@@ -28,14 +28,12 @@ public class ControladorClasificacion {
         public void llenarCB (){
             try {
                 ArrayList<Competicion> lista = cv.clasiEquipos();
-                vca.getCbClasi().addItem("");
+                vca.getCbClasi().addItem("Seleccione una competición");
                 for (int x=0;x<lista.size();x++){
                     vca.getCbClasi().addItem(lista.get(x).getNombre());
                 }
             }catch (Exception ex){
-
             }
-
         }
 
         public class taClasi implements ActionListener {
