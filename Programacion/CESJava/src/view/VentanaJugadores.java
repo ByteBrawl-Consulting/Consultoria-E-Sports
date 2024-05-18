@@ -97,6 +97,38 @@ public class VentanaJugadores extends JFrame {
         rbCons.addActionListener(listener);
     }
 
+    public JPanel getpAlta() {
+        return pAlta;
+    }
+
+    public void setpAlta(JPanel pAlta) {
+        this.pAlta = pAlta;
+    }
+
+    public JPanel getpBaja() {
+        return pBaja;
+    }
+
+    public void setpBaja(JPanel pBaja) {
+        this.pBaja = pBaja;
+    }
+
+    public JPanel getpModi() {
+        return pModi;
+    }
+
+    public void setpModi(JPanel pModi) {
+        this.pModi = pModi;
+    }
+
+    public JPanel getpCons() {
+        return pCons;
+    }
+
+    public void setpCons(JPanel pCons) {
+        this.pCons = pCons;
+    }
+
     public JRadioButton getRbAlta() {
         return rbAlta;
     }

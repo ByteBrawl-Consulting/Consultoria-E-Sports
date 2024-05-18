@@ -84,6 +84,46 @@ public class VentanaAsociacionPatroEqui extends JFrame {
         pTitulo.setVisible(true);
     }
 
+    public JPanel getpAlta() {
+        return pAlta;
+    }
+
+    public void setpAlta(JPanel pAlta) {
+        this.pAlta = pAlta;
+    }
+
+    public JPanel getpBaja() {
+        return pBaja;
+    }
+
+    public void setpBaja(JPanel pBaja) {
+        this.pBaja = pBaja;
+    }
+
+    public JPanel getpConsultPatro() {
+        return pConsultPatro;
+    }
+
+    public void setpConsultPatro(JPanel pConsultPatro) {
+        this.pConsultPatro = pConsultPatro;
+    }
+
+    public JPanel getpConsulEqui() {
+        return pConsulEqui;
+    }
+
+    public void setpConsulEqui(JPanel pConsulEqui) {
+        this.pConsulEqui = pConsulEqui;
+    }
+
+    public JPanel getpTA() {
+        return pTA;
+    }
+
+    public void setpTA(JPanel pTA) {
+        this.pTA = pTA;
+    }
+
     public JRadioButton getAltaRadioButton() {
         return altaRadioButton;
     }

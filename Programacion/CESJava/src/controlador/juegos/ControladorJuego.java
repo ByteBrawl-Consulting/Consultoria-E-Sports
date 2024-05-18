@@ -113,6 +113,10 @@ public class ControladorJuego {
 
     private void mostar() {
         vj.setVisible(true);
+        vj.getpAlta().setVisible(false);
+        vj.getpBaja().setVisible(false);
+        vj.getpCons().setVisible(false);
+        vj.getpModi().setVisible(false);
     }
 
     private class bAlta implements ActionListener {

@@ -32,6 +32,8 @@ public class ControladorPatrocinador {
 
     private void mostrar() {
         vp.setVisible(true);
+        vp.getpAlta().setVisible(false);
+        vp.getpBaja().setVisible(false);
     }
 
     private class bSalir implements ActionListener {

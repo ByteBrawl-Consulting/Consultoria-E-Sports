@@ -131,6 +131,10 @@ public class ControladorStaff {
 
     public void mostrar() {
         vs.setVisible(true);
+        vs.getpAlta().setVisible(false);
+        vs.getpBaja().setVisible(false);
+        vs.getpModi().setVisible(false);
+        vs.getpConsulta().setVisible(false);
     }
 
     public class PlaceholderListener implements FocusListener {
