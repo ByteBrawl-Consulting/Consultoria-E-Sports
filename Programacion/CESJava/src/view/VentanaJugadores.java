@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
-public class VentanaJugadores extends JFrame{
+public class VentanaJugadores extends JFrame {
     private JRadioButton rbAlta;
     private JRadioButton rbBaja;
     private JRadioButton rbModi;
@@ -34,62 +34,66 @@ public class VentanaJugadores extends JFrame{
     private JTextField tfNombreCons;
     private JTextArea taCons;
 
-    public VentanaJugadores(){
+    public VentanaJugadores() {
         super("Ventana Jugadores");
         setContentPane(pPrincipal);
-        setSize(500,600);
+        setSize(500, 600);
         setLocationRelativeTo(null);
     }
-    public void eleccionAlta(){
+
+    public void eleccionAlta() {
         pAlta.setVisible(true);
         pBaja.setVisible(false);
         pModi.setVisible(false);
         pCons.setVisible(false);
     }
-    public void eleccionBaja(){
+
+    public void eleccionBaja() {
         pAlta.setVisible(false);
         pBaja.setVisible(true);
         pModi.setVisible(false);
         pCons.setVisible(false);
     }
-    public void eleccionModi(){
+
+    public void eleccionModi() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
         pModi.setVisible(true);
         pCons.setVisible(false);
     }
-    public void eleccionConsulta(){
+
+    public void eleccionConsulta() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
         pModi.setVisible(false);
         pCons.setVisible(true);
     }
 
-    public void clickRatonNombreConsAL (MouseListener al){
+    public void clickRatonNombreConsAL(MouseListener al) {
         tfNombreCons.addMouseListener(al);
     }
 
-    public void bAceptarAL(ActionListener listener){
+    public void bAceptarAL(ActionListener listener) {
         bAceptar.addActionListener(listener);
     }
 
-    public void bSalirAL(ActionListener listener){
+    public void bSalirAL(ActionListener listener) {
         bSalir.addActionListener(listener);
     }
 
-    public void bRbAltaAL(ActionListener listener){
+    public void bRbAltaAL(ActionListener listener) {
         rbAlta.addActionListener(listener);
     }
 
-    public void bRbBajaAL(ActionListener listener){
+    public void bRbBajaAL(ActionListener listener) {
         rbBaja.addActionListener(listener);
     }
 
-    public void bRbModiAl(ActionListener listener){
+    public void bRbModiAl(ActionListener listener) {
         rbModi.addActionListener(listener);
     }
 
-    public void bRbConsultaAL(ActionListener listener){
+    public void bRbConsultaAL(ActionListener listener) {
         rbCons.addActionListener(listener);
     }
 

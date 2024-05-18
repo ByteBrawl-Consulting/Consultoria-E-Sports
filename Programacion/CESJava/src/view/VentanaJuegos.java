@@ -3,7 +3,7 @@ package view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class VentanaJuegos extends JFrame{
+public class VentanaJuegos extends JFrame {
     private JPanel pPrincipal;
     private JRadioButton rbAlta;
     private JRadioButton rbBaja;
@@ -25,52 +25,62 @@ public class VentanaJuegos extends JFrame{
     private JButton bSalir;
     private JTextArea taCons;
 
-    public VentanaJuegos(){
+    public VentanaJuegos() {
         super("Ventana Juegos");
         setContentPane(pPrincipal);
-        setSize(500,600);
+        setSize(500, 600);
         setLocationRelativeTo(null);
     }
-    public void eleccionAlta(){
+
+    public void eleccionAlta() {
         pAlta.setVisible(true);
         pBaja.setVisible(false);
         pModi.setVisible(false);
         pCons.setVisible(false);
     }
-    public void eleccionBaja(){
+
+    public void eleccionBaja() {
         pAlta.setVisible(false);
         pBaja.setVisible(true);
         pModi.setVisible(false);
         pCons.setVisible(false);
     }
-    public void eleccionModi(){
+
+    public void eleccionModi() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
         pModi.setVisible(true);
         pCons.setVisible(false);
     }
-    public void eleccionConsulta(){
+
+    public void eleccionConsulta() {
         pAlta.setVisible(false);
         pBaja.setVisible(false);
         pModi.setVisible(false);
         pCons.setVisible(true);
     }
-    public void bAceptarAl(ActionListener listener){
+
+    public void bAceptarAl(ActionListener listener) {
         bAceptar.addActionListener(listener);
     }
-    public void bSalirAL(ActionListener listener){
+
+    public void bSalirAL(ActionListener listener) {
         bSalir.addActionListener(listener);
     }
-    public void bRbAltaAL(ActionListener listener){
+
+    public void bRbAltaAL(ActionListener listener) {
         rbAlta.addActionListener(listener);
     }
-    public void bRbBajaAL(ActionListener listener){
+
+    public void bRbBajaAL(ActionListener listener) {
         rbBaja.addActionListener(listener);
     }
-    public void bRbModiAl(ActionListener listener){
+
+    public void bRbModiAl(ActionListener listener) {
         rbModi.addActionListener(listener);
     }
-    public void bRbConsultaAL(ActionListener listener){
+
+    public void bRbConsultaAL(ActionListener listener) {
         rbCons.addActionListener(listener);
     }
 

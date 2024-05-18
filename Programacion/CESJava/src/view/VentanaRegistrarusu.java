@@ -13,15 +13,16 @@ public class VentanaRegistrarusu extends JFrame {
 
     public VentanaRegistrarusu() throws HeadlessException {
         super("Registrar usuario");
-        setSize(500,350);
+        setSize(500, 350);
         setLocationRelativeTo(null);
         setContentPane(pPrincipal);
     }
 
-    public void bAceptarAL (ActionListener al){
+    public void bAceptarAL(ActionListener al) {
         bAceptar.addActionListener(al);
     }
-    public void bSalirAL (ActionListener al){
+
+    public void bSalirAL(ActionListener al) {
         bSalir.addActionListener(al);
     }
 

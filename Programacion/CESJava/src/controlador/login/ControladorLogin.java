@@ -21,6 +21,7 @@ public class ControladorLogin {
     private ControladorVista cv;
     private ControladorUsuario cu;
     private ControladorAdmin ca;
+
     public ControladorLogin(ControladorVista cv) {
         this.cv = cv;
         vl = new VentanaLogin();
@@ -34,8 +35,6 @@ public class ControladorLogin {
 
         vl.setVisible(true);
     }
-
-
 
     public class bAyuda implements ActionListener {
         public void actionPerformed(ActionEvent e) {

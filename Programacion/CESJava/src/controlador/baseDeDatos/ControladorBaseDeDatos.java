@@ -64,20 +64,20 @@ public class ControladorBaseDeDatos {
 
         /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
 
-            String url = "jdbc:oracle:thin:@localhost:1521:XE";
-            String user = "userproyecto";
-            String passwd = "userproyecto";
+        String url = "jdbc:oracle:thin:@localhost:1521:XE";
+        String user = "userproyecto";
+        String passwd = "userproyecto";
 
-            try {
-                Class.forName("oracle.jdbc.OracleDriver");
-                con = DriverManager.getConnection(url, user, passwd);
-                System.out.println("Conexión exitosa a la base de datos");
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection(url, user, passwd);
+            System.out.println("Conexión exitosa a la base de datos");
 
-            } catch (SQLException e) {
-                System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
+        } catch (SQLException e) {
+            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /* ----------------- Metodo Inicializacion Tablas  ----------------- */
@@ -87,16 +87,16 @@ public class ControladorBaseDeDatos {
         ts = new TablaStaff(con, this);
         te = new TablaEquipos(con);
         tj = new TablaJornadas(con);
-        tju = new TablaJugadores(con,this);
+        tju = new TablaJugadores(con, this);
         tjue = new TablaJuegos(con);
         tp = new TablaPatrocinadores(con);
-        tc = new TablaCompeticiones(con,this);
+        tc = new TablaCompeticiones(con, this);
         tb = new TablaClasi(con);
         tce = new TablaEquipoCompeticion(con, te, tc);
         tpe = new TablaPatrocinadorEquipo(con, te, tp);
     }
 
-    public String login (Usuario usu) throws SQLException {
+    public String login(Usuario usu) throws SQLException {
         return tu.login(usu);
     }
 
@@ -135,8 +135,13 @@ public class ControladorBaseDeDatos {
     public Equipo buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
+
     public ArrayList ultimaJornada(Competicion com) {
         return tj.ultimaJornada(com);
+    }
+
+    public ArrayList todasJornadas(Competicion com) {
+        return tj.obtenerTodasJornadas(com);
     }
 
     public void altaJugador(Jugador ju) {
@@ -147,7 +152,7 @@ public class ControladorBaseDeDatos {
         tju.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju,String fecha) {
+    public void modiJugador(Jugador ju, String fecha) {
         tju.modiJugador(ju, fecha);
     }
 
@@ -170,9 +175,11 @@ public class ControladorBaseDeDatos {
     public Object consultaJuego(String nombreJu) {
         return tjue.consultaJuego(nombreJu).toString();
     }
-    public Juego buscarJuego(String nombreJu){
+
+    public Juego buscarJuego(String nombreJu) {
         return tjue.buscarJuego(nombreJu);
     }
+
     public void altaPatrocinador(Patrocinador patr) {
         tp.altaPatrocinador(patr);
     }
@@ -184,6 +191,7 @@ public class ControladorBaseDeDatos {
     public ArrayList calsificacion(Competicion com) {
         return tb.clasificacion(com);
     }
+
     public void altaCompeticion(Competicion compe) {
         tc.altaCompeticion(compe);
     }
@@ -208,11 +216,11 @@ public class ControladorBaseDeDatos {
         tce.bajaEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
 
-    public void altaUsu(Usuario usu) throws Exception{
+    public void altaUsu(Usuario usu) throws Exception {
         tu.altaUsu(usu);
     }
 
-    public Usuario comprobarUsu(Usuario usu) throws Exception{
+    public Usuario comprobarUsu(Usuario usu) throws Exception {
         return tu.comprobarUsu(usu);
     }
 
@@ -224,12 +232,12 @@ public class ControladorBaseDeDatos {
         return te.getNombreEquipoPorCodigo(codEquipo);
     }
 
-    public ArrayList clasiEquipo() throws Exception{
+    public ArrayList clasiEquipo() throws Exception {
         return tc.clasiEquipo();
     }
 
     public ArrayList calsificacionAdmin(Competicion com) {
-       return tc.clasificacionAdmin(com);
+        return tc.clasificacionAdmin(com);
     }
 
     public void asociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
@@ -248,4 +256,11 @@ public class ControladorBaseDeDatos {
         return tpe.getPatrocinadoresPorEquipo(nombreEquipo);
     }
 
+    public ArrayList<Equipo> getEquiposPorCompeticion(Competicion com) {
+        return te.obtenerEquiposPorCompeticion(com);
+    }
+
+    public void cerrarIncripcionCompeticion(String nombreCompeticion) {
+        tc.cerrarInscripcion(nombreCompeticion);
+    }
 }

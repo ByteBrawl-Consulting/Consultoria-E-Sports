@@ -3,26 +3,21 @@ package view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class VentanaCerrarInscripciones extends JFrame{
+public class VentanaCerrarInscripciones extends JFrame {
     private JPanel pPrincipal;
-    private JTextField tfCompeticion;
     private JTextArea taConsulta;
     private JButton aceptarButton;
     private JButton salirButton;
+    private JComboBox cbCompeticion;
+    private JLabel espaciador1;
+    private JLabel espaciador2;
+    private JLabel espaciador3;
 
     public VentanaCerrarInscripciones() {
         super("Ventana Cerrar Inscripciones");
         setContentPane(pPrincipal);
-        setSize(750,500);
+        setSize(850, 500);
         setLocationRelativeTo(null);
-    }
-
-    public JTextField getTfCompeticion() {
-        return tfCompeticion;
-    }
-
-    public void setTfCompeticion(JTextField tfCompeticion) {
-        this.tfCompeticion = tfCompeticion;
     }
 
     public JTextArea getTaConsulta() {
@@ -39,5 +34,13 @@ public class VentanaCerrarInscripciones extends JFrame{
 
     public void bSalirAL(ActionListener listener) {
         salirButton.addActionListener(listener);
+    }
+
+    public JComboBox getCbCompeticion() {
+        return cbCompeticion;
+    }
+
+    public void setCbCompeticion(JComboBox cbCompeticion) {
+        this.cbCompeticion = cbCompeticion;
     }
 }

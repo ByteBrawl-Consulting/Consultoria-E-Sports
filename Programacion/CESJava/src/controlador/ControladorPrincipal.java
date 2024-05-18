@@ -15,11 +15,11 @@ public class ControladorPrincipal {
 
     public ControladorPrincipal() {
         cv = new ControladorVista(this);
-        cbd=new ControladorBaseDeDatos(this);
+        cbd = new ControladorBaseDeDatos(this);
 
     }
 
-    public String login (Usuario usu) throws SQLException {
+    public String login(Usuario usu) throws SQLException {
         return cbd.login(usu);
     }
 
@@ -41,6 +41,10 @@ public class ControladorPrincipal {
 
     public ArrayList ultimaJornada(Competicion com) {
         return cbd.ultimaJornada(com);
+    }
+
+    public ArrayList todasJornadas(Competicion com) {
+        return cbd.todasJornadas(com);
     }
 
     public Equipo buscarEquipo(String nombreEq) {
@@ -94,7 +98,8 @@ public class ControladorPrincipal {
     public Object consultaJuego(String nombreJu) {
         return cbd.consultaJuego(nombreJu).toString();
     }
-    public Juego buscarJuego(String nombreJu){
+
+    public Juego buscarJuego(String nombreJu) {
         return cbd.buscarJuego(nombreJu);
     }
 
@@ -105,6 +110,7 @@ public class ControladorPrincipal {
     public void bajaPatrocinador(Patrocinador patr) {
         cbd.bajaPatrocinador(patr);
     }
+
     public void altaCompeticion(Competicion compe) {
         cbd.altaCompeticion(compe);
     }
@@ -120,9 +126,10 @@ public class ControladorPrincipal {
     public String consultaCompeticion(String nombreCo) {
         return cbd.consultaCompeticion(nombreCo).toString();
     }
-        public ArrayList clasificacion(Competicion com) {
-            return cbd.calsificacion(com);
-        }
+
+    public ArrayList clasificacion(Competicion com) {
+        return cbd.calsificacion(com);
+    }
 
     public void asociarEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         cbd.asociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
@@ -132,11 +139,11 @@ public class ControladorPrincipal {
         cbd.desasociarEquipoCompeticion(nombreEquipo, nombreCompeticion);
     }
 
-    public void altaUsu(Usuario usu) throws Exception{
+    public void altaUsu(Usuario usu) throws Exception {
         cbd.altaUsu(usu);
     }
 
-    public Usuario comprobarUsu(Usuario usu) throws Exception{
+    public Usuario comprobarUsu(Usuario usu) throws Exception {
         return cbd.comprobarUsu(usu);
     }
 
@@ -148,12 +155,12 @@ public class ControladorPrincipal {
         return cbd.getNombreEquipoPorCodigo(codEquipo);
     }
 
-    public ArrayList clasiEquipos() throws Exception{
+    public ArrayList clasiEquipos() throws Exception {
         return cbd.clasiEquipo();
     }
 
     public ArrayList clasificacionAdmin(Competicion com) {
-       return cbd.calsificacionAdmin(com);
+        return cbd.calsificacionAdmin(com);
     }
 
     public void asociarPatrocinadorEquipo(String nombreEquipo, String nombrePatrocinador) {
@@ -170,5 +177,13 @@ public class ControladorPrincipal {
 
     public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
         return cbd.getPatrocinadoresPorEquipo(nombreEquipo);
+    }
+
+    public ArrayList<Equipo> getEquiposPorCompeticion(Competicion com) {
+        return cbd.getEquiposPorCompeticion(com);
+    }
+
+    public void cerrarIncripcionCompeticion(String nombreCompeticion) {
+        cbd.cerrarIncripcionCompeticion(nombreCompeticion);
     }
 }

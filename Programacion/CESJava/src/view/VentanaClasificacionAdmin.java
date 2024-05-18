@@ -13,12 +13,15 @@ public class VentanaClasificacionAdmin extends JFrame {
 
     public VentanaClasificacionAdmin() throws HeadlessException {
         super("Clasificacion");
-        setSize(1000,1000);
+        setSize(1000, 1000);
         setLocationRelativeTo(null);
         setContentPane(pPirncipal);
     }
 
-    public void cbClasiAL (ActionListener al){cbClasi.addActionListener(al);}
+    public void cbClasiAL(ActionListener al) {
+        cbClasi.addActionListener(al);
+    }
+
     public JComboBox getCbClasi() {
         return cbClasi;
     }

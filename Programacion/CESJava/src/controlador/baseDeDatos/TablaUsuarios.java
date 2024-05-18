@@ -39,20 +39,20 @@ public class TablaUsuarios {
     }
 
 
-    public void altaUsu(Usuario usu) throws Exception{
+    public void altaUsu(Usuario usu) throws Exception {
         String tipo = usu.getTipo();
         int pass = Integer.parseInt(usu.getContrasena());
 
-            String plantilla="insert into usuarios (tipo,contrasenna) values(?,?)";
-            PreparedStatement pre = connection.prepareCall(plantilla);
-            pre.setString(1,tipo);
-            pre.setString(2, String.valueOf(pass));
-            int x = pre.executeUpdate();
-            if (x != 1){
-                System.out.println("Error en insercion");
-            } else {
-                System.out.println("Insertado correctamente");
-            }
+        String plantilla = "insert into usuarios (tipo,contrasenna) values(?,?)";
+        PreparedStatement pre = connection.prepareCall(plantilla);
+        pre.setString(1, tipo);
+        pre.setString(2, String.valueOf(pass));
+        int x = pre.executeUpdate();
+        if (x != 1) {
+            System.out.println("Error en insercion");
+        } else {
+            System.out.println("Insertado correctamente");
+        }
     }
 
     public Usuario comprobarUsu(Usuario usu) throws Exception {

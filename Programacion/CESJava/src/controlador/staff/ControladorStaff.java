@@ -68,10 +68,10 @@ public class ControladorStaff {
                 staff.setCargo(cargo);
                 staff.setSueldo(sueldo);
                 Equipo eq = cv.buscarEquipo(equipo);
-                if (eq != null){
+                if (eq != null) {
                     staff.setCodEquipo(eq);
                     cv.altaStaff(staff);
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(vs, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else if (vs.getRbBaja().isSelected()) {
@@ -87,10 +87,10 @@ public class ControladorStaff {
                 staff.setCargo(cargo);
                 staff.setSueldo(sueldo);
                 Equipo eq = cv.buscarEquipo(equipo);
-                if (eq != null){
+                if (eq != null) {
                     staff.setCodEquipo(eq);
-                    cv.modiStaff(staff,cargo,sueldo,eq);
-                }else{
+                    cv.modiStaff(staff, cargo, sueldo, eq);
+                } else {
                     JOptionPane.showMessageDialog(vs, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else if (vs.getRbConsulta().isSelected()) {
@@ -128,7 +128,8 @@ public class ControladorStaff {
             vs.eleccionConsulta();
         }
     }
-    public void mostrar(){
+
+    public void mostrar() {
         vs.setVisible(true);
     }
 

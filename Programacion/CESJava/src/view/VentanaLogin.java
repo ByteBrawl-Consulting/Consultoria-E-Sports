@@ -19,20 +19,25 @@ public class VentanaLogin extends JFrame {
         setSize(500, 300);
         setLocationRelativeTo(null);
     }
+
     // Funciones de los TF y de los botones
-    public void clickRatonUsuAL (MouseListener al){
+    public void clickRatonUsuAL(MouseListener al) {
         tfUsu.addMouseListener(al);
     }
-    public void clickRatonPassAL (MouseListener al){
+
+    public void clickRatonPassAL(MouseListener al) {
         tfPassword.addMouseListener(al);
     }
-    public void bSalirAL (ActionListener al){
+
+    public void bSalirAL(ActionListener al) {
         bSalir.addActionListener(al);
     }
-    public void bEntrarAL (ActionListener al){
+
+    public void bEntrarAL(ActionListener al) {
         bEntrar.addActionListener(al);
     }
-    public void bAyudaAL (ActionListener al){
+
+    public void bAyudaAL(ActionListener al) {
         bAyuda.addActionListener(al);
     }
 
