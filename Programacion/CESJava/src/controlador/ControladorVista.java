@@ -153,9 +153,14 @@ public class ControladorVista {
         return cp.buscarEquipo(nombreEq);
     }
 
-    public ArrayList ultimaJornada(Competicion com) {
+    public ArrayList obtenerUltimaJornada(Competicion com) {
         return cp.ultimaJornada(com);
     }
+
+    public ArrayList obtenerTodasJornadas(Competicion com) {
+        return cp.todasJornadas(com);
+    }
+
     public void altaCompeticion(Competicion compe) {
         cp.altaCompeticion(compe);
     }
