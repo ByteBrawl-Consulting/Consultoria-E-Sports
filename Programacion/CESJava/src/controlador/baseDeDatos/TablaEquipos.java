@@ -1,10 +1,12 @@
 package controlador.baseDeDatos;
 
+import modelo.Competicion;
 import modelo.Equipo;
 
 import javax.swing.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class TablaEquipos {
     private Connection con;
@@ -110,6 +112,7 @@ public class TablaEquipos {
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
+
     public int getCodigoEquipoPorNombre(String nombreEquipo) {
         try {
             String query = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
@@ -142,5 +145,31 @@ public class TablaEquipos {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ArrayList<Equipo> obtenerEquiposPorCompeticion(Competicion competicion) {
+        ArrayList<Equipo> equipos = new ArrayList<>();
+        try {
+
+            String query = "SELECT e.cod_equipo, e.nombre FROM equipos e " +
+                    "INNER JOIN equipo_competicion ec ON e.cod_equipo = ec.cod_equipo " +
+                    "INNER JOIN competiciones c ON ec.cod_competicion = c.cod_compe " +
+                    "WHERE c.nombre = ?";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, competicion.getNombre());
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Equipo equipo = new Equipo();
+                equipo.setCodEquipo(rs.getInt("cod_equipo"));
+                equipo.setNombre(rs.getString("nombre"));
+                equipos.add(equipo);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return equipos;
     }
 }
