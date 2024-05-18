@@ -18,8 +18,9 @@ public class TablaCompeticiones {
         this.con = con;
         this.cbd = cbd;
     }
-    public void altaCompeticion(Competicion compe){
-        try{
+
+    public void altaCompeticion(Competicion compe) {
+        try {
             String plantilla = "INSERT INTO competiciones (nombre,fecha_inicio,fecha_fin,curso,cod_juego) VALUES (?,?,?,?,?)";
             PreparedStatement sentencia = con.prepareStatement(plantilla);
             sentencia.setString(1, compe.getNombre());
@@ -35,32 +36,34 @@ public class TablaCompeticiones {
             sentencia.setInt(4, 0);
             sentencia.setObject(5, compe.getCodJuego().getCodJuego());
             int n = sentencia.executeUpdate();
-            if (n != 1){
+            if (n != 1) {
                 mostrar("No se ha insertado ninguna competición");
-            }else{
+            } else {
                 mostrar("Competición insertada");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void bajaCompeticion(Competicion compe){
-        try{
+
+    public void bajaCompeticion(Competicion compe) {
+        try {
             String plantilla = "DELETE FROM competiciones WHERE nombre = ?";
             PreparedStatement sentencia = con.prepareStatement(plantilla);
             sentencia.setString(1, compe.getNombre());
             int n = sentencia.executeUpdate();
             sentencia.close();
-            if (n == 1){
+            if (n == 1) {
                 mostrar("Competición borrada");
-            }else{
+            } else {
                 mostrar("Competición no encontrada");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public void modiCompeticion(Competicion compe){
+
+    public void modiCompeticion(Competicion compe) {
         try {
             String plantilla = "UPDATE competiciones SET fecha_inicio = ?, fecha_fin = ?, cod_juego = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
@@ -77,23 +80,24 @@ public class TablaCompeticiones {
             sentenciaPre.setString(4, compe.getNombre());
             int n = sentenciaPre.executeUpdate();
             sentenciaPre.close();
-            if (n == 1){
+            if (n == 1) {
                 mostrar("Competición actualizada");
-            }else{
+            } else {
                 mostrar("Competición no encontrada");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-    public StringBuilder consultaCompeticion(String nombreCompe){
-        try{
+
+    public StringBuilder consultaCompeticion(String nombreCompe) {
+        try {
             String plantilla = "SELECT fecha_inicio,fecha_fin,cod_juego FROM competiciones WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreCompe);
             ResultSet respuesta = sentenciaPre.executeQuery();
             StringBuilder pantalla = new StringBuilder();
-            if (respuesta.next()){
+            if (respuesta.next()) {
                 java.sql.Timestamp fechaInicio = respuesta.getTimestamp("fecha_inicio");
                 java.sql.Timestamp fechaFin = respuesta.getTimestamp("fecha_fin");
                 int codJuego = respuesta.getInt("cod_juego");
@@ -105,6 +109,7 @@ public class TablaCompeticiones {
             throw new RuntimeException(e);
         }
     }
+
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
@@ -124,12 +129,12 @@ public class TablaCompeticiones {
         return -1;
     }
 
-    public ArrayList clasiEquipo() throws Exception{
+    public ArrayList clasiEquipo() throws Exception {
         ArrayList<Competicion> lista = new ArrayList<>();
         String plantilla = "select nombre from competiciones";
         PreparedStatement pre = con.prepareStatement(plantilla);
         ResultSet res = pre.executeQuery();
-        while (res.next()){
+        while (res.next()) {
             Clasificacion cla = new Clasificacion();
             Competicion c = new Competicion();
 
@@ -140,27 +145,28 @@ public class TablaCompeticiones {
 
         return lista;
     }
-    public ArrayList clasificacionAdmin (Competicion com) {
-        Clasificacion cla  = new Clasificacion();
-        ArrayList<Clasificacion> lista=new ArrayList<>();
+
+    public ArrayList clasificacionAdmin(Competicion com) {
+        Clasificacion cla = new Clasificacion();
+        ArrayList<Clasificacion> lista = new ArrayList<>();
         try {
             String nombreCompe = com.getNombre();//solo hay nombre en com
-            String plantilla= "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where c.nombre=? order by puntos desc";
+            String plantilla = "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where c.nombre=? order by puntos desc";
             PreparedStatement pre = con.prepareStatement(plantilla);
-            pre.setString(1,(nombreCompe));
+            pre.setString(1, (nombreCompe));
             ResultSet res = pre.executeQuery();
-            while (res.next()){
+            while (res.next()) {
 
                 EquipoCompeticion ec = new EquipoCompeticion();
-                Equipo equi=new Equipo();
-                Competicion compe=new Competicion();
+                Equipo equi = new Equipo();
+                Competicion compe = new Competicion();
 
                 equi.setCodEquipo(res.getInt(1));
                 ec.setCodEquipo(equi);
                 compe.setCodCompe(res.getInt(3));
                 ec.setCodCompe(compe);
 
-                cla=datosCompletosClasi(ec,com);
+                cla = datosCompletosClasi(ec, com);
 
                 lista.add(cla);
 
@@ -170,8 +176,9 @@ public class TablaCompeticiones {
             throw new RuntimeException(e);
         }
     }
+
     public Clasificacion datosCompletosClasi(EquipoCompeticion ec, Competicion com) {
-        Clasificacion cla =new Clasificacion();
+        Clasificacion cla = new Clasificacion();
         Equipo eq = new Equipo();
 
         try {
@@ -179,7 +186,7 @@ public class TablaCompeticiones {
             int codigoEquipo = ec.getCodEquipo().getCodEquipo();
             int codigoCompe = ec.getCodCompe().getCodCompe();
 
-            String plantilla= "select e.nombre from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe join equipos e on ec.cod_equipo=e.cod_equipo where c.nombre= ? and e.cod_equipo=?";
+            String plantilla = "select e.nombre from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe join equipos e on ec.cod_equipo=e.cod_equipo where c.nombre= ? and e.cod_equipo=?";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, String.valueOf(nombreCompe));
             pre.setString(2, String.valueOf(codigoEquipo));
@@ -187,22 +194,20 @@ public class TablaCompeticiones {
 
             while (res.next()) {
                 eq.setNombre(res.getString("nombre"));
-
                 ec.setCodEquipo(eq);
             }
 
-            String plantilla1= "select puntos from equipo_competicion where cod_competicion=? and cod_equipo=?";
+            String plantilla1 = "select puntos from equipo_competicion where cod_competicion=? and cod_equipo=?";
             PreparedStatement pre1 = con.prepareStatement(plantilla1);
             pre1.setString(1, String.valueOf(codigoCompe));
             pre1.setString(2, String.valueOf(codigoEquipo));
             ResultSet res1 = pre1.executeQuery();
-            while (res1.next()){
+            while (res1.next()) {
                 ec.setPuntos(res1.getInt(1));
             }
 
             cla.setCodequipo(eq);
             cla.setPuntos(ec);
-
 
             return cla;
         } catch (SQLException e) {
@@ -219,7 +224,6 @@ public class TablaCompeticiones {
                 throw new Exception("Competición no encontrada");
             }
 
-            // Verificar si la etapa de inscripción ya está cerrada
             boolean inscripcionCerrada = etapaInscripcionCerrada(nombreCompeticion);
             if (inscripcionCerrada) {
                 System.out.println("La inscripción para la competición ya está cerrada.");
@@ -227,7 +231,6 @@ public class TablaCompeticiones {
                 return; // Salir del método si la inscripción ya está cerrada
             }
 
-            // Continuar con el proceso de cerrar la inscripción
             String plantilla = "UPDATE competiciones SET curso = 1 WHERE cod_compe = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setInt(1, codCompeticion);
@@ -266,5 +269,4 @@ public class TablaCompeticiones {
         }
         return false;
     }
-
 }

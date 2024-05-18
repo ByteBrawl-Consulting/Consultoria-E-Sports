@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class VentanaAsociacionPatroEqui extends JFrame{
+public class VentanaAsociacionPatroEqui extends JFrame {
     private JPanel pPrincipal;
     private JPanel pTitulo;
     private JRadioButton altaRadioButton;
@@ -30,7 +30,7 @@ public class VentanaAsociacionPatroEqui extends JFrame{
     public VentanaAsociacionPatroEqui() throws HeadlessException {
         super("Ventana Asociacion Patrocinador-Equipo");
         setContentPane(pPrincipal);
-        setSize(750,500);
+        setSize(750, 500);
         setLocationRelativeTo(null);
     }
 
@@ -43,6 +43,7 @@ public class VentanaAsociacionPatroEqui extends JFrame{
         pTA.setVisible(false);
         pTitulo.setVisible(true);
     }
+
     public void eleccionBaja() {
         pAlta.setVisible(false);
         pBotones.setVisible(true);
@@ -171,27 +172,27 @@ public class VentanaAsociacionPatroEqui extends JFrame{
         this.taConsulta = taConsulta;
     }
 
-    public void bAceptarAL (ActionListener al){
+    public void bAceptarAL(ActionListener al) {
         aceptarButton.addActionListener(al);
     }
 
-    public void bSalirAL (ActionListener al){
+    public void bSalirAL(ActionListener al) {
         salirButton.addActionListener(al);
     }
 
-    public void bRbAltaAL (ActionListener al){
+    public void bRbAltaAL(ActionListener al) {
         altaRadioButton.addActionListener(al);
     }
 
-    public void bRbBajaAL (ActionListener al){
+    public void bRbBajaAL(ActionListener al) {
         bajaRadioButton.addActionListener(al);
     }
 
-    public void bRbConsPatrAL(ActionListener listener){
+    public void bRbConsPatrAL(ActionListener listener) {
         consultaPorPatrocinadorRadioButton.addActionListener(listener);
     }
 
-    public void bRbConsEquiAL(ActionListener listener){
+    public void bRbConsEquiAL(ActionListener listener) {
         consultaPorEquipoRadioButton.addActionListener(listener);
     }
 }

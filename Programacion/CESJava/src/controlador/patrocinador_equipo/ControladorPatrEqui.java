@@ -78,7 +78,7 @@ public class ControladorPatrEqui {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (vape.getAltaRadioButton().isSelected()){
+            if (vape.getAltaRadioButton().isSelected()) {
                 String nombrePatrocinador = vape.getTfPatroAlta().getText();
                 String nombreEquipo = vape.getTfEquiAlta().getText();
 

@@ -17,6 +17,7 @@ public class TablaJornadas {
     public TablaJornadas(Connection con) {
         this.con = con;
     }
+
     public ArrayList ultimaJornada(Competicion com) {
         Enfrentamiento enfre;
         ArrayList lista = new ArrayList<>();
@@ -29,16 +30,16 @@ public class TablaJornadas {
             ResultSet respuesta = pre.executeQuery();
             while (respuesta.next()) {
                 enfre = new Enfrentamiento();
-                    Jornada jor = new Jornada();
-                    jor.setNumJornada(respuesta.getInt(1));
+                Jornada jor = new Jornada();
+                jor.setNumJornada(respuesta.getInt(1));
                 enfre.setCodJornada(jor);
                 enfre.setHora(respuesta.getString(2));
                 enfre.setFecha(respuesta.getDate(3).toLocalDate());
                 enfre.setResultado(respuesta.getString(4));
-                    Equipo eq = new Equipo();
-                    eq.setCodEquipo(respuesta.getInt(5));
+                Equipo eq = new Equipo();
+                eq.setCodEquipo(respuesta.getInt(5));
                 enfre.setCodEquipoLocal(eq);
-                    eq.setCodEquipo(respuesta.getInt(6));
+                eq.setCodEquipo(respuesta.getInt(6));
                 enfre.setCodEquipoVisitante(eq);
                 lista.add(enfre);
 

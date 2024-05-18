@@ -40,6 +40,7 @@ public class ControladorPatrocinador {
             vp.dispose();
         }
     }
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -58,15 +59,15 @@ public class ControladorPatrocinador {
         @Override
         public void actionPerformed(ActionEvent e) {
             Patrocinador patr = new Patrocinador();
-            if (vp.getRbAlta().isSelected()){
-                try{
+            if (vp.getRbAlta().isSelected()) {
+                try {
                     String nombre = vp.getTfNombreAlta().getText();
                     patr.setNombre(nombre);
                     cv.altaPatrocinador(patr);
-                }catch (Exception ex) {
+                } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
-            }else if (vp.getRbBaja().isSelected()){
+            } else if (vp.getRbBaja().isSelected()) {
                 String nombre = vp.getTfNombreBaja().getText();
                 patr.setNombre(nombre);
                 cv.bajaPatrocinador(patr);

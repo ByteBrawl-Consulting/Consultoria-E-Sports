@@ -19,10 +19,10 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
     private JTextField tfCompeBaja;
     private JTextField tfEquiBaja;
 
-    public VentanaAsociacionEquipoCompe(){
+    public VentanaAsociacionEquipoCompe() {
         super("Ventana Asociacion Equipo-Competicion");
         setContentPane(pPrincipal);
-        setSize(750,500);
+        setSize(750, 500);
         setLocationRelativeTo(null);
     }
 
@@ -90,43 +90,44 @@ public class VentanaAsociacionEquipoCompe extends JFrame {
         this.tfCompeBaja = tfCompeBaja;
     }
 
-    public void clickRatonCompeAltaAL(MouseListener al){
+    public void clickRatonCompeAltaAL(MouseListener al) {
         tfCompeAlta.addMouseListener(al);
     }
 
-    public void clickRatonEquiAltaAL(MouseListener al){
+    public void clickRatonEquiAltaAL(MouseListener al) {
         tfEquiAlta.addMouseListener(al);
     }
 
-    public void clickRatonCompeBajaAL (MouseListener al){
+    public void clickRatonCompeBajaAL(MouseListener al) {
         tfCompeBaja.addMouseListener(al);
     }
 
-    public void clickRatonEquiBajaAL (MouseListener al){
+    public void clickRatonEquiBajaAL(MouseListener al) {
         tfEquiBaja.addMouseListener(al);
     }
 
-    public void bAceptarAL (ActionListener al){
+    public void bAceptarAL(ActionListener al) {
         aceptarButton.addActionListener(al);
     }
 
-    public void bSalirAL (ActionListener al){
+    public void bSalirAL(ActionListener al) {
         salirButton.addActionListener(al);
     }
 
-    public void bRbAltaAL (ActionListener al){
+    public void bRbAltaAL(ActionListener al) {
         altaRadioButton.addActionListener(al);
     }
 
-    public void bRbBajaAL (ActionListener al){
+    public void bRbBajaAL(ActionListener al) {
         bajaRadioButton.addActionListener(al);
     }
 
-    public void eleccionAlta(){
+    public void eleccionAlta() {
         pAlta.setVisible(true);
         pBaja.setVisible(false);
     }
-    public void eleccionBaja(){
+
+    public void eleccionBaja() {
         pAlta.setVisible(false);
         pBaja.setVisible(true);
     }
