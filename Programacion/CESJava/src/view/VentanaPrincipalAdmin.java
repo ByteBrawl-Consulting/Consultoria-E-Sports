@@ -78,4 +78,5 @@ public class VentanaPrincipalAdmin  extends JFrame {
     }
     public void addClasi (ActionListener al){clasificacionMenuItem.addActionListener(al);}
     public void addBCerrarEtapaInscripcion (ActionListener al){cerrarEtapaInscripcionMenuItem.addActionListener(al);}
+    public void addBResultadosJornadas (ActionListener al){resultadosJornadasMenuItem.addActionListener(al);}
 }

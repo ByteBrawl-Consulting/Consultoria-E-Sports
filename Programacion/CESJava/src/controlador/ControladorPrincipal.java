@@ -43,6 +43,10 @@ public class ControladorPrincipal {
         return cbd.ultimaJornada(com);
     }
 
+    public ArrayList todasJornadas(Competicion com) {
+        return cbd.todasJornadas(com);
+    }
+
     public Equipo buscarEquipo(String nombreEq) {
         return cbd.buscarEquipo(nombreEq);
     }

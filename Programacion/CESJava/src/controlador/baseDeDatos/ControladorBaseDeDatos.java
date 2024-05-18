@@ -135,8 +135,13 @@ public class ControladorBaseDeDatos {
     public Equipo buscarEquipo(String nombreEq) {
         return te.buscarEquipo(nombreEq);
     }
+
     public ArrayList ultimaJornada(Competicion com) {
         return tj.ultimaJornada(com);
+    }
+
+    public ArrayList todasJornadas(Competicion com) {
+        return tj.obtenerTodasJornadas(com);
     }
 
     public void altaJugador(Jugador ju) {

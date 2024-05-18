@@ -11,6 +11,7 @@ import controlador.jugadores.ControladorJugador;
 import controlador.patrocinador_equipo.ControladorPatrEqui;
 import controlador.patrocinadores.ControladorPatrocinador;
 import controlador.registrar.ControladorRegistrar;
+import controlador.resultados_todas_jornadas.ControladorResultadosTJornadas;
 import controlador.staff.ControladorStaff;
 import view.VentanaEquipos;
 import view.VentanaPrincipalAdmin;
@@ -32,6 +33,7 @@ public class ControladorAdmin {
     private ControladorClasificacion ccl;
     private ControladorPatrEqui cpe;
     private ControladorCerrarInscripciones cci;
+    private ControladorResultadosTJornadas crtj;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -58,6 +60,7 @@ public class ControladorAdmin {
         vpa.addClasi(new clasi());
         vpa.addBAsociarPatrocinadorEquipo(new bAsociarPatroEqui());
         vpa.addBCerrarEtapaInscripcion(new bCierreInscripciones());
+        vpa.addBResultadosJornadas(new bResultadosJornadas());
     }
 
     private class cerrarSesion implements ActionListener{
@@ -144,6 +147,13 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cci = new ControladorCerrarInscripciones(cv);
+        }
+    }
+
+    public class bResultadosJornadas implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            crtj = new ControladorResultadosTJornadas(cv);
         }
     }
 }
