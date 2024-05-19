@@ -10,10 +10,11 @@ public class VentanaClasificacionAdmin extends JFrame {
     private JPanel pPirncipal;
     private JComboBox cbClasi;
     private JTextArea taClasi;
+    private JButton salirButton;
 
     public VentanaClasificacionAdmin() throws HeadlessException {
         super("Clasificacion");
-        setSize(1000, 1000);
+        setSize(900, 650);
         setLocationRelativeTo(null);
         setContentPane(pPirncipal);
     }
@@ -36,5 +37,9 @@ public class VentanaClasificacionAdmin extends JFrame {
 
     public void setTaClasi(JTextArea taClasi) {
         this.taClasi = taClasi;
+    }
+
+    public void addBSalirAL(ActionListener al) {
+        salirButton.addActionListener(al);
     }
 }
