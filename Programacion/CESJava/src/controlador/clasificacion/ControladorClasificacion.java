@@ -23,6 +23,7 @@ public class ControladorClasificacion {
 
         llenarCB();
         vca.cbClasiAL(new taClasi());
+        vca.addBSalirAL(new bSalir());
     }
 
     public void llenarCB() {
@@ -48,6 +49,12 @@ public class ControladorClasificacion {
 
             }
             vca.getTaClasi().setText(String.valueOf(resultado));
+        }
+    }
+
+    public class bSalir implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            vca.dispose();
         }
     }
 }
