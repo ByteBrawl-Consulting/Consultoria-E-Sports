@@ -49,6 +49,10 @@ public class ControladorCompeticion {
 
     private void mostrar() {
         vc.setVisible(true);
+        vc.getpAlta().setVisible(false);
+        vc.getpBaja().setVisible(false);
+        vc.getpModi().setVisible(false);
+        vc.getpCons().setVisible(false);
     }
 
     private class bSalir implements ActionListener {

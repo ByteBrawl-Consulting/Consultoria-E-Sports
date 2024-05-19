@@ -65,8 +65,8 @@ public class ControladorBaseDeDatos {
         /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
 
         String url = "jdbc:oracle:thin:@localhost:1521:XE";
-        String user = "userproyecto";
-        String passwd = "userproyecto";
+        String user = "system";
+        String passwd = "1234";
 
         try {
             Class.forName("oracle.jdbc.OracleDriver");
