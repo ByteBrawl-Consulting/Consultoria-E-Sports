@@ -17,6 +17,7 @@ public class ControladorCalendario {
         vc = new VentanaGenerarCalendario();
         vc.bAceptarAL(new bAceptar());
         vc.bSalirAL(new bSalir());
+        vc.setVisible(true);
         llenarCB();
     }
     public void llenarCB() {
@@ -40,8 +41,9 @@ public class ControladorCalendario {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            Competicion compe = new Competicion();
-            compe.setNombre(vc.getCbCalendario().getSelectedItem().toString());
+            String nombre = vc.getCbCalendario().getSelectedItem().toString();
+            int codCompeticion = cv.getCodigoCompeticionPorNombre(nombre);
+            cv.generarCalendario(codCompeticion);
         }
     }
 }
