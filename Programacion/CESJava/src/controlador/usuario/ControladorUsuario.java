@@ -21,11 +21,8 @@ public class ControladorUsuario {
         mostrar();
         botones();
 
-        vpu.getTaClasi().setEditable(false);
-        vpu.getTaClasi().setBackground(new Color(205, 205, 205));
-
-        vpu.getTaJornada().setEditable(false);
-        vpu.getTaJornada().setBackground(new Color(205, 205, 205));
+        vpu.getTaConsulta().setEditable(false);
+        vpu.getTaConsulta().setBackground(new Color(205, 205, 205));
     }
 
     public void mostrar() {
@@ -46,10 +43,10 @@ public class ControladorUsuario {
 
     public class rbUsuJornada implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-
             if (vpu.getpJornada().isEnabled()) {
                 vpu.getpJornada().setVisible(true);
                 vpu.getpClasificacion().setVisible(false);
+                vpu.getTaConsulta().setText("");
             }
         }
     }
@@ -62,6 +59,7 @@ public class ControladorUsuario {
             if (vpu.getpClasificacion().isEnabled()) {
                 vpu.getpJornada().setVisible(false);
                 vpu.getpClasificacion().setVisible(true);
+                vpu.getTaConsulta().setText("");
             }
         }
     }
@@ -78,7 +76,7 @@ public class ControladorUsuario {
             for (x = 0; x < lista.size(); x++) {
                 total.append("Numero de jornada: " + lista.get(x).getCodJornada().getNumJornada()).append("\n").append("Hora: " + lista.get(x).getHora()).append("\n").append("Fecha de el enfrentamiento: " + lista.get(x).getFecha()).append("\n").append("Equipo Ganador: " + lista.get(x).getResultado()).append("\n").append("Equipo local: " + lista.get(x).getCodEquipoLocal().getCodEquipo()).append("\n").append("Equipo visitante: " + lista.get(x).getCodEquipoVisitante().getCodEquipo()).append("\n --------------------------------------  \n");
             }
-            vpu.getTaJornada().setText(String.valueOf(total));
+            vpu.getTaConsulta().setText(String.valueOf(total));
         }
     }
 
@@ -93,7 +91,7 @@ public class ControladorUsuario {
 
                 resultado.append("Posicion en la clasificacion es: " + x1 + "º \n").append("Nombre del equipo: " + lista.get(x).getCodequipo().getNombre()).append("\n").append("Puntos del equipo: " + lista.get(x).getPuntos().getPuntos()).append("\n").append(" ------------------------------ \n");
             }
-            vpu.getTaClasi().setText(String.valueOf(resultado));
+            vpu.getTaConsulta().setText(String.valueOf(resultado));
         }
     }
 

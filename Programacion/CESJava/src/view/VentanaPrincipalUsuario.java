@@ -10,11 +10,10 @@ public class VentanaPrincipalUsuario extends JFrame {
     private JButton bClasi;
     private JButton bJornada;
     private JTextField tfJornada;
-    private JTextArea taJornada;
     private JPanel pJornada;
     private JPanel pClasificacion;
     private JTextField tfClasi;
-    private JTextArea taClasi;
+    private JTextArea taConsulta;
     private JLabel claselb;
     private JRadioButton rbJornada;
     private JRadioButton rbClasi;
@@ -26,7 +25,7 @@ public class VentanaPrincipalUsuario extends JFrame {
     public VentanaPrincipalUsuario() throws HeadlessException {
         super("Pagina Principal");
         setContentPane(panel1);
-        setSize(500, 300);
+        setSize(750, 500);
         setLocationRelativeTo(null);
 
     }
@@ -128,12 +127,12 @@ public class VentanaPrincipalUsuario extends JFrame {
         this.tfClasi = tfClasi;
     }
 
-    public JTextArea getTaClasi() {
-        return taClasi;
+    public JTextArea getTaConsulta() {
+        return taConsulta;
     }
 
     public void setTaClasi(JTextArea taClasi) {
-        this.taClasi = taClasi;
+        this.taConsulta = taClasi;
     }
 
     public JLabel getTituloLabel() {
@@ -166,14 +165,6 @@ public class VentanaPrincipalUsuario extends JFrame {
 
     public void setTfJornada(JTextField tfJornada) {
         this.tfJornada = tfJornada;
-    }
-
-    public JTextArea getTaJornada() {
-        return taJornada;
-    }
-
-    public void setTaJornada(JTextArea taJornada) {
-        this.taJornada = taJornada;
     }
 
     public JPanel getpJornada() {
