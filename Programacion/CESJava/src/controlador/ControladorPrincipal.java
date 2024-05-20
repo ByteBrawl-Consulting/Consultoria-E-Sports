@@ -186,4 +186,12 @@ public class ControladorPrincipal {
     public void cerrarIncripcionCompeticion(String nombreCompeticion) {
         cbd.cerrarIncripcionCompeticion(nombreCompeticion);
     }
+
+    public int getCodigoCompeticionPorNombre(String nombre) {
+        return cbd.getCodigoCompeticionPorNombre(nombre);
+    }
+
+    public void generarCalendario(int codCompeticion) {
+        cbd.generarCalendario(codCompeticion);
+    }
 }
