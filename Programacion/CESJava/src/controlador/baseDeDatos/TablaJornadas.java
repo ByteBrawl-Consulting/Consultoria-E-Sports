@@ -86,5 +86,4 @@ public class TablaJornadas {
             throw new RuntimeException(e);
         }
     }
-
 }

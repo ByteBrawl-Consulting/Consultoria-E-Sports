@@ -9,6 +9,8 @@ public class VentanaGenerarCalendario extends JFrame{
     private JComboBox cbCalendario;
     private JButton bSalir;
     private JButton bAceptar;
+    private JLabel espaciador1;
+    private JLabel espaciador2;
 
     public VentanaGenerarCalendario() throws HeadlessException {
         super("Clasificacion");

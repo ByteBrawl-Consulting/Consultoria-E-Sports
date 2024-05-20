@@ -194,4 +194,17 @@ public class ControladorPrincipal {
     public void generarCalendario(int codCompeticion) {
         cbd.generarCalendario(codCompeticion);
     }
+
+    public ArrayList<Enfrentamiento> obtenerEnfrentamientosPorCompeticionYJornada(Competicion com, int numJornada) {
+        return cbd.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
+    }
+
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+        cbd.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    }
+
+    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+        cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    }
+
 }
