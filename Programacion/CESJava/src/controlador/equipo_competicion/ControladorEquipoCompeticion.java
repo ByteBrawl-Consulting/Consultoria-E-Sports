@@ -26,6 +26,8 @@ public class ControladorEquipoCompeticion {
         vaec.bRbBajaAL(new bBaja());
 
         vaec.setVisible(true);
+        vaec.getpAlta().setVisible(false);
+        vaec.getpBaja().setVisible(false);
     }
 
     public class bAceptar implements ActionListener {

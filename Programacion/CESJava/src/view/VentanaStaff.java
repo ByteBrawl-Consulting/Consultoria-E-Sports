@@ -86,6 +86,38 @@ public class VentanaStaff extends JFrame {
         rbConsulta.addActionListener(listener);
     }
 
+    public JPanel getpAlta() {
+        return pAlta;
+    }
+
+    public void setpAlta(JPanel pAlta) {
+        this.pAlta = pAlta;
+    }
+
+    public JPanel getpBaja() {
+        return pBaja;
+    }
+
+    public void setpBaja(JPanel pBaja) {
+        this.pBaja = pBaja;
+    }
+
+    public JPanel getpModi() {
+        return pModi;
+    }
+
+    public void setpModi(JPanel pModi) {
+        this.pModi = pModi;
+    }
+
+    public JPanel getpConsulta() {
+        return pConsulta;
+    }
+
+    public void setpConsulta(JPanel pConsulta) {
+        this.pConsulta = pConsulta;
+    }
+
     public JTextField getTfNombreAlta() {
         return tfNombreAlta;
     }

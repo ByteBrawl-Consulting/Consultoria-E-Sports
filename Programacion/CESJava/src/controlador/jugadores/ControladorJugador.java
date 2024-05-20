@@ -174,6 +174,10 @@ public class ControladorJugador {
 
     public void mostrar() {
         vj.setVisible(true);
+        vj.getpAlta().setVisible(false);
+        vj.getpBaja().setVisible(false);
+        vj.getpCons().setVisible(false);
+        vj.getpModi().setVisible(false);
     }
 
     public class PlaceholderListener implements FocusListener {

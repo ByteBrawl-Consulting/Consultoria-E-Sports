@@ -59,6 +59,46 @@ public class VentanaEquipos extends JFrame {
         pConsulta.setVisible(true);
     }
 
+    public JPanel getpAlta() {
+        return pAlta;
+    }
+
+    public void setpAlta(JPanel pAlta) {
+        this.pAlta = pAlta;
+    }
+
+    public JPanel getpPrincipal() {
+        return pPrincipal;
+    }
+
+    public void setpPrincipal(JPanel pPrincipal) {
+        this.pPrincipal = pPrincipal;
+    }
+
+    public JPanel getpBaja() {
+        return pBaja;
+    }
+
+    public void setpBaja(JPanel pBaja) {
+        this.pBaja = pBaja;
+    }
+
+    public JPanel getpModificacion() {
+        return pModificacion;
+    }
+
+    public void setpModificacion(JPanel pModificacion) {
+        this.pModificacion = pModificacion;
+    }
+
+    public JPanel getpConsulta() {
+        return pConsulta;
+    }
+
+    public void setpConsulta(JPanel pConsulta) {
+        this.pConsulta = pConsulta;
+    }
+
     public void clickRatonNombreAltaAL(MouseListener al) {
         tfNombreAlta.addMouseListener(al);
     }

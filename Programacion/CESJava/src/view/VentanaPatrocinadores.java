@@ -57,6 +57,24 @@ public class VentanaPatrocinadores extends JFrame {
         rbBaja.addActionListener(listener);
     }
 
+
+
+    public JPanel getpAlta() {
+        return pAlta;
+    }
+
+    public void setpAlta(JPanel pAlta) {
+        this.pAlta = pAlta;
+    }
+
+    public JPanel getpBaja() {
+        return pBaja;
+    }
+
+    public void setpBaja(JPanel pBaja) {
+        this.pBaja = pBaja;
+    }
+
     public JRadioButton getRbAlta() {
         return rbAlta;
     }

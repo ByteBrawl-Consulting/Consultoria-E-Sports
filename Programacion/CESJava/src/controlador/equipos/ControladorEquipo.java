@@ -44,6 +44,10 @@ public class ControladorEquipo {
 
     public void mostrar() {
         ve.setVisible(true);
+        ve.getpAlta().setVisible(false);
+        ve.getpBaja().setVisible(false);
+        ve.getpConsulta().setVisible(false);
+        ve.getpModificacion().setVisible(false);
     }
 
     private class bSalir implements ActionListener {

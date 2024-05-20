@@ -113,6 +113,14 @@ public class ControladorVista {
         return cp.getNombreEquipoPorCodigo(codEquipo);
     }
 
+    public int getCodigoCompeticionPorNombre(String nombre) {
+        return cp.getCodigoCompeticionPorNombre(nombre);
+    }
+
+    public void generarCalendario(int codCompeticion) {
+        cp.generarCalendario(codCompeticion);
+    }
+
 
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
@@ -214,5 +222,17 @@ public class ControladorVista {
 
     public void cerrarIncripcionCompeticion(String nombreCompeticion) {
         cp.cerrarIncripcionCompeticion(nombreCompeticion);
+    }
+
+    public ArrayList<Enfrentamiento> obtenerEnfrentamientosPorCompeticionYJornada(Competicion com, int numJornada) {
+        return cp.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
+    }
+
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+        cp.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    }
+
+    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+        cp.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
     }
 }

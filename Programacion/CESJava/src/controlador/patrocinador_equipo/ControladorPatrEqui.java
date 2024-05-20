@@ -38,6 +38,13 @@ public class ControladorPatrEqui {
         vape.bRbConsEquiAL(new bConsEqui());
 
         vape.setVisible(true);
+        vape.getpAlta().setVisible(false);
+        vape.getpBaja().setVisible(false);
+        vape.getpConsulEqui().setVisible(false);
+        vape.getpConsultPatro().setVisible(false);
+        vape.getpTA().setVisible(false);
+        vape.getTaConsulta().setEditable(false);
+
     }
 
     private class bSalir implements ActionListener {
