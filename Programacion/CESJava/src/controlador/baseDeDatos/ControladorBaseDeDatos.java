@@ -20,6 +20,7 @@ public class ControladorBaseDeDatos {
     private TablaPatrocinadorEquipo tpe;
     private Connection con;
     private TablaEquipoCompeticion tce;
+    private BDCalendario bdc;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
@@ -94,6 +95,7 @@ public class ControladorBaseDeDatos {
         tb = new TablaClasi(con);
         tce = new TablaEquipoCompeticion(con, te, tc);
         tpe = new TablaPatrocinadorEquipo(con, te, tp);
+        bdc = new BDCalendario(con, this);
     }
 
     public String login(Usuario usu) throws SQLException {
@@ -262,5 +264,13 @@ public class ControladorBaseDeDatos {
 
     public void cerrarIncripcionCompeticion(String nombreCompeticion) {
         tc.cerrarInscripcion(nombreCompeticion);
+    }
+
+    public int getCodigoCompeticionPorNombre(String nombre) {
+        return tc.getCodigoCompeticionPorNombre(nombre);
+    }
+
+    public void generarCalendario(int codCompeticion) {
+        bdc.generarCalendario(codCompeticion);
     }
 }

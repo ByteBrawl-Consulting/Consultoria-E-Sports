@@ -113,6 +113,14 @@ public class ControladorVista {
         return cp.getNombreEquipoPorCodigo(codEquipo);
     }
 
+    public int getCodigoCompeticionPorNombre(String nombre) {
+        return cp.getCodigoCompeticionPorNombre(nombre);
+    }
+
+    public void generarCalendario(int codCompeticion) {
+        cp.generarCalendario(codCompeticion);
+    }
+
 
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
