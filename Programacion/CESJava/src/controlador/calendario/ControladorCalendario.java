@@ -17,6 +17,7 @@ public class ControladorCalendario {
         vc = new VentanaGenerarCalendario();
         vc.bAceptarAL(new bAceptar());
         vc.bSalirAL(new bSalir());
+        vc.setVisible(true);
         llenarCB();
     }
     public void llenarCB() {
