@@ -6,6 +6,8 @@ import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipo_competicion.ControladorEquipoCompeticion;
 import controlador.equipos.ControladorEquipo;
+import controlador.introducir_resultados.ControladorIntroducirResultados;
+import controlador.calendario.ControladorCalendario;
 import controlador.juegos.ControladorJuego;
 import controlador.jugadores.ControladorJugador;
 import controlador.patrocinador_equipo.ControladorPatrEqui;
@@ -34,6 +36,8 @@ public class ControladorAdmin {
     private ControladorPatrEqui cpe;
     private ControladorCerrarInscripciones cci;
     private ControladorResultadosTJornadas crtj;
+    private ControladorCalendario cgc;
+    private ControladorIntroducirResultados cir;
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -61,6 +65,8 @@ public class ControladorAdmin {
         vpa.addBAsociarPatrocinadorEquipo(new bAsociarPatroEqui());
         vpa.addBCerrarEtapaInscripcion(new bCierreInscripciones());
         vpa.addBResultadosJornadas(new bResultadosJornadas());
+        vpa.addBGenerarCalendario(new bGenerarCalendario());
+        vpa.addBIntroducirResultados(new bIntroducirResultados());
     }
 
     private class cerrarSesion implements ActionListener{
@@ -154,6 +160,20 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             crtj = new ControladorResultadosTJornadas(cv);
+        }
+    }
+
+    public class bGenerarCalendario implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cgc = new ControladorCalendario(cv);
+        }
+    }
+
+    public class bIntroducirResultados implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cir = new ControladorIntroducirResultados();
         }
     }
 }
