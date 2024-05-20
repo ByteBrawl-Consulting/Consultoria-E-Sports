@@ -21,6 +21,7 @@ public class ControladorBaseDeDatos {
     private Connection con;
     private TablaEquipoCompeticion tce;
     private BDCalendario bdc;
+    private TablaEnfrentamientos tenf;
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
@@ -96,6 +97,7 @@ public class ControladorBaseDeDatos {
         tce = new TablaEquipoCompeticion(con, te, tc);
         tpe = new TablaPatrocinadorEquipo(con, te, tp);
         bdc = new BDCalendario(con, this);
+        tenf = new TablaEnfrentamientos(con, te);
     }
 
     public String login(Usuario usu) throws SQLException {
@@ -272,5 +274,17 @@ public class ControladorBaseDeDatos {
 
     public void generarCalendario(int codCompeticion) {
         bdc.generarCalendario(codCompeticion);
+    }
+
+    public ArrayList<Enfrentamiento> obtenerEnfrentamientosPorCompeticionYJornada(Competicion com, int numJornada) {
+        return tenf.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
+    }
+
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+        tenf.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    }
+
+    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+        tenf.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
     }
 }
