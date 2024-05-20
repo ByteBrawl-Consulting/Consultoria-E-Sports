@@ -20,6 +20,7 @@ public class ControladorCalendario {
         vc.setVisible(true);
         llenarCB();
     }
+
     public void llenarCB() {
         try {
             ArrayList<Competicion> lista = cv.clasiEquipos();
