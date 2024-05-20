@@ -100,4 +100,12 @@ public class VentanaPrincipalAdmin extends JFrame {
     public void addBResultadosJornadas(ActionListener al) {
         resultadosJornadasMenuItem.addActionListener(al);
     }
+
+    public void addBGenerarCalendario(ActionListener al) {
+        generarCalendarioMenuIItem.addActionListener(al);
+    }
+
+    public void addBIntroducirResultados(ActionListener al) {
+        introducirResultadosMenuItem.addActionListener(al);
+    }
 }
