@@ -173,7 +173,7 @@ public class ControladorAdmin {
     public class bIntroducirResultados implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            cir = new ControladorIntroducirResultados();
+            cir = new ControladorIntroducirResultados(cv);
         }
     }
 }
