@@ -21,7 +21,7 @@ public class TablaClasi {
         ArrayList<Clasificacion> lista = new ArrayList<>();
         try {
             String nombreCompe = com.getNombre();//solo hay nombre en com
-            String plantilla = "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where upper(c.nombre)=? order by puntos desc";
+            String plantilla = "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where c.nombre =? order by puntos desc";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, String.valueOf(nombreCompe));
             ResultSet res = pre.executeQuery();
@@ -56,7 +56,7 @@ public class TablaClasi {
             int codigoEquipo = ec.getCodEquipo().getCodEquipo();
             int codigoCompe = ec.getCodCompe().getCodCompe();
 
-            String plantilla = "select e.nombre from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe join equipos e on ec.cod_equipo=e.cod_equipo where upper(c.nombre)= ? and e.cod_equipo=?";
+            String plantilla = "select e.nombre from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe join equipos e on ec.cod_equipo=e.cod_equipo where c.nombre = ? and e.cod_equipo=?";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, String.valueOf(nombreCompe));
             pre.setString(2, String.valueOf(codigoEquipo));
