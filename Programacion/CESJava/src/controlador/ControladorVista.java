@@ -57,8 +57,8 @@ public class ControladorVista {
         cp.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju, String fecha) {
-        cp.modiJugador(ju, fecha);
+    public void modiJugador(Jugador ju) {
+        cp.modiJugador(ju);
     }
 
     public String consultaJugador(String nombre) {

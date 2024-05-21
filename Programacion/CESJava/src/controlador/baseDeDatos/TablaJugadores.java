@@ -57,15 +57,15 @@ public class TablaJugadores {
         }
     }
 
-    public void modiJugador(Jugador jugador, String fecha) {
+    public void modiJugador(Jugador jugador) {
         try {
             String nombreProcedimiento = "GESTION_JUGADORES.ACTUALIZAR_JUGADOR";
             String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?,?)}";
             CallableStatement sentencia = con.prepareCall(plantilla);
             sentencia.setString(1, jugador.getNombreJugador());
             sentencia.setString(2, jugador.getNacionalidad());
-            String fechaVentana = fecha;
-            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+            String fechaVentana = String.valueOf(jugador.getFechaNacimiento());
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
             sentencia.setTimestamp(3, fechaSql);

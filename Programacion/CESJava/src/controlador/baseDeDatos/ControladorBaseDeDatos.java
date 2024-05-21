@@ -33,20 +33,20 @@ public class ControladorBaseDeDatos {
 
         /* ----------------- Conexion con la BD Clase PC ----------------- */
 
-//        String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
-//        String user = "eqdaw04";
-//        String passwd = "eqdaw04";
-//
-//        try {
-//            Class.forName("oracle.jdbc.OracleDriver");
-//            con = DriverManager.getConnection(url, user, passwd);
-//            System.out.println("Conexión exitosa a la base de datos");
-//
-//        } catch (SQLException e) {
-//            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
+        String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
+        String user = "eqdaw04";
+        String passwd = "eqdaw04";
+
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection(url, user, passwd);
+            System.out.println("Conexión exitosa a la base de datos");
+
+        } catch (SQLException e) {
+            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         /* ----------------- Conexion con la BD Clase Portatil ----------------- */
 
@@ -66,20 +66,20 @@ public class ControladorBaseDeDatos {
 
         /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
 
-        String url = "jdbc:oracle:thin:@localhost:1521:XE";
-        String user = "userproyecto";
-        String passwd = "userproyecto";
-
-        try {
-            Class.forName("oracle.jdbc.OracleDriver");
-            con = DriverManager.getConnection(url, user, passwd);
-            System.out.println("Conexión exitosa a la base de datos");
-
-        } catch (SQLException e) {
-            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+//        String url = "jdbc:oracle:thin:@localhost:1521:XE";
+//        String user = "userproyecto";
+//        String passwd = "userproyecto";
+//
+//        try {
+//            Class.forName("oracle.jdbc.OracleDriver");
+//            con = DriverManager.getConnection(url, user, passwd);
+//            System.out.println("Conexión exitosa a la base de datos");
+//
+//        } catch (SQLException e) {
+//            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     /* ----------------- Metodo Inicializacion Tablas  ----------------- */
@@ -156,8 +156,8 @@ public class ControladorBaseDeDatos {
         tju.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju, String fecha) {
-        tju.modiJugador(ju, fecha);
+    public void modiJugador(Jugador ju) {
+        tju.modiJugador(ju);
     }
 
     public String consultaJugador(String nombre) {
