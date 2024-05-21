@@ -118,7 +118,7 @@ public class TablaEquipos {
 
     public int getCodigoEquipoPorNombre(String nombreEquipo) {
         try {
-            String query = "SELECT cod_equipo FROM equipos WHERE nombre = ?";
+            String query = "SELECT cod_equipo FROM equipos WHERE upper(nombre) = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, nombreEquipo);
             ResultSet rs = stmt.executeQuery();
@@ -157,7 +157,7 @@ public class TablaEquipos {
             String query = "SELECT e.cod_equipo, e.nombre FROM equipos e " +
                     "INNER JOIN equipo_competicion ec ON e.cod_equipo = ec.cod_equipo " +
                     "INNER JOIN competiciones c ON ec.cod_competicion = c.cod_compe " +
-                    "WHERE c.nombre = ?";
+                    "WHERE upper(c.nombre) = ?";
 
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, competicion.getNombre());
