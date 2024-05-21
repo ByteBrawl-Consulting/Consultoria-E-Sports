@@ -133,4 +133,17 @@ public class TablaEquipoCompeticion {
         String codEquipo = res.getString(1);
         return codEquipo;
     }
+
+   /* public void restarPuntosEquipo(String codEnfrentamiento, String equipoGanador) throws Exception {
+        int codEquipo = Integer.parseInt(sacarCodigoEquipo());
+        int puntos = Integer.parseInt(obtenerPuntosActuales(codEnfrentamiento, String.valueOf(codEquipo)));
+        puntos = puntos - 3;
+        String query = "UPDATE enfrentamientos " +
+                "SET puntos = ? " +
+                "WHERE cod_equipo = ?";
+        PreparedStatement preparedStatement = con.prepareStatement(query);
+        preparedStatement.setString(1, String.valueOf(puntos));
+        preparedStatement.setString(2, String.valueOf(codEquipo));
+        preparedStatement.executeUpdate();
+    }*/
 }

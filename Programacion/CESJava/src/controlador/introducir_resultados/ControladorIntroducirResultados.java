@@ -39,7 +39,7 @@ public class ControladorIntroducirResultados {
         vir.bSalirAL(new bSalir());
 
         vir.bRbAltaAL(new RadioButtonAltaListener());
-        vir.bRbModiAl(new RadioButtonModiListener());
+       /* vir.bRbModiAl(new RadioButtonModiListener());*/
 
         llenarCB();
 
@@ -55,7 +55,7 @@ public class ControladorIntroducirResultados {
 
     public void mostrar() {
         vir.setVisible(true);
-        vir.getpAlta().setVisible(false);
+        vir.getpAlta().setVisible(true);
         vir.getpModi().setVisible(false);
     }
 
@@ -188,11 +188,12 @@ public class ControladorIntroducirResultados {
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            String nombreCompe = String.valueOf(vir.getCbCompeticion().getSelectedItem());
+            String codEnfrentamiento = vir.getTfCodEnfrentamiento().getText();
+            String equipoGanador = vir.getTfEquipoGanador().getText();
             if (vir.getAltaRadioButton().isSelected()) {
                 try {
-                    String nombreCompe = String.valueOf(vir.getCbCompeticion().getSelectedItem());
-                    String codEnfrentamiento = vir.getTfCodEnfrentamiento().getText();
-                    String equipoGanador = vir.getTfEquipoGanador().getText();
+
 
                     if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
                         JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -206,24 +207,23 @@ public class ControladorIntroducirResultados {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(vir, "Error al insertar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (vir.getModificaciónRadioButton().isSelected()) {
+            } /*else if (vir.getModificaciónRadioButton().isSelected()) {
                 try {
-                    String codEnfrentamiento = vir.getTfCodEnfreModi().getText();
-                    String equipoGanador = vir.getTfEquiGanadorModi().getText();
+
 
                     if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
                         JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
-                    cv.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+                    //cv.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
 
                     JOptionPane.showMessageDialog(vir, "Resultado actualizado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(vir, "Error al actualizar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            }
+            }*/
         }
     }
 
@@ -242,12 +242,12 @@ public class ControladorIntroducirResultados {
         }
     }
 
-    private class RadioButtonModiListener implements ActionListener {
+    /*private class RadioButtonModiListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vir.eleccionModi();
         }
-    }
+    }*/
 
     public class PlaceholderListener implements FocusListener {
         private String placeholder;

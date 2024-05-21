@@ -295,11 +295,11 @@ public class ControladorBaseDeDatos {
         return tenf.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) throws Exception {
         tenf.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
     }
 
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        tenf.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
+        tenf.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
     }
 }
