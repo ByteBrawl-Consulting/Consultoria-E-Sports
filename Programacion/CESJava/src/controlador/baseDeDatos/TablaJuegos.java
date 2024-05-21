@@ -40,7 +40,7 @@ public class TablaJuegos {
 
     public void bajaJuego(Juego juego) {
         try {
-            String plantilla = "DELETE FROM juegos WHERE upper(nombre) = ?";
+            String plantilla = "DELETE FROM juegos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, juego.getNombre());
             int n = sentenciaPre.executeUpdate();
@@ -57,7 +57,7 @@ public class TablaJuegos {
 
     public void modiJuego(Juego juego) {
         try {
-            String plantilla = "UPDATE juegos SET desarrolladora = ?, fecha_lanzamiento = ? WHERE upper(nombre) = ?";
+            String plantilla = "UPDATE juegos SET desarrolladora = ?, fecha_lanzamiento = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(3, juego.getNombre());
             String fechaVentana = String.valueOf(juego.getFechaLanzamiento());
@@ -81,7 +81,7 @@ public class TablaJuegos {
     public StringBuilder consultaJuego(String nombreJu) {
         Juego juego = null;
         try {
-            String plantilla = "SELECT desarrolladora,fecha_lanzamiento FROM juegos WHERE upper(nombre) = ?";
+            String plantilla = "SELECT desarrolladora,fecha_lanzamiento FROM juegos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreJu);
             ResultSet respuesta = sentenciaPre.executeQuery();
@@ -100,7 +100,7 @@ public class TablaJuegos {
     public Juego buscarJuego(String nombreJu) {
         Juego juego = null;
         try {
-            String plantilla = "SELECT cod_juego FROM juegos WHERE upper(nombre) = ?";
+            String plantilla = "SELECT cod_juego FROM juegos WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreJu);
             ResultSet respuesta = sentenciaPre.executeQuery();

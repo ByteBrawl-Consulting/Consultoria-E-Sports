@@ -31,7 +31,7 @@ public class TablaEnfrentamientos {
                     "FROM competiciones c " +
                     "JOIN jornadas j ON j.cod_compe = c.cod_compe " +
                     "JOIN enfrentamientos e ON e.cod_jornada = j.cod_jornadas " +
-                    "WHERE upper(c.nombre) = ? AND j.num_jornada = ?";
+                    "WHERE c.nombre = ? AND j.num_jornada = ?";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, nomCompe);
             pre.setInt(2, numJornada);
