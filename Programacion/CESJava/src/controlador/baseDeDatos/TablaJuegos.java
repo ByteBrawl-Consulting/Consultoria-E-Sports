@@ -9,12 +9,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
+/**
+ * La clase TablaJuegos gestiona las operaciones relacionadas con la tabla de juegos en la base de datos.
+ */
+
 public class TablaJuegos {
     Connection con;
+
+    /**
+     * Constructor de la clase TablaJuegos.
+     *
+     * @param con La conexión a la base de datos.
+     */
 
     public TablaJuegos(Connection con) {
         this.con = con;
     }
+
+
+    /**
+     * Inserta un nuevo juego en la base de datos.
+     *
+     * @param juego El juego a ser insertado.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public void altaJuego(Juego juego) {
         try {
@@ -38,6 +56,13 @@ public class TablaJuegos {
         }
     }
 
+    /**
+     * Elimina un juego de la base de datos.
+     *
+     * @param juego El juego a ser eliminado.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public void bajaJuego(Juego juego) {
         try {
             String plantilla = "DELETE FROM juegos WHERE nombre = ?";
@@ -54,6 +79,13 @@ public class TablaJuegos {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Modifica los detalles de un juego en la base de datos.
+     *
+     * @param juego El juego con los detalles actualizados.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public void modiJuego(Juego juego) {
         try {
@@ -78,6 +110,15 @@ public class TablaJuegos {
         }
     }
 
+
+    /**
+     * Consulta los detalles de un juego en la base de datos.
+     *
+     * @param nombreJu El nombre del juego a ser consultado.
+     * @return Una cadena con los detalles del juego.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public StringBuilder consultaJuego(String nombreJu) {
         Juego juego = null;
         try {
@@ -96,6 +137,14 @@ public class TablaJuegos {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Busca un juego en la base de datos por su nombre.
+     *
+     * @param nombreJu El nombre del juego a ser buscado.
+     * @return El juego encontrado, o null si no se encuentra.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public Juego buscarJuego(String nombreJu) {
         Juego juego = null;
@@ -116,6 +165,14 @@ public class TablaJuegos {
         }
     }
 
+    /**
+     * Obtiene el nombre de un juego por su código.
+     *
+     * @param cod El código del juego.
+     * @return El nombre del juego.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public Juego getNombreJuegoPorCodigo(int cod) {
         Juego juego = null;
         try {
@@ -134,6 +191,12 @@ public class TablaJuegos {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Muestra un mensaje en una ventana emergente.
+     *
+     * @param m El mensaje a ser mostrado.
+     */
 
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);

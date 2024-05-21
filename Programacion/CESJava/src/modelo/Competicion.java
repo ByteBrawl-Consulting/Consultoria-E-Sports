@@ -3,6 +3,10 @@ package modelo;
 import java.sql.Date;
 import java.time.LocalDate;
 
+/**
+ * La clase Competicion representa una competición, incluyendo su código, nombre, fechas, curso, equipo ganador y juego asociado.
+ */
+
 public class Competicion {
     private int codCompe;
     private String nombre;
@@ -14,6 +18,19 @@ public class Competicion {
 
     public Competicion() {
     }
+
+
+    /**
+     * Constructor con parámetros para inicializar una competición.
+     *
+     * @param codCompe     El código de la competición.
+     * @param nombre       El nombre de la competición.
+     * @param fechaInicio  La fecha de inicio de la competición.
+     * @param fechaFin     La fecha de finalización de la competición.
+     * @param curso        El curso asociado a la competición.
+     * @param equipoGanador El equipo ganador de la competición.
+     * @param codJuego     El juego asociado a la competición.
+     */
 
     public Competicion(int codCompe, String nombre, LocalDate fechaInicio, LocalDate fechaFin, int curso, Equipo equipoGanador, Juego codJuego) {
         this.codCompe = codCompe;

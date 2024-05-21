@@ -8,9 +8,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * El ControladorCalendario gestiona la generación de calendarios para competiciones.
+ */
+
 public class ControladorCalendario {
     private VentanaGenerarCalendario vc;
     private ControladorVista cv;
+
+    /**
+     * Constructor de la clase ControladorCalendario.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorCalendario(ControladorVista cv) {
         this.cv = cv;
@@ -20,6 +30,10 @@ public class ControladorCalendario {
         vc.setVisible(true);
         llenarCB();
     }
+
+    /**
+     * Llena el ComboBox de la ventana con las competiciones disponibles.
+     */
 
     public void llenarCB() {
         try {
@@ -32,12 +46,21 @@ public class ControladorCalendario {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de salir.
+     */
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vc.dispose();
         }
     }
+
+
+    /**
+     * Clase interna para manejar el evento de aceptar.
+     */
 
     private class bAceptar implements ActionListener {
         @Override

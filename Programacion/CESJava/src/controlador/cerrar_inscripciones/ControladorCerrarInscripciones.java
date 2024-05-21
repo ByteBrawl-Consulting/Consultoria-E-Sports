@@ -12,9 +12,19 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
+/**
+ * El ControladorCerrarInscripciones gestiona el cierre de las inscripciones para una competición.
+ */
+
 public class ControladorCerrarInscripciones {
     private VentanaCerrarInscripciones vci;
     private ControladorVista cv;
+
+    /**
+     * Constructor de la clase ControladorCerrarInscripciones.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorCerrarInscripciones(ControladorVista cv) {
         this.cv = cv;
@@ -34,6 +44,10 @@ public class ControladorCerrarInscripciones {
         vci.setVisible(true);
     }
 
+    /**
+     * Llena el JComboBox con las competiciones disponibles.
+     */
+
     public void llenarCB() {
         try {
             ArrayList<Competicion> lista = cv.clasiEquipos();
@@ -45,6 +59,10 @@ public class ControladorCerrarInscripciones {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * Clase interna para manejar los eventos de selección en el JComboBox de competiciones.
+     */
 
     private class ItemListenerCompeticion implements ItemListener {
         @Override
@@ -69,6 +87,10 @@ public class ControladorCerrarInscripciones {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de aceptar.
+     */
+
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -79,6 +101,10 @@ public class ControladorCerrarInscripciones {
             }
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de salir.
+     */
 
     private class bSalir implements ActionListener {
         @Override

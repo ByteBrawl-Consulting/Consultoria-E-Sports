@@ -7,14 +7,32 @@ import javax.swing.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
+/**
+ * La clase TablaJugadores gestiona las operaciones relacionadas con la tabla de jugadores en la base de datos.
+ */
+
 public class TablaJugadores {
     private Connection con;
     ControladorBaseDeDatos cbd;
+
+    /**
+     * Constructor de la clase TablaJugadores.
+     *
+     * @param con La conexión a la base de datos.
+     * @param cbd El controlador de la base de datos.
+     */
 
     public TablaJugadores(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
         this.cbd = cbd;
     }
+
+    /**
+     * Agrega un nuevo jugador a la base de datos.
+     *
+     * @param jugador El jugador a ser agregado.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public void altaJugador(Jugador jugador) {
         try {
@@ -39,6 +57,13 @@ public class TablaJugadores {
         }
     }
 
+    /**
+     * Elimina un jugador de la base de datos.
+     *
+     * @param jugador El jugador a ser eliminado.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public void bajaJugador(Jugador jugador) {
         try {
             String nombreProcedimiento = "GESTION_JUGADORES.ELIMINAR_JUGADOR";
@@ -56,6 +81,13 @@ public class TablaJugadores {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Actualiza los detalles de un jugador en la base de datos.
+     *
+     * @param jugador El jugador con los detalles actualizados.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public void modiJugador(Jugador jugador) {
         try {
@@ -85,6 +117,14 @@ public class TablaJugadores {
         }
     }
 
+    /**
+     * Consulta los detalles de un jugador en la base de datos.
+     *
+     * @param nombreJu El nombre del jugador a ser consultado.
+     * @return Una cadena con los detalles del jugador.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public StringBuilder consultaJugador(String nombreJu) {
         try {
             String plantilla = "SELECT cod_jugador,nacionalidad,fecha_nac,nickname,rol,sueldo,cod_equipo FROM jugadores WHERE (nombre_jugador) = ?";
@@ -110,6 +150,12 @@ public class TablaJugadores {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Muestra un mensaje en una ventana emergente.
+     *
+     * @param m El mensaje a ser mostrado.
+     */
 
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);

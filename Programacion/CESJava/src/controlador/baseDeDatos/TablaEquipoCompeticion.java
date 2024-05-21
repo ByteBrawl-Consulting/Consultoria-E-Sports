@@ -6,11 +6,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Clase para manejar la tabla de relación entre equipos y competiciones en la base de datos.
+ */
+
 public class TablaEquipoCompeticion {
     private Connection con;
     private TablaEquipos tablaEquipos;
     private TablaCompeticiones tablaCompeticiones;
 
+    /**
+     * Constructor de la clase.
+     * @param con la conexión a la base de datos
+     * @param tablaEquipos instancia de TablaEquipos para obtener información de los equipos
+     * @param tablaCompeticiones instancia de TablaCompeticiones para obtener información de las competiciones
+     */
 
     public TablaEquipoCompeticion(Connection con, TablaEquipos tablaEquipos, TablaCompeticiones tablaCompeticiones) {
         this.con = con;
@@ -18,6 +28,12 @@ public class TablaEquipoCompeticion {
         this.tablaCompeticiones = tablaCompeticiones;
 
     }
+
+    /**
+     * Realiza el alta de un equipo en una competición en la base de datos.
+     * @param nombreEquipo el nombre del equipo
+     * @param nombreCompeticion el nombre de la competición
+     */
 
     public void altaEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         try {
@@ -56,6 +72,12 @@ public class TablaEquipoCompeticion {
         }
     }
 
+    /**
+     * Realiza la baja de un equipo de una competición en la base de datos.
+     * @param nombreEquipo el nombre del equipo
+     * @param nombreCompeticion el nombre de la competición
+     */
+
     public void bajaEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
         try {
             int codEquipo = tablaEquipos.getCodigoEquipoPorNombre(nombreEquipo);
@@ -92,9 +114,21 @@ public class TablaEquipoCompeticion {
         }
     }
 
+    /**
+     * Muestra un mensaje en una ventana de diálogo.
+     * @param m el mensaje a mostrar
+     */
+
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
+
+    /**
+     * Aumenta los puntos del equipo ganador de un enfrentamiento en la base de datos.
+     * @param equipoGanadorActual el equipo ganador actual
+     * @param codEnfrentamiento el código del enfrentamiento
+     * @throws Exception si ocurre un error
+     */
 
     public void aumentarPuntos(String equipoGanadorActual, String codEnfrentamiento, String nombreCompe)throws Exception{
         String equipo = equipoGanadorActual;
@@ -112,6 +146,15 @@ public class TablaEquipoCompeticion {
         pre.close();
     }
 
+
+    /**
+     * Obtiene los puntos actuales de un equipo en una competición.
+     * @param codEquipo el código del equipo
+     * @param codEnfrentamiento el código del enfrentamiento
+     * @return los puntos actuales del equipo
+     * @throws Exception si ocurre un error
+     */
+
     private String obtenerPuntosActuales(String codEquipo, String codEnfrentamiento) throws Exception{
 
         String plantilla ="select puntos from equipo_competicion where cod_equipo=? and cod_competicion=?";
@@ -123,6 +166,13 @@ public class TablaEquipoCompeticion {
         String puntos = String.valueOf(res.getInt(1));
         return puntos;
     }
+
+    /**
+     * Obtiene el código de un equipo por su nombre.
+     * @param equipoGanadorActual el nombre del equipo
+     * @return el código del equipo
+     * @throws Exception si ocurre un error
+     */
 
     private String sacarCodigoEquipo(String equipoGanadorActual) throws Exception{
         String plantilla ="select cod_equipo from equipos where nombre=?";

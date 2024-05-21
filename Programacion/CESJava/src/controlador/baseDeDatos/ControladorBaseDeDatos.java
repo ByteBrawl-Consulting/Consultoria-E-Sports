@@ -7,6 +7,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que gestiona la conexión y operaciones con la base de datos.
+ */
+
 public class ControladorBaseDeDatos {
     private TablaJornadas tj;
     private TablaUsuarios tu;
@@ -23,15 +27,23 @@ public class ControladorBaseDeDatos {
     private BDCalendario bdc;
     private TablaEnfrentamientos tenf;
 
+    /**
+     * Constructor de la clase.
+     * @param cp instancia del ControladorPrincipal
+     */
+
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
         inicializarTablas(cp);
 
     }
 
-    public void conexionBD(ControladorPrincipal cp) {
+    /**
+     * Establece la conexión con la base de datos.
+     * @param cp instancia del ControladorPrincipal
+     */
 
-        /* ----------------- Conexion con la BD Clase PC ----------------- */
+    public void conexionBD(ControladorPrincipal cp) {
 
 //        String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
 //        String user = "eqdaw04";
@@ -97,7 +109,10 @@ public class ControladorBaseDeDatos {
 //        }
     }
 
-    /* ----------------- Metodo Inicializacion Tablas  ----------------- */
+    /**
+     * Inicializa las tablas de la base de datos.
+     * @param cp instancia del ControladorPrincipal
+     */
 
     public void inicializarTablas(ControladorPrincipal cp) {
         tu = new TablaUsuarios(con);

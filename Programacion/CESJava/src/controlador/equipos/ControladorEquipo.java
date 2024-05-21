@@ -10,9 +10,19 @@ import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * El ControladorEquipo gestiona la interacción entre la vista de gestión de equipos y el modelo de datos.
+ */
+
 public class ControladorEquipo {
     private VentanaEquipos ve;
     private ControladorVista cv;
+
+    /**
+     * Constructor de la clase ControladorEquipo.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorEquipo(ControladorVista cv) {
         this.cv = cv;
@@ -42,6 +52,10 @@ public class ControladorEquipo {
         ve.getTaConsulta().setBackground(new Color(205, 205, 205));
     }
 
+    /**
+     * Muestra la ventana de gestión de equipos y oculta los paneles específicos.
+     */
+
     public void mostrar() {
         ve.setVisible(true);
         ve.getpAlta().setVisible(false);
@@ -50,12 +64,20 @@ public class ControladorEquipo {
         ve.getpModificacion().setVisible(false);
     }
 
+    /**
+     * Clase interna para manejar el evento de salir.
+     */
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             ve.dispose();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de aceptar, ejecutando la operación correspondiente según la selección del usuario.
+     */
 
     private class bAceptar implements ActionListener {
         @Override
@@ -108,12 +130,20 @@ public class ControladorEquipo {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de alta de equipo.
+     */
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             ve.eleccionAlta();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de baja de equipo.
+     */
 
     private class bBaja implements ActionListener {
         @Override
@@ -122,12 +152,20 @@ public class ControladorEquipo {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de modificación de equipo.
+     */
+
     private class bModi implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             ve.eleccionModi();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de consulta de equipo.
+     */
 
     private class bConsulta implements ActionListener {
         @Override
@@ -136,12 +174,29 @@ public class ControladorEquipo {
         }
     }
 
+    /**
+     * Clase interna para manejar los eventos de enfoque de los campos de texto,
+     * mostrando y ocultando los placeholders.
+     */
+
     public class PlaceholderListener implements FocusListener {
         private String placeholder;
+
+        /**
+         * Constructor de PlaceholderListener.
+         *
+         * @param placeholder El texto de marcador de posición.
+         */
 
         public PlaceholderListener(String placeholder) {
             this.placeholder = placeholder;
         }
+
+        /**
+         * Maneja el evento de ganar foco, mostrando el marcador de posición si es necesario.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -151,6 +206,12 @@ public class ControladorEquipo {
             }
         }
 
+        /**
+         * Maneja el evento de perder foco, mostrando el marcador de posición si el campo está vacío.
+         *
+         * @param e El evento de focus.
+         */
+
         @Override
         public void focusLost(FocusEvent e) {
             JTextField textField = (JTextField) e.getSource();
@@ -159,5 +220,4 @@ public class ControladorEquipo {
             }
         }
     }
-
 }
