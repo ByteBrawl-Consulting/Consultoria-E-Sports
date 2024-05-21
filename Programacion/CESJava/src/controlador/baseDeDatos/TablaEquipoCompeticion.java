@@ -11,10 +11,12 @@ public class TablaEquipoCompeticion {
     private TablaEquipos tablaEquipos;
     private TablaCompeticiones tablaCompeticiones;
 
+
     public TablaEquipoCompeticion(Connection con, TablaEquipos tablaEquipos, TablaCompeticiones tablaCompeticiones) {
         this.con = con;
         this.tablaEquipos = tablaEquipos;
         this.tablaCompeticiones = tablaCompeticiones;
+
     }
 
     public void altaEquipoCompeticion(String nombreEquipo, String nombreCompeticion) {
@@ -94,11 +96,11 @@ public class TablaEquipoCompeticion {
         JOptionPane.showMessageDialog(null, m);
     }
 
-    public void aumentarPuntos(String equipoGanadorActual, String codEnfrentamiento)throws Exception{
+    public void aumentarPuntos(String equipoGanadorActual, String codEnfrentamiento, String nombreCompe)throws Exception{
         String equipo = equipoGanadorActual;
-        String enfre = codEnfrentamiento;
+        String codCompe = tablaCompeticiones.sacarNumCompe(nombreCompe);
         String codEquipo = sacarCodigoEquipo(equipo);
-        String puntosActuales = obtenerPuntosActuales(codEquipo,enfre);
+        int puntosActuales = Integer.parseInt(obtenerPuntosActuales(codEquipo,codCompe));
         puntosActuales = puntosActuales + 3;
         String plantilla ="UPDATE equipo_competicion " +
                 "SET puntos = ?" +

@@ -295,8 +295,8 @@ public class ControladorBaseDeDatos {
         return tenf.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        tenf.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
+        tenf.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
     }
 
     public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
