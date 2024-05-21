@@ -310,51 +310,54 @@ END;
 CREATE OR REPLACE NONEDITIONABLE TRIGGER ENFRENTAMIENTO_UNICO
 FOR INSERT OR UPDATE ON ENFRENTAMIENTOS
 COMPOUND TRIGGER
-  TYPE JORNADA_TEAM IS RECORD (
-    COD_JORNADA     ENFRENTAMIENTOS.COD_JORNADA%TYPE,
-    COD_EQUIPO_LOCAL ENFRENTAMIENTOS.COD_EQUIPO_LOCAL%TYPE,
-    COD_EQUIPO_VISITANTE ENFRENTAMIENTOS.COD_EQUIPO_VISITANTE%TYPE
+  TYPE jornada_team IS RECORD (
+    cod_jornada        enfrentamientos.cod_jornada%TYPE,
+    cod_equipo_local   enfrentamientos.cod_equipo_local%TYPE,
+    cod_equipo_visitante enfrentamientos.cod_equipo_visitante%TYPE,
+    cod_enfrentamiento enfrentamientos.cod_enfrentamiento%TYPE
   );
-  TYPE JORNADA_TEAM_LIST IS TABLE OF JORNADA_TEAM;
-  JORNADA_TEAM_TAB JORNADA_TEAM_LIST := JORNADA_TEAM_LIST();
-  AFTER EACH ROW IS
+  TYPE jornada_team_list IS TABLE OF jornada_team;
+  jornada_team_tab jornada_team_list := jornada_team_list();
+  BEFORE EACH ROW IS
   BEGIN
-    JORNADA_TEAM_TAB.EXTEND;
-    JORNADA_TEAM_TAB(JORNADA_TEAM_TAB.LAST).COD_JORNADA := :NEW.COD_JORNADA;
-    JORNADA_TEAM_TAB(JORNADA_TEAM_TAB.LAST).COD_EQUIPO_LOCAL := :NEW.COD_EQUIPO_LOCAL;
-    JORNADA_TEAM_TAB(JORNADA_TEAM_TAB.LAST).COD_EQUIPO_VISITANTE := :NEW.COD_EQUIPO_VISITANTE;
-  END AFTER EACH ROW;
+    jornada_team_tab.EXTEND;
+    jornada_team_tab(jornada_team_tab.LAST).cod_jornada := :NEW.cod_jornada;
+    jornada_team_tab(jornada_team_tab.LAST).cod_equipo_local := :NEW.cod_equipo_local;
+    jornada_team_tab(jornada_team_tab.LAST).cod_equipo_visitante := :NEW.cod_equipo_visitante;
+    jornada_team_tab(jornada_team_tab.LAST).cod_enfrentamiento := :NEW.cod_enfrentamiento;
+  END BEFORE EACH ROW;
   AFTER STATEMENT IS
-    V_COUNT_LOCAL NUMBER;
-    V_COUNT_VISITANTE NUMBER;
+    v_count_local NUMBER;
+    v_count_visitante NUMBER;
   BEGIN
-    FOR I IN 1..JORNADA_TEAM_TAB.COUNT LOOP
+    FOR i IN 1..jornada_team_tab.COUNT LOOP
       -- Verifica cuantos enfrentamientos tienen el mismo equipo local
       SELECT COUNT(*)
-      INTO V_COUNT_LOCAL
+      INTO v_count_local
       FROM ENFRENTAMIENTOS
-      WHERE COD_JORNADA = JORNADA_TEAM_TAB(I).COD_JORNADA
-        AND COD_EQUIPO_LOCAL = JORNADA_TEAM_TAB(I).COD_EQUIPO_LOCAL
-        AND COD_ENFRENTAMIENTO != :NEW.COD_ENFRENTAMIENTO;
+      WHERE COD_JORNADA = jornada_team_tab(i).cod_jornada
+        AND COD_EQUIPO_LOCAL = jornada_team_tab(i).cod_equipo_local
+        AND COD_ENFRENTAMIENTO != jornada_team_tab(i).cod_enfrentamiento;
       -- Verifica cuantos enfrentamientos tienen el mismo equipo visitante
       SELECT COUNT(*)
-      INTO V_COUNT_VISITANTE
+      INTO v_count_visitante
       FROM ENFRENTAMIENTOS
-      WHERE COD_JORNADA = JORNADA_TEAM_TAB(I).COD_JORNADA
-        AND COD_EQUIPO_VISITANTE = JORNADA_TEAM_TAB(I).COD_EQUIPO_VISITANTE
-        AND COD_ENFRENTAMIENTO != :NEW.COD_ENFRENTAMIENTO;
+      WHERE COD_JORNADA = jornada_team_tab(i).cod_jornada
+        AND COD_EQUIPO_VISITANTE = jornada_team_tab(i).cod_equipo_visitante
+        AND COD_ENFRENTAMIENTO != jornada_team_tab(i).cod_enfrentamiento;
       -- Si ya hay varios enfrentamientos con el mismo equipo local --> Error
-      IF V_COUNT_LOCAL > 0 THEN
+      IF v_count_local > 0 THEN
         RAISE_APPLICATION_ERROR(-20012, 'Equipo 2 veces local');
       END IF;
       -- Si ya hay varios enfrentamientos con el mismo equipo visitante --> Error
-      IF V_COUNT_VISITANTE > 0 THEN
+      IF v_count_visitante > 0 THEN
         RAISE_APPLICATION_ERROR(-20013, 'Equipo 2 veces visitante');
       END IF;
     END LOOP;
   END AFTER STATEMENT;
 END;
 /
+
 
 
 
