@@ -510,6 +510,14 @@ public class ControladorPrincipal {
         return cbd.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
+
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe)throws Exception {
+        cbd.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
+    }
+
+    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
+        cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe );
+
     /**
      * Método para insertar el resultado de un enfrentamiento.
      *
@@ -530,5 +538,6 @@ public class ControladorPrincipal {
 
     public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
         cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador );
+
     }
 }
