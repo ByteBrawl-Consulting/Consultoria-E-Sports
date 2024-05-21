@@ -57,7 +57,7 @@ public class TablaStaff {
 
     public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo) {
         try {
-            String plantilla = "UPDATE staff SET cargo = ?, sueldo = ?, cod_equipo = ? WHERE upper(nombre) = ?";
+            String plantilla = "UPDATE staff SET cargo = ?, sueldo = ?, cod_equipo = ? WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, cargo);
             sentenciaPre.setInt(2, sueldo);
@@ -78,7 +78,7 @@ public class TablaStaff {
     public StringBuilder consultaStaff(String nombreStaff) {
         Staff staff = null;
         try {
-            String plantilla = "SELECT cargo,sueldo,cod_equipo FROM staff WHERE upper(nombre) = ?";
+            String plantilla = "SELECT cargo,sueldo,cod_equipo FROM staff WHERE nombre = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreStaff);
             ResultSet respuesta = sentenciaPre.executeQuery();
