@@ -43,9 +43,9 @@ public class ControladorClasificacion {
             com.setNombre(vca.getCbClasi().getSelectedItem().toString());
             StringBuilder resultado = new StringBuilder();
             ArrayList<Clasificacion> lista = cv.clasificacionAdmin(com);
-            int x1 = 0;
+            int x1 = 1;
             for (int x = 0; x < lista.size(); x++, x1++) {
-                resultado.append("Posicion en la clasificacion es: " + x1 + "º \n").append("Nombre del equipo: " + lista.get(x).getCodequipo().getNombre()).append("\n").append("Puntos del equipo: " + lista.get(x).getPuntos().getPuntos()).append("\n").append(" ------------------------------ \n");
+                resultado.append("Posicion en la clasificacion es: " + x1 + "º \n").append("Nombre del equipo: " + lista.get(x).getCodequipo().getNombre()).append("\n").append("Puntos del equipo: " + lista.get(x).getPuntos().getPuntos()).append("\n").append(" ---------------------------------------------------- \n");
 
             }
             vca.getTaClasi().setText(String.valueOf(resultado));

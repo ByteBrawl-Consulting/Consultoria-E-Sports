@@ -117,7 +117,6 @@ public class ControladorIntroducirResultados {
                 StringBuilder resultados = new StringBuilder();
                 for (Enfrentamiento enfrentamiento : enfrentamientos) {
                     resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
-                    resultados.append("Jornada: ").append(enfrentamiento.getCodJornada().getNumJornada()).append("\n");
                     resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
                     resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
                     resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");
@@ -170,7 +169,6 @@ public class ControladorIntroducirResultados {
                 StringBuilder resultados = new StringBuilder();
                 for (Enfrentamiento enfrentamiento : enfrentamientos) {
                     resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
-                    resultados.append("Jornada: ").append(enfrentamiento.getCodJornada().getNumJornada()).append("\n");
                     resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
                     resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
                     resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");

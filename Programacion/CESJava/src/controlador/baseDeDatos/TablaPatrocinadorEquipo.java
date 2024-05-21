@@ -99,7 +99,7 @@ public class TablaPatrocinadorEquipo {
                     "FROM equipos e " +
                     "JOIN patrocinadores_equipos pe ON e.cod_equipo = pe.cod_equipo " +
                     "JOIN patrocinadores p ON pe.cod_patrocinadores = p.cod_patrocinadores " +
-                    "WHERE upper(p.nombre) = ?";
+                    "WHERE p.nombre = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, nombrePatrocinador);
             ResultSet rs = stmt.executeQuery();
@@ -119,7 +119,7 @@ public class TablaPatrocinadorEquipo {
                     "FROM patrocinadores p " +
                     "JOIN patrocinadores_equipos pe ON p.cod_patrocinadores = pe.cod_patrocinadores " +
                     "JOIN equipos e ON pe.cod_equipo = e.cod_equipo " +
-                    "WHERE upper(e.nombre) = ?";
+                    "WHERE e.nombre = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, nombreEquipo);
             ResultSet rs = stmt.executeQuery();

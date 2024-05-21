@@ -10,14 +10,31 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+/**
+ * Clase TablaCompeticiones para manejar las operaciones relacionadas con las competiciones.
+ */
+
 public class TablaCompeticiones {
     Connection con;
     ControladorBaseDeDatos cbd;
+
+    /**
+     * Constructor que inicializa la conexión a la base de datos y el controlador de base de datos.
+     *
+     * @param con la conexión a la base de datos.
+     * @param cbd el controlador de base de datos.
+     */
 
     public TablaCompeticiones(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
         this.cbd = cbd;
     }
+
+    /**
+     * Método para dar de alta una nueva competición.
+     *
+     * @param compe el objeto Competicion que se va a dar de alta.
+     */
 
     public void altaCompeticion(Competicion compe) {
         try {
@@ -46,6 +63,12 @@ public class TablaCompeticiones {
         }
     }
 
+    /**
+     * Método para dar de baja una competición.
+     *
+     * @param compe el objeto Competicion que se va a dar de baja.
+     */
+
     public void bajaCompeticion(Competicion compe) {
         try {
             String plantilla = "DELETE FROM competiciones WHERE nombre = ?";
@@ -62,6 +85,12 @@ public class TablaCompeticiones {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Método para modificar una competición.
+     *
+     * @param compe el objeto Competicion que se va a modificar.
+     */
 
     public void modiCompeticion(Competicion compe) {
         try {
@@ -90,6 +119,13 @@ public class TablaCompeticiones {
         }
     }
 
+    /**
+     * Método para consultar una competición por su nombre.
+     *
+     * @param nombreCompe el nombre de la competición.
+     * @return un StringBuilder con la información de la competición.
+     */
+
     public StringBuilder consultaCompeticion(String nombreCompe) {
         try {
             String plantilla = "SELECT fecha_inicio,fecha_fin,cod_juego FROM competiciones WHERE nombre = ?";
@@ -110,13 +146,26 @@ public class TablaCompeticiones {
         }
     }
 
+    /**
+     * Método para mostrar un mensaje en una ventana de diálogo.
+     *
+     * @param m el mensaje a mostrar.
+     */
+
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
     }
 
+    /**
+     * Método para obtener el código de una competición por su nombre.
+     *
+     * @param nombreCompeticion el nombre de la competición.
+     * @return el código de la competición o -1 si no se encuentra.
+     */
+
     public int getCodigoCompeticionPorNombre(String nombreCompeticion) {
         try {
-            String query = "SELECT cod_compe FROM competiciones WHERE upper(nombre) = ?";
+            String query = "SELECT cod_compe FROM competiciones WHERE nombre = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, nombreCompeticion);
             ResultSet rs = stmt.executeQuery();
@@ -128,6 +177,14 @@ public class TablaCompeticiones {
         }
         return -1;
     }
+
+
+    /**
+     * Método para obtener una lista de competiciones.
+     *
+     * @return una lista de objetos Competicion.
+     * @throws Exception si ocurre un error en la consulta.
+     */
 
     public ArrayList clasiEquipo() throws Exception {
         ArrayList<Competicion> lista = new ArrayList<>();
@@ -146,12 +203,19 @@ public class TablaCompeticiones {
         return lista;
     }
 
+    /**
+     * Método para obtener la clasificación de una competición.
+     *
+     * @param com el objeto Competicion.
+     * @return una lista de objetos Clasificacion.
+     */
+
     public ArrayList clasificacionAdmin(Competicion com) {
         Clasificacion cla = new Clasificacion();
         ArrayList<Clasificacion> lista = new ArrayList<>();
         try {
             String nombreCompe = com.getNombre();//solo hay nombre en com
-            String plantilla = "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where upper(c.nombre)=? order by puntos desc";
+            String plantilla = "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where c.nombre=? order by puntos desc";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, (nombreCompe));
             ResultSet res = pre.executeQuery();
@@ -176,6 +240,14 @@ public class TablaCompeticiones {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Método para obtener los datos completos de la clasificación de un equipo en una competición.
+     *
+     * @param ec el objeto EquipoCompeticion.
+     * @param com el objeto Competicion.
+     * @return el objeto Clasificacion con los datos completos.
+     */
 
     public Clasificacion datosCompletosClasi(EquipoCompeticion ec, Competicion com) {
         Clasificacion cla = new Clasificacion();
@@ -215,6 +287,13 @@ public class TablaCompeticiones {
         }
     }
 
+    /**
+     * Cierra la inscripción para una competición específica.
+     *
+     * @param nombreCompeticion El nombre de la competición para la cual se quiere cerrar la inscripción.
+     * @throws RuntimeException Si ocurre un error durante la operación, ya sea una excepción SQL o una excepción general.
+     */
+
     public void cerrarInscripcion(String nombreCompeticion) {
         try {
             int codCompeticion = getCodigoCompeticionPorNombre(nombreCompeticion);
@@ -253,6 +332,13 @@ public class TablaCompeticiones {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Verifica si la etapa de inscripción está cerrada para una competición específica.
+     *
+     * @param nombreCompeticion El nombre de la competición para la cual se quiere verificar el estado de la inscripción.
+     * @return true si la inscripción está cerrada, false en caso contrario.
+     */
 
     private boolean etapaInscripcionCerrada(String nombreCompeticion) {
         try {
