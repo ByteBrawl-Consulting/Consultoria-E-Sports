@@ -108,7 +108,8 @@ public class ControladorJugador {
                     String nacionalidad = vj.getTfNacionalidadModi().getText();
                     String fecha = vj.getTfFechaModi().getText();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = formato.parse(fecha);
+                    java.util.Date fechaJava = null;
+                    fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     String nick = vj.getTfNickModi().getText();
                     String rol = vj.getTfRolModi().getText();
@@ -125,7 +126,7 @@ public class ControladorJugador {
                     Equipo equipoObj = cv.buscarEquipo(equipo);
                     if (equipoObj != null) {
                         ju.setCodEquipo(equipoObj); // Pass the entire Equipo object
-                        cv.modiJugador(ju, fecha);
+                        cv.modiJugador(ju);
                     } else {
                         JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
                     }

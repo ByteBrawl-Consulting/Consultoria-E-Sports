@@ -1,7 +1,6 @@
 package controlador;
 
 import controlador.baseDeDatos.ControladorBaseDeDatos;
-import controlador.competiciones.ControladorCompeticion;
 import modelo.*;
 
 import java.sql.SQLException;
@@ -75,8 +74,8 @@ public class ControladorPrincipal {
         cbd.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju, String fecha) {
-        cbd.modiJugador(ju, fecha);
+    public void modiJugador(Jugador ju) {
+        cbd.modiJugador(ju);
     }
 
     public String consultaJugador(String nombre) {
