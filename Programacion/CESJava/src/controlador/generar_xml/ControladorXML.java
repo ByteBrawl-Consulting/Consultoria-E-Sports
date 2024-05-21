@@ -26,6 +26,22 @@ public class ControladorXML {
         vxml.getTaConsultaTodasJornadas().setBackground(new Color(205, 205, 205));
 
         vxml.addBSalir(new bSalir());
+
+        mostrarClasificacion();
+        mostrarJornada();
+        mostrarTodasJornadas();
+    }
+
+    public void mostrarClasificacion() {
+        vxml.getTaConsultaClasi().setText(cv.generarXMLClasificacion());
+    }
+
+    public void mostrarJornada() {
+        vxml.getTaConsultaJornada().setText(cv.generarXMLJornada());
+    }
+
+    public void mostrarTodasJornadas() {
+        vxml.getTaConsultaTodasJornadas().setText(cv.generarXMLTodasJornadas());
     }
 
     private class bSalir implements ActionListener {

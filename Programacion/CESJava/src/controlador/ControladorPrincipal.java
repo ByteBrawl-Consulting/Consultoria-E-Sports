@@ -510,14 +510,6 @@ public class ControladorPrincipal {
         return cbd.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe)throws Exception {
-        cbd.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
-    }
-
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
-        cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe );
-
     /**
      * Método para insertar el resultado de un enfrentamiento.
      *
@@ -529,15 +521,15 @@ public class ControladorPrincipal {
         cbd.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
     }
 
-    /**
-     * Método para actualizar el resultado de un enfrentamiento.
-     *
-     * @param codEnfrentamiento El código del enfrentamiento.
-     * @param equipoGanador     El equipo ganador.
-     */
+    public String generarXMLClasificacion() {
+        return cbd.generarXMLClasificacion();
+    }
 
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador );
+    public String generarXMLJornada() {
+        return cbd.generarXMLJornada();
+    }
 
+    public String generarXMLTodasJornadas() {
+        return cbd.generarXMLTodasJornadas();
     }
 }

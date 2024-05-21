@@ -279,8 +279,6 @@ public class ControladorIntroducirResultados {
         }
     }
 
-    /*private class RadioButtonModiListener implements ActionListener {
-
     /**
      * Clase interna para manejar el evento de seleccionar el modo de modificación.
      */
@@ -290,7 +288,7 @@ public class ControladorIntroducirResultados {
         public void actionPerformed(ActionEvent e) {
             vir.eleccionModi();
         }
-    }*/
+    }
 
     /**
      * Clase interna para manejar el evento de focus en los campos de texto, mostrando y ocultando placeholders.

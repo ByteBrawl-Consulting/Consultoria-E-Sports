@@ -15,7 +15,7 @@ public class VentanaMostrarXML extends JFrame{
     public VentanaMostrarXML() {
         super("Generar XML");
         setContentPane(pPrincipal);
-        setSize(500, 500);
+        setSize(750, 500);
         setLocationRelativeTo(null);
     }
 

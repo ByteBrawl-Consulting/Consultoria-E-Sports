@@ -232,7 +232,15 @@ public class ControladorVista {
         cp.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
     }
 
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
-        cp.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
+    public String generarXMLClasificacion() {
+        return cp.generarXMLClasificacion();
+    }
+
+    public String generarXMLJornada() {
+        return cp.generarXMLJornada();
+    }
+
+    public String generarXMLTodasJornadas() {
+        return cp.generarXMLTodasJornadas();
     }
 }
