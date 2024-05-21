@@ -4,6 +4,7 @@ import modelo.Competicion;
 import modelo.Enfrentamiento;
 import modelo.Equipo;
 import modelo.Jornada;
+import oracle.jdbc.proxy.annotation.Pre;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -16,10 +17,12 @@ public class TablaEnfrentamientos {
 
     private Connection con;
     private TablaEquipos tablaEquipos;
+    private TablaEquipoCompeticion tablaEquipoCompeticion;
 
-    public TablaEnfrentamientos(Connection con, TablaEquipos TablaEquipos) {
+    public TablaEnfrentamientos(Connection con, TablaEquipos TablaEquipos,TablaEquipoCompeticion tablaEquipoCompeticion) {
         this.con = con;
         this.tablaEquipos = TablaEquipos;
+        this.tablaEquipoCompeticion=tablaEquipoCompeticion;
     }
 
     public ArrayList<Enfrentamiento> obtenerEnfrentamientosPorCompeticionYJornada(Competicion com, int numJornada) {
@@ -71,13 +74,17 @@ public class TablaEnfrentamientos {
                 preparedStatement.setString(1, equipoGanador);
                 preparedStatement.setString(2, codEnfrentamiento);
                 preparedStatement.executeUpdate();
+                tablaEquipoCompeticion.aumentarPuntos(equipoGanadorActual,codEnfrentamiento);
             } else {
                 JOptionPane.showMessageDialog(null, "El equipo seleccionado ya está asignado como ganador del enfrentamiento.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
+
 
     public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
         try {
