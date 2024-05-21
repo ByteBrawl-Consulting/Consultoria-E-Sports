@@ -33,7 +33,7 @@ public class VentanaPrincipalAdmin extends JFrame {
     public VentanaPrincipalAdmin() throws HeadlessException {
         super("Panel de Administrador");
         setContentPane(pPrincipal);
-        setSize(750, 450);
+        setSize(800, 450);
         setLocationRelativeTo(null);
     }
 
