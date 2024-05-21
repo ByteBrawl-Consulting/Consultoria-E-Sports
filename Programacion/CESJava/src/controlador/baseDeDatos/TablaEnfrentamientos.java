@@ -74,7 +74,7 @@ public class TablaEnfrentamientos {
                 preparedStatement.setString(1, equipoGanador);
                 preparedStatement.setString(2, codEnfrentamiento);
                 preparedStatement.executeUpdate();
-                tablaEquipoCompeticion.aumentarPuntos(equipoGanadorActual,codEnfrentamiento);
+                tablaEquipoCompeticion.aumentarPuntos(equipoGanador,codEnfrentamiento);
             } else {
                 JOptionPane.showMessageDialog(null, "El equipo seleccionado ya está asignado como ganador del enfrentamiento.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }

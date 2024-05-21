@@ -98,26 +98,28 @@ public class TablaEquipoCompeticion {
         String equipo = equipoGanadorActual;
         String enfre = codEnfrentamiento;
         String codEquipo = sacarCodigoEquipo(equipo);
-        int puntosActuales = obtenerPuntosActuales(equipo,enfre);
+        String puntosActuales = obtenerPuntosActuales(codEquipo,enfre);
         puntosActuales = puntosActuales + 3;
         String plantilla ="UPDATE equipo_competicion " +
                 "SET puntos = ?" +
                 "WHERE cod_equipo = ?";
         PreparedStatement pre = con.prepareStatement(plantilla);
         pre.setString(1, String.valueOf(puntosActuales));
-        pre.setString(2,codEquipo);
+        pre.setString(2, String.valueOf(codEquipo));
         pre.execute();
         pre.close();
     }
 
-    private int obtenerPuntosActuales(String codEquipo, String codEnfrentamiento) throws Exception{
+    private String obtenerPuntosActuales(String codEquipo, String codEnfrentamiento) throws Exception{
 
-        String plantilla ="select puntos from enfrentamientos where cod_equipo=? and cod_enfrentamiento=?";
+        String plantilla ="select puntos from equipo_competicion where cod_equipo=? and cod_competicion=?";
         PreparedStatement pre = con.prepareStatement(plantilla);
-        pre.setString(1,codEquipo);
+        pre.setString(1, String.valueOf(codEquipo));
         pre.setString(2,codEnfrentamiento);
         ResultSet res = pre.executeQuery();
-        return res.getInt(1);
+        res.next();
+        String puntos = String.valueOf(res.getInt(1));
+        return puntos;
     }
 
     private String sacarCodigoEquipo(String equipoGanadorActual) throws Exception{
@@ -125,6 +127,8 @@ public class TablaEquipoCompeticion {
         PreparedStatement pre = con.prepareStatement(plantilla);
         pre.setString(1,equipoGanadorActual);
         ResultSet res = pre.executeQuery();
-        return res.getString(1);
+        res.next();
+        String codEquipo = res.getString(1);
+        return codEquipo;
     }
 }
