@@ -116,7 +116,7 @@ public class TablaCompeticiones {
 
     public int getCodigoCompeticionPorNombre(String nombreCompeticion) {
         try {
-            String query = "SELECT cod_compe FROM competiciones WHERE upper(nombre) = ?";
+            String query = "SELECT cod_compe FROM competiciones WHERE nombre = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, nombreCompeticion);
             ResultSet rs = stmt.executeQuery();
