@@ -23,9 +23,6 @@ public class TablaEnfrentamientos {
     private TablaEquipos tablaEquipos;
     private TablaEquipoCompeticion tablaEquipoCompeticion;
 
-
-    public TablaEnfrentamientos(Connection con, TablaEquipos TablaEquipos, TablaEquipoCompeticion tablaEquipoCompeticion) {
-
     /**
      * Constructor de la clase.
      * @param con la conexión a la base de datos
@@ -34,10 +31,9 @@ public class TablaEnfrentamientos {
      */
 
     public TablaEnfrentamientos(Connection con, TablaEquipos TablaEquipos,TablaEquipoCompeticion tablaEquipoCompeticion) {
-
         this.con = con;
         this.tablaEquipos = TablaEquipos;
-        this.tablaEquipoCompeticion = tablaEquipoCompeticion;
+        this.tablaEquipoCompeticion=tablaEquipoCompeticion;
     }
 
     /**
@@ -85,9 +81,6 @@ public class TablaEnfrentamientos {
         }
     }
 
-
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) throws Exception {
-
     /**
      * Inserta el resultado de un enfrentamiento en la base de datos y actualiza los puntos del equipo ganador.
      * @param codEnfrentamiento el código del enfrentamiento
@@ -95,7 +88,6 @@ public class TablaEnfrentamientos {
      */
 
     public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
-
         try {
             String equipoGanadorActual = obtenerEquipoGanadorEnfrentamiento(codEnfrentamiento);
             if (!equipoGanador.equals(equipoGanadorActual)) {
@@ -106,8 +98,7 @@ public class TablaEnfrentamientos {
                 preparedStatement.setString(1, equipoGanador);
                 preparedStatement.setString(2, codEnfrentamiento);
                 preparedStatement.executeUpdate();
-                tablaEquipoCompeticion.aumentarPuntos(equipoGanador, codEnfrentamiento, nombreCompe);
-
+                tablaEquipoCompeticion.aumentarPuntos(equipoGanador,codEnfrentamiento,nombreCompe);
             } else {
                 JOptionPane.showMessageDialog(null, "El equipo seleccionado ya está asignado como ganador del enfrentamiento.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
@@ -124,9 +115,8 @@ public class TablaEnfrentamientos {
      * @param equipoGanador el equipo ganador
      */
 
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
-       /* try {
-            tablaEquipoCompeticion.restarPuntosEquipo(codEnfrentamiento,equipoGanador);
+    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+        try {
             String equipoGanadorActual = obtenerEquipoGanadorEnfrentamiento(codEnfrentamiento);
             if (!equipoGanador.equals(equipoGanadorActual)) {
                 String query = "UPDATE enfrentamientos " +
@@ -136,16 +126,12 @@ public class TablaEnfrentamientos {
                 preparedStatement.setString(1, equipoGanador);
                 preparedStatement.setString(2, codEnfrentamiento);
                 preparedStatement.executeUpdate();
-                tablaEquipoCompeticion.aumentarPuntos(equipoGanador,codEnfrentamiento,nombreCompe);
-
             } else {
                 JOptionPane.showMessageDialog(null, "El equipo seleccionado ya está asignado como ganador del enfrentamiento.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }*/
+        }
     }
 
     /**
@@ -169,4 +155,3 @@ public class TablaEnfrentamientos {
         }
     }
 }
-
