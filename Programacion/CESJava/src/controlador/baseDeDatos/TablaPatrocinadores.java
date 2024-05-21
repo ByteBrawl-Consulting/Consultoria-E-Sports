@@ -33,7 +33,7 @@ public class TablaPatrocinadores {
     }
     public void bajaPatrocinador(Patrocinador patrocinador){
         try {
-            String plantilla = "DELETE FROM patrocinadores WHERE nombre = ?";
+            String plantilla = "DELETE FROM patrocinadores WHERE upper(nombre) = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, patrocinador.getNombre());
             int n = sentenciaPre.executeUpdate();
@@ -50,7 +50,7 @@ public class TablaPatrocinadores {
 
     public int getCodigoPatrocinadorPorNombre(String nombrePatrocinador) {
         try {
-            String query = "SELECT cod_patrocinadores FROM patrocinadores WHERE nombre = ?";
+            String query = "SELECT cod_patrocinadores FROM patrocinadores WHERE upper(nombre) = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, nombrePatrocinador);
             ResultSet rs = stmt.executeQuery();

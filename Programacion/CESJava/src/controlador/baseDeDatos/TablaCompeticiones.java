@@ -116,7 +116,7 @@ public class TablaCompeticiones {
 
     public int getCodigoCompeticionPorNombre(String nombreCompeticion) {
         try {
-            String query = "SELECT cod_compe FROM competiciones WHERE nombre = ?";
+            String query = "SELECT cod_compe FROM competiciones WHERE upper(nombre) = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, nombreCompeticion);
             ResultSet rs = stmt.executeQuery();
@@ -151,7 +151,7 @@ public class TablaCompeticiones {
         ArrayList<Clasificacion> lista = new ArrayList<>();
         try {
             String nombreCompe = com.getNombre();//solo hay nombre en com
-            String plantilla = "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where c.nombre=? order by puntos desc";
+            String plantilla = "select ec.cod_equipo, ec.puntos, ec.cod_competicion from equipo_competicion ec join competiciones c on ec.cod_competicion=c.cod_compe where upper(c.nombre)=? order by puntos desc";
             PreparedStatement pre = con.prepareStatement(plantilla);
             pre.setString(1, (nombreCompe));
             ResultSet res = pre.executeQuery();
