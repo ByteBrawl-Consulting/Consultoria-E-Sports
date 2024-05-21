@@ -4,7 +4,6 @@ import controlador.ControladorVista;
 import modelo.Competicion;
 import modelo.Enfrentamiento;
 import modelo.Equipo;
-import modelo.Jornada;
 import view.VentanaResultadosTodasJornadas;
 
 import java.awt.*;
@@ -40,6 +39,8 @@ public class ControladorResultadosTJornadas {
                 vrtj.getCbCompeticion().addItem(lista.get(x).getNombre());
             }
         } catch (Exception ex) {
+            // Manejo de excepciones
+            ex.printStackTrace();
         }
     }
 
@@ -57,7 +58,7 @@ public class ControladorResultadosTJornadas {
                     Equipo equipoLocal = cv.getNombreEquipoPorCodigo(enfre.getCodEquipoLocal().getCodEquipo());
                     Equipo equipoVisitante = cv.getNombreEquipoPorCodigo(enfre.getCodEquipoVisitante().getCodEquipo());
 
-                    total.append("Codigo de jornada: ").append(enfre.getCodJornada().getNumJornada()).append("\n")
+                    total.append("Número de jornada:  " ).append(enfre.getCodJornada().getNumJornada()).append("\n")
                             .append("Hora: ").append(enfre.getHora()).append("\n")
                             .append("Fecha del enfrentamiento: ").append(enfre.getFecha()).append("\n")
                             .append("Equipo Ganador: ").append(enfre.getResultado()).append("\n")
