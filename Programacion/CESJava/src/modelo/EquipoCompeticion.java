@@ -1,5 +1,9 @@
 package modelo;
 
+/**
+ * La clase EquipoCompeticion representa la participación de un equipo en una competición, incluyendo su código, equipo, competición y puntos.
+ */
+
 public class EquipoCompeticion {
     private int codEquipoCompe;
     private Equipo codEquipo;
@@ -8,6 +12,15 @@ public class EquipoCompeticion {
 
     public EquipoCompeticion() {
     }
+
+    /**
+     * Constructor con parámetros para inicializar una relación entre un equipo y una competición.
+     *
+     * @param codEquipoCompe El código de la relación equipo-competición.
+     * @param codEquipo      El equipo participante.
+     * @param codCompe       La competición en la que participa el equipo.
+     * @param puntos         Los puntos del equipo en la competición.
+     */
 
     public EquipoCompeticion(int codEquipoCompe, Equipo codEquipo, Competicion codCompe, int puntos) {
         this.codEquipoCompe = codEquipoCompe;

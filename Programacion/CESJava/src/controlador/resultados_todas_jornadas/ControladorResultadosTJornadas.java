@@ -11,9 +11,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * ControladorResultadosTJornadas es el controlador que gestiona la interacción entre la vista de resultados de todas
+ * las jornadas (VentanaResultadosTodasJornadas) y el modelo de negocio a través del ControladorVista.
+ */
+
 public class ControladorResultadosTJornadas {
     private VentanaResultadosTodasJornadas vrtj;
     private ControladorVista cv;
+
+    /**
+     * Constructor de ControladorResultadosTJornadas.
+     *
+     * @param cv El controlador principal de la vista.
+     */
 
     public ControladorResultadosTJornadas(ControladorVista cv) {
         this.cv = cv;
@@ -31,6 +42,10 @@ public class ControladorResultadosTJornadas {
         vrtj.setVisible(true);
     }
 
+    /**
+     * Método para llenar el ComboBox con las competiciones disponibles.
+     */
+
     public void llenarCB() {
         try {
             ArrayList<Competicion> lista = cv.clasiEquipos();
@@ -43,6 +58,10 @@ public class ControladorResultadosTJornadas {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Aceptar" para mostrar los resultados de todas las jornadas.
+     */
 
     public class bAceptarJornada implements ActionListener {
         @Override
@@ -70,6 +89,10 @@ public class ControladorResultadosTJornadas {
             }
         }
     }
+
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Salir".
+     */
 
     private class bSalir implements ActionListener {
         @Override

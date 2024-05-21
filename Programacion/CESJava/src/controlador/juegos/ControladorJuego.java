@@ -14,9 +14,20 @@ import java.awt.event.FocusListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * La clase ControladorJuego es responsable de gestionar las interacciones entre la interfaz de usuario para manejar juegos (VentanaJuegos) y el modelo de datos (Juego).
+ * Maneja acciones como agregar, eliminar, modificar y consultar juegos.
+ */
+
 public class ControladorJuego {
     private VentanaJuegos vj;
     private ControladorVista cv;
+
+    /**
+     * Construye un ControladorJuego con el controlador de vista especificado.
+     *
+     * @param cv El controlador de vista que se utilizará para interactuar con el modelo de datos.
+     */
 
     public ControladorJuego(ControladorVista cv) {
         this.cv = cv;
@@ -48,12 +59,20 @@ public class ControladorJuego {
         vj.getTaCons().setBackground(new Color(205, 205, 205));
     }
 
+    /**
+     * Listener para el botón "Salir".
+     */
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.dispose();
         }
     }
+
+    /**
+     * Listener para el botón "Aceptar".
+     */
 
     private class bAceptar implements ActionListener {
         @Override
@@ -111,6 +130,10 @@ public class ControladorJuego {
         }
     }
 
+    /**
+     * Muestra la ventana principal de juegos y oculta los paneles de operaciones específicas.
+     */
+
     private void mostar() {
         vj.setVisible(true);
         vj.getpAlta().setVisible(false);
@@ -119,12 +142,20 @@ public class ControladorJuego {
         vj.getpModi().setVisible(false);
     }
 
+    /**
+     * Listener para el botón "Alta".
+     */
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.eleccionAlta();
         }
     }
+
+    /**
+     * Listener para el botón "Baja".
+     */
 
     private class bBaja implements ActionListener {
         @Override
@@ -133,12 +164,20 @@ public class ControladorJuego {
         }
     }
 
+    /**
+     * Listener para el botón "Modificación".
+     */
+
     private class bModi implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.eleccionModi();
         }
     }
+
+    /**
+     * Listener para el botón "Consulta".
+     */
 
     private class bConsulta implements ActionListener {
         @Override
@@ -147,12 +186,28 @@ public class ControladorJuego {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de focus en los campos de texto, mostrando y ocultando placeholders.
+     */
+
     public class PlaceholderListener implements FocusListener {
         private String placeholder;
+
+        /**
+         * Constructor de PlaceholderListener.
+         *
+         * @param placeholder El texto de marcador de posición.
+         */
 
         public PlaceholderListener(String placeholder) {
             this.placeholder = placeholder;
         }
+
+        /**
+         * Maneja el evento de ganar foco, mostrando el marcador de posición si es necesario.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -161,6 +216,12 @@ public class ControladorJuego {
                 textField.setText("");
             }
         }
+
+        /**
+         * Maneja el evento de perder foco, mostrando el marcador de posición si el campo está vacío.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusLost(FocusEvent e) {

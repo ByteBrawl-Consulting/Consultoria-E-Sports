@@ -3,6 +3,10 @@ package modelo;
 import java.sql.Date;
 import java.time.LocalDate;
 
+/**
+ * Representa un jugador de un equipo.
+ */
+
 public class Jugador {
     private int codJugador;
     private String nombreJugador;
@@ -12,6 +16,19 @@ public class Jugador {
     private String rol;
     private int sueldo;
     private Equipo codEquipo;
+
+    /**
+     * Constructor para crear una instancia de Jugador con todos los atributos.
+     *
+     * @param codJugador       el código del jugador
+     * @param nombreJugador    el nombre del jugador
+     * @param nacionalidad     la nacionalidad del jugador
+     * @param fechaNacimiento  la fecha de nacimiento del jugador
+     * @param nickname         el apodo del jugador
+     * @param rol              el rol del jugador
+     * @param sueldo           el sueldo del jugador
+     * @param codEquipo        el equipo al que pertenece el jugador
+     */
 
     public Jugador(int codJugador, String nombreJugador, String nacionalidad, LocalDate fechaNacimiento, String nickname, String rol, int sueldo, Equipo codEquipo) {
         this.codJugador = codJugador;

@@ -11,9 +11,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * El ControladorClasificacion gestiona la visualización de la clasificación de una competición en una ventana de administrador.
+ */
+
 public class ControladorClasificacion {
     private VentanaClasificacionAdmin vca;
     private ControladorVista cv;
+
+    /**
+     * Constructor de la clase ControladorClasificacion.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorClasificacion(ControladorVista cv) {
         this.cv = cv;
@@ -26,6 +36,10 @@ public class ControladorClasificacion {
         vca.addBSalirAL(new bSalir());
     }
 
+    /**
+     * Llena el JComboBox con las competiciones disponibles.
+     */
+
     public void llenarCB() {
         try {
             ArrayList<Competicion> lista = cv.clasiEquipos();
@@ -36,6 +50,10 @@ public class ControladorClasificacion {
         } catch (Exception ex) {
         }
     }
+
+    /**
+     * Clase interna para manejar los eventos del JComboBox de competiciones.
+     */
 
     public class taClasi implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -51,6 +69,10 @@ public class ControladorClasificacion {
             vca.getTaClasi().setText(String.valueOf(resultado));
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de salir.
+     */
 
     public class bSalir implements ActionListener {
         public void actionPerformed(ActionEvent e) {

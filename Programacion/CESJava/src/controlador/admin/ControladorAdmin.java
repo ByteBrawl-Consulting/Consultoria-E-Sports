@@ -21,6 +21,10 @@ import view.VentanaPrincipalAdmin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Controlador para la interfaz de administrador.
+ */
+
 public class ControladorAdmin {
     private ControladorVista cv;
     private VentanaPrincipalAdmin vpa;
@@ -39,16 +43,29 @@ public class ControladorAdmin {
     private ControladorCalendario cgc;
     private ControladorIntroducirResultados cir;
 
+    /**
+     * Constructor para crear una instancia de ControladorAdmin.
+     * @param cv el controlador de la vista principal
+     */
+
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
         botones();
         this.cv=cv;
     }
 
+    /**
+     * Muestra la ventana principal de administrador.
+     */
+
     public void mostrar() {
         vpa = new VentanaPrincipalAdmin();
         vpa.setVisible(true);
     }
+
+    /**
+     * Asigna acciones a los botones de la interfaz de administrador.
+     */
 
     public void botones() {
         vpa.addBSalir(new bSalir());

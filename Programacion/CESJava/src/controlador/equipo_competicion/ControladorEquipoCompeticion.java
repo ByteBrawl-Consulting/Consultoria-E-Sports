@@ -6,9 +6,19 @@ import view.VentanaAsociacionEquipoCompe;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * El ControladorEquipoCompeticion gestiona la interacción entre la vista de asociación de equipos con competiciones y el modelo de datos.
+ */
+
 public class ControladorEquipoCompeticion {
     private VentanaAsociacionEquipoCompe vaec;
     private ControladorVista cv;
+
+    /**
+     * Constructor de la clase ControladorEquipoCompeticion.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorEquipoCompeticion(ControladorVista cv) {
         this.cv = cv;
@@ -29,6 +39,10 @@ public class ControladorEquipoCompeticion {
         vaec.getpAlta().setVisible(false);
         vaec.getpBaja().setVisible(false);
     }
+
+    /**
+     * Clase interna para manejar el evento de aceptar.
+     */
 
     public class bAceptar implements ActionListener {
         @Override
@@ -65,6 +79,9 @@ public class ControladorEquipoCompeticion {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de salir.
+     */
 
     public class bSalir implements ActionListener {
         @Override
@@ -73,12 +90,20 @@ public class ControladorEquipoCompeticion {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de alta de asociación de equipo a competición.
+     */
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vaec.eleccionAlta();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de baja de asociación de equipo a competición.
+     */
 
     private class bBaja implements ActionListener {
         @Override
@@ -87,12 +112,29 @@ public class ControladorEquipoCompeticion {
         }
     }
 
+    /**
+     * Clase interna para manejar los eventos de enfoque de los campos de texto,
+     * mostrando y ocultando los placeholders.
+     */
+
     public class PlaceholderListener implements FocusListener {
         private String placeholder;
+
+        /**
+         * Constructor de PlaceholderListener.
+         *
+         * @param placeholder El texto de marcador de posición.
+         */
 
         public PlaceholderListener(String placeholder) {
             this.placeholder = placeholder;
         }
+
+        /**
+         * Maneja el evento de ganar foco, mostrando el marcador de posición si es necesario.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -101,6 +143,12 @@ public class ControladorEquipoCompeticion {
                 textField.setText("");
             }
         }
+
+        /**
+         * Maneja el evento de perder foco, mostrando el marcador de posición si el campo está vacío.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusLost(FocusEvent e) {

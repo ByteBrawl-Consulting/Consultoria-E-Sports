@@ -1,9 +1,21 @@
 package modelo;
 
+/**
+ * Representa un usuario del sistema.
+ */
+
 public class Usuario {
     private int codUsuario;
     private String tipo;
     private String contrasena;
+
+    /**
+     * Constructor para crear una instancia de Usuario con todos los atributos.
+     *
+     * @param codUsuario  el código del usuario
+     * @param tipo        el tipo de usuario (por ejemplo, "admin" o "usuario")
+     * @param contrasena  la contraseña del usuario
+     */
 
     public Usuario(int codUsuario, String tipo, String contrasena) {
         this.codUsuario = codUsuario;

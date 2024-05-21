@@ -3,11 +3,25 @@ package modelo;
 import java.sql.Date;
 import java.time.LocalDate;
 
+
+/**
+ * La clase Juego representa un videojuego, incluyendo su código, nombre, desarrolladora y fecha de lanzamiento.
+ */
+
 public class Juego {
     private int codJuego;
     private String nombre;
     private String desarrolladora;
     private LocalDate fechaLanzamiento;
+
+    /**
+     * Constructor con parámetros para inicializar un juego.
+     *
+     * @param codJuego         El código del juego.
+     * @param nombre           El nombre del juego.
+     * @param desarrolladora   La desarrolladora del juego.
+     * @param fechaLanzamiento La fecha de lanzamiento del juego.
+     */
 
     public Juego(int codJuego, String nombre, String desarrolladora, LocalDate fechaLanzamiento) {
         this.codJuego = codJuego;

@@ -12,9 +12,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
+/**
+ * ControladorStaff gestiona la interacción entre la vista de staff (VentanaStaff) y el modelo de negocio
+ * relacionado con el personal del equipo (Staff) a través del ControladorVista.
+ */
+
 public class ControladorStaff {
     VentanaStaff vs;
     ControladorVista cv;
+
+    /**
+     * Constructor de ControladorStaff.
+     *
+     * @param cv El controlador principal de la vista.
+     */
 
     public ControladorStaff(ControladorVista cv) {
         this.cv = cv;
@@ -48,12 +59,30 @@ public class ControladorStaff {
         vs.getTaConsulta().setBackground(new Color(205, 205, 205));
     }
 
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Salir".
+     */
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vs.dispose();
         }
     }
+
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Aceptar".
+     *
+     * Dependiendo de la opción seleccionada (alta, baja, modificación, consulta),
+     * realiza la acción correspondiente sobre el objeto Staff.
+     *
+     * - En caso de "alta", crea un nuevo objeto Staff con los datos ingresados,
+     *   verifica la existencia del equipo y lo da de alta en el sistema.
+     * - En caso de "baja", elimina el Staff del sistema basado en el nombre proporcionado.
+     * - En caso de "modificación", actualiza los datos del Staff existente
+     *   con los nuevos valores proporcionados.
+     * - En caso de "consulta", busca y muestra la información del Staff basado en el nombre ingresado.
+     */
 
     private class bAceptar implements ActionListener {
         @Override
@@ -101,12 +130,20 @@ public class ControladorStaff {
         }
     }
 
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Alta".
+     */
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vs.eleccionAlta();
         }
     }
+
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Baja".
+     */
 
     private class bBaja implements ActionListener {
         @Override
@@ -115,6 +152,10 @@ public class ControladorStaff {
         }
     }
 
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Modificación".
+     */
+
     private class bModi implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -122,12 +163,20 @@ public class ControladorStaff {
         }
     }
 
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Consulta".
+     */
+
     private class bConsulta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vs.eleccionConsulta();
         }
     }
+
+    /**
+     * Muestra la ventana de staff y oculta los paneles de alta, baja, modificación y consulta.
+     */
 
     public void mostrar() {
         vs.setVisible(true);
@@ -137,12 +186,28 @@ public class ControladorStaff {
         vs.getpConsulta().setVisible(false);
     }
 
+    /**
+     * Clase interna para manejar el evento de focus en los campos de texto, mostrando y ocultando placeholders.
+     */
+
     public class PlaceholderListener implements FocusListener {
         private String placeholder;
+
+        /**
+         * Constructor de PlaceholderListener.
+         *
+         * @param placeholder El texto de marcador de posición.
+         */
 
         public PlaceholderListener(String placeholder) {
             this.placeholder = placeholder;
         }
+
+        /**
+         * Maneja el evento de ganar foco, mostrando el marcador de posición si es necesario.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -151,6 +216,12 @@ public class ControladorStaff {
                 textField.setText("");
             }
         }
+
+        /**
+         * Maneja el evento de perder foco, mostrando el marcador de posición si el campo está vacío.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusLost(FocusEvent e) {
