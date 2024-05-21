@@ -12,17 +12,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
+/**
+ * Clase para manejar la tabla de enfrentamientos en la base de datos.
+ */
+
 public class TablaEnfrentamientos {
 
     private Connection con;
     private TablaEquipos tablaEquipos;
     private TablaEquipoCompeticion tablaEquipoCompeticion;
 
+    /**
+     * Constructor de la clase.
+     * @param con la conexión a la base de datos
+     * @param TablaEquipos instancia de TablaEquipos para obtener información de los equipos
+     * @param tablaEquipoCompeticion instancia de TablaEquipoCompeticion para realizar operaciones relacionadas con equipos y competiciones
+     */
+
     public TablaEnfrentamientos(Connection con, TablaEquipos TablaEquipos,TablaEquipoCompeticion tablaEquipoCompeticion) {
         this.con = con;
         this.tablaEquipos = TablaEquipos;
         this.tablaEquipoCompeticion=tablaEquipoCompeticion;
     }
+
+    /**
+     * Obtiene los enfrentamientos de una competición y jornada específicas.
+     * @param com la competición
+     * @param numJornada el número de la jornada
+     * @return una lista de enfrentamientos
+     */
 
     public ArrayList<Enfrentamiento> obtenerEnfrentamientosPorCompeticionYJornada(Competicion com, int numJornada) {
         Enfrentamiento enfre;
@@ -62,6 +81,12 @@ public class TablaEnfrentamientos {
         }
     }
 
+    /**
+     * Inserta el resultado de un enfrentamiento en la base de datos y actualiza los puntos del equipo ganador.
+     * @param codEnfrentamiento el código del enfrentamiento
+     * @param equipoGanador el equipo ganador
+     */
+
     public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
         try {
             String equipoGanadorActual = obtenerEquipoGanadorEnfrentamiento(codEnfrentamiento);
@@ -84,6 +109,11 @@ public class TablaEnfrentamientos {
         }
     }
 
+    /**
+     * Actualiza el resultado de un enfrentamiento en la base de datos.
+     * @param codEnfrentamiento el código del enfrentamiento
+     * @param equipoGanador el equipo ganador
+     */
 
     public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
         try {
@@ -104,6 +134,11 @@ public class TablaEnfrentamientos {
         }
     }
 
+    /**
+     * Obtiene el equipo ganador de un enfrentamiento.
+     * @param codEnfrentamiento el código del enfrentamiento
+     * @return el equipo ganador
+     */
 
     public String obtenerEquipoGanadorEnfrentamiento(String codEnfrentamiento) {
         try {

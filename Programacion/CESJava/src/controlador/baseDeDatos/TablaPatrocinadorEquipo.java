@@ -8,17 +8,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * La clase TablaPatrocinadorEquipo gestiona las operaciones relacionadas con la asociación entre patrocinadores y equipos en la base de datos.
+ */
+
 public class TablaPatrocinadorEquipo {
 
     private Connection con;
     private TablaEquipos tablaEquipos;
     private TablaPatrocinadores tablaPatrocinadores;
 
+    /**
+     * Constructor de la clase TablaPatrocinadorEquipo.
+     *
+     * @param con                  La conexión a la base de datos.
+     * @param tablaEquipos         La instancia de la clase TablaEquipos.
+     * @param tablaPatrocinadores  La instancia de la clase TablaPatrocinadores.
+     */
+
     public TablaPatrocinadorEquipo(Connection con, TablaEquipos tablaEquipos, TablaPatrocinadores tablaPatrocinadores) {
         this.con = con;
         this.tablaEquipos = tablaEquipos;
         this.tablaPatrocinadores = tablaPatrocinadores;
     }
+
+    /**
+     * Asocia un patrocinador a un equipo en la base de datos.
+     *
+     * @param nombrePatrocinador  El nombre del patrocinador a ser asociado.
+     * @param nombreEquipo        El nombre del equipo al que se asociará el patrocinador.
+     * @throws RuntimeException   Si ocurre un error durante la operación.
+     */
 
     public void altaPatrocinadorEquipo(String nombrePatrocinador, String nombreEquipo) {
         try {
@@ -56,6 +76,14 @@ public class TablaPatrocinadorEquipo {
         }
     }
 
+    /**
+     * Desasocia un patrocinador de un equipo en la base de datos.
+     *
+     * @param nombrePatrocinador  El nombre del patrocinador a ser desasociado.
+     * @param nombreEquipo        El nombre del equipo del que se desasociará el patrocinador.
+     * @throws RuntimeException   Si ocurre un error durante la operación.
+     */
+
     public void bajaPatrocinadorEquipo(String nombrePatrocinador, String nombreEquipo) {
         try {
             int codPatrocinador = tablaPatrocinadores.getCodigoPatrocinadorPorNombre(nombrePatrocinador);
@@ -92,6 +120,13 @@ public class TablaPatrocinadorEquipo {
         }
     }
 
+    /**
+     * Obtiene una lista de nombres de equipos asociados a un patrocinador dado.
+     *
+     * @param nombrePatrocinador  El nombre del patrocinador.
+     * @return                     Una lista de nombres de equipos asociados al patrocinador.
+     */
+
     public List<String> getEquiposPorPatrocinador(String nombrePatrocinador) {
         List<String> equipos = new ArrayList<>();
         try {
@@ -112,6 +147,14 @@ public class TablaPatrocinadorEquipo {
         return equipos;
     }
 
+
+    /**
+     * Obtiene una lista de nombres de patrocinadores asociados a un equipo dado.
+     *
+     * @param nombreEquipo  El nombre del equipo.
+     * @return              Una lista de nombres de patrocinadores asociados al equipo.
+     */
+
     public List<String> getPatrocinadoresPorEquipo(String nombreEquipo) {
         List<String> patrocinadores = new ArrayList<>();
         try {
@@ -131,6 +174,13 @@ public class TablaPatrocinadorEquipo {
         }
         return patrocinadores;
     }
+
+    /**
+     * Muestra un mensaje en una ventana emergente.
+     *
+     * @param m El mensaje a ser mostrado.
+     */
+
 
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);

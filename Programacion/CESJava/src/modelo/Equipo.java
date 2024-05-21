@@ -3,10 +3,23 @@ package modelo;
 import java.sql.Date;
 import java.time.LocalDate;
 
+
+/**
+ * La clase Equipo representa un equipo con su código, nombre y fecha de fundación.
+ */
+
 public class Equipo {
     private int codEquipo;
     private String nombre;
     private LocalDate fechaFundacion;
+
+    /**
+     * Constructor con parámetros para inicializar un equipo.
+     *
+     * @param codEquipo      El código del equipo.
+     * @param nombre         El nombre del equipo.
+     * @param fechaFundacion La fecha de fundación del equipo.
+     */
 
     public Equipo(int codEquipo, String nombre, LocalDate fechaFundacion) {
         this.codEquipo = codEquipo;

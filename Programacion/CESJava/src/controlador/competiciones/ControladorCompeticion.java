@@ -14,9 +14,19 @@ import java.awt.event.FocusListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * El ControladorCompeticion gestiona la interacción entre la vista de competiciones y el modelo de datos.
+ */
+
 public class ControladorCompeticion {
     private VentanaCompeticiones vc;
     private ControladorVista cv;
+
+    /**
+     * Constructor de la clase ControladorCompeticion.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorCompeticion(ControladorVista cv) {
         this.cv = cv;
@@ -47,6 +57,10 @@ public class ControladorCompeticion {
         vc.getTaCons().setBackground(new Color(205, 205, 205));
     }
 
+    /**
+     * Muestra la ventana de competiciones.
+     */
+
     private void mostrar() {
         vc.setVisible(true);
         vc.getpAlta().setVisible(false);
@@ -55,12 +69,20 @@ public class ControladorCompeticion {
         vc.getpCons().setVisible(false);
     }
 
+    /**
+     * Clase interna para manejar el evento de salir.
+     */
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vc.dispose();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de alta de competición.
+     */
 
     private class bAlta implements ActionListener {
         @Override
@@ -69,12 +91,20 @@ public class ControladorCompeticion {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de baja de competición.
+     */
+
     private class bBaja implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vc.eleccionBaja();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de modificación de competición.
+     */
 
     private class bModi implements ActionListener {
         @Override
@@ -83,12 +113,20 @@ public class ControladorCompeticion {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de consulta de competición.
+     */
+
     private class bConsulta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vc.eleccionConsulta();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de aceptar.
+     */
 
     private class bAceptar implements ActionListener {
         @Override
@@ -159,12 +197,29 @@ public class ControladorCompeticion {
         }
     }
 
+    /**
+     * Clase interna para manejar los eventos de enfoque de los campos de texto,
+     * mostrando y ocultando los placeholders.
+     */
+
     public class PlaceholderListener implements FocusListener {
         private String placeholder;
+
+        /**
+         * Constructor de PlaceholderListener.
+         *
+         * @param placeholder El texto de marcador de posición.
+         */
 
         public PlaceholderListener(String placeholder) {
             this.placeholder = placeholder;
         }
+
+        /**
+         * Maneja el evento de ganar foco, mostrando el marcador de posición si es necesario.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -173,6 +228,12 @@ public class ControladorCompeticion {
                 textField.setText("");
             }
         }
+
+        /**
+         * Maneja el evento de perder foco, mostrando el marcador de posición si el campo está vacío.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusLost(FocusEvent e) {

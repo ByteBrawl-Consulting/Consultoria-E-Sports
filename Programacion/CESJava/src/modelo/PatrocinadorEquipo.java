@@ -1,9 +1,21 @@
 package modelo;
 
+/**
+ * Representa la relación entre un patrocinador y un equipo.
+ */
+
 public class PatrocinadorEquipo {
     private int codPatrEqui;
     private Patrocinador codPatrocinadores;
     private Equipo codEquipo;
+
+    /**
+     * Constructor para crear una instancia de PatrocinadorEquipo con todos los atributos.
+     *
+     * @param codPatrEqui       el código de la relación patrocinador-equipo
+     * @param codPatrocinadores el patrocinador asociado
+     * @param codEquipo         el equipo asociado
+     */
 
     public PatrocinadorEquipo(int codPatrEqui, Patrocinador codPatrocinadores, Equipo codEquipo) {
         this.codPatrEqui = codPatrEqui;

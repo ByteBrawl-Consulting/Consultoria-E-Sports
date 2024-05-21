@@ -12,9 +12,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * ControladorUsuario gestiona la interacción entre la vista principal del usuario (VentanaPrincipalUsuario)
+ * y el modelo de negocio relacionado con competiciones y clasificaciones a través del ControladorVista.
+ */
+
 public class ControladorUsuario {
     private VentanaPrincipalUsuario vpu;
     private ControladorVista cv;
+
+    /**
+     * Constructor de ControladorUsuario.
+     *
+     * @param cv El controlador principal de la vista.
+     */
 
     public ControladorUsuario(ControladorVista cv) {
         this.cv = cv;
@@ -25,10 +36,19 @@ public class ControladorUsuario {
         vpu.getTaConsulta().setBackground(new Color(205, 205, 205));
     }
 
+    /**
+     * Muestra la ventana principal del usuario.
+     */
+
     public void mostrar() {
         vpu = new VentanaPrincipalUsuario();
         vpu.setVisible(true);
     }
+
+
+    /**
+     * Configura los listeners de los botones y oculta los paneles de jornada y clasificación inicialmente.
+     */
 
     public void botones() {
         vpu.getpJornada().setVisible(false);
@@ -41,6 +61,12 @@ public class ControladorUsuario {
         vpu.bSesion(new bSesionUsu());
     }
 
+
+    /**
+     * Clase interna que maneja el evento de selección del radio botón para jornada.
+     * Muestra el panel de jornada y oculta el de clasificación.
+     */
+
     public class rbUsuJornada implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (vpu.getpJornada().isEnabled()) {
@@ -50,6 +76,11 @@ public class ControladorUsuario {
             }
         }
     }
+
+    /**
+     * Clase interna que maneja el evento de selección del radio botón para clasificación.
+     * Muestra el panel de clasificación y oculta el de jornada.
+     */
 
     public class rbUsuClasi implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -63,6 +94,11 @@ public class ControladorUsuario {
             }
         }
     }
+
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Aceptar" para jornada.
+     * Obtiene la última jornada de una competición y muestra los detalles de los enfrentamientos.
+     */
 
     public class bAceptarJornada implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -80,6 +116,11 @@ public class ControladorUsuario {
         }
     }
 
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Aceptar" para clasificación.
+     * Obtiene la clasificación de una competición y muestra los detalles de los equipos clasificados.
+     */
+
     public class bAceptarClasi implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Competicion com = new Competicion();
@@ -95,11 +136,21 @@ public class ControladorUsuario {
         }
     }
 
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Salir".
+     * Cierra la aplicación.
+     */
+
     public class bSalirUsu implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
     }
+
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Cerrar sesión".
+     * Cierra la ventana principal del usuario y limpia los campos de texto.
+     */
 
     public class bSesionUsu implements ActionListener {
         public void actionPerformed(ActionEvent e) {
