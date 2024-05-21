@@ -50,6 +50,22 @@ public class ControladorBaseDeDatos {
 
         /* ----------------- Conexion con la BD Clase Portatil ----------------- */
 
+//        String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
+//        String user = "eqdaw04";
+//        String passwd = "eqdaw04";
+//
+//        try {
+//            Class.forName("oracle.jdbc.OracleDriver");
+//            con = DriverManager.getConnection(url, user, passwd);
+//            System.out.println("Conexión exitosa a la base de datos");
+//        } catch (SQLException e) {
+//            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
+
         String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
         String user = "eqdaw04";
         String passwd = "eqdaw04";
@@ -63,38 +79,6 @@ public class ControladorBaseDeDatos {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-        /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
-
-//        String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
-//        String user = "eqdaw04";
-//        String passwd = "eqdaw04";
-//
-//        try {
-//            Class.forName("oracle.jdbc.OracleDriver");
-//            con = DriverManager.getConnection(url, user, passwd);
-//            System.out.println("Conexión exitosa a la base de datos");
-//        } catch (SQLException e) {
-//            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-
-        /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
-
-//        String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
-//        String user = "eqdaw04";
-//        String passwd = "eqdaw04";
-//
-//        try {
-//            Class.forName("oracle.jdbc.OracleDriver");
-//            con = DriverManager.getConnection(url, user, passwd);
-//            System.out.println("Conexión exitosa a la base de datos");
-//        } catch (SQLException e) {
-//            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
 
         /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
 

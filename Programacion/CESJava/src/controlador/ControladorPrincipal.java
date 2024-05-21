@@ -205,5 +205,4 @@ public class ControladorPrincipal {
     public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
         cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
     }
-
 }

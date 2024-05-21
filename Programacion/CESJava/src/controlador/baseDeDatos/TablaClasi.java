@@ -9,12 +9,30 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.concurrent.CompletionException;
 
+
+/**
+ * Clase TablaClasi para manejar la clasificación de equipos en una competición.
+ */
+
 public class TablaClasi {
     private Connection con;
+
+    /**
+     * Constructor que inicializa la conexión a la base de datos.
+     *
+     * @param con la conexión a la base de datos.
+     */
 
     public TablaClasi(Connection con) {
         this.con = con;
     }
+
+    /**
+     * Método para obtener la clasificación de una competición.
+     *
+     * @param com el objeto Competicion.
+     * @return una lista de objetos Clasificacion.
+     */
 
     public ArrayList clasificacion(Competicion com) {
         Clasificacion cla = new Clasificacion();
@@ -46,6 +64,14 @@ public class TablaClasi {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Método para obtener los datos completos de la clasificación de un equipo en una competición.
+     *
+     * @param ec el objeto EquipoCompeticion.
+     * @param com el objeto Competicion.
+     * @return el objeto Clasificacion con los datos completos.
+     */
 
     public Clasificacion datosCompletosClasi(EquipoCompeticion ec, Competicion com) {
         Clasificacion cla = new Clasificacion();
