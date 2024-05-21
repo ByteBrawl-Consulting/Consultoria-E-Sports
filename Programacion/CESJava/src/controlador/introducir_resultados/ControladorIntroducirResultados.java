@@ -190,6 +190,7 @@ public class ControladorIntroducirResultados {
         public void actionPerformed(ActionEvent e) {
             if (vir.getAltaRadioButton().isSelected()) {
                 try {
+                    String nombreCompe = String.valueOf(vir.getCbCompeticion().getSelectedItem());
                     String codEnfrentamiento = vir.getTfCodEnfrentamiento().getText();
                     String equipoGanador = vir.getTfEquipoGanador().getText();
 
@@ -198,7 +199,7 @@ public class ControladorIntroducirResultados {
                         return;
                     }
 
-                    cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+                    cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
 
                     JOptionPane.showMessageDialog(vir, "Resultado insertado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
