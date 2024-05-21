@@ -517,8 +517,8 @@ public class ControladorPrincipal {
      * @param equipoGanador     El equipo ganador.
      */
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        cbd.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
+        cbd.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
     }
 
     /**
@@ -529,6 +529,6 @@ public class ControladorPrincipal {
      */
 
     public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+        cbd.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador );
     }
 }

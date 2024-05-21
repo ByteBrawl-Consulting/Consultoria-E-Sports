@@ -228,8 +228,8 @@ public class ControladorVista {
         return cp.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        cp.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
+        cp.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
     }
 
     public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {

@@ -1,6 +1,7 @@
 package controlador.baseDeDatos;
 
 import modelo.*;
+import oracle.jdbc.proxy.annotation.Pre;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -354,5 +355,15 @@ public class TablaCompeticiones {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public String sacarNumCompe (String nombreCompe)throws Exception{
+        String plantilla ="select cod_compe from competiciones where nombre = ?";
+        PreparedStatement pre = con.prepareStatement(plantilla);
+        pre.setString(1,nombreCompe);
+        ResultSet res = pre.executeQuery();
+        res.next();
+        String cod_compe = res.getString(1);
+        return cod_compe;
     }
 }

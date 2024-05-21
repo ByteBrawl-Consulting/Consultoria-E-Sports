@@ -4,7 +4,6 @@ import modelo.Competicion;
 import modelo.Enfrentamiento;
 import modelo.Equipo;
 import modelo.Jornada;
-import oracle.jdbc.proxy.annotation.Pre;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -88,7 +87,7 @@ public class TablaEnfrentamientos {
      * @param equipoGanador el equipo ganador
      */
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
         try {
             String equipoGanadorActual = obtenerEquipoGanadorEnfrentamiento(codEnfrentamiento);
             if (!equipoGanador.equals(equipoGanadorActual)) {
@@ -99,7 +98,7 @@ public class TablaEnfrentamientos {
                 preparedStatement.setString(1, equipoGanador);
                 preparedStatement.setString(2, codEnfrentamiento);
                 preparedStatement.executeUpdate();
-                tablaEquipoCompeticion.aumentarPuntos(equipoGanador,codEnfrentamiento);
+                tablaEquipoCompeticion.aumentarPuntos(equipoGanador,codEnfrentamiento,nombreCompe);
             } else {
                 JOptionPane.showMessageDialog(null, "El equipo seleccionado ya está asignado como ganador del enfrentamiento.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
