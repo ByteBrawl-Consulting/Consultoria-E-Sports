@@ -26,6 +26,7 @@ public class ControladorBaseDeDatos {
     private TablaEquipoCompeticion tce;
     private BDCalendario bdc;
     private TablaEnfrentamientos tenf;
+    private TablasXML txml;
 
     /**
      * Constructor de la clase.
@@ -128,6 +129,7 @@ public class ControladorBaseDeDatos {
         tpe = new TablaPatrocinadorEquipo(con, te, tp);
         bdc = new BDCalendario(con, this);
         tenf = new TablaEnfrentamientos(con, te,tce);
+        txml = new TablasXML(con, this);
     }
 
     public String login(Usuario usu) throws SQLException {
@@ -310,11 +312,19 @@ public class ControladorBaseDeDatos {
         return tenf.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) throws Exception {
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
         tenf.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
     }
 
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
-        tenf.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
+    public String generarXMLClasificacion() {
+        return txml.generarXMLClasificacion();
+    }
+
+    public String generarXMLJornada() {
+        return txml.generarXMLJornada();
+    }
+
+    public String generarXMLTodasJornadas() {
+        return txml.generarXMLTodasJornadas();
     }
 }
