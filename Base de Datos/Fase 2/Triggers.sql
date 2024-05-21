@@ -159,7 +159,7 @@ AFTER STATEMENT IS
         -- Reajuste si ha habido update
         IF UPDATING THEN
             IF V_CARGO_ANTERIOR IS NOT NULL AND UPPER(V_CARGO_ANTERIOR) = 'ENTRENADOR' THEN
-                NUM_ENTRENADORES := NUM_ENTRENADORES - 1;
+                NUM_ENTRENADORES := NUM_ENTRENADORES + 1;
             END IF;
         END IF;
         -- Reajuste tras insert
