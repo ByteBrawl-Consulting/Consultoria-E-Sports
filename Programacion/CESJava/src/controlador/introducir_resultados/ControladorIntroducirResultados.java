@@ -15,10 +15,20 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
+/**
+ * Controlador para la vista de introducción de resultados de competiciones.
+ */
+
 public class ControladorIntroducirResultados {
 
     private VentanaIntroducirResultados vir;
     private ControladorVista cv;
+
+    /**
+     * Constructor del ControladorIntroducirResultados.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorIntroducirResultados(ControladorVista cv) {
         this.cv = cv;
@@ -39,7 +49,7 @@ public class ControladorIntroducirResultados {
         vir.bSalirAL(new bSalir());
 
         vir.bRbAltaAL(new RadioButtonAltaListener());
-        vir.bRbModiAl(new RadioButtonModiListener());
+       /* vir.bRbModiAl(new RadioButtonModiListener());*/
 
         llenarCB();
 
@@ -53,11 +63,19 @@ public class ControladorIntroducirResultados {
         vir.setVisible(true);
     }
 
+    /**
+     * Muestra la ventana de introducción de resultados y oculta los paneles específicos.
+     */
+
     public void mostrar() {
         vir.setVisible(true);
-        vir.getpAlta().setVisible(false);
+        vir.getpAlta().setVisible(true);
         vir.getpModi().setVisible(false);
     }
+
+    /**
+     * Llena los combo boxes de competiciones con los datos obtenidos del modelo.
+     */
 
     public void llenarCB() {
         try {
@@ -80,6 +98,10 @@ public class ControladorIntroducirResultados {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * Clase interna para manejar los eventos de documento en el campo de jornada (alta).
+     */
 
     private class JornadaDocumentListener implements DocumentListener {
         @Override
@@ -117,7 +139,6 @@ public class ControladorIntroducirResultados {
                 StringBuilder resultados = new StringBuilder();
                 for (Enfrentamiento enfrentamiento : enfrentamientos) {
                     resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
-                    resultados.append("Jornada: ").append(enfrentamiento.getCodJornada().getNumJornada()).append("\n");
                     resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
                     resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
                     resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");
@@ -133,6 +154,10 @@ public class ControladorIntroducirResultados {
             }
         }
     }
+
+    /**
+     * Clase interna para manejar los eventos de documento en el campo de jornada (modificación).
+     */
 
     private class JornadaDocumentListenerModi implements DocumentListener {
         @Override
@@ -170,7 +195,6 @@ public class ControladorIntroducirResultados {
                 StringBuilder resultados = new StringBuilder();
                 for (Enfrentamiento enfrentamiento : enfrentamientos) {
                     resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
-                    resultados.append("Jornada: ").append(enfrentamiento.getCodJornada().getNumJornada()).append("\n");
                     resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
                     resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
                     resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");
@@ -187,47 +211,55 @@ public class ControladorIntroducirResultados {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de aceptar, insertando o actualizando el resultado del enfrentamiento.
+     */
+
     private class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            String nombreCompe = String.valueOf(vir.getCbCompeticion().getSelectedItem());
+            String codEnfrentamiento = vir.getTfCodEnfrentamiento().getText();
+            String equipoGanador = vir.getTfEquipoGanador().getText();
             if (vir.getAltaRadioButton().isSelected()) {
                 try {
-                    String codEnfrentamiento = vir.getTfCodEnfrentamiento().getText();
-                    String equipoGanador = vir.getTfEquipoGanador().getText();
+
 
                     if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
                         JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
-                    cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+                    cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
 
                     JOptionPane.showMessageDialog(vir, "Resultado insertado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(vir, "Error al insertar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            } else if (vir.getModificaciónRadioButton().isSelected()) {
+            } /*else if (vir.getModificaciónRadioButton().isSelected()) {
                 try {
-                    String codEnfrentamiento = vir.getTfCodEnfreModi().getText();
-                    String equipoGanador = vir.getTfEquiGanadorModi().getText();
+
 
                     if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
                         JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
-                    cv.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+                    //cv.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
 
                     JOptionPane.showMessageDialog(vir, "Resultado actualizado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(vir, "Error al actualizar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            }
+            }*/
         }
     }
 
+/**
+     * Clase interna para manejar el evento de salir.
+     */
 
     private class bSalir implements ActionListener {
         @Override
@@ -236,12 +268,20 @@ public class ControladorIntroducirResultados {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de seleccionar el modo de alta.
+     */
+
     private class RadioButtonAltaListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vir.eleccionAlta();
         }
     }
+
+    /**
+     * Clase interna para manejar el evento de seleccionar el modo de modificación.
+     */
 
     private class RadioButtonModiListener implements ActionListener {
         @Override
@@ -250,12 +290,28 @@ public class ControladorIntroducirResultados {
         }
     }
 
+    /**
+     * Clase interna para manejar el evento de focus en los campos de texto, mostrando y ocultando placeholders.
+     */
+
     public class PlaceholderListener implements FocusListener {
         private String placeholder;
+
+        /**
+         * Constructor de PlaceholderListener.
+         *
+         * @param placeholder El texto de marcador de posición.
+         */
 
         public PlaceholderListener(String placeholder) {
             this.placeholder = placeholder;
         }
+
+        /**
+         * Maneja el evento de ganar foco, mostrando el marcador de posición si es necesario.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -264,6 +320,12 @@ public class ControladorIntroducirResultados {
                 textField.setText("");
             }
         }
+
+        /**
+         * Maneja el evento de perder foco, mostrando el marcador de posición si el campo está vacío.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusLost(FocusEvent e) {

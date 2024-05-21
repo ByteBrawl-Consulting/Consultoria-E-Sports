@@ -7,14 +7,32 @@ import javax.swing.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
+/**
+ * La clase TablaJugadores gestiona las operaciones relacionadas con la tabla de jugadores en la base de datos.
+ */
+
 public class TablaJugadores {
     private Connection con;
     ControladorBaseDeDatos cbd;
+
+    /**
+     * Constructor de la clase TablaJugadores.
+     *
+     * @param con La conexión a la base de datos.
+     * @param cbd El controlador de la base de datos.
+     */
 
     public TablaJugadores(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
         this.cbd = cbd;
     }
+
+    /**
+     * Agrega un nuevo jugador a la base de datos.
+     *
+     * @param jugador El jugador a ser agregado.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public void altaJugador(Jugador jugador) {
         try {
@@ -39,6 +57,13 @@ public class TablaJugadores {
         }
     }
 
+    /**
+     * Elimina un jugador de la base de datos.
+     *
+     * @param jugador El jugador a ser eliminado.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public void bajaJugador(Jugador jugador) {
         try {
             String nombreProcedimiento = "GESTION_JUGADORES.ELIMINAR_JUGADOR";
@@ -57,15 +82,22 @@ public class TablaJugadores {
         }
     }
 
-    public void modiJugador(Jugador jugador, String fecha) {
+    /**
+     * Actualiza los detalles de un jugador en la base de datos.
+     *
+     * @param jugador El jugador con los detalles actualizados.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
+    public void modiJugador(Jugador jugador) {
         try {
             String nombreProcedimiento = "GESTION_JUGADORES.ACTUALIZAR_JUGADOR";
             String plantilla = "{call " + nombreProcedimiento + "(?,?,?,?,?,?,?)}";
             CallableStatement sentencia = con.prepareCall(plantilla);
             sentencia.setString(1, jugador.getNombreJugador());
             sentencia.setString(2, jugador.getNacionalidad());
-            String fechaVentana = fecha;
-            SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+            String fechaVentana = String.valueOf(jugador.getFechaNacimiento());
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date fechaJava = formato.parse(fechaVentana);
             java.sql.Timestamp fechaSql = new java.sql.Timestamp(fechaJava.getTime());
             sentencia.setTimestamp(3, fechaSql);
@@ -85,9 +117,17 @@ public class TablaJugadores {
         }
     }
 
+    /**
+     * Consulta los detalles de un jugador en la base de datos.
+     *
+     * @param nombreJu El nombre del jugador a ser consultado.
+     * @return Una cadena con los detalles del jugador.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public StringBuilder consultaJugador(String nombreJu) {
         try {
-            String plantilla = "SELECT cod_jugador,nacionalidad,fecha_nac,nickname,rol,sueldo,cod_equipo FROM jugadores WHERE nombre_jugador = ?";
+            String plantilla = "SELECT cod_jugador,nacionalidad,fecha_nac,nickname,rol,sueldo,cod_equipo FROM jugadores WHERE (nombre_jugador) = ?";
             PreparedStatement sentenciaPre = con.prepareStatement(plantilla);
             sentenciaPre.setString(1, nombreJu);
             ResultSet respuesta = sentenciaPre.executeQuery();
@@ -110,6 +150,12 @@ public class TablaJugadores {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Muestra un mensaje en una ventana emergente.
+     *
+     * @param m El mensaje a ser mostrado.
+     */
 
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);

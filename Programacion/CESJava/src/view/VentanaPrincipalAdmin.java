@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VentanaPrincipalAdmin extends JFrame {
@@ -29,11 +28,12 @@ public class VentanaPrincipalAdmin extends JFrame {
     private JButton añadirEquipoACompeticiónButton;
     private JButton añadirPatrocinadorEquipoButton;
     private JButton altaNuevoUsuarioButton;
+    private JButton generarXMLButton;
 
     public VentanaPrincipalAdmin() throws HeadlessException {
         super("Panel de Administrador");
         setContentPane(pPrincipal);
-        setSize(750, 450);
+        setSize(800, 450);
         setLocationRelativeTo(null);
     }
 
@@ -107,5 +107,9 @@ public class VentanaPrincipalAdmin extends JFrame {
 
     public void addBIntroducirResultados(ActionListener al) {
         introducirResultadosMenuItem.addActionListener(al);
+    }
+
+    public void addBGenerarXML(ActionListener al) {
+        generarXMLButton.addActionListener(al);
     }
 }

@@ -159,7 +159,7 @@ AFTER STATEMENT IS
         -- Reajuste si ha habido update
         IF UPDATING THEN
             IF V_CARGO_ANTERIOR IS NOT NULL AND UPPER(V_CARGO_ANTERIOR) = 'ENTRENADOR' THEN
-                NUM_ENTRENADORES := NUM_ENTRENADORES - 1;
+                NUM_ENTRENADORES := NUM_ENTRENADORES + 1;
             END IF;
         END IF;
         -- Reajuste tras insert
@@ -222,8 +222,8 @@ END;
 
 
 /*BLOQUEO DE LA TABLA EQUIPOS CON LA COMPETICION EN CURSO*/
-CREATE OR REPLACE NONEDITIONABLE TRIGGER BLOQUEO_EQUIPO_COMPETICION
-BEFORE INSERT OR UPDATE OR DELETE ON EQUIPO_COMPETICION
+create or replace NONEDITIONABLE TRIGGER BLOQUEO_EQUIPO_COMPETICION
+BEFORE INSERT OR DELETE ON EQUIPO_COMPETICION
 FOR EACH ROW
 DECLARE
     EN_CURSO NUMBER := 0;
@@ -307,38 +307,60 @@ END;
 /
 
 /*EQUIPOS SIN REPETIR EN ENFRENTAMIENTOS*/
-CREATE OR REPLACE TRIGGER ENFRENTAMIENTO_UNICO
-BEFORE INSERT OR UPDATE
-ON ENFRENTAMIENTOS
-FOR EACH ROW
-DECLARE
-  V_COUNT_LOCAL NUMBER;
-  V_COUNT_VISITANTE NUMBER;
-BEGIN
-  -- Verifica cuantos enfrentamientos tienen el mismo equipo local 
-  SELECT COUNT(*)
-  INTO V_COUNT_LOCAL
-  FROM ENFRENTAMIENTOS
-  WHERE COD_JORNADA = :NEW.COD_JORNADA
-	AND COD_EQUIPO_LOCAL = :NEW.COD_EQUIPO_LOCAL
-	AND COD_ENFRENTAMIENTO != :NEW.COD_ENFRENTAMIENTO;
-  -- Verifica cuantos enfrentamientos tienen el mismo equipo visitante 
-  SELECT COUNT(*)
-  INTO V_COUNT_VISITANTE
-  FROM ENFRENTAMIENTOS
-  WHERE COD_JORNADA = :NEW.COD_JORNADA
-	AND COD_EQUIPO_VISITANTE = :NEW.COD_EQUIPO_VISITANTE
-	AND COD_ENFRENTAMIENTO != :NEW.COD_ENFRENTAMIENTO;
-  -- Si ya hay varios enfrentamiento con el mismo equipo local --> Error
-  IF V_COUNT_LOCAL > 0 THEN
-	RAISE_APPLICATION_ERROR(-20012, 'Equipo 2 veces local');
-  END IF;
-  -- Si ya hay varios enfrentamiento con el mismo equipo visitante --> Error
-  IF V_COUNT_VISITANTE > 0 THEN
-	RAISE_APPLICATION_ERROR(-20013,'Equipo 2 veces visitante');
-  END IF;
+CREATE OR REPLACE NONEDITIONABLE TRIGGER ENFRENTAMIENTO_UNICO
+FOR INSERT OR UPDATE ON ENFRENTAMIENTOS
+COMPOUND TRIGGER
+  TYPE jornada_team IS RECORD (
+    cod_jornada        enfrentamientos.cod_jornada%TYPE,
+    cod_equipo_local   enfrentamientos.cod_equipo_local%TYPE,
+    cod_equipo_visitante enfrentamientos.cod_equipo_visitante%TYPE,
+    cod_enfrentamiento enfrentamientos.cod_enfrentamiento%TYPE
+  );
+  TYPE jornada_team_list IS TABLE OF jornada_team;
+  jornada_team_tab jornada_team_list := jornada_team_list();
+  BEFORE EACH ROW IS
+  BEGIN
+    jornada_team_tab.EXTEND;
+    jornada_team_tab(jornada_team_tab.LAST).cod_jornada := :NEW.cod_jornada;
+    jornada_team_tab(jornada_team_tab.LAST).cod_equipo_local := :NEW.cod_equipo_local;
+    jornada_team_tab(jornada_team_tab.LAST).cod_equipo_visitante := :NEW.cod_equipo_visitante;
+    jornada_team_tab(jornada_team_tab.LAST).cod_enfrentamiento := :NEW.cod_enfrentamiento;
+  END BEFORE EACH ROW;
+  AFTER STATEMENT IS
+    v_count_local NUMBER;
+    v_count_visitante NUMBER;
+  BEGIN
+    FOR i IN 1..jornada_team_tab.COUNT LOOP
+      -- Verifica cuantos enfrentamientos tienen el mismo equipo local
+      SELECT COUNT(*)
+      INTO v_count_local
+      FROM ENFRENTAMIENTOS
+      WHERE COD_JORNADA = jornada_team_tab(i).cod_jornada
+        AND COD_EQUIPO_LOCAL = jornada_team_tab(i).cod_equipo_local
+        AND COD_ENFRENTAMIENTO != jornada_team_tab(i).cod_enfrentamiento;
+      -- Verifica cuantos enfrentamientos tienen el mismo equipo visitante
+      SELECT COUNT(*)
+      INTO v_count_visitante
+      FROM ENFRENTAMIENTOS
+      WHERE COD_JORNADA = jornada_team_tab(i).cod_jornada
+        AND COD_EQUIPO_VISITANTE = jornada_team_tab(i).cod_equipo_visitante
+        AND COD_ENFRENTAMIENTO != jornada_team_tab(i).cod_enfrentamiento;
+      -- Si ya hay varios enfrentamientos con el mismo equipo local --> Error
+      IF v_count_local > 0 THEN
+        RAISE_APPLICATION_ERROR(-20012, 'Equipo 2 veces local');
+      END IF;
+      -- Si ya hay varios enfrentamientos con el mismo equipo visitante --> Error
+      IF v_count_visitante > 0 THEN
+        RAISE_APPLICATION_ERROR(-20013, 'Equipo 2 veces visitante');
+      END IF;
+    END LOOP;
+  END AFTER STATEMENT;
 END;
 /
+
+
+
+
 /* CAMBIAR ESTADO (CERRAR PLAZO INSCRIPCION SI COMPETICION ESTA YA EN CURSO) */
 CREATE OR REPLACE TRIGGER CERRAR_INSCRIPCION
 BEFORE INSERT ON COMPETICIONES

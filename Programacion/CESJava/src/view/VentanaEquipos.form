@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="500" height="406"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-9125172"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="cda7e" class="javax.swing.JRadioButton" binding="rbAlta">
@@ -37,7 +39,9 @@
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-9125172"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="a6a22" class="javax.swing.JTextField" binding="tfNombreAlta">
@@ -67,7 +71,9 @@
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-9125172"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="fca93" class="javax.swing.JTextField" binding="tfNombreBaja">
@@ -87,7 +93,9 @@
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-9125172"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="895d6" class="javax.swing.JTextField" binding="tfNombreModi">
@@ -117,7 +125,9 @@
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-9125172"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="f13e8" class="javax.swing.JTextField" binding="tfNombreCons">

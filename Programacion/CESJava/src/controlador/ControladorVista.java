@@ -57,8 +57,8 @@ public class ControladorVista {
         cp.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju, String fecha) {
-        cp.modiJugador(ju, fecha);
+    public void modiJugador(Jugador ju) {
+        cp.modiJugador(ju);
     }
 
     public String consultaJugador(String nombre) {
@@ -228,11 +228,19 @@ public class ControladorVista {
         return cp.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        cp.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe)throws Exception {
+        cp.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
     }
 
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        cp.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public String generarXMLClasificacion() {
+        return cp.generarXMLClasificacion();
+    }
+
+    public String generarXMLJornada() {
+        return cp.generarXMLJornada();
+    }
+
+    public String generarXMLTodasJornadas() {
+        return cp.generarXMLTodasJornadas();
     }
 }

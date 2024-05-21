@@ -2,6 +2,11 @@ package modelo;
 
 import java.time.LocalDate;
 
+
+/**
+ * La clase Enfrentamiento representa un enfrentamiento entre dos equipos dentro de una jornada de una competición.
+ */
+
 public class Enfrentamiento {
     private int codEnfrentamiento;
     private LocalDate fecha;
@@ -13,6 +18,18 @@ public class Enfrentamiento {
 
     public Enfrentamiento() {
     }
+
+    /**
+     * Constructor con parámetros para inicializar un enfrentamiento.
+     *
+     * @param codEnfrentamiento   El código del enfrentamiento.
+     * @param fecha               La fecha del enfrentamiento.
+     * @param codJornada          La jornada a la que pertenece el enfrentamiento.
+     * @param hora                La hora del enfrentamiento.
+     * @param resultado           El resultado del enfrentamiento.
+     * @param codEquipoLocal      El equipo local del enfrentamiento.
+     * @param codEquipoVisitante  El equipo visitante del enfrentamiento.
+     */
 
     public Enfrentamiento(int codEnfrentamiento, LocalDate fecha, Jornada codJornada, String hora, String resultado, Equipo codEquipoLocal, Equipo codEquipoVisitante) {
         this.codEnfrentamiento = codEnfrentamiento;

@@ -11,9 +11,20 @@ import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * La clase ControladorJugador gestiona las interacciones entre la interfaz de usuario para manejar jugadores (VentanaJugadores) y el modelo de datos (Jugador).
+ * Se encarga de acciones como agregar, eliminar, modificar y consultar jugadores.
+ */
+
 public class ControladorJugador {
     private VentanaJugadores vj;
     private ControladorVista cv;
+
+    /**
+     * Construye un ControladorJugador con el controlador de vista especificado.
+     *
+     * @param cv El controlador de vista que se utilizará para interactuar con el modelo de datos.
+     */
 
     public ControladorJugador(ControladorVista cv) {
         this.cv = cv;
@@ -53,12 +64,21 @@ public class ControladorJugador {
         vj.getTaCons().setBackground(new Color(205, 205, 205));
     }
 
+    /**
+     * Listener para el botón "Salir".
+     */
+
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.dispose();
         }
     }
+
+    /**
+     * Clase interna que maneja la acción del botón "Aceptar". Dependiendo de la opción seleccionada (Alta, Baja, Modificación, Consulta),
+     * realiza la acción correspondiente sobre el objeto Jugador.
+     */
 
     private class bAceptar implements ActionListener {
         @Override
@@ -108,7 +128,8 @@ public class ControladorJugador {
                     String nacionalidad = vj.getTfNacionalidadModi().getText();
                     String fecha = vj.getTfFechaModi().getText();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = formato.parse(fecha);
+                    java.util.Date fechaJava = null;
+                    fechaJava = formato.parse(fecha);
                     java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
                     String nick = vj.getTfNickModi().getText();
                     String rol = vj.getTfRolModi().getText();
@@ -125,7 +146,7 @@ public class ControladorJugador {
                     Equipo equipoObj = cv.buscarEquipo(equipo);
                     if (equipoObj != null) {
                         ju.setCodEquipo(equipoObj); // Pass the entire Equipo object
-                        cv.modiJugador(ju, fecha);
+                        cv.modiJugador(ju);
                     } else {
                         JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
                     }
@@ -144,12 +165,20 @@ public class ControladorJugador {
         }
     }
 
+    /**
+     * Listener para el botón "Alta".
+     */
+
     private class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.eleccionAlta();
         }
     }
+
+    /**
+     * Listener para el botón "Baja".
+     */
 
     private class bBaja implements ActionListener {
         @Override
@@ -158,12 +187,20 @@ public class ControladorJugador {
         }
     }
 
+    /**
+     * Listener para el botón "Modi".
+     */
+
     private class bModi implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vj.eleccionModi();
         }
     }
+
+    /**
+     * Listener para el botón "Consulta".
+     */
 
     private class bCons implements ActionListener {
         @Override
@@ -180,12 +217,28 @@ public class ControladorJugador {
         vj.getpModi().setVisible(false);
     }
 
+    /**
+     * Clase interna para manejar el evento de focus en los campos de texto, mostrando y ocultando placeholders.
+     */
+
     public class PlaceholderListener implements FocusListener {
         private String placeholder;
+
+        /**
+         * Constructor de PlaceholderListener.
+         *
+         * @param placeholder El texto de marcador de posición.
+         */
 
         public PlaceholderListener(String placeholder) {
             this.placeholder = placeholder;
         }
+
+        /**
+         * Maneja el evento de ganar foco, mostrando el marcador de posición si es necesario.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -194,6 +247,12 @@ public class ControladorJugador {
                 textField.setText("");
             }
         }
+
+        /**
+         * Maneja el evento de perder foco, mostrando el marcador de posición si el campo está vacío.
+         *
+         * @param e El evento de focus.
+         */
 
         @Override
         public void focusLost(FocusEvent e) {

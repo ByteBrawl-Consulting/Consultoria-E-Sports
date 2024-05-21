@@ -6,6 +6,7 @@ import controlador.clasificacion.ControladorClasificacion;
 import controlador.competiciones.ControladorCompeticion;
 import controlador.equipo_competicion.ControladorEquipoCompeticion;
 import controlador.equipos.ControladorEquipo;
+import controlador.generar_xml.ControladorXML;
 import controlador.introducir_resultados.ControladorIntroducirResultados;
 import controlador.calendario.ControladorCalendario;
 import controlador.juegos.ControladorJuego;
@@ -20,6 +21,10 @@ import view.VentanaPrincipalAdmin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+/**
+ * Controlador para la interfaz de administrador.
+ */
 
 public class ControladorAdmin {
     private ControladorVista cv;
@@ -38,6 +43,12 @@ public class ControladorAdmin {
     private ControladorResultadosTJornadas crtj;
     private ControladorCalendario cgc;
     private ControladorIntroducirResultados cir;
+    private ControladorXML cxml;
+
+    /**
+     * Constructor para crear una instancia de ControladorAdmin.
+     * @param cv el controlador de la vista principal
+     */
 
     public ControladorAdmin(ControladorVista cv) {
         mostrar();
@@ -45,10 +56,18 @@ public class ControladorAdmin {
         this.cv=cv;
     }
 
+    /**
+     * Muestra la ventana principal de administrador.
+     */
+
     public void mostrar() {
         vpa = new VentanaPrincipalAdmin();
         vpa.setVisible(true);
     }
+
+    /**
+     * Asigna acciones a los botones de la interfaz de administrador.
+     */
 
     public void botones() {
         vpa.addBSalir(new bSalir());
@@ -67,6 +86,7 @@ public class ControladorAdmin {
         vpa.addBResultadosJornadas(new bResultadosJornadas());
         vpa.addBGenerarCalendario(new bGenerarCalendario());
         vpa.addBIntroducirResultados(new bIntroducirResultados());
+        vpa.addBGenerarXML(new bGenerarXML());
     }
 
     private class cerrarSesion implements ActionListener{
@@ -174,6 +194,13 @@ public class ControladorAdmin {
         @Override
         public void actionPerformed(ActionEvent e) {
             cir = new ControladorIntroducirResultados(cv);
+        }
+    }
+
+    public class bGenerarXML implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cxml = new ControladorXML(cv);
         }
     }
 }

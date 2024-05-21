@@ -11,12 +11,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * La clase TablaJornadas maneja las operaciones relacionadas con las jornadas y enfrentamientos en la base de datos.
+ */
+
 public class TablaJornadas {
     private Connection con;
+
+    /**
+     * Constructor para inicializar la conexión a la base de datos.
+     *
+     * @param con La conexión a la base de datos.
+     */
 
     public TablaJornadas(Connection con) {
         this.con = con;
     }
+
+    /**
+     * Obtiene la última jornada de una competición.
+     *
+     * @param com La competición de la cual se desea obtener la última jornada.
+     * @return Una lista de enfrentamientos correspondientes a la última jornada de la competición.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public ArrayList ultimaJornada(Competicion com) {
         Enfrentamiento enfre;
@@ -51,6 +69,14 @@ public class TablaJornadas {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Obtiene todas las jornadas de una competición.
+     *
+     * @param com La competición de la cual se desea obtener todas las jornadas.
+     * @return Una lista de enfrentamientos correspondientes a todas las jornadas de la competición.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public ArrayList<Enfrentamiento> obtenerTodasJornadas(Competicion com) {
         Enfrentamiento enfre;

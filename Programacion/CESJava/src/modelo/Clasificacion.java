@@ -1,9 +1,21 @@
 package modelo;
 
+/**
+ * La clase Clasificacion representa la clasificación de un equipo en una competición.
+ */
+
 public class Clasificacion {
     private Equipo codequipo;
     private EquipoCompeticion puntos;
     private Competicion codcompe;
+
+    /**
+     * Constructor con parámetros para inicializar una clasificación.
+     *
+     * @param codequipo El equipo asociado a la clasificación.
+     * @param puntos    Los puntos del equipo en la competición.
+     * @param codcompe  La competición a la que pertenece la clasificación.
+     */
 
     public Clasificacion(Equipo codequipo, EquipoCompeticion puntos, Competicion codcompe) {
         this.codequipo = codequipo;

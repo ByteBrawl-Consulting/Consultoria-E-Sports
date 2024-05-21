@@ -7,6 +7,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que gestiona la conexión y operaciones con la base de datos.
+ */
+
 public class ControladorBaseDeDatos {
     private TablaJornadas tj;
     private TablaUsuarios tu;
@@ -22,6 +26,12 @@ public class ControladorBaseDeDatos {
     private TablaEquipoCompeticion tce;
     private BDCalendario bdc;
     private TablaEnfrentamientos tenf;
+    private TablasXML txml;
+
+    /**
+     * Constructor de la clase.
+     * @param cp instancia del ControladorPrincipal
+     */
 
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
@@ -29,9 +39,12 @@ public class ControladorBaseDeDatos {
 
     }
 
-    public void conexionBD(ControladorPrincipal cp) {
+    /**
+     * Establece la conexión con la base de datos.
+     * @param cp instancia del ControladorPrincipal
+     */
 
-        /* ----------------- Conexion con la BD Clase PC ----------------- */
+    public void conexionBD(ControladorPrincipal cp) {
 
 //        String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
 //        String user = "eqdaw04";
@@ -66,23 +79,41 @@ public class ControladorBaseDeDatos {
 
         /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
 
-        String url = "jdbc:oracle:thin:@localhost:1521:XE";
-        String user = "userproyecto";
-        String passwd = "userproyecto";
+        String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
+        String user = "eqdaw04";
+        String passwd = "eqdaw04";
 
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection(url, user, passwd);
             System.out.println("Conexión exitosa a la base de datos");
-
         } catch (SQLException e) {
             System.out.println("Error al conectar a la base de datos: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
+
+//        String url = "jdbc:oracle:thin:@localhost:1521:XE";
+//        String user = "userproyecto";
+//        String passwd = "userproyecto";
+//
+//        try {
+//            Class.forName("oracle.jdbc.OracleDriver");
+//            con = DriverManager.getConnection(url, user, passwd);
+//            System.out.println("Conexión exitosa a la base de datos");
+//        } catch (SQLException e) {
+//            System.out.println("Error al conectar a la base de datos: " + e.getMessage());
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
-    /* ----------------- Metodo Inicializacion Tablas  ----------------- */
+    /**
+     * Inicializa las tablas de la base de datos.
+     * @param cp instancia del ControladorPrincipal
+     */
 
     public void inicializarTablas(ControladorPrincipal cp) {
         tu = new TablaUsuarios(con);
@@ -97,7 +128,8 @@ public class ControladorBaseDeDatos {
         tce = new TablaEquipoCompeticion(con, te, tc);
         tpe = new TablaPatrocinadorEquipo(con, te, tp);
         bdc = new BDCalendario(con, this);
-        tenf = new TablaEnfrentamientos(con, te);
+        tenf = new TablaEnfrentamientos(con, te,tce);
+        txml = new TablasXML(con, this);
     }
 
     public String login(Usuario usu) throws SQLException {
@@ -156,8 +188,8 @@ public class ControladorBaseDeDatos {
         tju.bajaJugador(ju);
     }
 
-    public void modiJugador(Jugador ju, String fecha) {
-        tju.modiJugador(ju, fecha);
+    public void modiJugador(Jugador ju) {
+        tju.modiJugador(ju);
     }
 
     public String consultaJugador(String nombre) {
@@ -280,11 +312,19 @@ public class ControladorBaseDeDatos {
         return tenf.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        tenf.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) {
+        tenf.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
     }
 
-    public void actualizarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador) {
-        tenf.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador);
+    public String generarXMLClasificacion() {
+        return txml.generarXMLClasificacion();
+    }
+
+    public String generarXMLJornada() {
+        return txml.generarXMLJornada();
+    }
+
+    public String generarXMLTodasJornadas() {
+        return txml.generarXMLTodasJornadas();
     }
 }

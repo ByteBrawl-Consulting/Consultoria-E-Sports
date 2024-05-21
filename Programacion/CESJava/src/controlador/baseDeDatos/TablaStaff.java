@@ -10,14 +10,32 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 
+/**
+ * La clase TablaStaff gestiona las operaciones relacionadas con el personal del equipo en la base de datos.
+ */
+
 public class TablaStaff {
     Connection con;
     ControladorBaseDeDatos cbd;
+
+    /**
+     * Constructor de la clase TablaStaff.
+     *
+     * @param con  La conexión a la base de datos.
+     * @param cbd  El controlador de la base de datos.
+     */
 
     public TablaStaff(Connection con, ControladorBaseDeDatos cbd) {
         this.con = con;
         this.cbd = cbd;
     }
+
+    /**
+     * Agrega un nuevo miembro del personal al equipo en la base de datos.
+     *
+     * @param staff  El objeto Staff que representa al nuevo miembro del personal.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public void altaStaff(Staff staff) {
         try {
@@ -38,6 +56,13 @@ public class TablaStaff {
         }
     }
 
+    /**
+     * Elimina un miembro del personal del equipo en la base de datos.
+     *
+     * @param staff  El objeto Staff que representa al miembro del personal a eliminar.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public void bajaStaff(Staff staff) {
         try {
             String plantilla = "DELETE FROM staff WHERE nombre = ?";
@@ -54,6 +79,16 @@ public class TablaStaff {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Actualiza la información de un miembro del personal del equipo en la base de datos.
+     *
+     * @param staff       El objeto Staff que representa al miembro del personal cuya información se actualizará.
+     * @param cargo       El nuevo cargo del miembro del personal.
+     * @param sueldo      El nuevo sueldo del miembro del personal.
+     * @param cod_equipo  El nuevo código de equipo al que pertenece el miembro del personal.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
 
     public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo) {
         try {
@@ -75,6 +110,14 @@ public class TablaStaff {
         }
     }
 
+    /**
+     * Realiza una consulta sobre la información de un miembro del personal del equipo en la base de datos.
+     *
+     * @param nombreStaff  El nombre del miembro del personal a consultar.
+     * @return             Un StringBuilder que contiene la información del miembro del personal consultado.
+     * @throws RuntimeException Si ocurre un error durante la operación.
+     */
+
     public StringBuilder consultaStaff(String nombreStaff) {
         Staff staff = null;
         try {
@@ -95,6 +138,12 @@ public class TablaStaff {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Muestra un mensaje en una ventana emergente.
+     *
+     * @param m  El mensaje a mostrar.
+     */
 
     public void mostrar(String m) {
         JOptionPane.showMessageDialog(null, m);
