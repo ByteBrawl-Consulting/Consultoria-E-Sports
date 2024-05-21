@@ -57,7 +57,7 @@ public class ControladorResultadosTJornadas {
                     Equipo equipoLocal = cv.getNombreEquipoPorCodigo(enfre.getCodEquipoLocal().getCodEquipo());
                     Equipo equipoVisitante = cv.getNombreEquipoPorCodigo(enfre.getCodEquipoVisitante().getCodEquipo());
 
-                    total.append("Numero de jornada: ").append(enfre.getCodJornada().getNumJornada()).append("\n")
+                    total.append("Codigo de jornada: ").append(enfre.getCodJornada().getNumJornada()).append("\n")
                             .append("Hora: ").append(enfre.getHora()).append("\n")
                             .append("Fecha del enfrentamiento: ").append(enfre.getFecha()).append("\n")
                             .append("Equipo Ganador: ").append(enfre.getResultado()).append("\n")
