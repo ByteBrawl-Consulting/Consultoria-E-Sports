@@ -84,47 +84,67 @@ public class ControladorEquipo {
         public void actionPerformed(ActionEvent e) {
             Equipo eq = new Equipo();
             if (ve.getRbAlta().isSelected()) {
-                try {
-                    String nombre = ve.getTfNombreAlta().getText();
-                    String fecha = ve.getTfFechaAlta().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = null;
-                    fechaJava = formato.parse(fecha);
-                    java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-                    eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql.toLocalDate());
-                    cv.altaEquipo(eq);
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
+                if (ve.getTfNombreAlta().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
+                } else if (ve.getTfFechaAlta().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "La efcha de fundación es obligatoria");
+                }else{
+                    try {
+                        String nombre = ve.getTfNombreAlta().getText();
+                        String fecha = ve.getTfFechaAlta().getText();
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        java.util.Date fechaJava = null;
+                        fechaJava = formato.parse(fecha);
+                        java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
+                        eq.setNombre(nombre);
+                        eq.setFechaFundacion(fechaSql.toLocalDate());
+                        cv.altaEquipo(eq);
+                    } catch (ParseException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             } else if (ve.getRbBaja().isSelected()) {
-                try {
-                    String nombre = ve.getTfNombreBaja().getText();
-                    eq.setNombre(nombre);
-                    cv.bajaEquipo(eq);
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                if (ve.getTfNombreBaja().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null,"El nombre es obligatorio");
+                }else{
+                    try {
+                        String nombre = ve.getTfNombreBaja().getText();
+                        eq.setNombre(nombre);
+                        cv.bajaEquipo(eq);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             } else if (ve.getRbModificacion().isSelected()) {
-                try {
-                    String nombre = ve.getTfNombreModi().getText();
-                    String fecha = ve.getTfFechaModi().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = formato.parse(fecha);
-                    java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-                    eq.setNombre(nombre);
-                    eq.setFechaFundacion(fechaSql.toLocalDate());
-                    cv.modiEquipo(eq, fecha);
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
+                if (ve.getTfNombreModi().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
+                } else if (ve.getTfFechaModi().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "La efcha de fundación es obligatoria");
+                }else{
+                    try {
+                        String nombre = ve.getTfNombreModi().getText();
+                        String fecha = ve.getTfFechaModi().getText();
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        java.util.Date fechaJava = formato.parse(fecha);
+                        java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
+                        eq.setNombre(nombre);
+                        eq.setFechaFundacion(fechaSql.toLocalDate());
+                        cv.modiEquipo(eq, fecha);
+                    } catch (ParseException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             } else if (ve.getRbConsulta().isSelected()) {
-                try {
-                    String nombre = ve.getTfNombreCons().getText();
-                    eq.setNombre(nombre);
-                    ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                if (ve.getTfNombreCons().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
+                }else{
+                    try {
+                        String nombre = ve.getTfNombreCons().getText();
+                        eq.setNombre(nombre);
+                        ve.getTaConsulta().setText(cv.consultaEquipo(nombre));
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         }
