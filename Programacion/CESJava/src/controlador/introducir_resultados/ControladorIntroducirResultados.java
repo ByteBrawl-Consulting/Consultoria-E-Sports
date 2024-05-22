@@ -248,8 +248,6 @@ public class ControladorIntroducirResultados {
         }
     }
 
-
-
     /**
      * Clase interna para manejar el evento de salir.
      */
