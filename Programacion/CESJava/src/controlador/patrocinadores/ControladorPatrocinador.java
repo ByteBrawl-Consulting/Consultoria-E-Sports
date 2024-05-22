@@ -16,8 +16,8 @@ import java.awt.event.FocusListener;
  */
 
 public class ControladorPatrocinador {
-    VentanaPatrocinadores vp;
-    ControladorVista cv;
+    private VentanaPatrocinadores vp;
+    private ControladorVista cv;
 
     /**
      * Constructor de ControladorPatrocinador.
@@ -88,6 +88,16 @@ public class ControladorPatrocinador {
     }
 
     /**
+     * Valida que el campo de nombre no esté vacío.
+     *
+     * @param nombre El nombre a validar.
+     * @return true si el campo no está vacío, false en caso contrario.
+     */
+    private boolean validarCampoNoVacio(String nombre) {
+        return !nombre.trim().isEmpty();
+    }
+
+    /**
      * Clase interna que maneja el evento de clic en el botón "Aceptar".
      * Realiza la operación correspondiente (alta o baja) según la selección del usuario.
      */
@@ -96,18 +106,24 @@ public class ControladorPatrocinador {
         @Override
         public void actionPerformed(ActionEvent e) {
             Patrocinador patr = new Patrocinador();
-            if (vp.getRbAlta().isSelected()) {
-                try {
+            try {
+                if (vp.getRbAlta().isSelected()) {
                     String nombre = vp.getTfNombreAlta().getText();
+                    if (!validarCampoNoVacio(nombre)) {
+                        throw new Exception("El campo de nombre no puede estar vacío.");
+                    }
                     patr.setNombre(nombre);
                     cv.altaPatrocinador(patr);
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                } else if (vp.getRbBaja().isSelected()) {
+                    String nombre = vp.getTfNombreBaja().getText();
+                    if (!validarCampoNoVacio(nombre)) {
+                        throw new Exception("El campo de nombre no puede estar vacío.");
+                    }
+                    patr.setNombre(nombre);
+                    cv.bajaPatrocinador(patr);
                 }
-            } else if (vp.getRbBaja().isSelected()) {
-                String nombre = vp.getTfNombreBaja().getText();
-                patr.setNombre(nombre);
-                cv.bajaPatrocinador(patr);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -155,6 +171,6 @@ public class ControladorPatrocinador {
             if (textField.getText().isEmpty()) {
                 textField.setText(placeholder);
             }
-        }
-    }
+ }
+}
 }
