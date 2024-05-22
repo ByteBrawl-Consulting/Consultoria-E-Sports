@@ -48,6 +48,7 @@ public class ControladorEquipoCompeticion {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (vaec.getAltaRadioButton().isSelected()) {
+
                 String nombreEquipo = vaec.getTfEquiAlta().getText();
                 String nombreCompeticion = vaec.getTfCompeAlta().getText();
 
@@ -61,7 +62,8 @@ public class ControladorEquipoCompeticion {
                 } catch (RuntimeException ex) {
                     JOptionPane.showMessageDialog(null, "Error al asociar equipo y competición: " + ex.getMessage());
                 }
-            } else if (vaec.getBajaRadioButton().isSelected()) {
+            }
+            else if (vaec.getBajaRadioButton().isSelected()) {
                 String nombreEquipo = vaec.getTfEquiBaja().getText();
                 String nombreCompeticion = vaec.getTfCompeBaja().getText();
 
