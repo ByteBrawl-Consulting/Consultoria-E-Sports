@@ -84,9 +84,9 @@ public class ControladorEquipo {
         public void actionPerformed(ActionEvent e) {
             Equipo eq = new Equipo();
             if (ve.getRbAlta().isSelected()) {
-                if (ve.getTfNombreAlta().getText().isEmpty()){
+                if (ve.getTfNombreAlta().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
-                } else if (ve.getTfFechaAlta().getText().isEmpty()) {
+                } else if (ve.getTfFechaAlta().getText().equals("Fecha Fundación")) {
                     JOptionPane.showMessageDialog(null, "La efcha de fundación es obligatoria");
                 }else{
                     try {
@@ -104,7 +104,7 @@ public class ControladorEquipo {
                     }
                 }
             } else if (ve.getRbBaja().isSelected()) {
-                if (ve.getTfNombreBaja().getText().isEmpty()){
+                if (ve.getTfNombreBaja().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null,"El nombre es obligatorio");
                 }else{
                     try {
@@ -116,9 +116,9 @@ public class ControladorEquipo {
                     }
                 }
             } else if (ve.getRbModificacion().isSelected()) {
-                if (ve.getTfNombreModi().getText().isEmpty()){
+                if (ve.getTfNombreModi().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
-                } else if (ve.getTfFechaModi().getText().isEmpty()) {
+                } else if (ve.getTfFechaModi().getText().equals("Fecha Fundación")) {
                     JOptionPane.showMessageDialog(null, "La efcha de fundación es obligatoria");
                 }else{
                     try {
@@ -135,7 +135,7 @@ public class ControladorEquipo {
                     }
                 }
             } else if (ve.getRbConsulta().isSelected()) {
-                if (ve.getTfNombreCons().getText().isEmpty()){
+                if (ve.getTfNombreCons().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
                 }else{
                     try {
