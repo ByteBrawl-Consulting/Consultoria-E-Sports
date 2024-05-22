@@ -122,38 +122,46 @@ public class ControladorIntroducirResultados {
         private void actualizarEnfrentamientos() {
             try {
                 String nombreCompeticion = (String) vir.getCbCompeticion().getSelectedItem();
-                if (nombreCompeticion == null || nombreCompeticion.equals("Seleccione una competición")) {
-                    return;
-                }
                 String jornadaTexto = vir.getTfJornada().getText();
-                if (jornadaTexto.isEmpty()) {
-                    return;
+
+                if (nombreCompeticion == null || nombreCompeticion.equals("Seleccione una competición")) {
+                    JOptionPane.showMessageDialog(vir, "Debe seleccionar una competición.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                } else if (jornadaTexto.isEmpty()) {
+                    JOptionPane.showMessageDialog(vir, "Debe ingresar el número de jornada.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    int numJornada;
+                    try {
+                        numJornada = Integer.parseInt(jornadaTexto);
+                    } catch (NumberFormatException nfe) {
+                        JOptionPane.showMessageDialog(vir, "El número de jornada debe ser un valor numérico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
+                    Competicion competicion = new Competicion();
+                    competicion.setNombre(nombreCompeticion);
+
+                    ArrayList<Enfrentamiento> enfrentamientos = cv.obtenerEnfrentamientosPorCompeticionYJornada(competicion, numJornada);
+
+                    StringBuilder resultados = new StringBuilder();
+                    for (Enfrentamiento enfrentamiento : enfrentamientos) {
+                        resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
+                        resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
+                        resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
+                        resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");
+                        resultados.append("Equipo Local: ").append(enfrentamiento.getCodEquipoLocal().getNombre()).append("\n");
+                        resultados.append("Equipo Visitante: ").append(enfrentamiento.getCodEquipoVisitante().getNombre()).append("\n");
+                        resultados.append("\n");
+                    }
+
+                    vir.getTaConsultaAlta().setText(resultados.toString());
                 }
-                int numJornada = Integer.parseInt(jornadaTexto);
-
-                Competicion competicion = new Competicion();
-                competicion.setNombre(nombreCompeticion);
-
-                ArrayList<Enfrentamiento> enfrentamientos = cv.obtenerEnfrentamientosPorCompeticionYJornada(competicion, numJornada);
-
-                StringBuilder resultados = new StringBuilder();
-                for (Enfrentamiento enfrentamiento : enfrentamientos) {
-                    resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
-                    resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
-                    resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
-                    resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");
-                    resultados.append("Equipo Local: ").append(enfrentamiento.getCodEquipoLocal().getNombre()).append("\n");
-                    resultados.append("Equipo Visitante: ").append(enfrentamiento.getCodEquipoVisitante().getNombre()).append("\n");
-                    resultados.append("\n");
-                }
-
-                vir.getTaConsultaAlta().setText(resultados.toString());
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(vir, "Error al obtener los enfrentamientos: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+
 
     /**
      * Clase interna para manejar los eventos de documento en el campo de jornada (modificación).
@@ -178,14 +186,26 @@ public class ControladorIntroducirResultados {
         private void actualizarEnfrentamientosModi() {
             try {
                 String nombreCompeticion = (String) vir.getCbCompeticionModi().getSelectedItem();
+
                 if (nombreCompeticion == null || nombreCompeticion.equals("Seleccione una competición")) {
+                    JOptionPane.showMessageDialog(vir, "Debe seleccionar una competición.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
+
                 String jornadaTexto = vir.getTfJornadaModi().getText();
+
                 if (jornadaTexto.isEmpty()) {
+                    JOptionPane.showMessageDialog(vir, "Debe ingresar el número de jornada.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
-                int numJornada = Integer.parseInt(jornadaTexto);
+
+                int numJornada;
+                try {
+                    numJornada = Integer.parseInt(jornadaTexto);
+                } catch (NumberFormatException nfe) {
+                    JOptionPane.showMessageDialog(vir, "El número de jornada debe ser un valor numérico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
                 Competicion competicion = new Competicion();
                 competicion.setNombre(nombreCompeticion);
