@@ -18,8 +18,8 @@ import java.awt.event.FocusListener;
  */
 
 public class ControladorStaff {
-    VentanaStaff vs;
-    ControladorVista cv;
+   private VentanaStaff vs;
+   private ControladorVista cv;
 
     /**
      * Constructor de ControladorStaff.
@@ -57,12 +57,20 @@ public class ControladorStaff {
 
         vs.getTaConsulta().setEditable(false);
         vs.getTaConsulta().setBackground(new Color(205, 205, 205));
+        validarCamposVacios();
     }
 
     /**
      * Clase interna que maneja el evento de clic en el botón "Salir".
      */
-
+    private boolean validarCamposVacios(JTextField... fields) {
+        for (JTextField field : fields) {
+            if (field.getText().trim().isEmpty() || field.getText().equals("Nombre") || field.getText().equals("Cargo") || field.getText().equals("Sueldo") || field.getText().equals("Equipo")) {
+                return false;
+            }
+        }
+        return true;
+    }
     private class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -88,7 +96,12 @@ public class ControladorStaff {
         @Override
         public void actionPerformed(ActionEvent e) {
             Staff staff = new Staff();
+
             if (vs.getRbAlta().isSelected()) {
+                if (!validarCamposVacios(vs.getTfNombreAlta(), vs.getTfCargoAlta(), vs.getTfSueldoAlta(), vs.getTfEquipoAlta())) {
+                    JOptionPane.showMessageDialog(vs, "Todos los campos deben estar llenos y no deben contener el texto del marcador de posición.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 String nombre = vs.getTfNombreAlta().getText();
                 String cargo = vs.getTfCargoAlta().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoAlta().getText());
@@ -104,10 +117,18 @@ public class ControladorStaff {
                     JOptionPane.showMessageDialog(vs, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else if (vs.getRbBaja().isSelected()) {
+                if (!validarCamposVacios(vs.getTfNombreBaja())) {
+                    JOptionPane.showMessageDialog(vs, "El campo 'Nombre' debe estar lleno y no debe contener el texto del marcador de posición.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 String nombre = vs.getTfNombreBaja().getText();
                 staff.setNombre(nombre);
                 cv.bajaStaff(staff);
             } else if (vs.getRbModi().isSelected()) {
+                if (!validarCamposVacios(vs.getTfNombreModi(), vs.getTfCargoModi(), vs.getTfSueldoModi(), vs.getTfEquipoModi())) {
+                    JOptionPane.showMessageDialog(vs, "Todos los campos deben estar llenos y no deben contener el texto del marcador de posición.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 String nombre = vs.getTfNombreModi().getText();
                 String cargo = vs.getTfCargoModi().getText();
                 Integer sueldo = Integer.valueOf(vs.getTfSueldoModi().getText());
@@ -123,6 +144,10 @@ public class ControladorStaff {
                     JOptionPane.showMessageDialog(vs, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else if (vs.getRbConsulta().isSelected()) {
+                if (!validarCamposVacios(vs.getTfNombreCons())) {
+                    JOptionPane.showMessageDialog(vs, "El campo 'Nombre' debe estar lleno y no debe contener el texto del marcador de posición.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 String nombre = vs.getTfNombreCons().getText();
                 staff.setNombre(nombre);
                 vs.getTaConsulta().setText(cv.cosultaStaff(nombre));
