@@ -86,17 +86,19 @@ public class ControladorJugador {
         public void actionPerformed(ActionEvent e) {
             Jugador ju = new Jugador();
             if (vj.getRbAlta().isSelected()) {
-                if (vj.getTfNombreAlta().getText().isEmpty()){
+                if (vj.getTfNombreAlta().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
-                } else if (vj.getTfNacionalidadAlta().getText().isEmpty()) {
+                } else if (vj.getTfNacionalidadAlta().getText().equals("Nacionalidad")) {
                     JOptionPane.showMessageDialog(null, "La nacionalidad es obligatoria");
-                } else if (vj.getTfFechaAlta().getText().isEmpty()) {
+                } else if (vj.getTfFechaAlta().getText().equals("Fecha Nacimineto")) {
                     JOptionPane.showMessageDialog(null, "La fecha de nacimiento es obligatoria");
-                } else if (vj.getTfRolAlta().getText().isEmpty()) {
+                } else if (vj.getTfRolAlta().getText().equals("Rol")) {
                     JOptionPane.showMessageDialog(null, "El rol es obligatorio");
-                } else if (vj.getTfSueldoAlta().getText().isEmpty()) {
+                } else if (vj.getTfSueldoAlta().getText().equals("Sueldo")) {
                     JOptionPane.showMessageDialog(null, "El sueldo es obligatorio");
-                }else{
+                }else if (vj.getTfNickAlta().getText().equals("nickname")){
+                    JOptionPane.showMessageDialog(null, "El nickname es obligatorio");
+                }else {
                     try {
                         String nombre = vj.getTfNombreAlta().getText();
                         String nacionalidad = vj.getTfNacionalidadAlta().getText();
@@ -128,7 +130,7 @@ public class ControladorJugador {
                     }
                 }
             } else if (vj.getRbBaja().isSelected()) {
-                if (vj.getTfNombreBaja().getText().isEmpty()) {
+                if (vj.getTfNombreBaja().getText().equals("nombre")) {
                     JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
                 }else{
                     try {
@@ -140,16 +142,18 @@ public class ControladorJugador {
                     }
                 }
             } else if (vj.getRbModi().isSelected()) {
-                if (vj.getTfNombreModi().getText().isEmpty()){
+                if (vj.getTfNombreModi().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
-                } else if (vj.getTfNacionalidadModi().getText().isEmpty()) {
+                } else if (vj.getTfNacionalidadModi().getText().equals("Nacionalidad")) {
                     JOptionPane.showMessageDialog(null, "La nacionalidad es obligatoria");
-                } else if (vj.getTfFechaModi().getText().isEmpty()) {
+                } else if (vj.getTfFechaModi().getText().equals("Fecha Nacimineto")) {
                     JOptionPane.showMessageDialog(null, "La fecha de nacimiento es obligatoria");
-                } else if (vj.getTfRolModi().getText().isEmpty()) {
+                } else if (vj.getTfRolModi().getText().equals("Rol")) {
                     JOptionPane.showMessageDialog(null, "El rol es obligatorio");
-                } else if (vj.getTfSueldoModi().getText().isEmpty()) {
+                } else if (vj.getTfSueldoModi().getText().equals("Sueldo")) {
                     JOptionPane.showMessageDialog(null, "El sueldo es obligatorio");
+                }else if (vj.getTfNickModi().getText().equals("nickname")){
+                    JOptionPane.showMessageDialog(null, "El nickname es obligatorio");
                 }else{
                     try {
                         String nombre = vj.getTfNombreModi().getText();
@@ -181,7 +185,7 @@ public class ControladorJugador {
                     }
                 }
             } else if (vj.getRbCons().isSelected()) {
-                if (vj.getTfNombreCons().getText().isEmpty()){
+                if (vj.getTfNombreCons().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
                 }else{
                     try {
