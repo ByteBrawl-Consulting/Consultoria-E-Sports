@@ -2,6 +2,7 @@ package controlador.jugadores;
 
 import controlador.ControladorVista;
 import modelo.Equipo;
+import modelo.Jornada;
 import modelo.Jugador;
 import view.VentanaJugadores;
 
@@ -85,81 +86,111 @@ public class ControladorJugador {
         public void actionPerformed(ActionEvent e) {
             Jugador ju = new Jugador();
             if (vj.getRbAlta().isSelected()) {
-                try {
-                    String nombre = vj.getTfNombreAlta().getText();
-                    String nacionalidad = vj.getTfNacionalidadAlta().getText();
-                    String fecha = vj.getTfFechaAlta().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = formato.parse(fecha);
-                    java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-                    String nick = vj.getTfNickAlta().getText();
-                    String rol = vj.getTfRolAlta().getText();
-                    Integer sueldo = Integer.parseInt(vj.getTfSueldoAlta().getText());
-                    String equipo = vj.getTfEquipoAlta().getText();
+                if (vj.getTfNombreAlta().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
+                } else if (vj.getTfNacionalidadAlta().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "La nacionalidad es obligatoria");
+                } else if (vj.getTfFechaAlta().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "La fecha de nacimiento es obligatoria");
+                } else if (vj.getTfRolAlta().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El rol es obligatorio");
+                } else if (vj.getTfSueldoAlta().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El sueldo es obligatorio");
+                }else{
+                    try {
+                        String nombre = vj.getTfNombreAlta().getText();
+                        String nacionalidad = vj.getTfNacionalidadAlta().getText();
+                        String fecha = vj.getTfFechaAlta().getText();
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        java.util.Date fechaJava = formato.parse(fecha);
+                        java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
+                        String nick = vj.getTfNickAlta().getText();
+                        String rol = vj.getTfRolAlta().getText();
+                        Integer sueldo = Integer.parseInt(vj.getTfSueldoAlta().getText());
+                        String equipo = vj.getTfEquipoAlta().getText();
 
-                    ju.setNombreJugador(nombre);
-                    ju.setNacionalidad(nacionalidad);
-                    ju.setFechaNacimiento(fechaSql.toLocalDate());
-                    ju.setNickname(nick);
-                    ju.setRol(rol);
-                    ju.setSueldo(sueldo);
+                        ju.setNombreJugador(nombre);
+                        ju.setNacionalidad(nacionalidad);
+                        ju.setFechaNacimiento(fechaSql.toLocalDate());
+                        ju.setNickname(nick);
+                        ju.setRol(rol);
+                        ju.setSueldo(sueldo);
 
-                    Equipo equipoObj = cv.buscarEquipo(equipo);
-                    if (equipoObj != null) {
-                        ju.setCodEquipo(equipoObj); // Pass the entire Equipo object
-                        cv.altaJugador(ju);
-                    } else {
-                        JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                        Equipo equipoObj = cv.buscarEquipo(equipo);
+                        if (equipoObj != null) {
+                            ju.setCodEquipo(equipoObj); // Pass the entire Equipo object
+                            cv.altaJugador(ju);
+                        } else {
+                            JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } catch (ParseException ex) {
+                        throw new RuntimeException(ex);
                     }
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
                 }
             } else if (vj.getRbBaja().isSelected()) {
-                try {
-                    String nombre = vj.getTfNombreBaja().getText();
-                    ju.setNombreJugador(nombre);
-                    cv.bajaJugador(ju);
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                if (vj.getTfNombreBaja().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
+                }else{
+                    try {
+                        String nombre = vj.getTfNombreBaja().getText();
+                        ju.setNombreJugador(nombre);
+                        cv.bajaJugador(ju);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             } else if (vj.getRbModi().isSelected()) {
-                try {
-                    String nombre = vj.getTfNombreModi().getText();
-                    String nacionalidad = vj.getTfNacionalidadModi().getText();
-                    String fecha = vj.getTfFechaModi().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava = null;
-                    fechaJava = formato.parse(fecha);
-                    java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
-                    String nick = vj.getTfNickModi().getText();
-                    String rol = vj.getTfRolModi().getText();
-                    Integer sueldo = Integer.parseInt(vj.getTfSueldoModi().getText());
-                    String equipo = vj.getTfEquipoModi().getText();
-
-                    ju.setNombreJugador(nombre);
-                    ju.setNacionalidad(nacionalidad);
-                    ju.setFechaNacimiento(fechaSql.toLocalDate());
-                    ju.setNickname(nick);
-                    ju.setRol(rol);
-                    ju.setSueldo(sueldo);
-
-                    Equipo equipoObj = cv.buscarEquipo(equipo);
-                    if (equipoObj != null) {
-                        ju.setCodEquipo(equipoObj); // Pass the entire Equipo object
-                        cv.modiJugador(ju);
-                    } else {
-                        JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                if (vj.getTfNombreModi().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
+                } else if (vj.getTfNacionalidadModi().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "La nacionalidad es obligatoria");
+                } else if (vj.getTfFechaModi().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "La fecha de nacimiento es obligatoria");
+                } else if (vj.getTfRolModi().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El rol es obligatorio");
+                } else if (vj.getTfSueldoModi().getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El sueldo es obligatorio");
+                }else{
+                    try {
+                        String nombre = vj.getTfNombreModi().getText();
+                        String nacionalidad = vj.getTfNacionalidadModi().getText();
+                        String fecha = vj.getTfFechaModi().getText();
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        java.util.Date fechaJava = null;
+                        fechaJava = formato.parse(fecha);
+                        java.sql.Date fechaSql = new java.sql.Date(fechaJava.getTime());
+                        String nick = vj.getTfNickModi().getText();
+                        String rol = vj.getTfRolModi().getText();
+                        Integer sueldo = Integer.parseInt(vj.getTfSueldoModi().getText());
+                        String equipo = vj.getTfEquipoModi().getText();
+                        ju.setNombreJugador(nombre);
+                        ju.setNacionalidad(nacionalidad);
+                        ju.setFechaNacimiento(fechaSql.toLocalDate());
+                        ju.setNickname(nick);
+                        ju.setRol(rol);
+                        ju.setSueldo(sueldo);
+                        Equipo equipoObj = cv.buscarEquipo(equipo);
+                        if (equipoObj != null) {
+                            ju.setCodEquipo(equipoObj);
+                            cv.modiJugador(ju);
+                        } else {
+                            JOptionPane.showMessageDialog(vj, "Equipo no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } catch (ParseException ex) {
+                        throw new RuntimeException(ex);
                     }
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
                 }
             } else if (vj.getRbCons().isSelected()) {
-                try {
-                    String nombre = vj.getTfNombreCons().getText();
-                    ju.setNombreJugador(nombre);
-                    vj.getTaCons().setText(cv.consultaJugador(nombre));
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                if (vj.getTfNombreCons().getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
+                }else{
+                    try {
+                        String nombre = vj.getTfNombreCons().getText();
+                        ju.setNombreJugador(nombre);
+                        vj.getTaCons().setText(cv.consultaJugador(nombre));
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         }
