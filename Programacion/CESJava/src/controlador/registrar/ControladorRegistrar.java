@@ -35,6 +35,14 @@ public class ControladorRegistrar {
         vru.bSalirAL(new bSalir());
     }
 
+    /**
+     * Valida que los campos de nombre de usuario y contraseña no estén vacíos.
+     *
+     * @return true si ambos campos no están vacíos, false en caso contrario.
+     */
+    private boolean validarCamposNoVacios() {
+        return !vru.getTfUsu().getText().trim().isEmpty() && !vru.getTfPass().getText().trim().isEmpty();
+    }
 
     /**
      * Clase interna que maneja el evento de clic en el botón "Aceptar".
@@ -44,21 +52,31 @@ public class ControladorRegistrar {
     public class bAceptar implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             try {
+                if (!validarCamposNoVacios()) {
+                    throw new Exception("Los campos de nombre de usuario y contraseña no pueden estar vacíos.");
+                }
+
                 Usuario usu = new Usuario();
                 usu.setTipo(vru.getTfUsu().getText());
                 usu.setContrasena(vru.getTfPass().getText());
+
                 Pattern pat = Pattern.compile("^[0-9]*$");
                 Matcher mach = pat.matcher(usu.getContrasena());
-                if (!mach.matches())
-                    throw new Exception("Error en el formato de la contraseña 'Solo pueden ser numeros'");
-                Pattern pat1 = Pattern.compile("^[a-z\sA-Z]*$");
+                if (!mach.matches()) {
+                    throw new Exception("Error en el formato de la contraseña 'Solo pueden ser números'");
+                }
+
+                Pattern pat1 = Pattern.compile("^[a-zA-Z\\s]*$");
                 Matcher mach1 = pat1.matcher(usu.getTipo());
-                if (!mach1.matches()) throw new Exception("El nombre de usuario solo puede contener letras");
+                if (!mach1.matches()) {
+                    throw new Exception("El nombre de usuario solo puede contener letras");
+                }
+
                 cv.altaUsu(usu);
                 vru.getTfUsu().setText("");
                 vru.getTfPass().setText("");
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -73,7 +91,6 @@ public class ControladorRegistrar {
             vru.getTfUsu().setText("");
             vru.getTfPass().setText("");
             vru.dispose();
-        }
-    }
+ }
 }
-
+}

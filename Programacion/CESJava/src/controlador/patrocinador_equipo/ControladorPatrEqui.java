@@ -220,6 +220,6 @@ public class ControladorPatrEqui {
             if (textField.getText().isEmpty()) {
                 textField.setText(placeholder);
             }
-        }
-    }
+}
+}
 }
