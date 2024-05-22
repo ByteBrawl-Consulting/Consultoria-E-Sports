@@ -54,11 +54,12 @@ public class TablaJornadas {
                 enfre.setHora(respuesta.getString(2));
                 enfre.setFecha(respuesta.getDate(3).toLocalDate());
                 enfre.setResultado(respuesta.getString(4));
-                Equipo eq = new Equipo();
-                eq.setCodEquipo(respuesta.getInt(5));
-                enfre.setCodEquipoLocal(eq);
-                eq.setCodEquipo(respuesta.getInt(6));
-                enfre.setCodEquipoVisitante(eq);
+                Equipo eqLocal = new Equipo();
+                eqLocal.setCodEquipo(respuesta.getInt(5));
+                enfre.setCodEquipoLocal(eqLocal);
+                Equipo eqVisitante = new Equipo();
+                eqVisitante.setCodEquipo(respuesta.getInt(6));
+                enfre.setCodEquipoVisitante(eqVisitante);
                 lista.add(enfre);
 
             }

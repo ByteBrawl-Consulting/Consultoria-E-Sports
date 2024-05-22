@@ -98,6 +98,6 @@ public class ControladorResultadosTJornadas {
         @Override
         public void actionPerformed(ActionEvent e) {
             vrtj.dispose();
-        }
-    }
+ }
+}
 }

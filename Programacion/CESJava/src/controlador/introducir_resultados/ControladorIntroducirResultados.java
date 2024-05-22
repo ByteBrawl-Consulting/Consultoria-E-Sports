@@ -49,7 +49,6 @@ public class ControladorIntroducirResultados {
         vir.bSalirAL(new bSalir());
 
         vir.bRbAltaAL(new RadioButtonAltaListener());
-       /* vir.bRbModiAl(new RadioButtonModiListener());*/
 
         llenarCB();
 
@@ -122,38 +121,43 @@ public class ControladorIntroducirResultados {
         private void actualizarEnfrentamientos() {
             try {
                 String nombreCompeticion = (String) vir.getCbCompeticion().getSelectedItem();
-                if (nombreCompeticion == null || nombreCompeticion.equals("Seleccione una competición")) {
-                    return;
-                }
                 String jornadaTexto = vir.getTfJornada().getText();
-                if (jornadaTexto.isEmpty()) {
-                    return;
+
+                if (nombreCompeticion == null || nombreCompeticion.equals("Seleccione una competición")) {
+                    JOptionPane.showMessageDialog(vir, "Debe seleccionar una competición.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    int numJornada;
+                    try {
+                        numJornada = Integer.parseInt(jornadaTexto);
+                    } catch (NumberFormatException nfe) {
+                        return;
+                    }
+
+                    Competicion competicion = new Competicion();
+                    competicion.setNombre(nombreCompeticion);
+
+                    ArrayList<Enfrentamiento> enfrentamientos = cv.obtenerEnfrentamientosPorCompeticionYJornada(competicion, numJornada);
+
+                    StringBuilder resultados = new StringBuilder();
+                    for (Enfrentamiento enfrentamiento : enfrentamientos) {
+                        resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
+                        resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
+                        resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
+                        resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");
+                        resultados.append("Equipo Local: ").append(enfrentamiento.getCodEquipoLocal().getNombre()).append("\n");
+                        resultados.append("Equipo Visitante: ").append(enfrentamiento.getCodEquipoVisitante().getNombre()).append("\n");
+                        resultados.append("\n");
+                    }
+
+                    vir.getTaConsultaAlta().setText(resultados.toString());
                 }
-                int numJornada = Integer.parseInt(jornadaTexto);
-
-                Competicion competicion = new Competicion();
-                competicion.setNombre(nombreCompeticion);
-
-                ArrayList<Enfrentamiento> enfrentamientos = cv.obtenerEnfrentamientosPorCompeticionYJornada(competicion, numJornada);
-
-                StringBuilder resultados = new StringBuilder();
-                for (Enfrentamiento enfrentamiento : enfrentamientos) {
-                    resultados.append("Código de Enfrentamiento: ").append(enfrentamiento.getCodEnfrentamiento()).append("\n");
-                    resultados.append("Hora: ").append(enfrentamiento.getHora()).append("\n");
-                    resultados.append("Fecha: ").append(enfrentamiento.getFecha()).append("\n");
-                    resultados.append("Resultado: ").append(enfrentamiento.getResultado()).append("\n");
-                    resultados.append("Equipo Local: ").append(enfrentamiento.getCodEquipoLocal().getNombre()).append("\n");
-                    resultados.append("Equipo Visitante: ").append(enfrentamiento.getCodEquipoVisitante().getNombre()).append("\n");
-                    resultados.append("\n");
-                }
-
-                vir.getTaConsultaAlta().setText(resultados.toString());
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(vir, "Error al obtener los enfrentamientos: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+
 
     /**
      * Clase interna para manejar los eventos de documento en el campo de jornada (modificación).
@@ -178,14 +182,20 @@ public class ControladorIntroducirResultados {
         private void actualizarEnfrentamientosModi() {
             try {
                 String nombreCompeticion = (String) vir.getCbCompeticionModi().getSelectedItem();
+
                 if (nombreCompeticion == null || nombreCompeticion.equals("Seleccione una competición")) {
+                    JOptionPane.showMessageDialog(vir, "Debe seleccionar una competición.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
+
                 String jornadaTexto = vir.getTfJornadaModi().getText();
-                if (jornadaTexto.isEmpty()) {
+
+                int numJornada;
+                try {
+                    numJornada = Integer.parseInt(jornadaTexto);
+                } catch (NumberFormatException nfe) {
                     return;
                 }
-                int numJornada = Integer.parseInt(jornadaTexto);
 
                 Competicion competicion = new Competicion();
                 competicion.setNombre(nombreCompeticion);
@@ -221,43 +231,24 @@ public class ControladorIntroducirResultados {
             String nombreCompe = String.valueOf(vir.getCbCompeticion().getSelectedItem());
             String codEnfrentamiento = vir.getTfCodEnfrentamiento().getText();
             String equipoGanador = vir.getTfEquipoGanador().getText();
-            if (vir.getAltaRadioButton().isSelected()) {
-                try {
 
-
-                    if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
-                        JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        return;
-                    }
-
-                    cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
-
-                    JOptionPane.showMessageDialog(vir, "Resultado insertado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(vir, "Error al insertar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            try {
+                if (codEnfrentamiento.equals("Codigo Enfrentamiento") || equipoGanador.equals("Equipo Ganador")) {
+                    JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    return;
                 }
-            } /*else if (vir.getModificaciónRadioButton().isSelected()) {
-                try {
 
+                cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
 
-                    if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
-                        JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        return;
-                    }
-
-                    //cv.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
-
-                    JOptionPane.showMessageDialog(vir, "Resultado actualizado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(vir, "Error al actualizar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }*/
+                JOptionPane.showMessageDialog(vir, "Resultado insertado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(vir, "Error al insertar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
-/**
+    /**
      * Clase interna para manejar el evento de salir.
      */
 

@@ -21,6 +21,7 @@ public class VentanaPrincipalUsuario extends JFrame {
     private JButton bAceptarClasi;
     private JButton bSalir;
     private JButton bSesion;
+    private JScrollPane jScroll;
 
     public VentanaPrincipalUsuario() throws HeadlessException {
         super("Pagina Principal");
@@ -54,6 +55,13 @@ public class VentanaPrincipalUsuario extends JFrame {
         bSesion.addActionListener(al);
     }
 
+    public JScrollPane getjScroll() {
+        return jScroll;
+    }
+
+    public void setjScroll(JScrollPane jScroll) {
+        this.jScroll = jScroll;
+    }
 
     public JButton getbSesion() {
         return bSesion;

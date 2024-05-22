@@ -133,65 +133,93 @@ public class ControladorCompeticion {
         public void actionPerformed(ActionEvent e) {
             Competicion compe = new Competicion();
             if (vc.getRbAlta().isSelected()) {
-                try {
-                    String nombre = vc.getTfNombreAlta().getText();
-                    String fecha1 = vc.getTfFechaIniAlta().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava1 = formato.parse(fecha1);
-                    java.sql.Date fechaSql1 = new java.sql.Date(fechaJava1.getTime());
-                    String fecha2 = vc.getTfFechaFinAlta().getText();
-                    java.util.Date fechaJava2 = formato.parse(fecha2);
-                    java.sql.Date fechaSql2 = new java.sql.Date(fechaJava2.getTime());
-                    String juego = vc.getTfJuegoAlta().getText();
-                    compe.setNombre(nombre);
-                    compe.setFechaInicio(fechaSql1.toLocalDate());
-                    compe.setFechaFin(fechaSql2.toLocalDate());
-                    Juego ju = cv.buscarJuego(juego);
-                    if (ju != null) {
-                        compe.setCodJuego(ju);
-                        cv.altaCompeticion(compe);
-                    } else {
-                        JOptionPane.showMessageDialog(vc, "Juego no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                if (vc.getTfNombreAlta().getText().equals("Nombre")) {
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
+                } else if (vc.getTfFechaIniAlta().getText().equals("Fecha Inicio")) {
+                    JOptionPane.showMessageDialog(null, "La fecha de inicio es obligatoria");
+                } else if (vc.getTfFechaFinAlta().getText().equals("Fecha Fin")) {
+                    JOptionPane.showMessageDialog(null, "La fecha de fin es obligatoria");
+                } else if (vc.getTfJuegoAlta().getText().equals("Juego")) {
+                    JOptionPane.showMessageDialog(null, "El juego es obligatorio");
+                }else {
+                    try {
+                        String nombre = vc.getTfNombreAlta().getText();
+                        String fecha1 = vc.getTfFechaIniAlta().getText();
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        java.util.Date fechaJava1 = formato.parse(fecha1);
+                        java.sql.Date fechaSql1 = new java.sql.Date(fechaJava1.getTime());
+                        String fecha2 = vc.getTfFechaFinAlta().getText();
+                        java.util.Date fechaJava2 = formato.parse(fecha2);
+                        java.sql.Date fechaSql2 = new java.sql.Date(fechaJava2.getTime());
+                        String juego = vc.getTfJuegoAlta().getText();
+                        compe.setNombre(nombre);
+                        compe.setFechaInicio(fechaSql1.toLocalDate());
+                        compe.setFechaFin(fechaSql2.toLocalDate());
+                        Juego ju = cv.buscarJuego(juego);
+                        if (ju != null) {
+                            compe.setCodJuego(ju);
+                            cv.altaCompeticion(compe);
+                        } else {
+                            JOptionPane.showMessageDialog(vc, "Juego no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } catch (ParseException ex) {
+                        throw new RuntimeException(ex);
                     }
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
                 }
             } else if (vc.getRbBaja().isSelected()) {
-                try {
-                    String nombre = vc.getTfNombreBaja().getText();
-                    compe.setNombre(nombre);
-                    cv.bajaCompeticion(compe);
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                if (vc.getTfNombreBaja().getText().equals("Nombre")) {
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
+                }else {
+                    try {
+                        String nombre = vc.getTfNombreBaja().getText();
+                        compe.setNombre(nombre);
+                        cv.bajaCompeticion(compe);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             } else if (vc.getRbModi().isSelected()) {
-                try {
-                    String nombre = vc.getTfNombreModi().getText();
-                    String fecha1 = vc.getTfFechaIniModi().getText();
-                    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-                    java.util.Date fechaJava1 = null;
-                    fechaJava1 = formato.parse(fecha1);
-                    java.sql.Date fechaSql1 = new java.sql.Date(fechaJava1.getTime());
-                    String fecha2 = vc.getTfFechaFinModi().getText();
-                    java.util.Date fechaJava2 = null;
-                    fechaJava2 = formato.parse(fecha2);
-                    java.sql.Date fechaSql2 = new java.sql.Date(fechaJava2.getTime());
-                    String juego = vc.getTfJuegoModi().getText();
-                    compe.setNombre(nombre);
-                    compe.setFechaInicio(fechaSql1.toLocalDate());
-                    compe.setFechaFin(fechaSql2.toLocalDate());
-                    compe.setCodJuego(cv.getNombreJuegoPorCodigo(cv.buscarJuego(juego).getCodJuego()));
-                    cv.modiCompeticion(compe);
-                } catch (ParseException ex) {
-                    throw new RuntimeException(ex);
+                if (vc.getTfNombreModi().getText().equals("Nombre")) {
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
+                } else if (vc.getTfFechaIniModi().getText().equals("Fecha Inicio")) {
+                    JOptionPane.showMessageDialog(null, "La fecha de inicio es obligatoria");
+                } else if (vc.getTfFechaFinModi().getText().equals("Fecha Fin")) {
+                    JOptionPane.showMessageDialog(null, "La fecha de fin es obligatoria");
+                } else if (vc.getTfJuegoModi().getText().equals("Juego")) {
+                    JOptionPane.showMessageDialog(null, "El juego es obligatorio");
+                }else{
+                    try {
+                        String nombre = vc.getTfNombreModi().getText();
+                        String fecha1 = vc.getTfFechaIniModi().getText();
+                        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                        java.util.Date fechaJava1 = null;
+                        fechaJava1 = formato.parse(fecha1);
+                        java.sql.Date fechaSql1 = new java.sql.Date(fechaJava1.getTime());
+                        String fecha2 = vc.getTfFechaFinModi().getText();
+                        java.util.Date fechaJava2 = null;
+                        fechaJava2 = formato.parse(fecha2);
+                        java.sql.Date fechaSql2 = new java.sql.Date(fechaJava2.getTime());
+                        String juego = vc.getTfJuegoModi().getText();
+                        compe.setNombre(nombre);
+                        compe.setFechaInicio(fechaSql1.toLocalDate());
+                        compe.setFechaFin(fechaSql2.toLocalDate());
+                        compe.setCodJuego(cv.getNombreJuegoPorCodigo(cv.buscarJuego(juego).getCodJuego()));
+                        cv.modiCompeticion(compe);
+                    } catch (ParseException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             } else if (vc.getRbCons().isSelected()) {
-                try {
-                    String nombre = vc.getTfNombreCons().getText();
-                    compe.setNombre(nombre);
-                    vc.getTaCons().setText(cv.consultaCompeticion(nombre));
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
+                if (vc.getTfNombreCons().getText().equals("Nombre")) {
+                    JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
+                }else{
+                    try {
+                        String nombre = vc.getTfNombreCons().getText();
+                        compe.setNombre(nombre);
+                        vc.getTaCons().setText(cv.consultaCompeticion(nombre));
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         }
