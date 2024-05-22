@@ -1,10 +1,7 @@
 package controlador.usuario;
 
 import controlador.ControladorVista;
-import modelo.Clasificacion;
-import modelo.Competicion;
-import modelo.Enfrentamiento;
-import modelo.Jornada;
+import modelo.*;
 import view.VentanaPrincipalUsuario;
 
 import java.awt.*;
@@ -102,15 +99,17 @@ public class ControladorUsuario {
 
     public class bAceptarJornada implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            int x = 0;
             Competicion com = new Competicion();
             com.setNombre(vpu.getTfJornada().getText());
             Jornada jor = new Jornada();
             jor.setCodCompe(com);
             StringBuilder total = new StringBuilder();
             ArrayList<Enfrentamiento> lista = cv.obtenerUltimaJornada(com);
-            for (x = 0; x < lista.size(); x++) {
-                total.append("Numero de jornada: " + lista.get(x).getCodJornada().getNumJornada()).append("\n").append("Hora: " + lista.get(x).getHora()).append("\n").append("Fecha de el enfrentamiento: " + lista.get(x).getFecha()).append("\n").append("Equipo Ganador: " + lista.get(x).getResultado()).append("\n").append("Equipo local: " + lista.get(x).getCodEquipoLocal().getCodEquipo()).append("\n").append("Equipo visitante: " + lista.get(x).getCodEquipoVisitante().getCodEquipo()).append("\n --------------------------------------  \n");
+            for (int x = 0; x < lista.size(); x++) {
+                Enfrentamiento enfrentamiento = lista.get(x);
+                Equipo equipoLocal = cv.getNombreEquipoPorCodigo(enfrentamiento.getCodEquipoLocal().getCodEquipo());
+                Equipo equipoVisitante = cv.getNombreEquipoPorCodigo(enfrentamiento.getCodEquipoVisitante().getCodEquipo());
+                total.append("Numero de jornada: " + enfrentamiento.getCodJornada().getNumJornada()).append("\n").append("Hora: " + enfrentamiento.getHora()).append("\n").append("Fecha de el enfrentamiento: " + enfrentamiento.getFecha()).append("\n").append("Equipo Ganador: " + enfrentamiento.getResultado()).append("\n").append("Equipo local: " + equipoLocal.getNombre()).append("\n").append("Equipo visitante: " + equipoVisitante.getNombre()).append("\n --------------------------------------  \n");
             }
             vpu.getTaConsulta().setText(String.valueOf(total));
         }
