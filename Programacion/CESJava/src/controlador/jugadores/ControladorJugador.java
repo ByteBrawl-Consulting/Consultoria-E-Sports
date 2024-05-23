@@ -2,13 +2,15 @@ package controlador.jugadores;
 
 import controlador.ControladorVista;
 import modelo.Equipo;
-import modelo.Jornada;
 import modelo.Jugador;
 import view.VentanaJugadores;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -18,7 +20,7 @@ import java.text.SimpleDateFormat;
  */
 
 public class ControladorJugador {
-    private VentanaJugadores vj;
+    protected VentanaJugadores vj;
     private ControladorVista cv;
 
     /**
@@ -65,6 +67,8 @@ public class ControladorJugador {
         vj.getTaCons().setBackground(new Color(205, 205, 205));
     }
 
+
+
     /**
      * Listener para el botón "Salir".
      */
@@ -81,7 +85,7 @@ public class ControladorJugador {
      * realiza la acción correspondiente sobre el objeto Jugador.
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Jugador ju = new Jugador();
