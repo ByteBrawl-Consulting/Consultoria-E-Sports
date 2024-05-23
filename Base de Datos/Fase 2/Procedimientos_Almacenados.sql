@@ -48,11 +48,11 @@ BEGIN
 
     CLOSE CURSOR_INFO_COMPETICION;
 END;
-
+/
 BEGIN
     OBTENER_INFO_COMPETICION (TO_DATE('25/04/2020','dd/MM/yyyy'));
 END;
-
+/
 /*Sacamos por pantalla informacion sobre los juegadores, lo usaremos
 en el crud de jugadores*/
 CREATE OR REPLACE PROCEDURE INFO_GENERAL (
@@ -94,5 +94,6 @@ FETCH CURSOR_EQUIPO INTO ENOMBRE,JNOMBRE,JNACIONALIDAD,JNICKNAME,JROL,CNOMBRE;
         DBMS_OUTPUT.PUT_LINE('-----------------------');
 END LOOP;
 END;
+/
 /*Para poder probarlo*/
 EXECUTE INFO_GENERAL('Team Delta')
