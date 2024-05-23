@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
  */
 
 public class ControladorCompeticion {
-    private VentanaCompeticiones vc;
+    protected VentanaCompeticiones vc;
     private ControladorVista cv;
 
     /**
@@ -61,7 +61,7 @@ public class ControladorCompeticion {
      * Muestra la ventana de competiciones.
      */
 
-    private void mostrar() {
+    protected void mostrar() {
         vc.setVisible(true);
         vc.getpAlta().setVisible(false);
         vc.getpBaja().setVisible(false);
@@ -128,7 +128,7 @@ public class ControladorCompeticion {
      * Clase interna para manejar el evento de aceptar.
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Competicion compe = new Competicion();
