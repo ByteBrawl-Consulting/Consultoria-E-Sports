@@ -237,4 +237,20 @@ public class VentanaCompeticiones extends JFrame {
     public void setTaCons(JTextArea taCons) {
         this.taCons = taCons;
     }
+
+    public JButton getbAceptar() {
+        return bAceptar;
+    }
+
+    public void setbAceptar(JButton bAceptar) {
+        this.bAceptar = bAceptar;
+    }
+
+    public JButton getbSalir() {
+        return bSalir;
+    }
+
+    public void setbSalir(JButton bSalir) {
+        this.bSalir = bSalir;
+    }
 }

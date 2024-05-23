@@ -9,11 +9,25 @@ import view.VentanaLogin;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * El ControladorLogin gestiona la lógica de la interfaz de inicio de sesión,
+ * validando las credenciales de los usuarios y redirigiéndolos a sus respectivas vistas.
+ */
+
 public class ControladorLogin {
-    private VentanaLogin vl;
+    protected VentanaLogin vl;
     private ControladorVista cv;
     private ControladorUsuario cu;
     private ControladorAdmin ca;
+
+    /**
+     * Constructor de la clase ControladorLogin.
+     *
+     * Inicializa la ventana de inicio de sesión, configura los eventos de los botones
+     * y establece los placeholders en los campos de texto.
+     *
+     * @param cv El ControladorVista asociado.
+     */
 
     public ControladorLogin(ControladorVista cv) {
         this.cv = cv;
@@ -28,6 +42,12 @@ public class ControladorLogin {
 
         vl.setVisible(true);
     }
+
+    /**
+     * Clase interna que maneja el evento de clic en el botón "Ayuda".
+     * Muestra un cuadro de diálogo con información de contacto para ayuda.
+     */
+
 
     public class bAyuda implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -46,6 +66,7 @@ public class ControladorLogin {
      * Clase interna que maneja el evento de clic en el botón "Entrar".
      * Valida las credenciales del usuario e inicia la vista correspondiente según el tipo de usuario.
      */
+
     public class bEntrar implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String usuario = vl.getTfUsu().getText();
@@ -87,7 +108,8 @@ public class ControladorLogin {
      * @param texto El texto a validar.
      * @return true si el campo no está vacío, false en caso contrario.
      */
-    private boolean validarCampoNoVacio(String texto) {
+
+    protected boolean validarCampoNoVacio(String texto) {
         return !texto.trim().isEmpty();
     }
 

@@ -28,6 +28,22 @@ public class VentanaGenerarCalendario extends JFrame{
         bAceptar.addActionListener(listener);
     }
 
+    public JButton getbSalir() {
+        return bSalir;
+    }
+
+    public void setbSalir(JButton bSalir) {
+        this.bSalir = bSalir;
+    }
+
+    public JButton getbAceptar() {
+        return bAceptar;
+    }
+
+    public void setbAceptar(JButton bAceptar) {
+        this.bAceptar = bAceptar;
+    }
+
     public JComboBox getCbCalendario() {
         return cbCalendario;
     }

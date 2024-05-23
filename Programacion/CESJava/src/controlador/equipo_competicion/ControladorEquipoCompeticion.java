@@ -11,7 +11,7 @@ import java.awt.event.*;
  */
 
 public class ControladorEquipoCompeticion {
-    private VentanaAsociacionEquipoCompe vaec;
+    protected VentanaAsociacionEquipoCompe vaec;
     private ControladorVista cv;
 
     /**

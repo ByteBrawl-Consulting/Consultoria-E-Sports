@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 public class ControladorPatrEqui {
-    private VentanaAsociacionPatroEqui vape;
+    protected VentanaAsociacionPatroEqui vape;
     private ControladorVista cv;
 
     /**
@@ -59,12 +59,14 @@ public class ControladorPatrEqui {
         vape.getTaConsulta().setEditable(false);
     }
 
+
+
     /**
      * Clase interna que maneja el evento de clic en el botón "Salir".
      * Cierra la ventana de asociación de patrocinadores y equipos.
      */
 
-    private class bSalir implements ActionListener {
+    protected class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vape.dispose();
@@ -124,7 +126,7 @@ public class ControladorPatrEqui {
      * Realiza la operación correspondiente (alta, baja, consulta) según la selección del usuario.
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (vape.getAltaRadioButton().isSelected()) {

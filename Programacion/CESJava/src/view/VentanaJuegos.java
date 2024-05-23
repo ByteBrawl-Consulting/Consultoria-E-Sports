@@ -21,7 +21,7 @@ public class VentanaJuegos extends JFrame {
     private JTextField tfDesaModi;
     private JTextField tfFechaModi;
     private JTextField tfNombreCons;
-    private JButton bAceptar;
+    public JButton bAceptar;
     private JButton bSalir;
     private JTextArea taCons;
 

@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 
 public class ControladorResultadosTJornadas {
-    private VentanaResultadosTodasJornadas vrtj;
+    protected VentanaResultadosTodasJornadas vrtj;
     private ControladorVista cv;
 
     /**
@@ -94,7 +94,7 @@ public class ControladorResultadosTJornadas {
      * Clase interna que maneja el evento de clic en el botón "Salir".
      */
 
-    private class bSalir implements ActionListener {
+    protected class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vrtj.dispose();

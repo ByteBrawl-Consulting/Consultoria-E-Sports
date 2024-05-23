@@ -71,21 +71,21 @@ CREATE OR REPLACE TRIGGER SALARIO_MAXIMO_JUGADORES
 FOR INSERT OR UPDATE ON JUGADORES
 COMPOUND TRIGGER
     SUELDO_TOTAL NUMBER := 0; -- Suma del sueldo
-    V_COD_EQUIPO_NEW NUMBER; -- Código de equipo para nueva inserción o actualización
+    V_COD_EQUIPO_NEW NUMBER; -- Cï¿½digo de equipo para nueva inserciï¿½n o actualizaciï¿½n
 BEFORE EACH ROW IS
     BEGIN
         V_COD_EQUIPO_NEW := :NEW.COD_EQUIPO;
     END BEFORE EACH ROW;
 AFTER STATEMENT IS
     BEGIN
-        -- Calcular el sueldo total del equipo después de insert o update
+        -- Calcular el sueldo total del equipo despuï¿½s de insert o update
         SELECT NVL(SUM(SUELDO), 0) INTO SUELDO_TOTAL
         FROM JUGADORES
         WHERE COD_EQUIPO = V_COD_EQUIPO_NEW;
-        -- Verificar si el sueldo total supera el límite de 200,000 euros
+        -- Verificar si el sueldo total supera el lï¿½mite de 200,000 euros
         IF SUELDO_TOTAL > 200000 THEN
             RAISE_APPLICATION_ERROR(-20004, 
-                'Sobrepasa el límite salarial para jugadores');
+                'Sobrepasa el lï¿½mite salarial para jugadores');
         END IF;
     END AFTER STATEMENT;
 END;
@@ -151,7 +151,7 @@ BEFORE EACH ROW IS
 END BEFORE EACH ROW;
 AFTER STATEMENT IS
     BEGIN
-        -- Contar el número de entrenadores 
+        -- Contar el nï¿½mero de entrenadores 
         SELECT COUNT(*) INTO NUM_ENTRENADORES 
         FROM STAFF 
         WHERE COD_EQUIPO = V_COD_EQUIPO 
@@ -168,7 +168,7 @@ AFTER STATEMENT IS
                 NUM_ENTRENADORES := NUM_ENTRENADORES + 1;
             END IF;
         END IF;
-        -- Verificar si después del ajuste no hay ningún entrenador
+        -- Verificar si despuï¿½s del ajuste no hay ningï¿½n entrenador
         IF NUM_ENTRENADORES = 0 THEN
             RAISE_APPLICATION_ERROR(-20006, 'EQUIPO SIN ENTRENADOR');
         END IF;
@@ -182,7 +182,7 @@ END;
 CREATE OR REPLACE NONEDITIONABLE TRIGGER MAX_ASISTENTE
 FOR INSERT OR UPDATE ON STAFF
 COMPOUND TRIGGER
-    -- Declaración de variables a nivel del trigger
+    -- Declaraciï¿½n de variables a nivel del trigger
     NUM_ASISTENTES NUMBER := 0;
     V_COD_EQUIPO NUMBER;
     V_CARGO_ANTERIOR VARCHAR2(50);
@@ -190,7 +190,7 @@ BEFORE EACH ROW IS
     BEGIN
         -- Capturar el equipo y el cargo del nuevo registro
         V_COD_EQUIPO := :NEW.COD_EQUIPO;
-        -- Capturar el cargo anterior si es una actualización
+        -- Capturar el cargo anterior si es una actualizaciï¿½n
         IF UPDATING THEN
             V_CARGO_ANTERIOR := :OLD.CARGO;
         ELSE
@@ -199,7 +199,7 @@ BEFORE EACH ROW IS
     END BEFORE EACH ROW;
 AFTER STATEMENT IS
     BEGIN
-        -- Contar el número de asistentes
+        -- Contar el nï¿½mero de asistentes
         SELECT COUNT(*) INTO NUM_ASISTENTES 
         FROM STAFF 
         WHERE COD_EQUIPO = V_COD_EQUIPO 
@@ -211,7 +211,7 @@ AFTER STATEMENT IS
                 NUM_ASISTENTES := NUM_ASISTENTES - 1;
             END IF;
         END IF;
-        -- Verificar si hay más de un asistente
+        -- Verificar si hay mï¿½s de un asistente
         IF NUM_ASISTENTES > 1 THEN
             RAISE_APPLICATION_ERROR(-20007, 
                 'SOLO SE PERMITE UN ASISTENTE POR EQUIPO');
@@ -237,7 +237,7 @@ BEGIN
         WHEN NO_DATA_FOUND THEN
             EN_CURSO := 0;
         WHEN OTHERS THEN
-            RAISE_APPLICATION_ERROR(-20009, 'Error desconocido al verificar la competición');
+            RAISE_APPLICATION_ERROR(-20009, 'Error desconocido al verificar la competiciï¿½n');
     END;
 
     IF EN_CURSO = 1 THEN
@@ -250,16 +250,16 @@ CREATE OR REPLACE TRIGGER BLOQUEO_JUGADORES_1
 BEFORE INSERT OR UPDATE OR DELETE ON JUGADORES
 FOR EACH ROW
 DECLARE
-    EN_CURSO NUMBER;  -- Para verificar si la competición esta en curso
+    EN_CURSO NUMBER;  -- Para verificar si la competiciï¿½n esta en curso
 BEGIN
-    -- Verificar si el equipo esta en una competición en curso
+    -- Verificar si el equipo esta en una competiciï¿½n en curso
     SELECT COUNT(*) INTO EN_CURSO
     FROM COMPETICIONES C
     JOIN EQUIPO_COMPETICION EC ON EC.COD_COMPETICION = C.COD_COMPE
     JOIN EQUIPOS E ON EC.COD_EQUIPO = E.COD_EQUIPO
     WHERE E.COD_EQUIPO = :NEW.COD_EQUIPO
     AND C.CURSO = 1;
-    -- Si la competicion está en curso, bloquear la operacion
+    -- Si la competicion estï¿½ en curso, bloquear la operacion
     IF EN_CURSO > 0 THEN
         RAISE_APPLICATION_ERROR(-20009, 'Competicion en curso');
     END IF;
@@ -272,14 +272,14 @@ FOR EACH ROW
 DECLARE
     EN_CURSO NUMBER;  -- Para verificar si la competicion esta en curso
 BEGIN
-    -- Verificar si el equipo está en una competición en curso
+    -- Verificar si el equipo estï¿½ en una competiciï¿½n en curso
     SELECT COUNT(*) INTO EN_CURSO
     FROM COMPETICIONES C
     JOIN EQUIPO_COMPETICION EC ON EC.COD_COMPETICION = C.COD_COMPE
     JOIN EQUIPOS E ON EC.COD_EQUIPO = E.COD_EQUIPO
     WHERE E.COD_EQUIPO = :NEW.COD_EQUIPO
     AND C.CURSO = 1;
-    -- Si la competicion está en curso, bloquear la operacion
+    -- Si la competicion estï¿½ en curso, bloquear la operacion
     IF EN_CURSO > 0 THEN
         RAISE_APPLICATION_ERROR(-20010, 'Competicion en curso');
     END IF;
@@ -372,3 +372,12 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE TRIGGER trg_update_curso
+BEFORE INSERT OR UPDATE ON COMPETICIONES
+FOR EACH ROW
+BEGIN
+    IF :NEW.FECHA_FIN < SYSDATE THEN
+        :NEW.CURSO := 0;
+    END IF;
+END;
+/
