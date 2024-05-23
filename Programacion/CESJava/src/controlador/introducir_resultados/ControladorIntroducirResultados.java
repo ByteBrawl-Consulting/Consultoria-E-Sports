@@ -49,7 +49,6 @@ public class ControladorIntroducirResultados {
         vir.bSalirAL(new bSalir());
 
         vir.bRbAltaAL(new RadioButtonAltaListener());
-       /* vir.bRbModiAl(new RadioButtonModiListener());*/
 
         llenarCB();
 
@@ -126,14 +125,11 @@ public class ControladorIntroducirResultados {
 
                 if (nombreCompeticion == null || nombreCompeticion.equals("Seleccione una competición")) {
                     JOptionPane.showMessageDialog(vir, "Debe seleccionar una competición.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                } else if (jornadaTexto.isEmpty()) {
-                    JOptionPane.showMessageDialog(vir, "Debe ingresar el número de jornada.", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 } else {
                     int numJornada;
                     try {
                         numJornada = Integer.parseInt(jornadaTexto);
                     } catch (NumberFormatException nfe) {
-                        JOptionPane.showMessageDialog(vir, "El número de jornada debe ser un valor numérico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
 
@@ -194,16 +190,10 @@ public class ControladorIntroducirResultados {
 
                 String jornadaTexto = vir.getTfJornadaModi().getText();
 
-                if (jornadaTexto.isEmpty()) {
-                    JOptionPane.showMessageDialog(vir, "Debe ingresar el número de jornada.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-
                 int numJornada;
                 try {
                     numJornada = Integer.parseInt(jornadaTexto);
                 } catch (NumberFormatException nfe) {
-                    JOptionPane.showMessageDialog(vir, "El número de jornada debe ser un valor numérico.", "Error de formato", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
@@ -241,43 +231,24 @@ public class ControladorIntroducirResultados {
             String nombreCompe = String.valueOf(vir.getCbCompeticion().getSelectedItem());
             String codEnfrentamiento = vir.getTfCodEnfrentamiento().getText();
             String equipoGanador = vir.getTfEquipoGanador().getText();
-            if (vir.getAltaRadioButton().isSelected()) {
-                try {
 
-
-                    if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
-                        JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        return;
-                    }
-
-                    cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
-
-                    JOptionPane.showMessageDialog(vir, "Resultado insertado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(vir, "Error al insertar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            try {
+                if (codEnfrentamiento.equals("Codigo Enfrentamiento") || equipoGanador.equals("Equipo Ganador")) {
+                    JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    return;
                 }
-            } /*else if (vir.getModificaciónRadioButton().isSelected()) {
-                try {
 
+                cv.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
 
-                    if (codEnfrentamiento.isEmpty() || equipoGanador.isEmpty()) {
-                        JOptionPane.showMessageDialog(vir, "Por favor, complete todos los campos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        return;
-                    }
-
-                    //cv.actualizarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador,nombreCompe);
-
-                    JOptionPane.showMessageDialog(vir, "Resultado actualizado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(vir, "Error al actualizar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }*/
+                JOptionPane.showMessageDialog(vir, "Resultado insertado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(vir, "Error al insertar el resultado del enfrentamiento: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
-/**
+    /**
      * Clase interna para manejar el evento de salir.
      */
 

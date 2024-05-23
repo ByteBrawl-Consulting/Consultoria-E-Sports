@@ -133,13 +133,13 @@ public class ControladorCompeticion {
         public void actionPerformed(ActionEvent e) {
             Competicion compe = new Competicion();
             if (vc.getRbAlta().isSelected()) {
-                if (vc.getTfNombreAlta().getText().isEmpty()) {
+                if (vc.getTfNombreAlta().getText().equals("Nombre")) {
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
-                } else if (vc.getTfFechaIniAlta().getText().isEmpty()) {
+                } else if (vc.getTfFechaIniAlta().getText().equals("Fecha Inicio")) {
                     JOptionPane.showMessageDialog(null, "La fecha de inicio es obligatoria");
-                } else if (vc.getTfFechaFinAlta().getText().isEmpty()) {
+                } else if (vc.getTfFechaFinAlta().getText().equals("Fecha Fin")) {
                     JOptionPane.showMessageDialog(null, "La fecha de fin es obligatoria");
-                } else if (vc.getTfJuegoAlta().getText().isEmpty()) {
+                } else if (vc.getTfJuegoAlta().getText().equals("Juego")) {
                     JOptionPane.showMessageDialog(null, "El juego es obligatorio");
                 }else {
                     try {
@@ -167,7 +167,7 @@ public class ControladorCompeticion {
                     }
                 }
             } else if (vc.getRbBaja().isSelected()) {
-                if (vc.getTfNombreBaja().getText().isEmpty()) {
+                if (vc.getTfNombreBaja().getText().equals("Nombre")) {
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
                 }else {
                     try {
@@ -179,13 +179,13 @@ public class ControladorCompeticion {
                     }
                 }
             } else if (vc.getRbModi().isSelected()) {
-                if (vc.getTfNombreModi().getText().isEmpty()) {
+                if (vc.getTfNombreModi().getText().equals("Nombre")) {
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
-                } else if (vc.getTfFechaIniModi().getText().isEmpty()) {
+                } else if (vc.getTfFechaIniModi().getText().equals("Fecha Inicio")) {
                     JOptionPane.showMessageDialog(null, "La fecha de inicio es obligatoria");
-                } else if (vc.getTfFechaFinModi().getText().isEmpty()) {
+                } else if (vc.getTfFechaFinModi().getText().equals("Fecha Fin")) {
                     JOptionPane.showMessageDialog(null, "La fecha de fin es obligatoria");
-                } else if (vc.getTfJuegoModi().getText().isEmpty()) {
+                } else if (vc.getTfJuegoModi().getText().equals("Juego")) {
                     JOptionPane.showMessageDialog(null, "El juego es obligatorio");
                 }else{
                     try {
@@ -210,7 +210,7 @@ public class ControladorCompeticion {
                     }
                 }
             } else if (vc.getRbCons().isSelected()) {
-                if (vc.getTfNombreCons().getText().isEmpty()) {
+                if (vc.getTfNombreCons().getText().equals("Nombre")) {
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
                 }else{
                     try {

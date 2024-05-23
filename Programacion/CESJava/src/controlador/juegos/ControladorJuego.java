@@ -80,11 +80,11 @@ public class ControladorJuego {
         public void actionPerformed(ActionEvent e) {
             Juego juego = new Juego();
             if (vj.getRbAlta().isSelected()) {
-                if (vj.getTfNombreAlta().getText().isEmpty()){
+                if (vj.getTfNombreAlta().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
-                } else if (vj.getTfDesaAlta().getText().isEmpty()) {
+                } else if (vj.getTfDesaAlta().getText().equals("Desarrolladora")) {
                     JOptionPane.showMessageDialog(null, "La desarrolladora es obligatoria");
-                } else if (vj.getTfFechaAlta().getText().isEmpty()) {
+                } else if (vj.getTfFechaAlta().getText().equals("Fecha Lanzamiento")) {
                     JOptionPane.showMessageDialog(null, "La fecha de lanzamiento es obligatoria");
                 }else{
                     try {
@@ -104,7 +104,7 @@ public class ControladorJuego {
                     }
                 }
             } else if (vj.getRbBaja().isSelected()) {
-                if (vj.getTfNombreBaja().getText().isEmpty()){
+                if (vj.getTfNombreBaja().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
                 }else{
                     try {
@@ -116,11 +116,11 @@ public class ControladorJuego {
                     }
                 }
             } else if (vj.getRbModi().isSelected()) {
-                if (vj.getTfNombreModi().getText().isEmpty()){
+                if (vj.getTfNombreModi().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
-                } else if (vj.getTfDesaModi().getText().isEmpty()) {
+                } else if (vj.getTfDesaModi().getText().equals("Desarrolladora")) {
                     JOptionPane.showMessageDialog(null, "La desarrolladora es obligatoria");
-                } else if (vj.getTfFechaModi().getText().isEmpty()) {
+                } else if (vj.getTfFechaModi().getText().equals("Fecha Lanzamiento")) {
                     JOptionPane.showMessageDialog(null, "La fecha de lanzamiento es obligatoria");
                 }else{
                     try {
@@ -140,7 +140,7 @@ public class ControladorJuego {
                     }
                 }
             } else if (vj.getRbCons().isSelected()) {
-                if (vj.getTfNombreCons().getText().isEmpty()){
+                if (vj.getTfNombreCons().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatorio");
                 }else{
                     try {

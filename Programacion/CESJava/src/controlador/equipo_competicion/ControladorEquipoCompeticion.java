@@ -52,7 +52,7 @@ public class ControladorEquipoCompeticion {
                 String nombreEquipo = vaec.getTfEquiAlta().getText();
                 String nombreCompeticion = vaec.getTfCompeAlta().getText();
 
-                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
+                if (nombreEquipo.equals("Equipo") || nombreCompeticion.equals("Competición")) {
                     JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
                     return;
                 }
@@ -67,7 +67,7 @@ public class ControladorEquipoCompeticion {
                 String nombreEquipo = vaec.getTfEquiBaja().getText();
                 String nombreCompeticion = vaec.getTfCompeBaja().getText();
 
-                if (nombreEquipo.isEmpty() || nombreCompeticion.isEmpty()) {
+                if (nombreEquipo.equals("Equipo") || nombreCompeticion.equals("Competición")) {
                     JOptionPane.showMessageDialog(null, "Debe ingresar nombre de equipo y competición");
                     return;
                 }
