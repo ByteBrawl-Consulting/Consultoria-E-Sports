@@ -1,5 +1,6 @@
 package controlador.baseDeDatos;
 
+import javax.swing.*;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +13,8 @@ import java.sql.ResultSet;
 
 public class TablasXML {
 
-    Connection con;
-    ControladorBaseDeDatos cbd;
+   private Connection con;
+   private ControladorBaseDeDatos cbd;
 
     /**
      * Constructor de la clase TablasXML.
@@ -40,6 +41,7 @@ public class TablasXML {
             CallableStatement cal = con.prepareCall(plantilla);
             cal.execute();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"No se ha podido ejecutar el paquete XML");
         }
     }
 
@@ -58,6 +60,7 @@ public class TablasXML {
             String datos = res.getString(1);
             return datos;
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error en generar clasificacion XML "+e.getMessage());
         }
         return null;
     }
@@ -77,6 +80,8 @@ public class TablasXML {
             String datos = res.getString(1);
             return datos;
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error en generar ultima jornada XML "+e.getMessage());
+
         }
         return null;
     }
@@ -96,7 +101,7 @@ public class TablasXML {
             String datos = res.getString(1);
             return datos;
         } catch (Exception e) {
-            // Manejo de excepciones (actualmente vacío)
+            JOptionPane.showMessageDialog(null,"Error en generar todas las jornadas XML "+e.getMessage());
         }
         return null;
     }
