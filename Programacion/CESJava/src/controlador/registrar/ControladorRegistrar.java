@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  */
 
 public class ControladorRegistrar {
-    private VentanaRegistrarusu vru;
+    protected VentanaRegistrarusu vru;
     private ControladorVista cv;
 
     /**
