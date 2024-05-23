@@ -36,7 +36,6 @@ public class ControladorBaseDeDatos {
     public ControladorBaseDeDatos(ControladorPrincipal cp) {
         conexionBD(cp);
         inicializarTablas(cp);
-
     }
 
     /**
