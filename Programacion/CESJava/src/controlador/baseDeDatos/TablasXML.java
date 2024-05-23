@@ -36,12 +36,39 @@ public class TablasXML {
 
     public void proceXML() {
         try {
-            String proce = "GESTION_XML.generar_todas_jornadas";
-            String plantilla = "{call " + proce + "(?)}";
-            CallableStatement cal = con.prepareCall(plantilla);
+            String proce = "{call GESTION_XML.preparar_entorno}";
+            CallableStatement cal = con.prepareCall(proce);
             cal.execute();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"No se ha podido ejecutar el paquete XML");
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido ejecutar el paquete XML");
+        }
+
+        try {
+            String proce = "{call GESTION_XML.generar_todas_jornadas}";
+            CallableStatement cal = con.prepareCall(proce);
+            cal.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido ejecutar el paquete XML");
+        }
+
+        try {
+            String proce = "{call GESTION_XML.generar_clasificacion}";
+            CallableStatement cal = con.prepareCall(proce);
+            cal.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido ejecutar el paquete XML");
+        }
+
+        try {
+            String proce = "{call GESTION_XML.generar_ultima_jornada}";
+            CallableStatement cal = con.prepareCall(proce);
+            cal.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido ejecutar el paquete XML");
         }
     }
 
@@ -60,7 +87,7 @@ public class TablasXML {
             String datos = res.getString(1);
             return datos;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error en generar clasificacion XML "+e.getMessage());
+            JOptionPane.showMessageDialog(null,"Error en generar ultima jornada XML "+e.getMessage());
         }
         return null;
     }
