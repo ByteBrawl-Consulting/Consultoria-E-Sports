@@ -16,7 +16,7 @@ import java.awt.event.FocusListener;
  */
 
 public class ControladorPatrocinador {
-    private VentanaPatrocinadores vp;
+    protected VentanaPatrocinadores vp;
     private ControladorVista cv;
 
     /**
@@ -56,7 +56,7 @@ public class ControladorPatrocinador {
      * Cierra la ventana de patrocinadores.
      */
 
-    private class bSalir implements ActionListener {
+    protected class bSalir implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vp.dispose();
@@ -93,7 +93,7 @@ public class ControladorPatrocinador {
      * @param nombre El nombre a validar.
      * @return true si el campo no está vacío, false en caso contrario.
      */
-    private boolean validarCampoNoVacio(String nombre) {
+    protected boolean validarCampoNoVacio(String nombre) {
         return !nombre.trim().isEmpty();
     }
 
@@ -102,7 +102,7 @@ public class ControladorPatrocinador {
      * Realiza la operación correspondiente (alta o baja) según la selección del usuario.
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Patrocinador patr = new Patrocinador();

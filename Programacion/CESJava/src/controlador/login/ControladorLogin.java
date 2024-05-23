@@ -15,7 +15,7 @@ import java.awt.event.*;
  */
 
 public class ControladorLogin {
-    private VentanaLogin vl;
+    protected VentanaLogin vl;
     private ControladorVista cv;
     private ControladorUsuario cu;
     private ControladorAdmin ca;
@@ -109,7 +109,7 @@ public class ControladorLogin {
      * @return true si el campo no está vacío, false en caso contrario.
      */
 
-    private boolean validarCampoNoVacio(String texto) {
+    protected boolean validarCampoNoVacio(String texto) {
         return !texto.trim().isEmpty();
     }
 

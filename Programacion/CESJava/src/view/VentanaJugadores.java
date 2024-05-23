@@ -21,7 +21,7 @@ public class VentanaJugadores extends JFrame {
     private JTextField tfRolAlta;
     private JTextField tfSueldoAlta;
     private JTextField tfEquipoAlta;
-    private JButton bAceptar;
+    public JButton bAceptar;
     private JButton bSalir;
     private JTextField tfNombreBaja;
     private JTextField tfNombreModi;

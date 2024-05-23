@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
  */
 
 public class ControladorJuego {
-    private VentanaJuegos vj;
+    protected VentanaJuegos vj;
     private ControladorVista cv;
 
     /**
@@ -75,7 +75,7 @@ public class ControladorJuego {
      * Listener para el botón "Aceptar".
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Juego juego = new Juego();
