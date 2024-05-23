@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 
 public class ControladorCalendario {
-    private VentanaGenerarCalendario vc;
+    protected VentanaGenerarCalendario vc;
     private ControladorVista cv;
 
     /**

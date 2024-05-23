@@ -19,6 +19,14 @@ public class VentanaClasificacionAdmin extends JFrame {
         setContentPane(pPirncipal);
     }
 
+    public JButton getSalirButton() {
+        return salirButton;
+    }
+
+    public void setSalirButton(JButton salirButton) {
+        this.salirButton = salirButton;
+    }
+
     public void cbClasiAL(ActionListener al) {
         cbClasi.addActionListener(al);
     }

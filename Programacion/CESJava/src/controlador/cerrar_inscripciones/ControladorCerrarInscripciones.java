@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 
 public class ControladorCerrarInscripciones {
-    private VentanaCerrarInscripciones vci;
+    protected VentanaCerrarInscripciones vci;
     private ControladorVista cv;
 
     /**

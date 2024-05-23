@@ -1,12 +1,10 @@
 package controlador.clasificacion;
 
-import controlador.ControladorPrincipal;
 import controlador.ControladorVista;
 import modelo.Clasificacion;
 import modelo.Competicion;
 import view.VentanaClasificacionAdmin;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,7 +14,7 @@ import java.util.ArrayList;
  */
 
 public class ControladorClasificacion {
-    private VentanaClasificacionAdmin vca;
+    protected VentanaClasificacionAdmin vca;
     private ControladorVista cv;
 
     /**

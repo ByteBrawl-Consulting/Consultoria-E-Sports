@@ -20,6 +20,22 @@ public class VentanaCerrarInscripciones extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    public JButton getAceptarButton() {
+        return aceptarButton;
+    }
+
+    public void setAceptarButton(JButton aceptarButton) {
+        this.aceptarButton = aceptarButton;
+    }
+
+    public JButton getSalirButton() {
+        return salirButton;
+    }
+
+    public void setSalirButton(JButton salirButton) {
+        this.salirButton = salirButton;
+    }
+
     public JTextArea getTaConsulta() {
         return taConsulta;
     }

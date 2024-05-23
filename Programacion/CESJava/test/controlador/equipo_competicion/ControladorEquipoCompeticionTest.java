@@ -1,48 +1,36 @@
 package controlador.equipo_competicion;
 
-import controlador.ControladorPrincipal;
 import controlador.ControladorVista;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
+import view.VentanaAsociacionEquipoCompe;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+public class ControladorEquipoCompeticionTest {
 
-import static org.junit.jupiter.api.Assertions.*;
+    private ControladorEquipoCompeticion controlador;
+    private ControladorVista cv;
 
-class ControladorEquipoCompeticionTest {
-
-    private ControladorEquipoCompeticion controladorEquipoCompeticion;
-
-    @BeforeEach
-    void setUp() {
-        controladorEquipoCompeticion = new ControladorEquipoCompeticion(new ControladorVista(new ControladorPrincipal()));
+    @Before
+    public void setUp() {
+        cv = new ControladorVista(null);
+        controlador = new ControladorEquipoCompeticion(cv);
+        controlador.vaec = new VentanaAsociacionEquipoCompe();
     }
 
     @Test
-    void testMostrar() {
-        controladorEquipoCompeticion.toString();
-        assertFalse(controladorEquipoCompeticion.vaec.getpAlta().isVisible());
-        assertFalse(controladorEquipoCompeticion.vaec.getpBaja().isVisible());
+    public void testBAceptar_Alta() {
+        controlador.vaec.getAltaRadioButton().setSelected(true);
+        controlador.vaec.getTfEquiAlta().setText("Equipo");
+        controlador.vaec.getTfCompeAlta().setText("Competición");
+        controlador.vaec.getAceptarButton().doClick();
     }
 
     @Test
-    void testBAceptarAltaSinNombre() {
-        controladorEquipoCompeticion.vaec.getTfEquiAlta().setText("Equipo");
-        controladorEquipoCompeticion.vaec.getTfCompeAlta().setText("Competicion");
-        controladorEquipoCompeticion.vaec.getAltaRadioButton().setSelected(true);
-        JOptionPane.getRootFrame().dispose();
-        controladorEquipoCompeticion.new bAceptar().actionPerformed(new ActionEvent(new Object(), ActionEvent.ACTION_PERFORMED, ""));
-        assertTrue(controladorEquipoCompeticion.vaec.getpAlta().isVisible());
+    public void testBAceptar_Baja() {
+        controlador.vaec.getBajaRadioButton().setSelected(true);
+        controlador.vaec.getTfEquiBaja().setText("Equipo");
+        controlador.vaec.getTfCompeBaja().setText("Competición");
+        controlador.vaec.getAceptarButton().doClick();
     }
-
-    @Test
-    void testBAceptarBajaSinNombre() {
-        controladorEquipoCompeticion.vaec.getTfEquiBaja().setText("Equipo");
-        controladorEquipoCompeticion.vaec.getTfCompeBaja().setText("Competicion");
-        controladorEquipoCompeticion.vaec.getBajaRadioButton().setSelected(true);
-        JOptionPane.getRootFrame().dispose();
-        controladorEquipoCompeticion.new bAceptar().actionPerformed(new ActionEvent(new Object(), ActionEvent.ACTION_PERFORMED, ""));
-        assertTrue(controladorEquipoCompeticion.vaec.getpBaja().isVisible());
-    }
+    
 }

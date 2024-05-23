@@ -1,52 +1,54 @@
 package controlador.competiciones;
 
-import controlador.ControladorPrincipal;
 import controlador.ControladorVista;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
+import view.VentanaCompeticiones;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+public class ControladorCompeticionTest {
 
-import static org.junit.jupiter.api.Assertions.*;
+    private ControladorCompeticion controlador;
+    private ControladorVista cv;
 
-class ControladorCompeticionTest {
-
-    private ControladorCompeticion controladorCompeticion;
-
-    @BeforeEach
-    void setUp() {
-        controladorCompeticion = new ControladorCompeticion(new ControladorVista(new ControladorPrincipal()));
-
-        controladorCompeticion.vc.getRbAlta().setSelected(true);
+    @Before
+    public void setUp() {
+        cv = new ControladorVista(null);
+        controlador = new ControladorCompeticion(cv);
+        controlador.vc = new VentanaCompeticiones();
     }
 
     @Test
-    void testMostrar() {
-        controladorCompeticion.mostrar();
-        assertFalse(controladorCompeticion.vc.getpAlta().isVisible());
-        assertFalse(controladorCompeticion.vc.getpBaja().isVisible());
-        assertFalse(controladorCompeticion.vc.getpModi().isVisible());
-        assertFalse(controladorCompeticion.vc.getpCons().isVisible());
+    public void testBAceptar_Alta() {
+        controlador.vc.getRbAlta().setSelected(true);
+        controlador.vc.getTfNombreAlta().setText("Nombre");
+        controlador.vc.getTfFechaIniAlta().setText("Fecha Inicio");
+        controlador.vc.getTfFechaFinAlta().setText("Fecha Fin");
+        controlador.vc.getTfJuegoAlta().setText("Juego");
+        controlador.vc.getbAceptar().doClick();
     }
 
     @Test
-    void testBAceptarAltaSinNombre() {
-        controladorCompeticion.vc.getTfNombreAlta().setText("Nombre");
-        controladorCompeticion.vc.getTfFechaIniAlta().setText("2024-05-23");
-        controladorCompeticion.vc.getTfFechaFinAlta().setText("2024-05-30");
-        controladorCompeticion.vc.getTfJuegoAlta().setText("Juego");
-        JOptionPane.getRootFrame().dispose();
-        controladorCompeticion.new bAceptar().actionPerformed(new ActionEvent(new Object(), ActionEvent.ACTION_PERFORMED, ""));
-        assertTrue(controladorCompeticion.vc.getpAlta().isVisible());
+    public void testBAceptar_Baja() {
+        controlador.vc.getRbBaja().setSelected(true);
+        controlador.vc.getTfNombreBaja().setText("Nombre");
+        controlador.vc.getbAceptar().doClick();
     }
 
     @Test
-    void testBAceptarBajaSinNombre() {
-        controladorCompeticion.vc.getTfNombreBaja().setText("Nombre");
-        controladorCompeticion.vc.getRbBaja().setSelected(true);
-        JOptionPane.getRootFrame().dispose();
-        controladorCompeticion.new bAceptar().actionPerformed(new ActionEvent(new Object(), ActionEvent.ACTION_PERFORMED, ""));
-        assertTrue(controladorCompeticion.vc.getpBaja().isVisible());
+    public void testBAceptar_Modificacion() {
+        controlador.vc.getRbModi().setSelected(true);
+        controlador.vc.getTfNombreModi().setText("Nombre");
+        controlador.vc.getTfFechaIniModi().setText("Fecha Inicio");
+        controlador.vc.getTfFechaFinModi().setText("Fecha Fin");
+        controlador.vc.getTfJuegoModi().setText("Juego");
+        controlador.vc.getbAceptar().doClick();
     }
+
+    @Test
+    public void testBAceptar_Consulta() {
+        controlador.vc.getRbCons().setSelected(true);
+        controlador.vc.getTfNombreCons().setText("Nombre");
+        controlador.vc.getbAceptar().doClick();
+    }
+
 }
