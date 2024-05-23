@@ -77,7 +77,4 @@ public class ControladorPatrEquiTest {
         controlador.new bSalir().actionPerformed(null);
         assertFalse(controlador.vape.isVisible());
     }
-
-    // Puedes agregar más pruebas para otras funcionalidades si lo deseas
-
 }

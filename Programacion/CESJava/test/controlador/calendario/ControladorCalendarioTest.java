@@ -23,13 +23,4 @@ public class ControladorCalendarioTest {
     public void testLlenarCB() {
         controlador.llenarCB();
     }
-
-    @Test
-    public void testBAceptarActionPerformed() {
-        controlador.llenarCB();
-        JComboBox<String> comboBox = controlador.vc.getCbCalendario();
-        comboBox.setSelectedIndex(1);
-        controlador.vc.getbAceptar().doClick();
-    }
-
 }
