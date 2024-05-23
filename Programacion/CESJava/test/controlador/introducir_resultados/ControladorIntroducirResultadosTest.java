@@ -20,7 +20,7 @@ public class ControladorIntroducirResultadosTest {
         virMock = new VentanaIntroducirResultados();
 
         controlador = new ControladorIntroducirResultados(cvMock);
-        controlador.vir = virMock;
+        controlador.vir = virMock; // Ventana y metodo boton cambiados a protected
     }
 
     @Test

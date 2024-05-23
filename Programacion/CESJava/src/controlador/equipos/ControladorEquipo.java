@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
  */
 
 public class ControladorEquipo {
-    private VentanaEquipos ve;
+    protected VentanaEquipos ve;
     private ControladorVista cv;
 
     /**
@@ -79,7 +79,7 @@ public class ControladorEquipo {
      * Clase interna para manejar el evento de aceptar, ejecutando la operación correspondiente según la selección del usuario.
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Equipo eq = new Equipo();
@@ -87,7 +87,7 @@ public class ControladorEquipo {
                 if (ve.getTfNombreAlta().getText().equals("Nombre")){
                     JOptionPane.showMessageDialog(null, "El nombre es obligatiorio");
                 } else if (ve.getTfFechaAlta().getText().equals("Fecha Fundación")) {
-                    JOptionPane.showMessageDialog(null, "La efcha de fundación es obligatoria");
+                    JOptionPane.showMessageDialog(null, "La fecha de fundación es obligatoria");
                 }else{
                     try {
                         String nombre = ve.getTfNombreAlta().getText();
