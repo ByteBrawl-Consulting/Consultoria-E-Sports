@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ControladorIntroducirResultados {
 
-    private VentanaIntroducirResultados vir;
+    protected VentanaIntroducirResultados vir;
     private ControladorVista cv;
 
     /**
@@ -225,7 +225,7 @@ public class ControladorIntroducirResultados {
      * Clase interna para manejar el evento de aceptar, insertando o actualizando el resultado del enfrentamiento.
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             String nombreCompe = String.valueOf(vir.getCbCompeticion().getSelectedItem());
