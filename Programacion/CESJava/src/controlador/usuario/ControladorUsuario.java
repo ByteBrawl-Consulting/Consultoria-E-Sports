@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  */
 
 public class ControladorUsuario {
-    private VentanaPrincipalUsuario vpu;
+    protected VentanaPrincipalUsuario vpu;
     private ControladorVista cv;
 
     /**
@@ -118,8 +118,6 @@ public class ControladorUsuario {
             Jornada jor = new Jornada();
             jor.setCodCompe(com);
             StringBuilder total = new StringBuilder();
-
-
             ArrayList<Enfrentamiento> lista = cv.obtenerUltimaJornada(com);
             for (x = 0; x < lista.size(); x++) {
                 total.append("Numero de jornada: " + lista.get(x).getCodJornada().getNumJornada()).append("\n").append("Hora: " + lista.get(x).getHora()).append("\n").append("Fecha de el enfrentamiento: " + lista.get(x).getFecha()).append("\n").append("Equipo Ganador: " + lista.get(x).getResultado()).append("\n").append("Equipo local: " + lista.get(x).getCodEquipoLocal().getCodEquipo()).append("\n").append("Equipo visitante: " + lista.get(x).getCodEquipoVisitante().getCodEquipo()).append("\n --------------------------------------  \n");

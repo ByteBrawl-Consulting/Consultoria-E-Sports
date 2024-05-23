@@ -45,6 +45,7 @@ public class ControladorVista {
         cp.modiStaff(staff, cargo, sueldo, cod_equipo);
     }
 
+
     public String cosultaStaff(String nombreSt) {
         return cp.consultaStaff(nombreSt).toString();
     }

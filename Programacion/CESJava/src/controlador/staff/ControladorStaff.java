@@ -18,7 +18,7 @@ import java.awt.event.FocusListener;
  */
 
 public class ControladorStaff {
-    private VentanaStaff vs;
+    public VentanaStaff vs;
     private ControladorVista cv;
 
     /**
@@ -63,7 +63,7 @@ public class ControladorStaff {
     /**
      * Clase interna que maneja el evento de clic en el botón "Salir".
      */
-    private boolean validarCamposVacios(JTextField... fields) {
+    protected boolean validarCamposVacios(JTextField... fields) {
         for (JTextField field : fields) {
             if (field.getText().trim().isEmpty() || field.getText().equals("Nombre") || field.getText().equals("Cargo") || field.getText().equals("Sueldo") || field.getText().equals("Equipo")) {
                 return false;
@@ -92,7 +92,7 @@ public class ControladorStaff {
      * - En caso de "consulta", busca y muestra la información del Staff basado en el nombre ingresado.
      */
 
-    private class bAceptar implements ActionListener {
+    protected class bAceptar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Staff staff = new Staff();
@@ -159,7 +159,7 @@ public class ControladorStaff {
      * Clase interna que maneja el evento de clic en el botón "Alta".
      */
 
-    private class bAlta implements ActionListener {
+    protected class bAlta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vs.eleccionAlta();
@@ -170,7 +170,7 @@ public class ControladorStaff {
      * Clase interna que maneja el evento de clic en el botón "Baja".
      */
 
-    private class bBaja implements ActionListener {
+    protected class bBaja implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vs.eleccionBaja();
@@ -181,7 +181,7 @@ public class ControladorStaff {
      * Clase interna que maneja el evento de clic en el botón "Modificación".
      */
 
-    private class bModi implements ActionListener {
+    protected class bModi implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vs.eleccionModi();
@@ -192,7 +192,7 @@ public class ControladorStaff {
      * Clase interna que maneja el evento de clic en el botón "Consulta".
      */
 
-    private class bConsulta implements ActionListener {
+    protected class bConsulta implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             vs.eleccionConsulta();
