@@ -64,4 +64,3 @@ Hemos habilitado 4 opciones de despliegue para nuestro programa:
 - [@adriloma21](https://github.com/adriloma21)
 - [@JonGaray](https://github.com/JonGaray)
 - [@JordiFernandez](https://github.com/JordiFernandezUralde)
-- [@DashaKuznetsova](https://github.com/DariaKuznetsovaS)
