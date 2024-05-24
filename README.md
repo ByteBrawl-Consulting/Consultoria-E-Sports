@@ -7,7 +7,7 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2023/2024 RETO: “CONSULTORÍA E-SPORT
 
 Hemos habilitado 4 opciones de despliegue para nuestro programa:
 
-#### Opcion 1 (PowerShell):
+### Opcion 1 (PowerShell):
 
     1. Dirijase a la carpeta "Ejecutable"
     2. Haga click derecho en "ejecutar_programa.ps1"
