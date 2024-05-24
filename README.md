@@ -7,7 +7,7 @@ APRENDIZAJE COLABORATIVO BASADO EN RETOS 2023/2024 RETO: “CONSULTORÍA E-SPORT
 
 Hemos habilitado 4 opciones de despliegue para nuestro programa:
 
-#### Opcion 1:
+#### Opcion 1 (PowerShell):
 
     1. Dirijase a la carpeta "Ejecutable"
     2. Haga click derecho en "ejecutar_programa.ps1"
@@ -19,7 +19,7 @@ Hemos habilitado 4 opciones de despliegue para nuestro programa:
 
 ![Imagen2](https://github.com/ByteBrawl-Consulting/Consultoria-E-Sports/blob/develop/Ejecutable/info/infops2.PNG?raw=true)
 
-### Opcion 2: 
+### Opcion 2 (BATCH File): 
 
     1. Dirijase a la carpeta "Ejecutable"
     2. Haga doble click en "abrir_programa.bat"
@@ -30,7 +30,7 @@ Hemos habilitado 4 opciones de despliegue para nuestro programa:
 
 ![Imagen4](https://github.com/ByteBrawl-Consulting/Consultoria-E-Sports/blob/develop/Ejecutable/info/infobat2.PNG?raw=true)
 
-### Opcion 3:
+### Opcion 3 (CMD):
 
     1. Dirijase a la carpeta "Ejecutable"
     2. Haga click en la barra de navegacion donde sale la ruta
@@ -49,7 +49,7 @@ Hemos habilitado 4 opciones de despliegue para nuestro programa:
 
 ![Imagen8](https://github.com/ByteBrawl-Consulting/Consultoria-E-Sports/blob/develop/Ejecutable/info/cmd4.PNG?raw=true)
 
-### Opcion 4:
+### Opcion 4 (IntelliJ):
     1. Abra el proyecto en IntelliJ IDEA
     2. Haga click en el boton run
 
@@ -64,4 +64,3 @@ Hemos habilitado 4 opciones de despliegue para nuestro programa:
 - [@adriloma21](https://github.com/adriloma21)
 - [@JonGaray](https://github.com/JonGaray)
 - [@JordiFernandez](https://github.com/JordiFernandezUralde)
-- [@DashaKuznetsova](https://github.com/DariaKuznetsovaS)
