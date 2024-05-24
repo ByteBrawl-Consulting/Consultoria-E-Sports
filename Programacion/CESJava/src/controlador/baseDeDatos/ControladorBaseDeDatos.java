@@ -76,7 +76,7 @@ public class ControladorBaseDeDatos {
 //            throw new RuntimeException(e);
 //        }
 
-        /* ----------------- Conexion con la BD Local Casa (Test)  ----------------- */
+        /* ----------------- Conexion con la BD Portatil  ----------------- */
 
         String url = "jdbc:oracle:thin:@172.20.225.114:1521:orcl";
         String user = "eqdaw04";
