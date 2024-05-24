@@ -17,7 +17,7 @@ AFTER STATEMENT IS
     SELECT COUNT(*) INTO NUM_JUGADORES 
         FROM JUGADORES WHERE COD_EQUIPO = V_COD_EQUIPO;
         -- Si el numero de jugadores es 6 o mas --> Error
-        IF NUM_JUGADORES >= 6 THEN
+        IF NUM_JUGADORES > 6 THEN
             RAISE_APPLICATION_ERROR(-20001, 'El equipo ya esta completo');
         END IF;
     END AFTER STATEMENT;
