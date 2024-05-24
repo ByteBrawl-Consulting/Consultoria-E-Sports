@@ -17,6 +17,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ControladorVista es la clase encargada de gestionar las interacciones entre la vista y los modelos
+ * en el sistema de gestión de competiciones deportivas. Coordina las operaciones de alta, baja,
+ * modificación y consulta de diferentes entidades como Jugadores, Equipos, Juegos, Patrocinadores,
+ * Competiciones y Staff.
+ */
 public class ControladorVista {
     private ControladorPrincipal cp;
     private ControladorLogin cl;
@@ -31,25 +37,50 @@ public class ControladorVista {
     private ControladorPatrocinador cpat;
     private ControladorClasificacion ccl;
 
-
+    /**
+     * Constructor de la clase ControladorVista.
+     *
+     * @param cp Instancia de ControladorPrincipal para gestionar las operaciones principales.
+     */
     public ControladorVista(ControladorPrincipal cp) {
         cl = new ControladorLogin(this);
         this.cp = cp;
     }
 
+    /**
+     * Inicia sesión con un usuario proporcionado.
+     *
+     * @param usu Instancia de Usuario que contiene las credenciales de inicio de sesión.
+     * @return String que representa el estado de la operación de inicio de sesión.
+     * @throws SQLException Si ocurre un error en la operación de la base de datos.
+     */
     public String login(Usuario usu) throws SQLException {
         return cp.login(usu);
     }
 
+    /**
+     * Modifica los datos de un miembro del staff.
+     *
+     * @param staff Instancia de Staff que contiene la información del miembro del staff.
+     * @param cargo Nuevo cargo del miembro del staff.
+     * @param sueldo Nuevo sueldo del miembro del staff.
+     * @param cod_equipo Instancia de Equipo al que pertenece el miembro del staff.
+     */
     public void modiStaff(Staff staff, String cargo, Integer sueldo, Equipo cod_equipo) {
         cp.modiStaff(staff, cargo, sueldo, cod_equipo);
     }
 
-
+    /**
+     * Consulta la información de un miembro del staff por su nombre.
+     *
+     * @param nombreSt Nombre del miembro del staff.
+     * @return String que representa la información del miembro del staff.
+     */
     public String cosultaStaff(String nombreSt) {
         return cp.consultaStaff(nombreSt).toString();
     }
 
+    // Métodos de gestión de jugadores
     public void altaJugador(Jugador ju) {
         cp.altaJugador(ju);
     }
@@ -66,6 +97,7 @@ public class ControladorVista {
         return cp.consultaJugador(nombre).toString();
     }
 
+    // Métodos de gestión de juegos
     public void altaJuego(Juego juego) {
         cp.altaJuego(juego);
     }
@@ -82,6 +114,7 @@ public class ControladorVista {
         return cp.consultaJuego(nombreJu).toString();
     }
 
+    // Métodos de gestión de patrocinadores
     public void altaPatrocinador(Patrocinador patr) {
         cp.altaPatrocinador(patr);
     }
@@ -90,6 +123,7 @@ public class ControladorVista {
         cp.bajaPatrocinador(patr);
     }
 
+    // Métodos de gestión de usuarios
     public void altaUsu(Usuario usu) throws Exception {
         cp.altaUsu(usu);
     }
@@ -98,6 +132,7 @@ public class ControladorVista {
         return cp.comprobarUsu(usu);
     }
 
+    // Métodos de clasificación
     public ArrayList clasiEquipos() throws Exception {
         return cp.clasiEquipos();
     }
@@ -106,6 +141,7 @@ public class ControladorVista {
         return cp.clasificacionAdmin(com);
     }
 
+    // Métodos de obtención de nombres y códigos
     public Juego getNombreJuegoPorCodigo(int cod) {
         return cp.getNombreJuegoPorCodigo(cod);
     }
@@ -118,10 +154,10 @@ public class ControladorVista {
         return cp.getCodigoCompeticionPorNombre(nombre);
     }
 
+    // Métodos de gestión de competiciones
     public void generarCalendario(int codCompeticion) {
         cp.generarCalendario(codCompeticion);
     }
-
 
     /* ----------- Botones Ventana Administrador ------------- */
     public class controlEquipos implements ActionListener {
@@ -131,8 +167,7 @@ public class ControladorVista {
         }
     }
 
-    /* ----------- Metodos  ----------- */
-
+    /* ----------- Métodos de gestión de equipos ----------- */
     public void altaEquipo(Equipo eq) {
         cp.altaEquipo(eq);
     }
@@ -229,7 +264,7 @@ public class ControladorVista {
         return cp.obtenerEnfrentamientosPorCompeticionYJornada(com, numJornada);
     }
 
-    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe)throws Exception {
+    public void insertarResultadoEnfrentamiento(String codEnfrentamiento, String equipoGanador, String nombreCompe) throws Exception {
         cp.insertarResultadoEnfrentamiento(codEnfrentamiento, equipoGanador, nombreCompe);
     }
 

@@ -1,0 +1,23 @@
+unnamed package
+controlador
+controlador.admin
+controlador.baseDeDatos
+controlador.calendario
+controlador.cerrar_inscripciones
+controlador.clasificacion
+controlador.competiciones
+controlador.equipo_competicion
+controlador.equipos
+controlador.generar_xml
+controlador.introducir_resultados
+controlador.juegos
+controlador.jugadores
+controlador.login
+controlador.patrocinador_equipo
+controlador.patrocinadores
+controlador.registrar
+controlador.resultados_todas_jornadas
+controlador.staff
+controlador.usuario
+modelo
+view
