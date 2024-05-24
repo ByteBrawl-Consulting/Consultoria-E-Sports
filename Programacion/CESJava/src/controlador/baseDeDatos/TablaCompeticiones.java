@@ -317,6 +317,7 @@ public class TablaCompeticiones {
 
             int n = sentenciaPre.executeUpdate();
             if (n != 1) {
+                mostrar("No se ha podido cerrar la inscripción de la competición: " + nombreCompeticion);
                 throw new Exception("No se ha podido cerrar la inscripción");
             } else {
                 System.out.println("Inscripción cerrada para la competición: " + nombreCompeticion);
